@@ -5,27 +5,33 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	#region Input Variables
-	float upVelocity = 0.0f;
-	float downVelocity = 0.0f;
-	float leftVelocity = 0.0f;
-	float rightVelocity = 0.0f;
-	public float upMaxVelocity;
-	public float downMaxVelocity;
-	public float leftMaxVelocity;
-	public float rightMaxVelocity;
-	public float upAcceleration = 1f;
-	public float downAcceleration = 1f;
-	public float rightAcceleration = 1f;
-	public float leftAcceleration = 1f;
+	float verticalVelocity;
+	float horizontalVelocity;
+	public float horizontalSpeed = 10.0f;
+	public float verticalSpeed = 10.0f;
 	#endregion
 
+	#region Physics/Movement Variables
 	Rigidbody2D rigidBody;
+	Collider2D playerHurtBox;
+	#endregion
+
+	#region Flow Control Variables
+	bool isBusy = false; //bool that controls actions during FixedUpdate
+	bool isJumping = false;
+	#endregion
+
+	#region Ability Variables
+	public int numberOfJumpsMax = 1;
+	int numberOfJumps;
+	#endregion
 
 	// Use this for initialization
 	void Awake () {
 		//Control movement through the rigidBody object *only*
 		rigidBody = gameObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
-		//rigidBody.velocity += new Vector2 (1f, .0f);
+		playerHurtBox = gameObject.GetComponent (typeof(Collider2D)) as Collider2D;
+		numberOfJumps = numberOfJumpsMax;
 	}
 	
 	// check for input and assign variables here
@@ -36,45 +42,51 @@ public class PlayerController : MonoBehaviour {
 	//Do movement and actions here
 	void FixedUpdate()
 	{
-		Move ();
+		if (!isBusy) Move ();
 	}
 
 	//Adjust movement modifiers here based on input
 	void checkMoveInput()
 	{
-		if (Input.GetKeyDown (KeyCode.A))
+		horizontalVelocity = Input.GetAxis ("Horizontal") * horizontalSpeed;
+		verticalVelocity = 1 * verticalSpeed;
+
+		if (!isJumping)
 		{
-			if (leftVelocity >= leftMaxVelocity)
-				leftVelocity = leftMaxVelocity;
-			else
-				leftVelocity += leftAcceleration;
+			numberOfJumps = numberOfJumpsMax;
+			Debug.Log ("Not Jumping");
 		}
-		if (Input.GetKeyDown (KeyCode.W))
-		{
-			if (upVelocity >= upMaxVelocity)
-				upVelocity = upMaxVelocity;
-			else
-				upVelocity += upAcceleration;
-		}
-		if (Input.GetKeyDown (KeyCode.S))
-		{
-			if (downVelocity >= downMaxVelocity)
-				downVelocity = downMaxVelocity;
-			else
-				downVelocity += downAcceleration;
-		}
-		if (Input.GetKeyDown (KeyCode.D))
-		{
-			if (rightVelocity >= rightMaxVelocity)
-				rightVelocity = rightMaxVelocity;
-			else
-				rightVelocity += rightAcceleration;
-		}
-		Debug.Log (rightVelocity + " " + leftVelocity + " " + downVelocity + " " + upVelocity);
 	}
 
 	void Move()
 	{
-		rigidBody.AddForce (new Vector2((rightVelocity - leftVelocity), (upVelocity - downVelocity)));
+		rigidBody.velocity = new Vector2 (horizontalVelocity, rigidBody.velocity.y);
+
+		if (Input.GetKeyDown (KeyCode.Space))
+		{
+			if (numberOfJumps > 0)
+			{
+				numberOfJumps--;
+				Jump ();
+			}
+		}
+	}
+
+	void Jump()
+	{
+			rigidBody.velocity = new Vector2 (rigidBody.velocity.x, verticalVelocity);
+			Debug.Log ("Jump! " + numberOfJumps + " " + isJumping);
+	}
+
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if (coll.gameObject.tag == "ground")
+			isJumping = false;
+	}
+
+	void OnCollisionExit2D(Collision2D coll)
+	{
+		if (coll.gameObject.tag == "ground")
+			isJumping = true;
 	}
 }
