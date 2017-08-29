@@ -19,10 +19,12 @@ public class PlayerController : MonoBehaviour {
 	public float leftAcceleration = 1f;
 	#endregion
 
+	Rigidbody2D rigidBody;
+
 	// Use this for initialization
 	void Awake () {
 		//Control movement through the rigidBody object *only*
-		Rigidbody2D rigidBody = gameObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
+		rigidBody = gameObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
 		//rigidBody.velocity += new Vector2 (1f, .0f);
 	}
 	
@@ -34,50 +36,45 @@ public class PlayerController : MonoBehaviour {
 	//Do movement and actions here
 	void FixedUpdate()
 	{
-
+		Move ();
 	}
 
 	//Adjust movement modifiers here based on input
 	void checkMoveInput()
 	{
-		if (Input.anyKeyDown)
+		if (Input.GetKeyDown (KeyCode.A))
 		{
-			switch (Input.GetKeyDown)
-			{
-			case KeyCode.A:
-				{
-					if (leftVelocity >= leftMaxVelocity)
-						leftVelocity = leftMaxVelocity;
-					else
-						leftVelocity += leftAcceleration;
-				}
-			case KeyCode.W:
-				{
-					if (upVelocity >= upMaxVelocity)
-						upVelocity = upMaxVelocity;
-					else
-						upVelocity += upAcceleration;
-				}
-			case KeyCode.S:
-				{
-					if (downVelocity >= downMaxVelocity)
-						downVelocity = downMaxVelocity;
-					else
-						downVelocity += downAcceleration;
-				}
-			case KeyCode.A:
-				{
-					if (rightVelocity >= rightMaxVelocity)
-						rightVelocity = rightMaxVelocity;
-					else
-						rightVelocity += rightAcceleration;
-				}
-			}
+			if (leftVelocity >= leftMaxVelocity)
+				leftVelocity = leftMaxVelocity;
+			else
+				leftVelocity += leftAcceleration;
 		}
+		if (Input.GetKeyDown (KeyCode.W))
+		{
+			if (upVelocity >= upMaxVelocity)
+				upVelocity = upMaxVelocity;
+			else
+				upVelocity += upAcceleration;
+		}
+		if (Input.GetKeyDown (KeyCode.S))
+		{
+			if (downVelocity >= downMaxVelocity)
+				downVelocity = downMaxVelocity;
+			else
+				downVelocity += downAcceleration;
+		}
+		if (Input.GetKeyDown (KeyCode.D))
+		{
+			if (rightVelocity >= rightMaxVelocity)
+				rightVelocity = rightMaxVelocity;
+			else
+				rightVelocity += rightAcceleration;
+		}
+		Debug.Log (rightVelocity + " " + leftVelocity + " " + downVelocity + " " + upVelocity);
 	}
 
 	void Move()
 	{
-		
+		rigidBody.AddForce (new Vector2((rightVelocity - leftVelocity), (upVelocity - downVelocity)));
 	}
 }
