@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 10
   verticalSpeed: 5
-  numberOfJumpsMax: 2
+  numberOfJumpsMax: 0
 --- !u!1 &613845102
 GameObject:
   m_ObjectHideFlags: 0

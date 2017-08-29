@@ -13,16 +13,16 @@ public class PlayerController : MonoBehaviour {
 
 	#region Physics/Movement Variables
 	Rigidbody2D rigidBody;
-	Collider2D playerHurtBox;
+	//Collider2D playerHurtBox;
 	#endregion
 
 	#region Flow Control Variables
 	bool isBusy = false; //bool that controls actions during FixedUpdate
-	bool isJumping = false;
+	bool isGrounded = true;
 	#endregion
 
 	#region Ability Variables
-	public int numberOfJumpsMax = 1;
+	public int numberOfJumpsMax = 1; //0 is one extra jump, 1 is 2 extra jumps, etc,.
 	int numberOfJumps;
 	#endregion
 
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 	void Awake () {
 		//Control movement through the rigidBody object *only*
 		rigidBody = gameObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
-		playerHurtBox = gameObject.GetComponent (typeof(Collider2D)) as Collider2D;
+		//playerHurtBox = gameObject.GetComponent (typeof(Collider2D)) as Collider2D;
 		numberOfJumps = numberOfJumpsMax;
 	}
 	
@@ -51,10 +51,8 @@ public class PlayerController : MonoBehaviour {
 		horizontalVelocity = Input.GetAxis ("Horizontal") * horizontalSpeed;
 		verticalVelocity = 1 * verticalSpeed;
 
-		if (!isJumping)
-		{
+		if (isGrounded) {
 			numberOfJumps = numberOfJumpsMax;
-			Debug.Log ("Not Jumping");
 		}
 	}
 
@@ -62,31 +60,35 @@ public class PlayerController : MonoBehaviour {
 	{
 		rigidBody.velocity = new Vector2 (horizontalVelocity, rigidBody.velocity.y);
 
-		if (Input.GetKeyDown (KeyCode.Space))
-		{
-			if (numberOfJumps > 0)
-			{
-				numberOfJumps--;
-				Jump ();
-			}
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			Jump ();
+			//Debug.Log ("Jump!");
 		}
 	}
 
 	void Jump()
 	{
+		if (!isGrounded) {
+			numberOfJumps--;
+		}
+
+		if (numberOfJumps > 0) {
 			rigidBody.velocity = new Vector2 (rigidBody.velocity.x, verticalVelocity);
-			Debug.Log ("Jump! " + numberOfJumps + " " + isJumping);
+			Debug.Log (numberOfJumps + " " + isGrounded);
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "ground")
-			isJumping = false;
+			isGrounded = true;
+		Debug.Log (coll.gameObject.tag + " enter");
 	}
 
 	void OnCollisionExit2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "ground")
-			isJumping = true;
+			isGrounded = false;
+		Debug.Log (coll.gameObject.tag + " exit");
 	}
 }
