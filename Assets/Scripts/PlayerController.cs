@@ -14,11 +14,15 @@ public class PlayerController : MonoBehaviour {
 	#region Physics/Movement Variables
 	Rigidbody2D rigidBody;
 	//Collider2D playerHurtBox;
+	public float rollTime;
+	float remainingRolltime;
+	public float rollSpeed;
 	#endregion
 
 	#region Flow Control Variables
 	bool isBusy = false; //bool that controls actions during FixedUpdate
 	bool isGrounded = true;
+	bool isRolling = false;
 	#endregion
 
 	#region Ability Variables
@@ -32,6 +36,7 @@ public class PlayerController : MonoBehaviour {
 		rigidBody = gameObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
 		//playerHurtBox = gameObject.GetComponent (typeof(Collider2D)) as Collider2D;
 		numberOfJumps = numberOfJumpsMax;
+		remainingRolltime = rollTime;
 	}
 	
 	// check for input and assign variables here
@@ -42,7 +47,10 @@ public class PlayerController : MonoBehaviour {
 	//Do movement and actions here
 	void FixedUpdate()
 	{
-		if (!isBusy) Move ();
+		if (!isBusy)
+			Move ();
+		else if (isRolling)
+			Roll ();
 	}
 
 	//Adjust movement modifiers here based on input
@@ -54,6 +62,11 @@ public class PlayerController : MonoBehaviour {
 		if (isGrounded) {
 			numberOfJumps = numberOfJumpsMax;
 		}
+
+		if (Input.GetKeyDown (KeyCode.LeftShift)) {
+			isBusy = true;
+			isRolling = true;
+		}
 	}
 
 	void Move()
@@ -62,7 +75,6 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			Jump ();
-			//Debug.Log ("Jump!");
 		}
 	}
 
@@ -78,17 +90,34 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	void Roll()
+	{
+		Debug.Log ("Rolling!");
+		remainingRolltime -= Time.deltaTime;
+
+		rigidBody.velocity = new Vector2 (horizontalVelocity * rollSpeed, rigidBody.velocity.y);
+
+		if (rollTime <= 0) {
+			isRolling = false;
+			isBusy = false;
+			remainingRolltime = rollTime;
+		}
+	}
+
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		if (coll.gameObject.tag == "ground")
+		if (coll.gameObject.tag == "ground") {
 			isGrounded = true;
-		Debug.Log (coll.gameObject.tag + " enter");
+		} else if (coll.gameObject.tag == "damage" && !isRolling) {
+			//Do damage
+		}
+		//Debug.Log (coll.gameObject.tag + " enter");
 	}
 
 	void OnCollisionExit2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "ground")
 			isGrounded = false;
-		Debug.Log (coll.gameObject.tag + " exit");
+		//Debug.Log (coll.gameObject.tag + " exit");
 	}
 }

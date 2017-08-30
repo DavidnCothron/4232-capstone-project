@@ -226,9 +226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd260c0f00357b4d9e13536a901756b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 10
+  horizontalSpeed: 6
   verticalSpeed: 5
-  numberOfJumpsMax: 0
+  rollTime: 0.25
+  rollSpeed: 1.85
+  numberOfJumpsMax: 1
 --- !u!1 &613845102
 GameObject:
   m_ObjectHideFlags: 0
