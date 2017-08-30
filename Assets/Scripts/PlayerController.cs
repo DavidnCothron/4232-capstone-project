@@ -20,10 +20,10 @@ public class PlayerController : MonoBehaviour {
 	#endregion
 
 	#region Flow Control Variables
-	bool isBusy = false; //bool that controls actions during FixedUpdate
-	bool isGrounded = true;
-	bool isRolling = false;
-	bool isJumping = false;
+	public bool isBusy = false; //bool that controls actions during FixedUpdate
+	public bool isGrounded = true;
+	public bool isRolling = false;
+	public bool isJumping = false;
 	#endregion
 
 	#region Ability Variables
