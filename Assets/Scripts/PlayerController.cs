@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
 	bool isBusy = false; //bool that controls actions during FixedUpdate
 	bool isGrounded = true;
 	bool isRolling = false;
+	bool isJumping = false;
 	#endregion
 
 	#region Ability Variables
@@ -69,15 +70,17 @@ public class PlayerController : MonoBehaviour {
 			isBusy = true;
 			isRolling = true;
 		}
+
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			isJumping = true;
+		}
 	}
 
 	void Move()
 	{
 		rigidBody.velocity = new Vector2 (horizontalVelocity, rigidBody.velocity.y);
-
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (isJumping)
 			Jump ();
-		}
 	}
 
 	void Jump()
@@ -90,6 +93,8 @@ public class PlayerController : MonoBehaviour {
 			rigidBody.velocity = new Vector2 (rigidBody.velocity.x, verticalVelocity);
 			Debug.Log (numberOfJumps + " " + isGrounded);
 		}
+
+		isJumping = false;
 	}
 
 	void Roll()
