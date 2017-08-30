@@ -6,8 +6,8 @@ public class CameraController : MonoBehaviour {
 
 	private Vector3 velocity;
 	[SerializeField] private GameObject player;
-	[SerializeField] private float smoothTimeY = 0.3f;
-	[SerializeField] private float smoothTimeX = 0.3f;
+	[SerializeField] private float smoothTimeY = 0.2f;
+	[SerializeField] private float smoothTimeX = 0.2f;
 
 	// Update is called once per frame
 	void FixedUpdate () {
