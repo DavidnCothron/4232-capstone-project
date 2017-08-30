@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour {
 	//Do movement and actions here
 	void FixedUpdate()
 	{
+		Debug.Log (isBusy + " " + isRolling + " " + remainingRolltime);
+
 		if (!isBusy)
 			Move ();
 		else if (isRolling)
@@ -63,7 +65,7 @@ public class PlayerController : MonoBehaviour {
 			numberOfJumps = numberOfJumpsMax;
 		}
 
-		if (Input.GetKeyDown (KeyCode.LeftShift)) {
+		if (Input.GetKeyDown (KeyCode.LeftShift) && !isRolling) {
 			isBusy = true;
 			isRolling = true;
 		}
@@ -92,12 +94,12 @@ public class PlayerController : MonoBehaviour {
 
 	void Roll()
 	{
-		Debug.Log ("Rolling!");
+		
 		remainingRolltime -= Time.deltaTime;
 
 		rigidBody.velocity = new Vector2 (horizontalVelocity * rollSpeed, rigidBody.velocity.y);
 
-		if (rollTime <= 0) {
+		if (remainingRolltime <= 0) {
 			isRolling = false;
 			isBusy = false;
 			remainingRolltime = rollTime;
