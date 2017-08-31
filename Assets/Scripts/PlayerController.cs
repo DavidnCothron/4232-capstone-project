@@ -16,6 +16,10 @@ public class PlayerController : MonoBehaviour {
 	public float verticalSpeed = 10.0f;
 	public float phaseSpeed = 5.0f;
 	public float phaseDistance = 5.0f;
+	float phaseTime = 0.5f;
+	public float phaseMaxTime = 0.5f;
+	Vector2 direction;
+	Vector3 worldMousePos;
 	#endregion
 
 	#region Flow Control Variables
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour {
 		//playerHurtBox = gameObject.GetComponent (typeof(Collider2D)) as Collider2D;
 		numberOfJumps = numberOfJumpsMax;
 		remainingRolltime = rollTime;
+		phaseTime = phaseMaxTime;
 	}
 	
 	// check for input and assign variables here
@@ -49,7 +54,7 @@ public class PlayerController : MonoBehaviour {
 	//Do movement and actions here
 	void FixedUpdate()
 	{
-		Debug.Log (isBusy + " " + isRolling + " " + remainingRolltime);
+		//Debug.Log (isBusy + " " + isRolling + " " + remainingRolltime);
 
 		if (!isBusy)
 			Move ();
@@ -83,6 +88,8 @@ public class PlayerController : MonoBehaviour {
 			isBusy = true;
 			isPhasing = true;
 		}
+
+		worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 	}
 
 	void Move()
@@ -100,7 +107,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (numberOfJumps > 0) {
 			rigidBody.velocity = new Vector2 (rigidBody.velocity.x, verticalVelocity);
-			Debug.Log (numberOfJumps + " " + isGrounded);
+			//Debug.Log (numberOfJumps + " " + isGrounded);
 		}
 
 		isJumping = false;
@@ -121,6 +128,19 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Phase(){
+		phaseTime -= Time.deltaTime;
+
+		if (phaseTime <= 0) {
+			//Debug.Log (direction);
+			isBusy = false;
+			isPhasing = false;
+			phaseTime = phaseMaxTime;
+		} else {
+			direction = (Vector2)((worldMousePos - Camera.main.WorldToScreenPoint(transform.position)));
+			direction.Normalize();
+
+			rigidBody.velocity = direction * phaseSpeed;
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)
