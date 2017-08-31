@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	#region Input Variables
-	float verticalVelocity;
-	float horizontalVelocity;
-	public float horizontalSpeed = 10.0f;
-	public float verticalSpeed = 10.0f;
-	#endregion
-
 	#region Physics/Movement Variables
 	Rigidbody2D rigidBody;
 	//Collider2D playerHurtBox;
 	public float rollTime;
 	float remainingRolltime;
 	public float rollSpeed;
+	float verticalVelocity;
+	float horizontalVelocity;
+	public float horizontalSpeed = 10.0f;
+	public float verticalSpeed = 10.0f;
+	public float phaseSpeed = 5.0f;
+	public float phaseDistance = 5.0f;
 	#endregion
 
 	#region Flow Control Variables
@@ -24,11 +23,13 @@ public class PlayerController : MonoBehaviour {
 	public bool isGrounded = true;
 	public bool isRolling = false;
 	public bool isJumping = false;
+	public bool isPhasing = false;
 	#endregion
 
 	#region Ability Variables
 	public int numberOfJumpsMax = 1; //0 is one extra jump, 1 is 2 extra jumps, etc,.
 	int numberOfJumps;
+	public bool hasPhase = true;
 	#endregion
 
 	// Use this for initialization
@@ -54,6 +55,8 @@ public class PlayerController : MonoBehaviour {
 			Move ();
 		else if (isRolling)
 			Roll ();
+		else if (isPhasing)
+			Phase ();
 	}
 
 	//Adjust movement modifiers here based on input
@@ -73,6 +76,12 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			isJumping = true;
+		}
+
+		if (Input.GetMouseButtonDown (1) && hasPhase)
+		{
+			isBusy = true;
+			isPhasing = true;
 		}
 	}
 
@@ -109,6 +118,9 @@ public class PlayerController : MonoBehaviour {
 			isBusy = false;
 			remainingRolltime = rollTime;
 		}
+	}
+
+	void Phase(){
 	}
 
 	void OnCollisionEnter2D(Collision2D coll)
