@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour {
 	public float phaseMaxTime = 0.5f;
 	Vector2 direction;
 	Vector3 worldMousePos;
+	public Transform trans;
 	#endregion
 
 	#region Flow Control Variables
@@ -87,6 +88,8 @@ public class PlayerController : MonoBehaviour {
 		{
 			isBusy = true;
 			isPhasing = true;
+			direction = (Vector2)((worldMousePos - trans.position)).normalized;
+			direction *= phaseSpeed;
 		}
 
 		worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -107,7 +110,6 @@ public class PlayerController : MonoBehaviour {
 
 		if (numberOfJumps > 0) {
 			rigidBody.velocity = new Vector2 (rigidBody.velocity.x, verticalVelocity);
-			//Debug.Log (numberOfJumps + " " + isGrounded);
 		}
 
 		isJumping = false;
@@ -131,15 +133,13 @@ public class PlayerController : MonoBehaviour {
 		phaseTime -= Time.deltaTime;
 
 		if (phaseTime <= 0) {
-			//Debug.Log (direction);
 			isBusy = false;
 			isPhasing = false;
 			phaseTime = phaseMaxTime;
+			Debug.Log (direction);
 		} else {
-			direction = (Vector2)((worldMousePos - Camera.main.WorldToScreenPoint(transform.position)));
-			direction.Normalize();
-
-			rigidBody.velocity = direction * phaseSpeed;
+			rigidBody.velocity = (Vector2)(direction * phaseSpeed);
+			Debug.DrawLine ((Vector2)worldMousePos, (Vector2)trans.position, Color.red, 0.5f);
 		}
 	}
 
