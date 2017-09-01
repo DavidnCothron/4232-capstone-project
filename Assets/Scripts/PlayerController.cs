@@ -18,9 +18,12 @@ public class PlayerController : MonoBehaviour {
 	public float phaseDistance = 5.0f;
 	float phaseTime = 0.5f;
 	public float phaseMaxTime = 0.5f;
-	Vector2 direction;
+	float phaseHangTime = 0.25f;
+	public float phaseMaxHangTime = 0.25f;
+	Vector3 dir;
 	Vector3 worldMousePos;
 	public Transform trans;
+	Vector3 playerToScreenSpace;
 	#endregion
 
 	#region Flow Control Variables
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour {
 	public bool isRolling = false;
 	public bool isJumping = false;
 	public bool isPhasing = false;
+	public bool isPhaseHanging = false;
 	#endregion
 
 	#region Ability Variables
@@ -45,6 +49,7 @@ public class PlayerController : MonoBehaviour {
 		numberOfJumps = numberOfJumpsMax;
 		remainingRolltime = rollTime;
 		phaseTime = phaseMaxTime;
+		phaseHangTime = phaseMaxHangTime;
 	}
 	
 	// check for input and assign variables here
@@ -57,12 +62,27 @@ public class PlayerController : MonoBehaviour {
 	{
 		//Debug.Log (isBusy + " " + isRolling + " " + remainingRolltime);
 
-		if (!isBusy)
+		if (!isBusy && !isPhasing)
+		{
 			Move ();
-		else if (isRolling)
+		}
+		else
+			if (isRolling && !isPhasing)
+		{
 			Roll ();
-		else if (isPhasing)
-			Phase ();
+		}
+		else
+		if (isPhasing)
+		{
+			if (!isPhaseHanging)
+			{
+				Phase ();
+			}
+			else
+			{
+				PhaseHang ();
+			}
+		}
 	}
 
 	//Adjust movement modifiers here based on input
@@ -88,11 +108,8 @@ public class PlayerController : MonoBehaviour {
 		{
 			isBusy = true;
 			isPhasing = true;
-			direction = (Vector2)((worldMousePos - trans.position)).normalized;
-			direction *= phaseSpeed;
+			playerToScreenSpace = Camera.main.WorldToScreenPoint(transform.position);
 		}
-
-		worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 	}
 
 	void Move()
@@ -117,7 +134,6 @@ public class PlayerController : MonoBehaviour {
 
 	void Roll()
 	{
-		
 		remainingRolltime -= Time.deltaTime;
 
 		rigidBody.velocity = new Vector2 (horizontalVelocity * rollSpeed, rigidBody.velocity.y);
@@ -130,16 +146,26 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Phase(){
-		phaseTime -= Time.deltaTime;
-
-		if (phaseTime <= 0) {
+		if (phaseTime <= 0){
 			isBusy = false;
-			isPhasing = false;
 			phaseTime = phaseMaxTime;
-			Debug.Log (direction);
+			isPhaseHanging = true;
 		} else {
-			rigidBody.velocity = (Vector2)(direction * phaseSpeed);
-			Debug.DrawLine ((Vector2)worldMousePos, (Vector2)trans.position, Color.red, 0.5f);
+			phaseTime -= Time.deltaTime;
+			dir = (Input.mousePosition - playerToScreenSpace).normalized;
+			rigidBody.velocity = (Vector2)(dir * phaseSpeed);
+		}
+	}
+
+	void PhaseHang(){
+		Debug.Log ("Hanging!");
+		rigidBody.velocity = Vector3.zero;
+		phaseHangTime -= Time.deltaTime;
+
+		if (phaseHangTime <= 0){
+			phaseHangTime = phaseMaxHangTime;
+			isPhasing = false;
+			isPhaseHanging = false;
 		}
 	}
 
