@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour {
 	Vector3 worldMousePos;
 	public Transform trans;
 	Vector3 playerToScreenSpace;
+	float phaseMovedDistance;
 	#endregion
 
 	#region Flow Control Variables
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour {
 	// check for input and assign variables here
 	void Update () {
 		checkMoveInput ();
+		updateMoveModifiers ();
 	}
 
 	//Do movement and actions here
@@ -85,15 +87,20 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	void updateMoveModifiers(){
+		phaseMovedDistance = (playerToScreenSpace.x - Camera.main.WorldToScreenPoint (trans.position).x) + (playerToScreenSpace.y - Camera.main.WorldToScreenPoint (trans.position).y);
+		playerToScreenSpace = Camera.main.WorldToScreenPoint(transform.position);
+
+		if (isGrounded) {
+			numberOfJumps = numberOfJumpsMax;
+		}
+	}
+
 	//Adjust movement modifiers here based on input
 	void checkMoveInput()
 	{
 		horizontalVelocity = Input.GetAxis ("Horizontal") * horizontalSpeed;
 		verticalVelocity = 1 * verticalSpeed;
-
-		if (isGrounded) {
-			numberOfJumps = numberOfJumpsMax;
-		}
 
 		if (Input.GetKeyDown (KeyCode.LeftShift) && !isRolling) {
 			isBusy = true;
@@ -108,7 +115,6 @@ public class PlayerController : MonoBehaviour {
 		{
 			isBusy = true;
 			isPhasing = true;
-			playerToScreenSpace = Camera.main.WorldToScreenPoint(transform.position);
 		}
 	}
 
@@ -146,6 +152,15 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Phase(){
+		if (phaseMovedDistance > phaseDistance)
+		{
+			isBusy = false;
+			phaseTime = phaseMaxTime;
+			isPhaseHanging = true;
+
+			return;
+		}
+
 		if (phaseTime <= 0){
 			isBusy = false;
 			phaseTime = phaseMaxTime;
