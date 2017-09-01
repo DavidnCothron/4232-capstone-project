@@ -16,15 +16,11 @@ public class PlayerController : MonoBehaviour {
 	public float verticalSpeed = 10.0f;
 	public float phaseSpeed = 5.0f;
 	public float phaseDistance = 5.0f;
-	float phaseTime = 0.5f;
-	public float phaseMaxTime = 0.5f;
 	float phaseHangTime = 0.25f;
 	public float phaseMaxHangTime = 0.25f;
-	Vector3 dir;
-	Vector3 worldMousePos;
+	Vector2 dir;
 	public Transform trans;
-	Vector3 playerToScreenSpace;
-	float phaseMovedDistance;
+	Vector2 targetVector;
 	#endregion
 
 	#region Flow Control Variables
@@ -49,7 +45,6 @@ public class PlayerController : MonoBehaviour {
 		//playerHurtBox = gameObject.GetComponent (typeof(Collider2D)) as Collider2D;
 		numberOfJumps = numberOfJumpsMax;
 		remainingRolltime = rollTime;
-		phaseTime = phaseMaxTime;
 		phaseHangTime = phaseMaxHangTime;
 	}
 	
@@ -62,8 +57,6 @@ public class PlayerController : MonoBehaviour {
 	//Do movement and actions here
 	void FixedUpdate()
 	{
-		//Debug.Log (isBusy + " " + isRolling + " " + remainingRolltime);
-
 		if (!isBusy && !isPhasing)
 		{
 			Move ();
@@ -88,9 +81,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void updateMoveModifiers(){
-		phaseMovedDistance = (playerToScreenSpace.x - Camera.main.WorldToScreenPoint (trans.position).x) + (playerToScreenSpace.y - Camera.main.WorldToScreenPoint (trans.position).y);
-		playerToScreenSpace = Camera.main.WorldToScreenPoint(transform.position);
-
 		if (isGrounded) {
 			numberOfJumps = numberOfJumpsMax;
 		}
@@ -111,10 +101,14 @@ public class PlayerController : MonoBehaviour {
 			isJumping = true;
 		}
 
-		if (Input.GetMouseButtonDown (1) && hasPhase)
+		if (Input.GetMouseButtonDown (1) && hasPhase && !isPhasing)
 		{
 			isBusy = true;
 			isPhasing = true;
+			Vector3 mousePos = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Mathf.Abs(Camera.main.transform.position.z));
+			targetVector = (Camera.main.ScreenToWorldPoint(mousePos));
+			dir = (Vector2)(Camera.main.ScreenToWorldPoint(mousePos) - trans.position).normalized;
+			targetVector = trans.position + (phaseDistance * dir);
 		}
 	}
 
@@ -152,28 +146,19 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Phase(){
-		if (phaseMovedDistance > phaseDistance)
-		{
+		rigidBody.gravityScale = 0f;
+		rigidBody.velocity = (dir * phaseSpeed);
+
+		if (Vector2.Distance ((Vector2)trans.position, (Vector2)targetVector) <= 0.5f) {
 			isBusy = false;
-			phaseTime = phaseMaxTime;
 			isPhaseHanging = true;
+			rigidBody.gravityScale = 1f;
 
 			return;
-		}
-
-		if (phaseTime <= 0){
-			isBusy = false;
-			phaseTime = phaseMaxTime;
-			isPhaseHanging = true;
-		} else {
-			phaseTime -= Time.deltaTime;
-			dir = (Input.mousePosition - playerToScreenSpace).normalized;
-			rigidBody.velocity = (Vector2)(dir * phaseSpeed);
 		}
 	}
 
 	void PhaseHang(){
-		Debug.Log ("Hanging!");
 		rigidBody.velocity = Vector3.zero;
 		phaseHangTime -= Time.deltaTime;
 
