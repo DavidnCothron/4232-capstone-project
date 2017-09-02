@@ -37,10 +37,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4768743568527134}
   - component: {fileID: 50656635088839356}
-  - component: {fileID: 114376972653501510}
   - component: {fileID: 95733388420043912}
   - component: {fileID: 70513468783284264}
   - component: {fileID: 212318491798282224}
+  - component: {fileID: 114376972653501510}
   - component: {fileID: 114046044668541914}
   m_Layer: 0
   m_Name: Player
@@ -184,7 +184,6 @@ MonoBehaviour:
   verticalSpeed: 5
   phaseSpeed: 15
   phaseDistance: 2
-  phaseMaxTime: 0.5
   phaseMaxHangTime: 0.25
   trans: {fileID: 4768743568527134}
   isBusy: 0
