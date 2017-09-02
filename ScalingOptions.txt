@@ -1,0 +1,6 @@
+Scaling Options:
+
+Orthographic Sizes:
+
+1920x1080, 32 PPU, PPUScale = 1
+	((1080)/(1*32))/2 = 16.875
