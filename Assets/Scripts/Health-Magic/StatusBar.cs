@@ -31,7 +31,7 @@ public class StatusBar : MonoBehaviour {
 			filler.fillAmount = Mathf.Lerp(filler.fillAmount, fillAmount, Time.deltaTime * lerpSpeed);
 		}
 	}
-
+		//used to bound heath values		
 	private float Bound(float value, float inMin, float inMax, float outMin, float outMax){
 		return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 	}
