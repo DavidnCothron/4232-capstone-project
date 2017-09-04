@@ -1123,12 +1123,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 1461494333}
-  bounds: {x: 0, y: 0, z: 0}
   minMax: []
   length: 0
   height: 0
-  minNodeDistanceX: 0
-  minNodeDistanceY: 0
+  minNodeDistance: 2
+  nodeLocations: []
   node: {fileID: 1632304032654382, guid: ad223f05921fe674dbfe9df4f18621ee, type: 2}
 --- !u!4 &789543059
 Transform:
@@ -1943,8 +1942,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1461494331}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4620521, y: 1.0472412, z: 0}
-  m_LocalScale: {x: 5.2905354, y: 6.03485, z: 1}
+  m_LocalPosition: {x: -1.1, y: 2.6, z: 0}
+  m_LocalScale: {x: 5.2844, y: 6.9992485, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
