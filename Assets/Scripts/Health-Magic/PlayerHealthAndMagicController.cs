@@ -3,61 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealthAndMagicController : MonoBehaviour {
-
-	//status bars
-	[SerializeField] private StatusBar healthBar;
-	[SerializeField] private StatusBar magicBar;
+	
 
 	// Player magic
-    private Magic magic;
-    [SerializeField] private int playerMagic, magicRegen;
-
-	// Player health
-    private Health health;
-    [SerializeField] private int hp;
-
-	void Awake(){
-		health = GetComponent<Health>();
-		magic = GetComponent<Magic>();
-	}
-
-	void Start(){
-		playerMagic = 3;
-		magicRegen = 1;
-		hp = 5;		
-
-		magic.MP = playerMagic;
-		magic.RegenMagic = magicRegen;
-		magicBar.MaxValue = playerMagic;
-
-		health.HP = hp;
-		healthBar.MaxValue = hp;
-	}
+    [SerializeField] private Magic magic;
+	[SerializeField] private Health health;
 	
+    [SerializeField] private int playerMagic = 3;
+	[SerializeField] private int magicRegen = 1;
+    [SerializeField] private int playerHealth = 4;
+	
+	void Awake(){
+		health.Initialize(playerHealth);
+		magic.Initialize(playerMagic, magicRegen);
+	}
+
+	//update health here
 	void Update()
 	{
-		if(health.HP <= 0){
+		if(Input.GetKeyDown(KeyCode.O)){
+			health.decrease(1);
+			Debug.Log(health.CurrentHP);
+		}
+		if(Input.GetKeyDown(KeyCode.P)){
+			health.restore(1);
+			Debug.Log(health.CurrentHP);
+		}
+		if(health.CurrentHP <= 0){
+			Debug.Log("you ran out of health");
 			//TODO: Implement Lose state
 		}
-	}
-	
-	public void decreaseHealth(int damage){
-		health.decrease(damage);
-		healthBar.Value = health.HP;
-	}
 
-	public void restoreHealth(int restoreAmount){
-		health.restoreHealth(restoreAmount);
-		healthBar.Value = health.HP;
-	}
+		if(Input.GetKeyDown(KeyCode.K)){
+			magic.decrease(1);
+			Debug.Log(magic.CurrentMP);
+		}
+		if(Input.GetKeyDown(KeyCode.L)){
+			magic.restore(1);
+			Debug.Log(magic.CurrentMP);
+		}
 
-	public void useMagic(int magicAmout){
-		magic.decrease(magicAmout);		
-	}
-
-	public void restoreMagic(int restoreAmount){
-		magic.restoreMagic(restoreAmount);
-		magicBar.Value = magic.MP;
-	}
-
+		if(magic.CurrentMP <= 0){
+			Debug.Log("you ran out of magic");
+		}
+	}	
 }

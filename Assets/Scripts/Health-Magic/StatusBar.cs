@@ -17,7 +17,7 @@ public class StatusBar : MonoBehaviour {
 	}
 
 	void Start(){
-		lerpSpeed = 5f;
+		lerpSpeed = 15f;
 		fillAmount = 1f;
 
 	}

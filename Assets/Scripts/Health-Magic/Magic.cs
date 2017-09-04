@@ -1,37 +1,56 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Magic : MonoBehaviour {
+[Serializable]
+public class Magic{
 	
-	private int maxMagic = 0;
-	[SerializeField] private int magic = 0;
-	[SerializeField] private int regenMagic = 0;
+	[SerializeField] private Stat magicBar;
+	 private int maxMP = 3;
+	 private int currentMP = 3;
+	 private int regenMagic = 0;
+
+	public void Initialize(int mp, int regen){
+		CurrentMP = mp;
+		MaxMP = mp;
+		regenMagic = regen;		
+	}
 
 	//Magic Points getter and setter
-	public int MP {
-		get{return magic;}
-		set{magic = maxMagic = value;}
+	public int CurrentMP {
+		get
+		{
+			return currentMP;
+		}
+		set
+		{
+			currentMP = Mathf.Clamp(value, 0, maxMP);
+			magicBar.CurrentVal = (float)value;
+		}
+	}
+
+	public int MaxMP {
+		get
+		{
+			return maxMP;
+		}
+		set
+		{
+			maxMP = value;
+			magicBar.MaxVal = (float)value;
+		}
 	}
 
 	public void decrease (int magicUsed) {
-		magic -= magicUsed;
-	}
-
-	public int RegenMagic {
-        set {
-            regenMagic = value;
-        }
-	}
-
-	//allows magic regen over time
-	public void regen () {
-		magic += regenMagic;
+		CurrentMP -= magicUsed;
+		magicBar.CurrentVal = CurrentMP;
 	}
 
 	//restores magic a given amount
-	public void restoreMagic (int magicAmont) {
-		magic += magicAmont;
+	public void restore (int magicAmont) {
+		CurrentMP += magicAmont;
+		magicBar.CurrentVal = CurrentMP;
 	}
 
 }

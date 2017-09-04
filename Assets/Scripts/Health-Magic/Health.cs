@@ -1,38 +1,57 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Health : MonoBehaviour {
+[Serializable]
+public class Health
+{
 
-	
-	private int maxHP = 0;
-	[SerializeField] private int hp = 0;
-	[SerializeField] private int regenHP = 0;
+	//status bars
+	[SerializeField] private Stat healthBar;
+	 private int maxHP = 4;
+	 private int currentHP = 4;
+	 private int regenHP = 0;
+
+	public void Initialize(int hp){
+		CurrentHP = hp;
+		MaxHP = hp;
+	}
 
 	//Health Points getter and setter
-	public int HP {
-		get{return hp;}
-		set{hp = maxHP = value;}
+	public int CurrentHP {
+		get
+		{
+			return currentHP;
+		}
+		set
+		{
+			currentHP = Mathf.Clamp(value, 0, maxHP);
+			healthBar.CurrentVal = (float)value;
+		}
+	}
+
+	public int MaxHP {
+		get
+		{
+			return maxHP;
+		}
+		set
+		{
+			maxHP = value;
+			healthBar.MaxVal = (float)value;
+		}
 	}
 
 	public void decrease (int damage) {
-		hp -= damage;
+		CurrentHP -= damage;
+		healthBar.CurrentVal = CurrentHP;
 	}
 
-	public int RegenHP {
-        set {
-            regenHP = value;
-        }
-	}
 
-	//allows healing over time
-	public void regen () {
-		hp += regenHP;
-	}
-
-	//heals a given amount
-	public void restoreHealth (int healAmount) {
-		hp += healAmount;
+	public void restore (int healAmount) {
+		CurrentHP += healAmount;
+		healthBar.CurrentVal = CurrentHP;
 	}
 
 }
