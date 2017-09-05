@@ -246,8 +246,10 @@ MonoBehaviour:
   maxChargeTime: 2
   attackDuration: 0.1
   isHitboxActive: 0
+  basicAttackDamage: 1
+  rangedAttackDamage: 1
+  chargedAttackDamage: 4
   playerController: {fileID: 276591075}
-  attackTrigger: {fileID: 0}
 --- !u!114 &276591075
 MonoBehaviour:
   m_ObjectHideFlags: 0

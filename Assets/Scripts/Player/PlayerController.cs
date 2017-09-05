@@ -106,7 +106,6 @@ public class PlayerController : MonoBehaviour {
 			isBusy = true;
 			isPhasing = true;
 			Vector3 mousePos = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Mathf.Abs(Camera.main.transform.position.z));
-			targetVector = (Camera.main.ScreenToWorldPoint(mousePos));
 			dir = (Vector2)(Camera.main.ScreenToWorldPoint(mousePos) - trans.position).normalized;
 			targetVector = (Vector2)trans.position + (phaseDistance * dir);
 		}
