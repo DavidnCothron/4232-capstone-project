@@ -3,7 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UnityDepth : MonoBehaviour {
-	
+
+	/*
+	 * This class is a singleton. 
+	 * It moves the camera away from the world space based on a PPU (Pixels Per Unit) value.
+	 * This is done to give the main camera a pixel-perfect image while in perspective mode.
+	 * 
+	 * A Pixel-perfect image in orthographic mode is given by orthoCam.orthographicSize = Screen.height / PPU / 2f;
+	 * 
+	 * I've chosen a Field of View of 90 because the -Z value that the camera is placed from the
+	 * scene when running this script is the exact same value for a pixel perfect image in orthographic mode.
+	 * That is, when PPU = 32, the orthographic size should be 16.875.
+	 * At 90 FOV and PPU = 32, the -z distance is exactly 16.875.
+	 * 
+	 * In the Dev_PlayerController scene, I chose a PPU of 374 because it closely matched the way
+	 * the scene looked before, and I didn't want to upset any dev testing.
+	 * 
+	 * I'm currently looking at using a PPU of 32 for scale, though.
+	*/
 	//public static float unityDepth, focusZ, PPU;
 	public float unityDepth, focusZ, PPU;
 	private static UnityDepth u_Instance = null;
