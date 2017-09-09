@@ -33,7 +33,7 @@ public class CameraController : MonoBehaviour {
 
 		posY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY) + .05f;
 
-		transform.position = new Vector3 (posX, posY, -UnityDepth.instance.focusZ);
+	    transform.position = new Vector3(posX, posY, -UnityDepth.instance.focusZ);
 	}
 	
 	/*/
