@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour {
 		horizontalVelocity = Input.GetAxis ("Horizontal") * horizontalSpeed;
 		verticalVelocity = 1 * verticalSpeed;
 
-		if (Input.GetKeyDown (KeyCode.LeftShift) && !isRolling) {
+		if (Input.GetKeyDown (KeyCode.LeftControl) && !isRolling) {
 			isBusy = true;
 			isRolling = true;
 		}
