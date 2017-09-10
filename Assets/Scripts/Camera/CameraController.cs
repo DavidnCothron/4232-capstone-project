@@ -3,38 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour {
-	
-	Vector3 topRightEdgeScreen;
-	Vector3 downLeftEdgeScreen;
-	Plane cameraPositionFixPlane;
-	
-	
-	private Vector3 velocity;
-	[SerializeField] private GameObject player;
-	private PlayerController playerCont;
-	[SerializeField] private float smoothTimeY = 0.2f;
-	[SerializeField] private float smoothTimeX = 0.2f;
-	private float posX;
-	private float posY;
+
+	private Camera camera;
+	public Vector3 tRight;
+	public Vector3 bRight;
+	public Vector3 tLeft;
+	public Vector3 bLeft;
+
 
 	void Awake(){
 		UnityDepth.instance.FindUnityDepth ();
 		if (UnityDepth.instance.PPU == null) {
 			UnityDepth.instance.PPU = 32;
 		}
-		
-		playerCont = player.GetComponent<PlayerController>();
+		camera = Camera.FindObjectOfType (typeof(Camera)) as Camera;
 	}
 	// Update is called once per frame
 	void FixedUpdate () {
-		
-		if(!playerCont.lockCameraX)
-			posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
-
-		posY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY) + .05f;
-
-		transform.position = new Vector3 (posX, posY, -UnityDepth.instance.focusZ);
+		tRight = camera.ViewportToWorldPoint (new Vector3 (1, 1, 16.875f));
+		bRight = camera.ViewportToWorldPoint (new Vector3 (1, 0, 16.875f));
+		tLeft = camera.ViewportToWorldPoint (new Vector3 (0, 1, 16.875f));
+		bLeft = camera.ViewportToWorldPoint (new Vector3 (0, 0, 16.875f));
 	}
+
+	void OnDrawGizmosSelected(){
+		Gizmos.color = Color.red;
+		Gizmos.DrawSphere (tRight, .5f);
+		Gizmos.DrawSphere (bRight, .5f);
+		Gizmos.DrawSphere (tLeft, .5f);
+		Gizmos.DrawSphere (bLeft, .5f);
+	}
+
 	
 	/*/
 	void Update()

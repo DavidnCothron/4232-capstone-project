@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour {
 	public bool isJumping = false;
 	public bool isPhasing = false;
 	public bool isPhaseHanging = false;
-	public bool lockCameraX = false;
 	#endregion
 
 	#region Ability Variables
@@ -185,19 +184,5 @@ public class PlayerController : MonoBehaviour {
 			isGrounded = false;
 		//Debug.Log (coll.gameObject.tag + " exit");
 	}
-	
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if(other.gameObject.tag == "CameraLockX"){
-			lockCameraX = true;
-		}
-	}
 
-	
-	void OnTriggerExit2D(Collider2D other)
-	{
-		if(other.gameObject.tag == "CameraLockX"){
-			lockCameraX = false;
-		}
-	}
 }
