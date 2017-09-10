@@ -16,16 +16,16 @@ public class playerProjectileScript : MonoBehaviour {
 	}
 
 	void FindClosestEnemy(){
-//		float maxDistance = float.MaxValue;
-//		float temp;
-//		foreach (Enemy enemy in playerActionController.enemies)
-//		{
-//			if ((temp = Vector2.Distance ((Vector2)transform.position, (Vector2)enemy.transform.position)) < maxDistance)
-//			{
-//				maxDistance = temp;
-//				closestEnemy = enemy.transform.position;
-//			}
-//		}
+		float maxDistance = float.MaxValue;
+		float temp;
+		foreach (Enemy enemy in playerActionController.enemies)
+		{
+			if ((temp = Vector2.Distance ((Vector2)transform.position, (Vector2)enemy.transform.position)) < maxDistance)
+			{
+				maxDistance = temp;
+				closestEnemy = enemy.transform.position;
+			}
+		}
 	}
 
 	void Update(){
@@ -39,8 +39,8 @@ public class playerProjectileScript : MonoBehaviour {
 	}
 
 	void OnEnable(){
-		//transform.position = playerActionController.transform.position;
-		//Invoke ("Destroy", 2f);
+		transform.position = playerActionController.transform.position;
+		Invoke ("Destroy", 2f);
 	}
 
 	void OnDisable(){

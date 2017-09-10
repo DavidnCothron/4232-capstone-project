@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour {
 	public PlayerController moveController;
 	public PlayerActionController actionController;
-	public playerProjectileScript projectileController;
+	//public playerProjectileScript projectileController;
 	public RoomController currentRoom;
 
 	// Use this for initialization
