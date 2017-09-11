@@ -1,11 +1,13 @@
 fileFormatVersion: 2
 guid: 23a65b951e37fa541a1b0e2f6aa439b6
-timeCreated: 1504811354
+timeCreated: 1505157467
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: hollow_knight_Sprites - Copy_0
     21300002: hollow_knight_Sprites - Copy_1
+    21300004: test_0
+    21300006: test_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -23,7 +25,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -43,8 +45,8 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
-  alignment: 0
+  spriteMeshType: 0
+  alignment: 7
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 64
@@ -77,29 +79,29 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hollow_knight_Sprites - Copy_0
+      name: test_0
       rect:
         serializedVersion: 2
         x: 39
         y: 22
         width: 66
         height: 131
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hollow_knight_Sprites - Copy_1
+      name: test_1
       rect:
         serializedVersion: 2
         x: 269
         y: 0
         width: 194
         height: 236
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

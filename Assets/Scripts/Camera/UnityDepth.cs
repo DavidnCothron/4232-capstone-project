@@ -6,7 +6,6 @@ public class UnityDepth : MonoBehaviour {
 
 	public float unityDepth, focusZ, PPU, screenResHeight, screenResWidth; //Screen.currentResolution.height - Screen.currentResolution.Width
 	public Dictionary<int,float> layerAndPPU;
-	public layer[] layers;
 	public Matrix4x4 viewProjection = new Matrix4x4 ();
 
 	private static UnityDepth u_Instance = null;
@@ -33,19 +32,11 @@ public class UnityDepth : MonoBehaviour {
 		viewProjection = Camera.main.projectionMatrix * Camera.main.worldToCameraMatrix;
 		FindUnityDepth ();
 
-		layers = new layer[128];
-
-		//layerAndPPU = new Dictionary<int, float> ();
+		layerAndPPU = new Dictionary<int, float> ();
 		for (int i = 0; i < 128; i++) {
 			float zDistance = PPUzDistance (i);
-			layers [i] = new layer (i, zDistance, 0f);
-			//Debug.Log ("zDistance, PPU: " + layers[i].zDimension + ", " + layers[i].pixelsPerUnit);
-			//layerAndPPU.Add (i, zDistance);
+			layerAndPPU.Add (i, zDistance);
 		}
-
-//		foreach (KeyValuePair<int,float> entry in layerAndPPU) {
-//			Debug.Log ("zDistance, PPU: " + entry.Key + ", " + entry.Value);
-//		}
 	}
 
 	public void FindUnityDepth(){
@@ -58,7 +49,6 @@ public class UnityDepth : MonoBehaviour {
 		unityDepth = viewProjection [0] * screenWidth;
 
 		focusZ = unityDepth;
-
 		//If done with shifting FOV:
 		//focusZ = Camera.main.transform.position.z + unityDepth;
 
@@ -87,17 +77,25 @@ public class UnityDepth : MonoBehaviour {
 		return viewProjection [0] * screenWidth;
 	}
 
-	public class layer {
-		public int pixelsPerUnit;
-		public float zDimension;
-		public float pixelsOnScreen;
+	public KeyValuePair<int,float> getLayer(int layerNum){
+		int newPPU = Mathf.Abs (layerNum + (int)PPU);
+		if (layerAndPPU != null)
+			if (layerAndPPU.ContainsKey (newPPU)) 
+				return new KeyValuePair<int, float> (newPPU, layerAndPPU [newPPU] - unityDepth);
+		return new KeyValuePair<int, float>(0,0f);
+	}
 
-		public layer(){}
-
-		public layer(int PPU, float z, float POS){
-			pixelsPerUnit = PPU;
-			zDimension = z;
-			pixelsOnScreen = POS;
+	public Texture2D textureFromSprite(Sprite sprite){
+		if (sprite.rect.width != sprite.texture.width) {
+			Texture2D newText = new Texture2D ((int)sprite.rect.width, (int)sprite.rect.height);
+			Color[] newColors = sprite.texture.GetPixels ((int)sprite.textureRect.x,
+				                    (int)sprite.textureRect.y, (int)sprite.textureRect.width, 
+				                    (int)sprite.textureRect.height);
+			newText.SetPixels (newColors);
+			newText.Apply ();
+			return newText;
+		} else {
+			return sprite.texture;
 		}
 	}
 
