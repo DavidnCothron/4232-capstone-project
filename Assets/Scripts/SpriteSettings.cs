@@ -6,10 +6,14 @@ using UnityEditor;
 public class SpriteSettings : MonoBehaviour {
 
 	private KeyValuePair<int,float> layerInfo;
+	private SpriteRenderer render;
 	private Sprite sprite;
 	public int layerNum;
 	public Texture2D texture;
 
+	void Start() {
+		render = GetComponent<SpriteRenderer> ();
+	}
 	//Attach to sprite to find the appropriate z-depth and pixels-per-unit for a given sprite.
 	//When you change layer number in the editor, this will run.
 	//0 is the player layer. numbers > 0 = closer to camera. numbers < 0 = further away from camera.
@@ -17,7 +21,7 @@ public class SpriteSettings : MonoBehaviour {
 		layerNum = layerNum;
 		layerInfo = UnityDepth.instance.getLayer (layerNum);
 		if (layerInfo.Key > 0) {
-			sprite = GetComponent<SpriteRenderer> ().sprite;
+			sprite = render.sprite;
 			texture = UnityDepth.instance.textureFromSprite (sprite);
 			createSprite ();
 			transform.position = new Vector3(transform.position.x, transform.position.y, layerInfo.Value);
