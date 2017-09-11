@@ -7,7 +7,6 @@ public class SpriteSettings : MonoBehaviour {
 
 	private KeyValuePair<int,float> layerInfo;
 	private Sprite sprite;
-	private SpriteLayer layer;
 	public int layerNum;
 	public Texture2D texture;
 
