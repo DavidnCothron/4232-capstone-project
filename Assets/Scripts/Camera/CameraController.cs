@@ -5,10 +5,10 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
 	private Camera camera;
-	public Vector3 tRight;
-	public Vector3 bRight;
-	public Vector3 tLeft;
-	public Vector3 bLeft;
+	public Vector3 topRight;
+	public Vector3 bottomRight;
+	public Vector3 topLeft;
+	public Vector3 bottomLeft;
 
 
 	void Awake(){
@@ -18,20 +18,28 @@ public class CameraController : MonoBehaviour {
 		}
 		camera = Camera.FindObjectOfType (typeof(Camera)) as Camera;
 	}
+
+	void Start(){
+		topRight = camera.ViewportToWorldPoint (new Vector3 (1, 1, 16.875f));
+		bottomRight = camera.ViewportToWorldPoint (new Vector3 (1, 0, 16.875f));
+		topLeft = camera.ViewportToWorldPoint (new Vector3 (0, 1, 16.875f));
+		bottomLeft = camera.ViewportToWorldPoint (new Vector3 (0, 0, 16.875f));
+	}
+
 	// Update is called once per frame
 	void FixedUpdate () {
-		tRight = camera.ViewportToWorldPoint (new Vector3 (1, 1, 16.875f));
-		bRight = camera.ViewportToWorldPoint (new Vector3 (1, 0, 16.875f));
-		tLeft = camera.ViewportToWorldPoint (new Vector3 (0, 1, 16.875f));
-		bLeft = camera.ViewportToWorldPoint (new Vector3 (0, 0, 16.875f));
+		topRight = camera.ViewportToWorldPoint (new Vector3 (1, 1, 16.875f));
+		bottomRight = camera.ViewportToWorldPoint (new Vector3 (1, 0, 16.875f));
+		topLeft = camera.ViewportToWorldPoint (new Vector3 (0, 1, 16.875f));
+		bottomLeft = camera.ViewportToWorldPoint (new Vector3 (0, 0, 16.875f));
 	}
 
 	void OnDrawGizmosSelected(){
 		Gizmos.color = Color.red;
-		Gizmos.DrawSphere (tRight, .5f);
-		Gizmos.DrawSphere (bRight, .5f);
-		Gizmos.DrawSphere (tLeft, .5f);
-		Gizmos.DrawSphere (bLeft, .5f);
+		Gizmos.DrawSphere (topRight, .5f);
+		Gizmos.DrawSphere (bottomRight, .5f);
+		Gizmos.DrawSphere (topLeft, .5f);
+		Gizmos.DrawSphere (bottomLeft, .5f);
 	}
 
 	
