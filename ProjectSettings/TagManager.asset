@@ -9,6 +9,7 @@ TagManager:
   - ledge
   - CameraBounds
   - CameraLockX
+  - testAstar
   layers:
   - Default
   - TransparentFX
