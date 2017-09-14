@@ -7,17 +7,22 @@ public class AstarNode {
 	private Vector3 location;
 	private bool start, goal, onPath, visited, inOpenList, inClosedList;
 	private AstarNode parent;
+	private GameObject nodeSquare;
 	[SerializeField] private List<AstarNode> neighbors = new List<AstarNode> ();
 
 	public void reset() {
 		start = goal = onPath = visited = inOpenList = inClosedList = false;
 		parent = null;
 	}
-
-	public void setParameters(int r, int c, int t) {
+		
+	public void setParameters(int r, int c, Vector3 loc) {
 		row = r;
 		col = c;
-		type = t;
+		location = loc;
+	}
+
+	public void setNodeObj(GameObject obj){
+		nodeSquare = obj;
 	}
 
 	public void setF() {
@@ -106,6 +111,14 @@ public class AstarNode {
 
 	public bool getGoal(){
 		return goal;
+	}
+
+	public Vector3 getLocation() {
+		return location;
+	}
+
+	public GameObject getObject() {
+		return nodeSquare;
 	}
 
 	public string toString(){
