@@ -577,7 +577,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 180138760}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.24871467, y: -8.949802, z: 0}
+  m_LocalPosition: {x: 5.8, y: -8.949802, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1733303388}
@@ -787,13 +787,13 @@ GameObject:
   - component: {fileID: 571853557}
   - component: {fileID: 571853556}
   - component: {fileID: 571853558}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: hollow_knight_Sprites - Copy_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &571853556
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1196,7 +1196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 789543059}
   - component: {fileID: 789543058}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AstarMaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1214,8 +1214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd12c0b6f568e9647b2fc586daf94ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 180138760}
   room: {fileID: 1142458859}
-  node: {fileID: 1632304032654382, guid: ad223f05921fe674dbfe9df4f18621ee, type: 2}
+  nodeObject: {fileID: 1632304032654382, guid: ad223f05921fe674dbfe9df4f18621ee, type: 2}
 --- !u!4 &789543059
 Transform:
   m_ObjectHideFlags: 0
@@ -1462,13 +1463,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1019060626}
   - component: {fileID: 1019060625}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: hollow_knight_Sprites_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1019060625
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1687,7 +1688,7 @@ Transform:
   m_GameObject: {fileID: 1142458858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -2508,10 +2509,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b325a720cd700a4eb17b4d4ddb5a7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tRight: {x: 0, y: 0, z: 0}
-  bRight: {x: 0, y: 0, z: 0}
-  tLeft: {x: 0, y: 0, z: 0}
-  bLeft: {x: 0, y: 0, z: 0}
+  topRight: {x: 0, y: 0, z: 0}
+  bottomRight: {x: 0, y: 0, z: 0}
+  topLeft: {x: 0, y: 0, z: 0}
+  bottomLeft: {x: 0, y: 0, z: 0}
 --- !u!114 &1501901348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2786,7 +2787,7 @@ GameObject:
   - component: {fileID: 1733303388}
   m_Layer: 0
   m_Name: Global_Coordinates
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -887,8 +887,6 @@ MonoBehaviour:
   TopWall: {fileID: 985140550}
   BottomWall: {fileID: 214621680}
   boundBL: {x: 0, y: 0, z: 0}
-  boundTL: {x: 0, y: 0, z: 0}
-  boundBR: {x: 0, y: 0, z: 0}
   boundTR: {x: 0, y: 0, z: 0}
 --- !u!1 &712472290
 GameObject:
@@ -1213,13 +1211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd12c0b6f568e9647b2fc586daf94ab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   room: {fileID: 1461494333}
-  minMax: []
-  length: 0
-  height: 0
-  minNodeDistance: 2
-  nodeLocations: []
-  node: {fileID: 1632304032654382, guid: ad223f05921fe674dbfe9df4f18621ee, type: 2}
+  nodeObject: {fileID: 0}
 --- !u!4 &789543059
 Transform:
   m_ObjectHideFlags: 0
