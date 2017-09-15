@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraContainer : MonoBehaviour {
+	/*
 
+	THIS CLASS IS DECPRECATED, ALL OF ITS FUNCTIONALITY IS 
+	NOW IN CameraController.cs 
+	IT HAS NOT BEEN DELETED BECAUSE IT MAY STILL BE NEEDED 
+	FOR REFERENCE
+
+	*/
 	private Vector3 velocity;
 	private CameraController cameraCont;
 	private PlayerController playerCont;
@@ -41,9 +48,9 @@ public class CameraContainer : MonoBehaviour {
 		posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
 		posY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY) + .05f;
 		transform.position = new Vector3(
-	/*x*/	Mathf.Clamp(posX, boundBL.x + Mathf.Abs(this.transform.position.x - cameraCont.bottomLeft.x), boundTR.x - Mathf.Abs(this.transform.position.x - cameraCont.topRight.x)),
-	/*y*/	Mathf.Clamp(posY, boundBL.y + Mathf.Abs(this.transform.position.y - cameraCont.bottomLeft.y), boundTR.y - Mathf.Abs(this.transform.position.y - cameraCont.topRight.y)),
-	/*z*/	0f
+			/*x*/	Mathf.Clamp(posX, boundBL.x + Mathf.Abs(this.transform.position.x - cameraCont.VpBottomLeft.x), boundTR.x - Mathf.Abs(this.transform.position.x - cameraCont.VpTopRight.x)),
+			/*y*/	Mathf.Clamp(posY, boundBL.y + Mathf.Abs(this.transform.position.y - cameraCont.VpBottomLeft.y), boundTR.y - Mathf.Abs(this.transform.position.y - cameraCont.VpTopRight.y)),
+			/*z*/	0f
 		);
 
 
