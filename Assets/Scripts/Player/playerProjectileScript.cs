@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class playerProjectileScript : MonoBehaviour {
 
+
+	public PlayerActionController playerActionController;
 	public int damage;
 	public float speed;
 	public float trackingIntensity;
 	public Vector3 targetTrans;
 	Vector3 closestEnemy;
-	PlayerActionController playerActionController;
 
 	public void Fire(Vector3 mousePos){
 		targetTrans = mousePos;

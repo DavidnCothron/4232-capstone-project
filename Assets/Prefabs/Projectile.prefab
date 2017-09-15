@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de268c135ea25f4dbe62ef919fcdb08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerActionController: {fileID: 114046044668541914, guid: cc8c520a32acbb14eb8081e68414da91,
+    type: 2}
   damage: 1
   speed: 3
   trackingIntensity: 0.1
