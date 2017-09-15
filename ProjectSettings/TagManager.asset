@@ -10,6 +10,7 @@ TagManager:
   - CameraBounds
   - CameraLockX
   - testAstar
+  - enemy
   layers:
   - Default
   - TransparentFX

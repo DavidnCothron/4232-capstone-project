@@ -7,10 +7,10 @@ public class RoomController : MonoBehaviour {
 	public List<Enemy> enemies;
 
 	// Use this for initialization
-	void Start () {
+	void OnEnable () {
 		if (player == null)
 		{
-			player = GameObject.Find ("player").GetComponent(typeof(PlayerManager)) as PlayerManager;
+			player = GameObject.Find ("Player").GetComponent(typeof(PlayerManager)) as PlayerManager;
 		}
 	}
 	
