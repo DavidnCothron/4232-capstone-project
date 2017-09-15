@@ -6,9 +6,9 @@ public class CameraController : MonoBehaviour {
 
 	//player(and controller) and camera(and controller) objects 
 	[SerializeField] private GameObject player;
-	private Camera camera; 
-	private CameraController cameraCont;
-	private PlayerController playerCont;
+	[SerializeField] private Camera camera; 
+	[SerializeField] private CameraController cameraCont;
+	[SerializeField] private PlayerController playerCont;
 
 	//Smooth Damp variables
 	private Vector3 velocity;
@@ -41,11 +41,11 @@ public class CameraController : MonoBehaviour {
 		if (UnityDepth.instance.PPU == null) {
 			UnityDepth.instance.PPU = 32;
 		}
-		camera = Camera.FindObjectOfType (typeof(Camera)) as Camera;
+		camera = this.GetComponent<Camera> ();//Camera.FindObjectOfType (typeof(Camera)) as Camera;
 		player = GameObject.FindWithTag ("Player");
 
 		playerCont = player.GetComponent<PlayerController>();
-		cameraCont = camera.GetComponent<CameraController>();
+		cameraCont = this.GetComponent<CameraController>();
 	}
 
 	//gets the four corners of the room on start *note this will need to change in the
@@ -69,16 +69,16 @@ public class CameraController : MonoBehaviour {
 		//gets the worldpoint coordinates of the camera viewport at a particular z distance
 		//the camera current lies at -16.875z in world space so in order to get 0z (where the main game/sprite layers are)
 		//the z coordinate in the VieportToWorldPoint asks for a point 16.875 units in front of the camera
-		VpTopRight = camera.ViewportToWorldPoint (new Vector3 (1, 1, 16.875f));
-		VpBottomRight = camera.ViewportToWorldPoint (new Vector3 (1, 0, 16.875f));
-		VpTopLeft = camera.ViewportToWorldPoint (new Vector3 (0, 1, 16.875f));
-		VpBottomLeft = camera.ViewportToWorldPoint (new Vector3 (0, 0, 16.875f));
+		VpTopRight = camera.ViewportToWorldPoint (new Vector3 (1, 1, Mathf.Abs(camera.transform.position.z)));
+		VpBottomRight = camera.ViewportToWorldPoint (new Vector3 (1, 0, Mathf.Abs(camera.transform.position.z)));
+		VpTopLeft = camera.ViewportToWorldPoint (new Vector3 (0, 1, Mathf.Abs(camera.transform.position.z)));
+		VpBottomLeft = camera.ViewportToWorldPoint (new Vector3 (0, 0, Mathf.Abs(camera.transform.position.z)));
 	}
 
 	//calculates the four corners of a room based on the bounding walls of that room
 	void getRoomCorners(){
-		wallBoundBL = new Vector3((BottomWall.transform.position.x - (BottomWall.transform.localScale.x)/2), (LeftWall.transform.position.y-(LeftWall.transform.localScale.x)/2), 0);
-		wallBoundTR = new Vector3((TopWall.transform.position.x + (TopWall.transform.localScale.x)/2), (RightWall.transform.position.y+(RightWall.transform.localScale.x)/2), 0);
+		wallBoundBL = new Vector3((BottomWall.transform.position.x - (BottomWall.transform.localScale.x)/2), (LeftWall.transform.position.y - (LeftWall.transform.localScale.x)/2), 0);
+		wallBoundTR = new Vector3((TopWall.transform.position.x + (TopWall.transform.localScale.x)/2), (RightWall.transform.position.y + (RightWall.transform.localScale.x)/2), 0);
 	}
 
 	//draws points of the viewport corners in world space 
@@ -88,6 +88,10 @@ public class CameraController : MonoBehaviour {
 		Gizmos.DrawSphere (VpBottomRight, .5f);
 		Gizmos.DrawSphere (VpTopLeft, .5f);
 		Gizmos.DrawSphere (VpBottomLeft, .5f);
+
+		Gizmos.color = Color.green;
+		Gizmos.DrawSphere (wallBoundBL, .5f);
+		Gizmos.DrawSphere (wallBoundTR, .5f);
 	}
 
 }
