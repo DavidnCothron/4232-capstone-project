@@ -6,12 +6,14 @@ public class PlayerMeleeScript : MonoBehaviour {
 	public Transform playerTransform;
 	public int meleeDamage = 1;
 	public int chargeAttackDamage = 4;
-	public List<Enemy> enemiesHit;
+	public float knockbackBasic = 1f;
+	public float knockbackCharged = 4f;
+	public List<GameObject> enemiesHit;
 
 
 	// Use this for initialization
 	void Awaken () {
-		enemiesHit = new List<Enemy> ();
+		enemiesHit = new List<GameObject> ();
 	}
 	
 	// Update is called once per frame
@@ -35,24 +37,27 @@ public class PlayerMeleeScript : MonoBehaviour {
 	}
 
 	void MeleeAttack(){
-		foreach (Enemy enemy in enemiesHit)
+		foreach (GameObject enemyObject in enemiesHit)
 		{
-			enemy.health -= meleeDamage;
+			Enemy enemyScript = enemyObject.GetComponent (typeof(Enemy)) as Enemy;
+			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
+			enemyScript.health -= meleeDamage;
+			enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackBasic));
+
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
 		if(coll.gameObject.tag == "enemy"){
-			enemiesHit.Add (coll.gameObject.GetComponent(typeof(Enemy)) as Enemy);
+			enemiesHit.Add (coll.gameObject);
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D coll){
 		if(coll.gameObject.tag == "enemy"){
-			Enemy exitingColl = coll.gameObject.GetComponent (typeof(Enemy)) as Enemy;
-			if (enemiesHit.Contains (exitingColl))
+			if (enemiesHit.Contains (coll.gameObject))
 			{
-				enemiesHit.Remove (exitingColl);
+				enemiesHit.Remove (coll.gameObject);
 			}
 		}
 	}

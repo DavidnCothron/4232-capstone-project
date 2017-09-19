@@ -177,13 +177,21 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D coll)
+	void OnCollisionEnter2d(Collision2D coll){
+		//Flow control to prevent OnCollision events from happening too often.
+	}
+
+	void OnCollisionStay2D(Collision2D coll)
 	{
-		if (coll.gameObject.tag == "ground") {
-			isGrounded = true;
-		} else if (coll.gameObject.tag == "damage" && !isRolling) {
-			//Do damage
+		if (isPhasing || isPhaseHanging) {
+			isBusy = false;
+			isPhasing = false;
+			isPhaseHanging = false;
+			rigidBody.gravityScale = 1f;
+			phaseHangTime = phaseMaxHangTime;
 		}
+
+		if(!isGrounded) {isGrounded = true;}
 	}
 
 	void OnCollisionExit2D(Collision2D coll)

@@ -4,51 +4,27 @@ using UnityEngine;
 
 public class playerProjectileScript : MonoBehaviour {
 
+	Vector2 direction;
+	public Vector3 playerPosition;
+	public ObjectPooler projectilePooler;
 
-	public PlayerActionController playerActionController;
-	public int damage;
-	public float speed;
-	public float trackingIntensity;
-	public Vector3 targetTrans;
-	Vector3 closestEnemy;
-
-	public void Fire(Vector3 mousePos){
-		targetTrans = mousePos;
+	public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) {
+		Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+		Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
+		float distance;
+		xy.Raycast(ray, out distance);
+		return ray.GetPoint(distance);
 	}
 
-	void FindClosestEnemy(){
-//		float maxDistance = float.MaxValue;
-//		float temp;
-//		foreach (Enemy enemy in playerActionController.enemies)
-//		{
-//			if ((temp = Vector2.Distance ((Vector2)transform.position, (Vector2)enemy.transform.position)) < maxDistance)
-//			{
-//				maxDistance = temp;
-//				closestEnemy = enemy.transform.position;
-//			}
-//		}
+	public void Fire(){
+		direction = (Vector2)(GetWorldPositionOnPlane(Input.mousePosition, 0f) - playerPosition);
+		Projectile proj = projectilePooler.PopFromPool ();
 	}
 
 	void Update(){
-		FindClosestEnemy ();
-	}
-
-	// Update is called once per frame
-	void FixedUpdate () {
-		targetTrans = targetTrans + (closestEnemy * trackingIntensity);
-		Vector2.MoveTowards (transform.position, targetTrans, speed);
-	}
-
-	void OnEnable(){
-		transform.position = playerActionController.transform.position;
-		Invoke ("Destroy", 2f);
-	}
-
-	void OnDisable(){
-		CancelInvoke ();
-	}
-
-	void Destroy(){
-		gameObject.SetActive (false);
+		if (Input.GetKey (KeyCode.LeftShift) && Input.GetMouseButtonDown (0))
+		{
+			Fire ();
+		}
 	}
 }

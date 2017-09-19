@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4256214448102308}
-  - component: {fileID: 114186834044806016}
+  - component: {fileID: 114709639922107640}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114186834044806016
+--- !u!114 &114709639922107640
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,12 +48,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1203508046980548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6de268c135ea25f4dbe62ef919fcdb08, type: 3}
+  m_Script: {fileID: 11500000, guid: bb41168dc583dbf45aad2dfbc0752756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerActionController: {fileID: 114046044668541914, guid: cc8c520a32acbb14eb8081e68414da91,
-    type: 2}
-  damage: 1
-  speed: 3
-  trackingIntensity: 0.1
-  targetTrans: {x: 0, y: 0, z: 0}
