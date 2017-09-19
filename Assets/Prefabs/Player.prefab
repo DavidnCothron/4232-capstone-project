@@ -11,6 +11,23 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1893841220926510}
   m_IsPrefabParent: 1
+--- !u!1 &1547127426238756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4212309947958486}
+  - component: {fileID: 114004270987778220}
+  - component: {fileID: 70593923554172912}
+  m_Layer: 0
+  m_Name: Melee
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1893841220926510
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,6 +42,8 @@ GameObject:
   - component: {fileID: 212318491798282224}
   - component: {fileID: 114376972653501510}
   - component: {fileID: 114046044668541914}
+  - component: {fileID: 114780243481859412}
+  - component: {fileID: 114197792949253400}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -32,6 +51,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4212309947958486
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547127426238756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4768743568527134}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4768743568527134
 Transform:
   m_ObjectHideFlags: 1
@@ -39,9 +71,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893841220926510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_LocalPosition: {x: 0, y: -1.38, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4212309947958486}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,9 +110,24 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12, y: 0}
-  m_Size: {x: 0.24, y: 0.35}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.6636322, y: 1.0056076}
   m_Direction: 0
+--- !u!70 &70593923554172912
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547127426238756}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1, y: 0}
+  m_Size: {x: 2, y: 1}
+  m_Direction: 1
 --- !u!95 &95733388420043912
 Animator:
   serializedVersion: 3
@@ -97,6 +145,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114004270987778220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547127426238756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6164b86436e025a41a3fac4c096c252e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 4768743568527134}
+  meleeDamage: 1
+  chargeAttackDamage: 4
+  enemiesHit: []
 --- !u!114 &114046044668541914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,9 +173,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxChargeTime: 2
   attackDuration: 0.1
-  isHitboxActive: 0
+  hasHolySword: 0
+  hasRangedAttack: 1
+  projectilePooler: {fileID: 0}
+  basicAttackDamage: 1
+  rangedAttackDamage: 1
+  chargedAttackDamage: 4
   playerController: {fileID: 114376972653501510}
-  attackTrigger: {fileID: 0}
+--- !u!114 &114197792949253400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893841220926510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f3bfa586aafbb4d9ebf96b0f45cb58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveController: {fileID: 114376972653501510}
+  actionController: {fileID: 114046044668541914}
+  currentRoom: {fileID: 0}
 --- !u!114 &114376972653501510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,6 +213,7 @@ MonoBehaviour:
   phaseDistance: 2
   phaseMaxHangTime: 0.25
   trans: {fileID: 4768743568527134}
+  spriteRenderer: {fileID: 212318491798282224}
   isBusy: 0
   isGrounded: 1
   isRolling: 0
@@ -140,6 +222,30 @@ MonoBehaviour:
   isPhaseHanging: 0
   numberOfJumpsMax: 1
   hasPhase: 1
+--- !u!114 &114780243481859412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893841220926510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fb60742ef691248a9bdfe56b61338b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magic:
+    magicBar:
+      bar: {fileID: 0}
+      maxVal: 0
+      currentVal: 0
+  health:
+    healthBar:
+      bar: {fileID: 0}
+      maxVal: 4
+      currentVal: 0
+  playerMagic: 3
+  magicRegen: 1
+  playerHealth: 4
 --- !u!212 &212318491798282224
 SpriteRenderer:
   m_ObjectHideFlags: 1

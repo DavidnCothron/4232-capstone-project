@@ -17,16 +17,16 @@ public class playerProjectileScript : MonoBehaviour {
 	}
 
 	void FindClosestEnemy(){
-		float maxDistance = float.MaxValue;
-		float temp;
-		foreach (Enemy enemy in playerActionController.enemies)
-		{
-			if ((temp = Vector2.Distance ((Vector2)transform.position, (Vector2)enemy.transform.position)) < maxDistance)
-			{
-				maxDistance = temp;
-				closestEnemy = enemy.transform.position;
-			}
-		}
+//		float maxDistance = float.MaxValue;
+//		float temp;
+//		foreach (Enemy enemy in playerActionController.enemies)
+//		{
+//			if ((temp = Vector2.Distance ((Vector2)transform.position, (Vector2)enemy.transform.position)) < maxDistance)
+//			{
+//				maxDistance = temp;
+//				closestEnemy = enemy.transform.position;
+//			}
+//		}
 	}
 
 	void Update(){

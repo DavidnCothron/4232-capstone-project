@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMeleeScript : MonoBehaviour {
-	public Transform meleeTransform;
+	public Transform playerTransform;
 	public int meleeDamage = 1;
 	public int chargeAttackDamage = 4;
-	Collider2D[] enemiesHit;
+	public List<Enemy> enemiesHit;
 
 
 	// Use this for initialization
-	void Start () {
-		
+	void Awaken () {
+		enemiesHit = new List<Enemy> ();
 	}
 	
 	// Update is called once per frame
@@ -31,19 +31,29 @@ public class PlayerMeleeScript : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		//Multiplied by negative 1 because wizard shit
-		transform.right = (-1f)*(GetWorldPositionOnPlane (Input.mousePosition, 0f) - meleeTransform.position);
+		transform.right = (GetWorldPositionOnPlane (Input.mousePosition, 0f) - playerTransform.position);
 	}
 
 	void MeleeAttack(){
-		foreach (Collider2D coll in enemiesHit)
+		foreach (Enemy enemy in enemiesHit)
 		{
-			var enemyScript = coll.GetComponent (typeof(Enemy)) as Enemy;
-			enemyScript.health -= meleeDamage;
+			enemy.health -= meleeDamage;
 		}
 	}
 
-	void OnCollisionEnter(Collider2D coll){
-		
+	void OnTriggerEnter2D(Collider2D coll){
+		if(coll.gameObject.tag == "enemy"){
+			enemiesHit.Add (coll.gameObject.GetComponent(typeof(Enemy)) as Enemy);
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D coll){
+		if(coll.gameObject.tag == "enemy"){
+			Enemy exitingColl = coll.gameObject.GetComponent (typeof(Enemy)) as Enemy;
+			if (enemiesHit.Contains (exitingColl))
+			{
+				enemiesHit.Remove (exitingColl);
+			}
+		}
 	}
 }

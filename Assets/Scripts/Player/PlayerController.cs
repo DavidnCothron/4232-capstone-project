@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 	Vector2 dir;
 	public Transform trans;
 	Vector2 targetVector;
+	public SpriteRenderer spriteRenderer;
 	#endregion
 
 	#region Flow Control Variables
@@ -40,9 +41,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		//Control movement through the rigidBody object *only*
 		rigidBody = gameObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
-		//playerHurtBox = gameObject.GetComponent (typeof(Collider2D)) as Collider2D;
 		numberOfJumps = numberOfJumpsMax;
 		remainingRolltime = rollTime;
 		phaseHangTime = phaseMaxHangTime;
@@ -91,6 +90,16 @@ public class PlayerController : MonoBehaviour {
 	{
 		horizontalVelocity = Input.GetAxis ("Horizontal") * horizontalSpeed;
 		verticalVelocity = 1 * verticalSpeed;
+
+		//Flip character depending on character direction 
+		if (Input.GetAxis ("Horizontal") < 0)
+		{
+			spriteRenderer.flipX = true;
+		}
+		else if(Input.GetAxis ("Horizontal") > 0)
+		{
+			spriteRenderer.flipX = false;
+		}
 
 		if (Input.GetKeyDown (KeyCode.LeftControl) && !isRolling) {
 			isBusy = true;
@@ -175,14 +184,12 @@ public class PlayerController : MonoBehaviour {
 		} else if (coll.gameObject.tag == "damage" && !isRolling) {
 			//Do damage
 		}
-		//Debug.Log (coll.gameObject.tag + " enter");
 	}
 
 	void OnCollisionExit2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "ground")
 			isGrounded = false;
-		//Debug.Log (coll.gameObject.tag + " exit");
 	}
 
 }
