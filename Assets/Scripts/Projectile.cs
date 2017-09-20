@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public bool hostileDamage = false;
+	public float damage = 1f;
+	public float speed = 1f;
+	public float size = 0.25f;
+	public float manaCost = 1f;
+	public Vector2 direction;
+	public float lifeTime = 2f;
+	public Rigidbody2D rigidBody;
+	public Animator animator;
+
+	void FixedUpdate(){
+		rigidBody.AddForce (direction * speed);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	void OnEnable(){
+		Invoke ("Destroy", lifeTime);
+		animator.Play ("Fired", 0);
+	}
+
+	void OnDisable(){
+		CancelInvoke ();
+	}
+
+	public void Destroy(){
+		this.gameObject.SetActive (false);
 	}
 }

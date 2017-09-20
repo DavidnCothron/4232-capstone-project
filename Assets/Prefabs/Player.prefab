@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 70593923554172912}
   m_Layer: 0
   m_Name: Melee
-  m_TagString: Untagged
+  m_TagString: melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de268c135ea25f4dbe62ef919fcdb08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPosition: {x: 0, y: 0, z: 0}
+  playerPosition: {fileID: 4768743568527134}
   projectilePooler: {fileID: 0}
 --- !u!114 &114046044668541914
 MonoBehaviour:

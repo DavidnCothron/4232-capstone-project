@@ -11,6 +11,8 @@ TagManager:
   - CameraLockX
   - testAstar
   - enemy
+  - melee
+  - projectile
   layers:
   - Default
   - TransparentFX

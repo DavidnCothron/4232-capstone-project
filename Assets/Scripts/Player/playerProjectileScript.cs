@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerProjectileScript : MonoBehaviour {
 
 	Vector2 direction;
-	public Vector3 playerPosition;
+	public Transform playerPosition;
 	public ObjectPooler projectilePooler;
 
 	public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) {
@@ -17,8 +17,12 @@ public class playerProjectileScript : MonoBehaviour {
 	}
 
 	public void Fire(){
-		direction = (Vector2)(GetWorldPositionOnPlane(Input.mousePosition, 0f) - playerPosition);
-		Projectile proj = projectilePooler.PopFromPool ();
+		direction = (Vector2)(GetWorldPositionOnPlane(Input.mousePosition, 0f) - playerPosition.position);
+		GameObject projObj = projectilePooler.PopFromPool ();
+		projObj.transform.position = (Vector2)playerPosition.position + (direction.normalized * 1f);
+		Projectile proj = projObj.GetComponent (typeof(Projectile)) as Projectile;
+		proj.direction = direction.normalized;
+		projObj.SetActive (true);
 	}
 
 	void Update(){

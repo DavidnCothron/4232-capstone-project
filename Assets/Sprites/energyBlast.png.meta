@@ -1,11 +1,15 @@
 fileFormatVersion: 2
-guid: 6ff4d0da0a64d734089f46563975e549
-timeCreated: 1505929153
+guid: e5643b9d2bbd9ca4094b266a2321cfc8
+timeCreated: 1505929385
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hollow_knight_Sprites_0
-    21300002: hollow_knight_Sprites_1
+    21300000: energyBlast_0
+    21300002: energyBlast_1
+    21300004: energyBlast_2
+    21300006: energyBlast_3
+    21300008: energyBlast_4
+    21300010: energyBlast_5
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -32,7 +36,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -58,17 +62,17 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -77,29 +81,71 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hollow_knight_Sprites_0
+      name: energyBlast_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 22
-        width: 66
-        height: 131
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 48
+        y: 180
+        width: 175
+        height: 150
+      alignment: 9
+      pivot: {x: 0.54748183, y: 0.42613953}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hollow_knight_Sprites_1
+      name: energyBlast_1
       rect:
         serializedVersion: 2
-        x: 269
-        y: 0
-        width: 194
-        height: 236
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 274
+        y: 180
+        width: 175
+        height: 150
+      alignment: 9
+      pivot: {x: 0.4841727, y: 0.4446046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: energyBlast_2
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 169
+        width: 175
+        height: 150
+      alignment: 9
+      pivot: {x: 0.50000036, y: 0.48522797}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: energyBlast_3
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 12
+        width: 175
+        height: 150
+      alignment: 9
+      pivot: {x: 0.4715109, y: 0.47414887}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: energyBlast_4
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 18
+        width: 175
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

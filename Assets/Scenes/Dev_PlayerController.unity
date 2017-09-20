@@ -394,7 +394,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4256214448102308, guid: 5d047eea2e69cc849acb8d950bca3570, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.0489645
+      value: 15.83
       objectReference: {fileID: 0}
     - target: {fileID: 4256214448102308, guid: 5d047eea2e69cc849acb8d950bca3570, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1576,7 +1576,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.046875}
+  m_Offset: {x: 0, y: 0}
   m_Size: {x: 2.0625, y: 4.09375}
   m_Direction: 0
 --- !u!114 &1373560794
