@@ -7,8 +7,8 @@ public class AstarUser : MonoBehaviour {
 	private List<AstarNode> targetOccupied, thisEntityOccupied, roomNodes;
 	[SerializeField]private AstarController controller;
 	private Dictionary<string, List<AstarNode>> occupiedDict;
-	private string guidID;
-	private AstarNode closestNode, targetNode;
+	[SerializeField]private string guidID;
+	private AstarNode startNode, targetNode;
 	private string target = "Player";
 	private List<string> keys;
 
@@ -17,15 +17,17 @@ public class AstarUser : MonoBehaviour {
 		roomNodes = controller.getRoomNodeListClone ();
 		occupiedDict = controller.getDict ();
 		keys = new List<string>(occupiedDict.Keys);
-		//AstarMaster.instance.showRoomNodes (roomNodes);
+		AstarMaster.instance.showRoomNodes (roomNodes);
 		//AstarMaster.instance.showNodeNeighbors (roomNodes, 150);
 	}
 
 	void Update () {
-		//AstarMaster.instance.colorRoomNodes (roomNodes);
+		AstarMaster.instance.colorRoomNodes (roomNodes);
 		foreach (string s in keys) {
 			occupiedDict [s] = AstarMaster.instance.getOccupiedNodes (roomNodes, s);
 		}
+		targetNode = setGoalNode (targetNode); //SETTING H COSTS IN THIS FUNCTION
+		startNode = setStartNode (startNode);
 
 	}
 
@@ -34,24 +36,49 @@ public class AstarUser : MonoBehaviour {
 	}
 
 	public void setClosestNode (AstarNode n) {
-		closestNode = n;
+		startNode = n;
 	}
 
 	public AstarNode getClosestNode() {
-		return closestNode;
+		return startNode;
 	}
 
 	public string getGuidID() {
 		return guidID;
 	}
 
-	void setGoalNode() {
-		if (targetOccupied.Count != 0) {
-			targetNode = targetOccupied [0];
-			if (targetNode.getObject () != null) {
-				targetNode.getObject ().GetComponent<SpriteRenderer> ().color = Color.cyan;
-			}
+	AstarNode setGoalNode(AstarNode tNode) {
+		AstarNode temp;
+		if (occupiedDict [target].Count != 0) 
+			temp = occupiedDict [target] [Mathf.RoundToInt (occupiedDict [target].Count - 1)];
+		else 
+			return tNode;
+		if (temp != null) {
+			if (tNode != null && temp.compareTo (tNode)) 
+				return temp;
+			else if (tNode != null)
+				tNode.setGoal (false);
+			temp.setGoal (true);
 		}
+		//Only setHCosts if goal node has changed
+		controller.setHCosts (roomNodes, temp);
+		return temp;
+	}
+
+	AstarNode setStartNode(AstarNode sNode){
+		AstarNode temp;
+		if (occupiedDict [guidID].Count != 0)
+			temp = occupiedDict [guidID] [Mathf.RoundToInt (occupiedDict [guidID].Count - 1)];
+		else
+			return sNode;
+		if (temp != null) {
+			if (sNode != null && temp.compareTo (sNode)) 
+				return temp;
+			else if (sNode != null) 
+				sNode.setStart (false);
+			temp.setStart (true);
+		}
+		return temp;
 	}
 		
 }

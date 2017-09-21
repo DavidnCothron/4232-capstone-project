@@ -72,11 +72,20 @@ public class AstarMaster : MonoBehaviour {
 		if (rn.Count != 0) {
 			foreach (AstarNode n in rn) {
 				if (n.getIsOccupied ()) {
-					if (n.getObject () != null)
+					if (n.getObject () != null) {
 						n.getObject ().GetComponent<SpriteRenderer> ().color = Color.red;
+
+					}
 				} else {
 					if (n.getObject () != null)
 						n.getObject ().GetComponent<SpriteRenderer> ().color = Color.green;
+				}
+				if (n.getGoal ()) {
+					n.getObject ().GetComponent<SpriteRenderer> ().color = Color.cyan;
+				}
+				if (n.getStart()) {
+					Debug.Log (n.getH());
+					n.getObject().GetComponent<SpriteRenderer>().color = Color.black;
 				}
 			}
 		}

@@ -37,6 +37,12 @@ public class AstarNode {
 		location = loc;
 	}
 
+	public bool compareTo(AstarNode other) {
+		if (row == other.getRow () && col == other.getCol ())
+			return true;
+		return false;
+	}
+
 	public void setNodeObj(GameObject obj){
 		nodeSquare = obj;
 	}
@@ -145,6 +151,9 @@ public class AstarNode {
 		return isOccupied;
 	}
 
+	public bool getStart() {
+		return start;
+	}
 	public string toString(){
 		return "Node: " + row + "_" + col;
 	}

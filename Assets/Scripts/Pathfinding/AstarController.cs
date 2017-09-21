@@ -30,7 +30,7 @@ public class AstarController : MonoBehaviour {
 		occupiedDict.Add ("Player", new List<AstarNode> ()); // has to be here for some reaason
 		//List to hold all nodes in the scene 
 		nodes = new List<AstarNode> ();
-		minNodeDistance = 1;
+		minNodeDistance = 2;
 
 		createGrid ();
 		createNodes ();
@@ -126,7 +126,7 @@ public class AstarController : MonoBehaviour {
 
 				Vector3 rayStart = new Vector3 (nodeGrid [k, h].x, nodeGrid [k, h].y, -UnityDepth.instance.unityDepth);
 				Vector3 direction = (Vector3.forward * (UnityDepth.instance.unityDepth));
-				RaycastHit2D hit = Physics2D.CircleCast(rayStart, .25f, direction);
+				RaycastHit2D hit = Physics2D.CircleCast(rayStart, 1f, direction);
 
 				//Check to see if Vector at nodeGrid[k,h] is in a pathable position
 				if (hit == null || (hit != null && (hit.collider == null || hit.collider.tag == "Player" || hit.collider.tag == "enemy"))) {
@@ -217,7 +217,7 @@ public class AstarController : MonoBehaviour {
 
 	public void setHCosts(List<AstarNode> rn, AstarNode goal) {
 		foreach (AstarNode n in rn) {
-			n.setH (Mathf.Abs (n.getRow () - goal.getRow ()) + Mathf.Abs (n.getCol () - goal.getCol ()) * 10);
+			n.setH ((Mathf.Abs (n.getRow () - goal.getRow ()) + Mathf.Abs (n.getCol () - goal.getCol ())) * 10);
 		}
 	}
 
