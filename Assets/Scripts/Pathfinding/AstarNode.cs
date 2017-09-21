@@ -5,10 +5,26 @@ using UnityEngine;
 public class AstarNode {
 	private int row, col, f, g, h, type;
 	private Vector3 location;
-	private bool start, goal, onPath, visited, inOpenList, inClosedList;
+	private bool start, goal, onPath, visited, inOpenList, inClosedList, isOccupied;
 	private AstarNode parent;
 	private GameObject nodeSquare;
 	[SerializeField] private List<AstarNode> neighbors = new List<AstarNode> ();
+
+	public AstarNode(){}
+
+	public AstarNode(int r, int c, Vector3 loc) {
+		row = r;
+		col = c;
+		location = loc;
+	}
+
+	public AstarNode(int r, int c, Vector3 loc, GameObject obj, List<AstarNode> neighborNodes){
+		row = r;
+		col = c;
+		location = loc;
+		nodeSquare = obj;
+		neighbors = neighborNodes;
+	}
 
 	public void reset() {
 		start = goal = onPath = visited = inOpenList = inClosedList = false;
@@ -23,6 +39,10 @@ public class AstarNode {
 
 	public void setNodeObj(GameObject obj){
 		nodeSquare = obj;
+	}
+
+	public void setIsOccupied(bool b){
+		isOccupied = b;
 	}
 
 	public void setF() {
@@ -119,6 +139,10 @@ public class AstarNode {
 
 	public GameObject getObject() {
 		return nodeSquare;
+	}
+
+	public bool getIsOccupied() {
+		return isOccupied;
 	}
 
 	public string toString(){
