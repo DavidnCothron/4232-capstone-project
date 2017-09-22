@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AstarController : MonoBehaviour {
+
 	[SerializeField] private GameObject player;
 	[SerializeField] private SpriteRenderer room;
 	private Vector3[] minMax;
@@ -13,35 +14,50 @@ public class AstarController : MonoBehaviour {
 	public GameObject nodeObject;
 	private bool hitsNotNull, hitsBoundaries, hitDistance;
 
-	[SerializeField] private List<AstarNode> nodes;
+	private List<string> keys;
+	private GameObject[] enemies;
+	[SerializeField] private List<AstarNode> nodes, totalOccupiedNodes;
 	//[SerializeField] private List<GameObject> entities;
+
+	//Maybe, instead of using a dictionary, use a class, so that each
 	[SerializeField] private Dictionary<string, List<AstarNode>> occupiedDict;
 
-	void Start(){
-		
-		//Add an entry to 'occupied' for each enemy/player in the scene
-		//This will have to eventually be in a loop to get all entities in a scene
-		occupiedDict = new Dictionary<string, List<AstarNode>> ();
-		occupiedDict.Add ("Player", new List<AstarNode> ());
 
-		//List to hold all nodes in the scene
+	void Start(){
+		totalOccupiedNodes = new List<AstarNode> ();
+
+		occupiedDict = new Dictionary<string, List<AstarNode>> ();
+		occupiedDict.Add ("Player", new List<AstarNode> ()); // has to be here for some reaason
+		//List to hold all nodes in the scene 
 		nodes = new List<AstarNode> ();
 		minNodeDistance = 2;
 
 		createGrid ();
 		createNodes ();
-		setNeighbors ();
-		showRoomNodes (nodes);
+		this.setNeighbors (nodes);
+
+		//Identifies all enemies using AStar in the scene and adds an entry to the occupiedDict dictionary
+		//Their keys are not a tag, unlike the "Player" tag for the player character; instead
+		//their keys are generated at run-time using createNewGuidID() in the AstarMaster.cs singleton.
+		identifyAndAddAstarEnemies();
+		//Also add a "Player" entry in the dictionary.
+
+
+		//for iteration through dictionary of entities in scene
+		keys = new List<string> (occupiedDict.Keys);
+
+		//AstarMaster.instance.showRoomNodes(nodes);
 	}
 
 	void Update() {
-		//might be better in fixed update?
-		occupiedDict["Player"] = AstarMaster.instance.getOccupiedNodes(nodes, "Player");
-		colorOccupiedNodes (occupiedDict["Player"]);
-	}
+		//totalOccupiedNodes = AstarMaster.instance.maintainTotalOccupiedNodes(nodes, occupiedDict, totalOccupiedNodes, keys);
 
-	void FixedUpdate() {
+//		foreach (string s in keys) {
+//			occupiedDict[s] = AstarMaster.instance.getOccupiedNodes (nodes, s);
+//		}
 
+		//For debugging purposes, color all nodes currently occupied by entities IN RED. MUST HAVE "AstarMaster.instance.showRoomNodes(nodes);" at end of Start().
+		//AstarMaster.instance.colorRoomNodes (nodes, totalOccupiedNodes);
 	}
 
 	public static Vector3[] SpriteCoordinatesLocalToWorld(SpriteRenderer sp) {
@@ -110,10 +126,10 @@ public class AstarController : MonoBehaviour {
 
 				Vector3 rayStart = new Vector3 (nodeGrid [k, h].x, nodeGrid [k, h].y, -UnityDepth.instance.unityDepth);
 				Vector3 direction = (Vector3.forward * (UnityDepth.instance.unityDepth));
-				RaycastHit2D hit = Physics2D.CircleCast(rayStart, 1.25f, direction);
+				RaycastHit2D hit = Physics2D.CircleCast(rayStart, 1f, direction);
 
 				//Check to see if Vector at nodeGrid[k,h] is in a pathable position
-				if (hit == null || (hit != null && (hit.collider == null || hit.collider.tag == "Player"))) {
+				if (hit == null || (hit != null && (hit.collider == null || hit.collider.tag == "Player" || hit.collider.tag == "enemy"))) {
 					//If vector is in pathable position, check to see if it's in current room
 					RaycastHit2D hitUp = Physics2D.Raycast (nodeGrid [k, h], Vector3.up, 100);
 					RaycastHit2D hitDown = Physics2D.Raycast (nodeGrid [k, h], Vector3.down, 100);
@@ -132,7 +148,11 @@ public class AstarController : MonoBehaviour {
 					//If the above conditions are true, the node is un the current room.
 					if (hitsNotNull && hitsBoundaries) {
 						nodes.Add(new AstarNode());
+						//Giving each node a GameObject for testing HERE
 						nodes [nodes.Count - 1].setParameters (k, h, nodeGrid[k,h]);
+						nodes [nodes.Count - 1].setNodeObj (GameObject.Instantiate (nodeObject, nodes [nodes.Count - 1].getLocation (), Quaternion.identity));
+						nodes [nodes.Count - 1].getObject ().SetActive (false);
+						nodes [nodes.Count - 1].getObject ().layer = 2;
 					}
 				}
 
@@ -140,19 +160,19 @@ public class AstarController : MonoBehaviour {
 		}
 	}
 
-	void setNeighbors(){
-		foreach (AstarNode node in nodes) {
+	public void setNeighbors(List<AstarNode> nodeList){
+		foreach (AstarNode node in nodeList) {
 			int row = node.getRow ();
 			int col = node.getCol ();
 
 			AstarNode neighbor;
 			for (int i = -1; i < 2; i++){
 				for (int j = -1; j < 2; j++) {
-					neighbor = nodes.Find (n => n.getRow () == (row + i) && n.getCol () == (col + j));
+					neighbor = nodeList.Find (n => n.getRow () == (row + i) && n.getCol () == (col + j));
 					if (neighbor != null && neighbor != node) {
 						//might have to remove this check and ensure that node distance is always less than the minimum thickness of an object
 						RaycastHit2D hit = Physics2D.Raycast (neighbor.getLocation (), node.getLocation (), Vector3.Distance(node.getLocation(), neighbor.getLocation()) );
-						if (hit == null || (hit != null && (hit.collider == null || hit.collider.tag == "Player"))) 
+						if (hit == null || (hit != null && (hit.collider == null || hit.collider.tag == "Player" || hit.collider.tag == "enemy"))) 
 							node.getList ().Add (neighbor);
 					}
 				}
@@ -160,39 +180,63 @@ public class AstarController : MonoBehaviour {
 		}
 	}
 
-	void setHCostsNodeToPlayer() {
-		foreach (AstarNode n in nodes) {
-			
+	/// <summary>
+	/// Identifies the entities in a scene associated with this AstarController that are using AStar, gives them a unique ID, and adds them to the occupiedDict Dictionary.
+	/// </summary>
+	void identifyAndAddAstarEnemies() {
+		if (enemies == null) 
+			enemies = GameObject.FindGameObjectsWithTag ("enemy");
+		foreach (GameObject enemy in enemies) {
+			AstarUser u = enemy.GetComponent<AstarUser> ();
+			if (u == null) //if object tagged "enemy" does not have an AstarUser script, do not treat it as an Astar entity.
+				continue;
+			u.setGuidID (AstarMaster.instance.createNewGuidID ());
+			occupiedDict.Add (u.getGuidID (), new List<AstarNode> ());
+			//This has to be enabled after EVERYTHING has been
+			u.enabled = true;
 		}
+
 	}
 
-	void showNodeNeighbors(int nodeNum) {
-		Debug.Log (nodes [nodeNum].toString ());
-		GameObject obj = GameObject.Instantiate (nodeObject, nodes[nodeNum].getLocation(), Quaternion.identity);
-		obj.GetComponent<SpriteRenderer> ().color = Color.red;
-		obj.layer = 2;
-		foreach (AstarNode n in nodes[nodeNum].getList()) {
-			Debug.Log (n.toString ());
-			obj = GameObject.Instantiate (nodeObject, n.getLocation (), Quaternion.identity);
-			obj.layer = 2;
-		}
+	/// <summary>
+	/// Gets the target's occupied nodes. The target is identified by a string, which is used as a key for the occupiedDict Dictionary.
+	/// </summary>
+	/// <returns>The target's occupied nodes.</returns>
+	/// <param name="targetTag">Target tag.</param>
+	public List<AstarNode> getOccupiedNodeList (string targetTag) {
+		return occupiedDict [targetTag];
 	}
 
-	void showRoomNodes(List<AstarNode> rn) {
-		GameObject obj;
+	public List<AstarNode> getRoomNodeListClone(){
+		List<AstarNode> tempList = new List<AstarNode>();
+//		foreach (AstarNode n in nodes)
+//			tempList.Add (new AstarNode(n.getRow(), n.getCol(), n.getLocation()));
+		tempList = nodes.ConvertAll(node => new AstarNode(node.getRow(), node.getCol(), node.getLocation(), node.getObject(), node.getList()));
+		return tempList;
+	}
+
+	public void setHCosts(List<AstarNode> rn, AstarNode goal) {
 		foreach (AstarNode n in rn) {
-			obj = GameObject.Instantiate (nodeObject, n.getLocation (), Quaternion.identity);
-			obj.layer = 2;
-			n.setNodeObj (obj);
+			n.setH ((Mathf.Abs (n.getRow () - goal.getRow ()) + Mathf.Abs (n.getCol () - goal.getCol ())) * 10);
 		}
 	}
 
-	void colorOccupiedNodes(List<AstarNode> occuNodes){
-		foreach (AstarNode n in nodes) {
-			if (occuNodes.Contains (n))
-				n.getObject ().GetComponent<SpriteRenderer> ().color = Color.red;
-			else
-				n.getObject ().GetComponent<SpriteRenderer> ().color = Color.green;
-		}
+	public List<string> getKeys(){
+		return keys;
 	}
+
+	public Dictionary<string, List<AstarNode>> getDict(){
+		return occupiedDict;
+	}
+//	void showNodeNeighbors(int nodeNum) {
+//		Debug.Log (nodes [nodeNum].toString ());
+//		GameObject obj = GameObject.Instantiate (nodeObject, nodes[nodeNum].getLocation(), Quaternion.identity);
+//		obj.GetComponent<SpriteRenderer> ().color = Color.red;
+//		obj.layer = 2;
+//		foreach (AstarNode n in nodes[nodeNum].getList()) {
+//			Debug.Log (n.toString ());
+//			obj = GameObject.Instantiate (nodeObject, n.getLocation (), Quaternion.identity);
+//			obj.layer = 2;
+//		}
+//	}
 }
