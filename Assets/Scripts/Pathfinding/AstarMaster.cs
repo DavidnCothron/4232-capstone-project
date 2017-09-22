@@ -81,11 +81,17 @@ public class AstarMaster : MonoBehaviour {
 						n.getObject ().GetComponent<SpriteRenderer> ().color = Color.green;
 				}
 				if (n.getGoal ()) {
+					//print ("goal");
+					//print ("GOAL: " + n.getRow() + " " + n.getCol());
 					n.getObject ().GetComponent<SpriteRenderer> ().color = Color.cyan;
 				}
 				if (n.getStart()) {
-					Debug.Log (n.getH());
+					//Debug.Log (n.getH());
 					n.getObject().GetComponent<SpriteRenderer>().color = Color.black;
+				}
+				if (n.getInClosedList ()) {
+					//Debug.Log ("closed");
+					n.getObject ().GetComponent<SpriteRenderer> ().color = Color.black;
 				}
 			}
 		}

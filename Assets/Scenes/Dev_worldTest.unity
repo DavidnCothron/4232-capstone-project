@@ -2111,6 +2111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 789543058}
+  guidID: 
 --- !u!61 &1362649981
 BoxCollider2D:
   m_ObjectHideFlags: 0

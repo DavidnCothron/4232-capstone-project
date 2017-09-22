@@ -27,7 +27,7 @@ public class AstarNode {
 	}
 
 	public void reset() {
-		start = goal = onPath = visited = inOpenList = inClosedList = false;
+		onPath = visited = inOpenList = inClosedList = false;
 		parent = null;
 	}
 		

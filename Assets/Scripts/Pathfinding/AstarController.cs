@@ -169,7 +169,7 @@ public class AstarController : MonoBehaviour {
 			for (int i = -1; i < 2; i++){
 				for (int j = -1; j < 2; j++) {
 					neighbor = nodeList.Find (n => n.getRow () == (row + i) && n.getCol () == (col + j));
-					if (neighbor != null && neighbor != node) {
+					if (neighbor != null && !neighbor.compareTo(node)) {
 						//might have to remove this check and ensure that node distance is always less than the minimum thickness of an object
 						RaycastHit2D hit = Physics2D.Raycast (neighbor.getLocation (), node.getLocation (), Vector3.Distance(node.getLocation(), neighbor.getLocation()) );
 						if (hit == null || (hit != null && (hit.collider == null || hit.collider.tag == "Player" || hit.collider.tag == "enemy"))) 
