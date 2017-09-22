@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-	//player(and controller) and camera(and controller) objects 
+	//player(with controller) and camera(with controller) objects 
 	[SerializeField] private GameObject player;
 	[SerializeField] private Camera camera; 
 	[SerializeField] private CameraController cameraCont;
@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour {
 		if (UnityDepth.instance.PPU == null) {
 			UnityDepth.instance.PPU = 32;
 		}
-		camera = this.GetComponent<Camera> ();//Camera.FindObjectOfType (typeof(Camera)) as Camera;
+		camera = this.GetComponent<Camera> ();
 		player = GameObject.FindWithTag ("Player");
 
 		playerCont = player.GetComponent<PlayerController>();
