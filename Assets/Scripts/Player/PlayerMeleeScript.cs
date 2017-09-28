@@ -8,19 +8,64 @@ public class PlayerMeleeScript : MonoBehaviour {
 	public int chargeAttackDamage = 4;
 	public float knockbackBasic = 1f;
 	public float knockbackCharged = 4f;
+	public float chargeTime = 1.5f;
+	public float chargeTimeRemaining;
+	public float attackCooldown = 0.5f; 
+	float attackCooldownRemaining;
 	public List<GameObject> enemiesHit;
+	public bool hasChargeAttack = false;
+	public bool isAttackingEnabled = false;
+	bool isAttacking = false;
 
 
 	// Use this for initialization
 	void Awaken () {
 		enemiesHit = new List<GameObject> ();
+		chargeTimeRemaining = chargeTime;
+		attackCooldownRemaining = attackCooldown;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown (0))
+		//Prevent the player from click spamming attacks. May replace with animation state value later.
+		if (isAttacking)
 		{
-			MeleeAttack ();
+			attackCooldownRemaining -= Time.deltaTime;
+			//Debug.Log (attackCooldownRemaining);
+			if (attackCooldownRemaining < 0f)
+			{
+				isAttacking = false;
+				attackCooldownRemaining = attackCooldown;
+				//Debug.Log ("Cooldown Ended");
+			}
+		}
+		else
+		{ //Check for attack input
+			if (Input.GetMouseButtonUp (0))
+			{
+				if (chargeTimeRemaining > 0)
+				{
+					MeleeAttack ();
+				}
+				else
+				{
+					ChargeAttack ();
+				}
+				isAttacking = true;
+				//Debug.Log ("Cooldown Started");
+			}
+			else if (Input.GetMouseButton (0) && hasChargeAttack)
+			{
+				chargeTimeRemaining -= Time.deltaTime;
+				if (chargeTimeRemaining < 0)
+				{
+					//Debug.Log ("Charged!");
+				}
+			}
+			else
+			{
+				chargeTimeRemaining = chargeTime;
+			}
 		}
 	}
 
@@ -43,7 +88,17 @@ public class PlayerMeleeScript : MonoBehaviour {
 			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
 			enemyScript.health -= meleeDamage;
 			enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackBasic));
+		}
+	}
 
+	void ChargeAttack(){
+		foreach (GameObject enemyObject in enemiesHit)
+		{
+			Enemy enemyScript = enemyObject.GetComponent (typeof(Enemy)) as Enemy;
+			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
+			enemyScript.health -= chargeAttackDamage;
+			enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackCharged));
+			chargeTimeRemaining = chargeTime;
 		}
 	}
 

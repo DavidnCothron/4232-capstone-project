@@ -7,6 +7,9 @@ public class playerProjectileScript : MonoBehaviour {
 	Vector2 direction;
 	public Transform playerPosition;
 	public ObjectPooler projectilePooler;
+	public bool hasRangedAttack = false;
+	public PlayerHealthAndMagicController stats;
+	public int projectileManaCost = 1;
 
 	public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) {
 		Ray ray = Camera.main.ScreenPointToRay(screenPosition);
@@ -26,9 +29,13 @@ public class playerProjectileScript : MonoBehaviour {
 	}
 
 	void Update(){
-		if (Input.GetKey (KeyCode.LeftShift) && Input.GetMouseButtonDown (0))
+		if ((Input.GetKey (KeyCode.LeftShift) && Input.GetMouseButtonDown (0)) && hasRangedAttack)
 		{
-			Fire ();
+			if (stats.GetMana () > 0)
+			{
+				Fire ();
+				stats.LoseMana (projectileManaCost);
+			}
 		}
 	}
 }

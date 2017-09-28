@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 70513468783284264}
   - component: {fileID: 212318491798282224}
   - component: {fileID: 114376972653501510}
-  - component: {fileID: 114046044668541914}
   - component: {fileID: 114780243481859412}
   - component: {fileID: 114197792949253400}
   - component: {fileID: 114043219446089576}
@@ -72,8 +71,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893841220926510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.38, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.054469217, y: 0.10893721, z: 0}
+  m_LocalScale: {x: -3.3, y: 3.3, z: 1}
   m_Children:
   - {fileID: 4212309947958486}
   m_Father: {fileID: 0}
@@ -93,7 +92,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 5
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -162,7 +161,12 @@ MonoBehaviour:
   chargeAttackDamage: 4
   knockbackBasic: 1
   knockbackCharged: 4
+  chargeTime: 1.5
+  chargeTimeRemaining: 0
+  attackCooldown: 0.5
   enemiesHit: []
+  hasChargeAttack: 0
+  isAttackingEnabled: 0
 --- !u!114 &114043219446089576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,26 +180,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 4768743568527134}
   projectilePooler: {fileID: 0}
---- !u!114 &114046044668541914
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893841220926510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a923e7b79aef23b4591f9c05e970839d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxChargeTime: 2
-  attackDuration: 0.1
-  hasHolySword: 0
   hasRangedAttack: 1
-  projectilePooler: {fileID: 0}
-  basicAttackDamage: 1
-  rangedAttackDamage: 1
-  chargedAttackDamage: 4
-  playerController: {fileID: 114376972653501510}
+  stats: {fileID: 114780243481859412}
+  projectileManaCost: 1
 --- !u!114 &114197792949253400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,7 +195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveController: {fileID: 114376972653501510}
-  actionController: {fileID: 114046044668541914}
   currentRoom: {fileID: 0}
 --- !u!114 &114376972653501510
 MonoBehaviour:
@@ -223,10 +209,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rollTime: 0.25
   rollSpeed: 1.85
-  horizontalSpeed: 6
-  verticalSpeed: 5
-  phaseSpeed: 15
-  phaseDistance: 2
+  horizontalSpeed: 21
+  verticalSpeed: 16
+  phaseSpeed: 30
+  phaseDistance: 10
   phaseMaxHangTime: 0.25
   trans: {fileID: 4768743568527134}
   spriteRenderer: {fileID: 212318491798282224}
@@ -254,6 +240,7 @@ MonoBehaviour:
       bar: {fileID: 0}
       maxVal: 0
       currentVal: 0
+    isRegen: 1
   health:
     healthBar:
       bar: {fileID: 0}
@@ -262,6 +249,13 @@ MonoBehaviour:
   playerMagic: 3
   magicRegen: 1
   playerHealth: 4
+  regenSpeed: 0.25
+  regenDelay: 0.5
+  magicRegenSpeed: 1
+  magicRegenSpeedCountdown: 0
+  magicRegenDelay: 2
+  magicRegenDelayCountdown: 0
+  isMagicRegen: 1
 --- !u!212 &212318491798282224
 SpriteRenderer:
   m_ObjectHideFlags: 1

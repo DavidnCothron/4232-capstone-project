@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
 	public PlayerController moveController;
-	public PlayerActionController actionController;
 	public RoomController currentRoom;
 
 	// Use this for initialization

@@ -12,39 +12,106 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
     [SerializeField] private int playerMagic = 3;
 	[SerializeField] private int magicRegen = 1;
     [SerializeField] private int playerHealth = 4;
+	[SerializeField] private float regenSpeed = 0.25f;
+	[SerializeField] private float regenDelay = 0.5f;
+
+	[SerializeField] private float magicRegenSpeed = 0.25f, magicRegenSpeedCountdown;
+	[SerializeField] private float magicRegenDelay = 0.5f, magicRegenDelayCountdown;
+	private bool isMagicRegenDelay = false;
+	public bool isMagicRegen = true;
+	private int maxMP = 3;
+	private int currentMP = 3;
+	private int regenMagic = 0;
 	
 	void Awake(){
 		health.Initialize(playerHealth);
-		magic.Initialize(playerMagic, magicRegen);
+		magic.Initialize(playerMagic, magicRegen, regenSpeed, regenDelay);
+		magicRegenDelayCountdown = magicRegenDelay;
+		magicRegenSpeedCountdown = magicRegenSpeed;
 	}
-
-	//update health here
+		
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.O)){
-			health.decrease(1);
-			Debug.Log(health.CurrentHP);
-		}
-		if(Input.GetKeyDown(KeyCode.P)){
-			health.restore(1);
-			Debug.Log(health.CurrentHP);
-		}
-		if(health.CurrentHP <= 0){
-			Debug.Log("you ran out of health");
-			//TODO: Implement Lose state
-		}
+		MagicRegen ();
+	}
 
-		if(Input.GetKeyDown(KeyCode.K)){
-			magic.decrease(1);
-			Debug.Log(magic.CurrentMP);
-		}
-		if(Input.GetKeyDown(KeyCode.L)){
-			magic.restore(1);
-			Debug.Log(magic.CurrentMP);
-		}
+	#region Getters/Setters
+	public void GainHealth(int amount){
+		health.restore (amount);
+	}
 
-		if(magic.CurrentMP <= 0){
-			Debug.Log("you ran out of magic");
+	public void LoseHealth(int amount){
+		health.decrease (amount);
+	}
+
+	public void GainMana(int amount){
+		magic.restore (amount);
+	}
+
+	public void LoseMana(int amount){
+		magic.decrease (amount);
+	}
+
+	public int GetHealth(){
+		return health.CurrentHP;
+	}
+
+	public int GetMana(){
+		return magic.CurrentMP;
+	}
+
+	public int GetMaxMana(){
+		return magic.MaxMP;
+	}
+
+	public void SetHealth(int amount){
+		health.CurrentHP = amount;
+	}
+
+	public void SetMana(int amount){
+		magic.CurrentMP = amount;
+	}
+
+	public void SetMaxMana(int amount){
+		magic.MaxMP = amount;
+	}
+	#endregion
+
+	void MagicRegen(){
+		if (isMagicRegen)
+		{
+			//Debug.Log ("Passed Regen Check");
+			if (!isMagicRegenDelay)
+			{
+				//Debug.Log ("Countdown after delay check");
+				if (magicRegenSpeedCountdown > 0 && GetMana() < maxMP)
+				{
+					magicRegenSpeedCountdown -= Time.deltaTime;
+				}
+				else
+					if (magicRegenSpeedCountdown <= 0 && GetMana() < maxMP)
+					{
+						GainMana (magicRegen);
+						magicRegenSpeedCountdown = magicRegenSpeed;
+					}
+			}
+			else //Delay regeneration until regen delay is down.
+			{
+				if (magicRegenDelayCountdown > 0)
+				{
+					magicRegenDelayCountdown -= Time.deltaTime;
+				}
+				else
+				{
+					magicRegenDelayCountdown = magicRegenDelay;
+					isMagicRegenDelay = false;
+				}
+			}
+
+			if (GetMana() <= 0 && isMagicRegenDelay)
+			{
+				isMagicRegenDelay = true;
+			}
 		}
-	}	
+	}
 }
