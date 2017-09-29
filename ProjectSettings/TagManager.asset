@@ -8,11 +8,11 @@ TagManager:
   - platform
   - ledge
   - CameraBounds
-  - CameraLockX
   - testAstar
   - enemy
   - melee
   - projectile
+  - Item
   layers:
   - Default
   - TransparentFX
