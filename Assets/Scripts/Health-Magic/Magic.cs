@@ -10,11 +10,61 @@ public class Magic{
 	 private int maxMP = 3;
 	 private int currentMP = 3;
 	 private int regenMagic = 0;
+	private float regenSpeed = 0.25f, regenSpeedCountdown;
+	private float regenDelay = 0.5f, regenDelayCountdown;
+	private bool isRegenDelay = false;
+	public bool isRegen = true;
 
-	public void Initialize(int mp, int regen){
+	public void Initialize(int mp, int regen, float regenSpeed, float regenDelay){
 		CurrentMP = mp;
 		MaxMP = mp;
-		regenMagic = regen;		
+		regenMagic = regen;
+		this.regenSpeed = regenSpeed;
+		this.regenDelay = regenDelay;
+		regenSpeedCountdown = regenSpeed;
+		regenDelayCountdown = regenDelay;
+		isRegen = true;
+	}
+
+	void Update () {
+		if (true)
+		{
+			Debug.Log ("Passed Regen Check");
+			if (!isRegenDelay)
+			{
+				Debug.Log ("Countdown after delay check");
+				if (regenSpeedCountdown > 0 && currentMP < maxMP)
+				{
+					regenSpeedCountdown -= Time.deltaTime;
+				}
+				else
+				if (regenSpeedCountdown <= 0 && currentMP < maxMP)
+				{
+					Debug.Log("Regenerating...");
+					currentMP += regenMagic;
+					regenSpeedCountdown = regenSpeed;
+				}
+			}
+			else //Delay regeneration until regen delay is down.
+			{
+				Debug.Log ("Delaying regen");
+				if (regenDelayCountdown > 0)
+				{
+					regenDelayCountdown -= Time.deltaTime;
+				}
+				else
+				{
+					regenDelayCountdown = regenDelay;
+					isRegenDelay = false;
+				}
+			}
+
+			if (currentMP <= 0)
+			{
+				Debug.Log ("Out of mana, initiate delay");
+				isRegenDelay = true;
+			}
+		}
 	}
 
 	//Magic Points getter and setter

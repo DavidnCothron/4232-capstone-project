@@ -402,7 +402,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4256214448102308, guid: 5d047eea2e69cc849acb8d950bca3570, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -11.752995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4256214448102308, guid: 5d047eea2e69cc849acb8d950bca3570, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1516,7 +1516,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1373560790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7916595, y: -1.94, z: 0}
+  m_LocalPosition: {x: -1.7916596, y: -1.37, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 31543891}
@@ -2155,11 +2155,6 @@ Prefab:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114043219446089576, guid: cc8c520a32acbb14eb8081e68414da91,
-        type: 2}
-      propertyPath: projectilePooler
-      value: 
-      objectReference: {fileID: 384826860}
-    - target: {fileID: 114046044668541914, guid: cc8c520a32acbb14eb8081e68414da91,
         type: 2}
       propertyPath: projectilePooler
       value: 
