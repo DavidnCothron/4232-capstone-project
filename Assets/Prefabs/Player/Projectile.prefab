@@ -104,18 +104,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1203508046980548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb41168dc583dbf45aad2dfbc0752756, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ea03e995e93d754fade768da0c2ce4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hostileDamage: 0
   damage: 1
-  speed: 5
-  size: 1
+  speed: 1
+  size: 0.25
   manaCost: 1
   direction: {x: 0, y: 0}
   lifeTime: 2
-  rigidBody: {fileID: 50693811628932198}
-  animator: {fileID: 95498311109467318}
+  rigidBody: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!212 &212721124881121888
 SpriteRenderer:
   m_ObjectHideFlags: 1
