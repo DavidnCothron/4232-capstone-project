@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour {
 
@@ -34,6 +36,10 @@ public class CameraController : MonoBehaviour {
 	[SerializeField] private Vector3 wallBoundBL;
 	[SerializeField] private Vector3 wallBoundTR;
 
+	[SerializeField] private string currentRoomID;
+	[SerializeField] private Image cameraFadeImage;
+	[SerializeField] private float fadeSpeed;
+
 	//initializes Pixel Per Unit for the camera
 	//initializes camera/player and their controllers
 	void Awake(){
@@ -46,6 +52,8 @@ public class CameraController : MonoBehaviour {
 
 		playerCont = player.GetComponent<PlayerController>();
 		cameraCont = this.GetComponent<CameraController>();
+
+		cameraFadeImage.rectTransform.localScale = new Vector2 (Screen.width, Screen.height);
 	}
 
 	//gets the four corners of the room on start *note this will need to change in the
@@ -55,6 +63,7 @@ public class CameraController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
+		detectRoom ();
 		//basically lerps the camera closer to its target position over time
 		posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
 		posY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY) + .05f;
@@ -94,4 +103,59 @@ public class CameraController : MonoBehaviour {
 		Gizmos.DrawSphere (wallBoundTR, .5f);
 	}
 
+	//Detects the room where the player currently is.
+	void detectRoom() {
+		Vector3 rayStart = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z - 5f);
+		LayerMask room = (1 << LayerMask.NameToLayer ("RoomBackground"));
+		RaycastHit2D hit = Physics2D.Raycast (rayStart, Vector3.forward, 10f, room);
+		if (hit != null) {
+			if (hit.collider.GetComponentInParent<RoomController> ().getRoomID () != currentRoomID) {
+				GameObject currentRoom = hit.collider.gameObject.transform.parent.gameObject;
+				currentRoomID = currentRoom.GetComponent<RoomController> ().getRoomID ();
+				GameObject[] objs = GameControl.control.GetChildGameObjects (currentRoom);
+				GameObject obj = GameControl.control.FindGameObjectFromArray (objs, "CameraBounds");
+				objs = GameControl.control.GetChildGameObjects (obj);
+				setBoundingWalls (objs);
+			}
+		}
+	}
+
+	//Set the bounding walls from the currently detected room
+	void setBoundingWalls (GameObject[] BoundingWalls) {
+		foreach (GameObject g in BoundingWalls) {
+			if (g.CompareTag ("LeftBoundingWall"))
+				LeftWall = g;
+			if (g.CompareTag ("RightBoundingWall"))
+				RightWall = g;
+			if (g.CompareTag ("TopBoundingWall"))
+				TopWall = g;
+			if (g.CompareTag ("BottomBoundingWall"))
+				BottomWall = g;
+		}
+	}
+
+	//Coroutine to fade the screen to black
+	public IEnumerator fadeToBlack() {
+		cameraFadeImage.enabled = true;
+		while (true) {
+			cameraFadeImage.color = Color.Lerp (cameraFadeImage.color, Color.black, fadeSpeed * Time.deltaTime);
+			if (cameraFadeImage.color.a >= 0.95f)
+				yield break;
+			else
+				yield return null;
+		}
+		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
+	}
+
+	//Coroutine to fade the screen to clear
+	public IEnumerator fadeToClear() {
+		cameraFadeImage.enabled = true;
+		while (true) {
+			cameraFadeImage.color = Color.Lerp (cameraFadeImage.color, Color.clear, fadeSpeed * Time.deltaTime);
+			if (cameraFadeImage.color.a <= 0.05f)
+				yield break;
+			else
+				yield return null;
+		}
+	}
 }
