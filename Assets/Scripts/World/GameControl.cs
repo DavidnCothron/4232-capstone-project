@@ -129,6 +129,7 @@ public class GameControl : MonoBehaviour {
 		return null;
 	}
 
+	//return the room transition time
 	public float getRoomTransTime() {
 		return roomTransitionTime;
 	}

@@ -53,7 +53,9 @@ public class CameraController : MonoBehaviour {
 		playerCont = player.GetComponent<PlayerController>();
 		cameraCont = this.GetComponent<CameraController>();
 
-		cameraFadeImage.rectTransform.localScale = new Vector2 (Screen.width, Screen.height);
+		//If the cameraFadeImage has been set for the camera
+		if (cameraFadeImage != null)
+			cameraFadeImage.rectTransform.localScale = new Vector2 (Screen.width, Screen.height);
 	}
 
 	//gets the four corners of the room on start *note this will need to change in the
@@ -108,14 +110,15 @@ public class CameraController : MonoBehaviour {
 		Vector3 rayStart = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z - 5f);
 		LayerMask room = (1 << LayerMask.NameToLayer ("RoomBackground"));
 		RaycastHit2D hit = Physics2D.Raycast (rayStart, Vector3.forward, 10f, room);
-		if (hit != null) {
+		if (hit != null && hit.collider != null) {
 			if (hit.collider.GetComponentInParent<RoomController> ().getRoomID () != currentRoomID) {
 				GameObject currentRoom = hit.collider.gameObject.transform.parent.gameObject;
 				currentRoomID = currentRoom.GetComponent<RoomController> ().getRoomID ();
 				GameObject[] objs = GameControl.control.GetChildGameObjects (currentRoom);
 				GameObject obj = GameControl.control.FindGameObjectFromArray (objs, "CameraBounds");
 				objs = GameControl.control.GetChildGameObjects (obj);
-				setBoundingWalls (objs);
+				if (objs.Length == 4)
+					setBoundingWalls (objs);
 			}
 		}
 	}
