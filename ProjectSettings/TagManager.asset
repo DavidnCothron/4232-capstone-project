@@ -18,6 +18,8 @@ TagManager:
   - RightBoundingWall
   - TopBoundingWall
   - BottomBoundingWall
+  - healthPickup
+  - chargeAttackItem
   layers:
   - Default
   - TransparentFX
