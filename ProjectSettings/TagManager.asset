@@ -6,6 +6,16 @@ TagManager:
   tags:
   - healthPickup
   - chargeAttackItem
+  - RoomBackground
+  - Room
+  - projectile
+  - ground
+  - CameraBounds
+  - BottomBoundingWall
+  - RightBoundingWall
+  - LeftBoundingWall
+  - TopBoundingWall
+  - melee
   layers:
   - Default
   - TransparentFX
@@ -15,7 +25,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - RoomBackground
   - 
   - 
   - 
