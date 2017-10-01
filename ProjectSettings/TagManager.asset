@@ -13,6 +13,11 @@ TagManager:
   - melee
   - projectile
   - Item
+  - RoomBackground
+  - LeftBoundingWall
+  - RightBoundingWall
+  - TopBoundingWall
+  - BottomBoundingWall
   layers:
   - Default
   - TransparentFX
@@ -22,7 +27,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - RoomBackground
   - 
   - 
   - 

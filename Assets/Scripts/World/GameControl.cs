@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.InteropServices;
 using System.IO;
 using System;
 
@@ -16,6 +17,9 @@ public class GameControl : MonoBehaviour {
 	public RoomController rc;
 	private bool beatBoss1, beatBoss2, beatBoss3; 
 	private int roomID, areaID;
+
+	//float value used to store time (in seconds) that a room transition takes
+	[SerializeField] private float roomTransitionTime;
 
 	// Use this for initialization
 	void Awake () {
@@ -92,6 +96,42 @@ public class GameControl : MonoBehaviour {
 			beatBoss3 = true;
 			break;
 		}
+	}
+
+	//Creates a unique string ID
+	public string createGUID() {
+		Guid g = Guid.NewGuid ();
+		string GuidString = Convert.ToBase64String (g.ToByteArray ());
+		GuidString = GuidString.Replace ("=", "");
+		GuidString = GuidString.Replace ("+", "");
+		return GuidString;
+	}
+
+	//Returns all children of a given object as a GameObject array
+	public GameObject[] GetChildGameObjects(GameObject obj){
+		Transform[] temp;
+		temp = obj.GetComponentsInChildren<Transform> (true);
+
+		GameObject[] children = new GameObject[temp.Length - 1];
+		for (int i = 0; i < temp.Length - 1; i++) {
+			children [i] = temp [i + 1].gameObject;
+		}
+		return children;
+	}
+
+	//returns a specific gameobject from an array of gameobjects
+	public GameObject FindGameObjectFromArray(GameObject[] objs, string s){
+		foreach (GameObject obj in objs) {
+			if (obj.tag == s)
+				return obj;
+		}
+		Debug.Log ("Object with tag " + s + " could not be found.");
+		return null;
+	}
+
+	//return the room transition time
+	public float getRoomTransTime() {
+		return roomTransitionTime;
 	}
 }
 
