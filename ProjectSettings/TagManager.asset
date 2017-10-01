@@ -4,26 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ground
-  - platform
-  - ledge
-  - CameraBounds
-  - testAstar
-  - enemy
-  - melee
-  - projectile
-  - Item
-  - RoomBackground
-  - LeftBoundingWall
-  - RightBoundingWall
-  - TopBoundingWall
-  - BottomBoundingWall
-<<<<<<< HEAD
-  - Room
-=======
   - healthPickup
   - chargeAttackItem
->>>>>>> b2e34e78235999dbf1449bc80446961b16b08f4e
   layers:
   - Default
   - TransparentFX
@@ -33,7 +15,7 @@ TagManager:
   - UI
   - 
   - 
-  - RoomBackground
+  - 
   - 
   - 
   - 
