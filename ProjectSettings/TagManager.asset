@@ -18,6 +18,7 @@ TagManager:
   - RightBoundingWall
   - TopBoundingWall
   - BottomBoundingWall
+  - Room
   layers:
   - Default
   - TransparentFX

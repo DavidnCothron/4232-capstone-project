@@ -105,25 +105,35 @@ public class CameraController : MonoBehaviour {
 		Gizmos.DrawSphere (wallBoundTR, .5f);
 	}
 
-	//Detects the room where the player currently is.
+	/// <summary>
+	/// Detects the room where the player currently is and updates bounding walls for the camera.
+	/// </summary>
 	void detectRoom() {
+		//Cast ray at player with a LayerMask named "RoomBackground." The object hit should be in the "RoomBackground" layer
+		//and have a BoxCollider2D which is the size of the entire room. This would probably still work with a smaller
+		//BoxCollider2D, but having it be large ensures that the current room is always detected.
 		Vector3 rayStart = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z - 5f);
 		LayerMask room = (1 << LayerMask.NameToLayer ("RoomBackground"));
-		RaycastHit2D hit = Physics2D.Raycast (rayStart, Vector3.forward, 10f, room);
+		RaycastHit2D hit = Physics2D.Raycast (rayStart, Vector3.forward, 10f, room); //Raycast only interacts with 'room' LayerMask
 		if (hit != null && hit.collider != null) {
-			if (hit.collider.GetComponentInParent<RoomController> ().getRoomID () != currentRoomID) {
+			if (hit.collider.GetComponentInParent<RoomController> ().getRoomID () != currentRoomID) { //If this is a new room
+				//As it is current set, 'RoomBackground' object must be directly childed to the 'Room' object.
 				GameObject currentRoom = hit.collider.gameObject.transform.parent.gameObject;
 				currentRoomID = currentRoom.GetComponent<RoomController> ().getRoomID ();
-				GameObject[] objs = GameControl.control.GetChildGameObjects (currentRoom);
+				GameObject[] objs = GameControl.control.GetChildGameObjects (currentRoom); //Gets all the objects childed to the room
+				//Object which holds Bounding Walls must have "CameraBounds" tag and be directly childed to the 'Room' object.
 				GameObject obj = GameControl.control.FindGameObjectFromArray (objs, "CameraBounds");
 				objs = GameControl.control.GetChildGameObjects (obj);
-				if (objs.Length == 4)
+				if (objs.Length == 4) //If all four bounding walls exist in the new room
 					setBoundingWalls (objs);
 			}
 		}
 	}
 
-	//Set the bounding walls from the currently detected room
+	/// <summary>
+	/// Sets the bounding walls of the newly detected room.
+	/// </summary>
+	/// <param name="BoundingWalls">Bounding walls.</param>
 	void setBoundingWalls (GameObject[] BoundingWalls) {
 		foreach (GameObject g in BoundingWalls) {
 			if (g.CompareTag ("LeftBoundingWall"))
@@ -135,14 +145,19 @@ public class CameraController : MonoBehaviour {
 			if (g.CompareTag ("BottomBoundingWall"))
 				BottomWall = g;
 		}
+		//set room corners to new room's corners
+		getRoomCorners ();
 	}
 
-	//Coroutine to fade the screen to black
+	/// <summary>
+	/// Fades an image covering the camera viewport to black.
+	/// </summary>
+	/// <returns>The to black.</returns>
 	public IEnumerator fadeToBlack() {
 		cameraFadeImage.enabled = true;
 		while (true) {
 			cameraFadeImage.color = Color.Lerp (cameraFadeImage.color, Color.black, fadeSpeed * Time.deltaTime);
-			if (cameraFadeImage.color.a >= 0.95f)
+			if (cameraFadeImage.color.a >= 0.95f) //If the camera is sufficiently blocked
 				yield break;
 			else
 				yield return null;
@@ -150,12 +165,15 @@ public class CameraController : MonoBehaviour {
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
 	}
 
-	//Coroutine to fade the screen to clear
+	/// <summary>
+	/// Fades an image covering the camera viewport to clear.
+	/// </summary>
+	/// <returns>The to clear.</returns>
 	public IEnumerator fadeToClear() {
 		cameraFadeImage.enabled = true;
 		while (true) {
 			cameraFadeImage.color = Color.Lerp (cameraFadeImage.color, Color.clear, fadeSpeed * Time.deltaTime);
-			if (cameraFadeImage.color.a <= 0.05f)
+			if (cameraFadeImage.color.a <= 0.05f) //If the camera is sufficiently cleared
 				yield break;
 			else
 				yield return null;

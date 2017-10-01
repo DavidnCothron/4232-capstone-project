@@ -13,7 +13,7 @@ public class RoomController : MonoBehaviour {
 		{
 			player = GameObject.Find ("Player").GetComponent(typeof(PlayerManager)) as PlayerManager;
 		}
-		roomID = GameControl.control.createGUID ();
+		//roomID = GameControl.control.createGUID ();
 	}
 	
 	// Update is called once per frame
@@ -23,5 +23,9 @@ public class RoomController : MonoBehaviour {
 
 	public string getRoomID() {
 		return roomID;
+	}
+
+	public void setRoomID(string s) {
+		roomID = s;
 	}
 }

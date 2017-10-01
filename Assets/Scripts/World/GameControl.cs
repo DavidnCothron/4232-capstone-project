@@ -32,6 +32,7 @@ public class GameControl : MonoBehaviour {
 		else if(control != this){
 			Destroy (gameObject);
 		}
+		setRoomIDs ();
 	}
 
 	public void Save(){
@@ -98,7 +99,10 @@ public class GameControl : MonoBehaviour {
 		}
 	}
 
-	//Creates a unique string ID
+	/// <summary>
+	/// Creates and returns a unique string ID
+	/// </summary>
+	/// <returns>The GUID.</returns>
 	public string createGUID() {
 		Guid g = Guid.NewGuid ();
 		string GuidString = Convert.ToBase64String (g.ToByteArray ());
@@ -107,7 +111,11 @@ public class GameControl : MonoBehaviour {
 		return GuidString;
 	}
 
-	//Returns all children of a given object as a GameObject array
+	/// <summary>
+	/// Gets the child game objects of a given game object.
+	/// </summary>
+	/// <returns>The child game objects.</returns>
+	/// <param name="obj">Object.</param>
 	public GameObject[] GetChildGameObjects(GameObject obj){
 		Transform[] temp;
 		temp = obj.GetComponentsInChildren<Transform> (true);
@@ -119,7 +127,12 @@ public class GameControl : MonoBehaviour {
 		return children;
 	}
 
-	//returns a specific gameobject from an array of gameobjects
+	/// <summary>
+	/// Returns a specific game object from an array of game objects by searching for a tag.
+	/// </summary>
+	/// <returns>The game object from array.</returns>
+	/// <param name="objs">Objects.</param>
+	/// <param name="s">S.</param>
 	public GameObject FindGameObjectFromArray(GameObject[] objs, string s){
 		foreach (GameObject obj in objs) {
 			if (obj.tag == s)
@@ -129,10 +142,32 @@ public class GameControl : MonoBehaviour {
 		return null;
 	}
 
+	/// <summary>
+	/// Calls coroutines within the CameraController class that fade the image covering the camera viewport.
+	/// </summary>
+	/// <param name="s">S.</param>
+	public void fadeImage(string s) {
+		if (s.Equals ("black"))
+			StartCoroutine (Camera.main.GetComponent<CameraController> ().fadeToBlack ());
+		else
+			StartCoroutine (Camera.main.GetComponent<CameraController> ().fadeToClear ());
+	}
+
+	/// <summary>
+	/// Gives each room in the scene a unique string ID
+	/// </summary>
+	private void setRoomIDs() {
+		GameObject[] roomObjects = GameObject.FindGameObjectsWithTag ("Room");
+		foreach (GameObject obj in roomObjects) {
+			obj.GetComponent<RoomController> ().setRoomID (createGUID ());
+		}
+	}
+
 	//return the room transition time
 	public float getRoomTransTime() {
 		return roomTransitionTime;
 	}
+
 }
 
 [Serializable]
