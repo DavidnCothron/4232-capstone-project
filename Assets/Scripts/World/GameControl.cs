@@ -16,7 +16,7 @@ public class GameControl : MonoBehaviour {
 	public playerProjectileScript pps;
 	public RoomController rc;
 	private bool beatBoss1, beatBoss2, beatBoss3; 
-	[SerializeField] private bool phase, projectile, chargeAttack, healthRegain;
+	[SerializeField] private bool phaseAbility, projectileAbility, chargeAttackAbility;
 	private int roomID, areaID;
 
 	//float value used to store time (in seconds) that a room transition takes
@@ -105,13 +105,13 @@ public class GameControl : MonoBehaviour {
 				phmc.GainHealth(1);
 				break;
 			case "chargeAttack":
-				chargeAttack = setValue;
+				chargeAttackAbility = setValue;
 				break;
 			case "projectile":
-				projectile = setValue;
+				projectileAbility = setValue;
 				break;
 			case "phase":
-				phase = setValue;
+				phaseAbility = setValue;
 				break;
 		}
 	}
