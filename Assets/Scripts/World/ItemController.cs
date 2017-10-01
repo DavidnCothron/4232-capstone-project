@@ -3,20 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	void OnCollisionEnter2D(Collision2D other)
 	{
 		if(other.gameObject.tag == "Player"){
+			//GameControl.ItemPickupEvent(<"healthRegen"><"Projectiles"><"Phase"><"ChargeAttack">);
 			Destroy(this.gameObject);
 		}
 	}
