@@ -33,6 +33,11 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
 	void Update()
 	{
 		MagicRegen ();
+
+		if(Input.GetKeyDown(KeyCode.O))
+		{
+			LoseHealth(1);
+		}
 	}
 
 	#region Getters/Setters
