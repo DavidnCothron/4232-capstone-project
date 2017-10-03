@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 95733388420043912}
   - component: {fileID: 70513468783284264}
   - component: {fileID: 212318491798282224}
-  - component: {fileID: 114376972653501510}
   - component: {fileID: 114780243481859412}
   - component: {fileID: 114197792949253400}
   - component: {fileID: 114043219446089576}
@@ -196,36 +195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f3bfa586aafbb4d9ebf96b0f45cb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveController: {fileID: 114376972653501510}
+  moveController: {fileID: 0}
   currentRoom: {fileID: 0}
---- !u!114 &114376972653501510
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893841220926510}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd260c0f00357b4d9e13536a901756b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rollTime: 0.25
-  rollSpeed: 1.85
-  horizontalSpeed: 21
-  verticalSpeed: 16
-  phaseSpeed: 30
-  phaseDistance: 10
-  phaseMaxHangTime: 0.25
-  trans: {fileID: 4768743568527134}
-  spriteRenderer: {fileID: 212318491798282224}
-  isBusy: 0
-  isGrounded: 1
-  isRolling: 0
-  isJumping: 0
-  isPhasing: 0
-  isPhaseHanging: 0
-  numberOfJumpsMax: 1
-  hasPhase: 1
 --- !u!114 &114598150446022830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -305,7 +276,7 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  jumpTakeOffSpeed: 24
+  jumpTakeOffSpeed: 32
   maxSpeed: 20
   haltInput: 0
 --- !u!212 &212318491798282224
