@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Move()
 	{
-		rigidBody.velocity = new Vector2 (horizontalVelocity, rigidBody.velocity.y);
+		//rigidBody.velocity = new Vector2 (horizontalVelocity, rigidBody.velocity.y);
 		if (isJumping)
 			Jump ();
 	}
@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (numberOfJumps > 0) {
-			rigidBody.velocity = new Vector2 (rigidBody.velocity.x, verticalVelocity);
+			//rigidBody.velocity = new Vector2 (rigidBody.velocity.x, verticalVelocity);
 		}
 
 		isJumping = false;
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		remainingRolltime -= Time.deltaTime;
 
-		rigidBody.velocity = new Vector2 (horizontalVelocity * rollSpeed, rigidBody.velocity.y);
+		//rigidBody.velocity = new Vector2 (horizontalVelocity * rollSpeed, rigidBody.velocity.y);
 
 		if (remainingRolltime <= 0) {
 			isRolling = false;
@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Phase(){
 		rigidBody.gravityScale = 0f;
-		rigidBody.velocity = (dir * phaseSpeed);
+		//rigidBody.velocity = (dir * phaseSpeed);
 
 		if (Vector2.Distance ((Vector2)trans.position, (Vector2)targetVector) <= 0.5f) {
 			isBusy = false;
