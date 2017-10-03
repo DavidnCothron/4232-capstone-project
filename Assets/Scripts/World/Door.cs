@@ -33,7 +33,7 @@ public class Door : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D c){
-		if (c.tag == "Player" && !c.GetComponent<PlayerController>().isBusy)
+		if (c.tag == "Player" && !c.GetComponent<PlayerPlatformerController>().haltInput)
 			StartCoroutine (roomTransition (c));
 	}
 
@@ -44,8 +44,7 @@ public class Door : MonoBehaviour {
 	/// <param name="c">C.</param>
 	IEnumerator roomTransition(Collider2D c) {
 		//Set body type to kinematic to ensure smooth transition (doesn't look right yet)
-		c.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-		c.GetComponent<PlayerController> ().isBusy = true;
+		c.GetComponent<PlayerPlatformerController> ().haltInput = true;
 		c.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 
 		//fade to black > move player into door > move player behind other door > fade to clear > move player out of other door
@@ -58,8 +57,7 @@ public class Door : MonoBehaviour {
 		yield return StartCoroutine (movePlayer (c, other.getDestination ().transform.position));
 
 		//Resets the RigidbodyType2D to Dynamic and returns input control to the player
-		c.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-		c.GetComponent<PlayerController> ().isBusy = false;
+		c.GetComponent<PlayerPlatformerController> ().haltInput = false;
 	}
 
 	/// <summary>
