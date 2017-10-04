@@ -10,6 +10,7 @@ public class GameControl : MonoBehaviour {
 
 	//delegate void onSceneChanged();
 	public static GameControl control;
+	public GameObject player;
 	public PlayerHealthAndMagicController phmc;
 	public PlayerController pc;
 	public PlayerMeleeScript pms;
@@ -17,7 +18,7 @@ public class GameControl : MonoBehaviour {
 	public RoomController rc;
 	private bool beatBoss1, beatBoss2, beatBoss3; 
 	[SerializeField] private bool phaseAbility, projectileAbility, chargeAttackAbility;
-	private int areaEntryID;
+	[SerializeField] private int areaEntryID;
 
 	//float value used to store time (in seconds) that a room transition takes
 	[SerializeField] private float roomTransitionTime;
@@ -31,11 +32,21 @@ public class GameControl : MonoBehaviour {
 			DontDestroyOnLoad (gameObject);
 		}
 		else if(control != this){
+			GameControl.control.UpdatePlayerReferences();
 			Destroy (gameObject);
 		}
 		setRoomIDs ();
 	}
 	
+	public void UpdatePlayerReferences(){
+		player = GameObject.Find("Player");
+		phmc = player.GetComponent(typeof(PlayerHealthAndMagicController)) as PlayerHealthAndMagicController;
+		pc = player.GetComponent(typeof(PlayerController)) as PlayerController;
+		pms = player.GetComponent(typeof(PlayerMeleeScript)) as PlayerMeleeScript;
+		pps = player.GetComponent(typeof(playerProjectileScript)) as playerProjectileScript;
+
+	} 
+
 	public void Save(){
 		BinaryFormatter bf = new BinaryFormatter ();	
 		FileStream file = File.Open (Application.persistentDataPath + "/saveData.dat", FileMode.Open);

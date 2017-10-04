@@ -10,6 +10,7 @@ public class Door : MonoBehaviour {
 	[SerializeField] private Door other;
 	[SerializeField] private bool switchAreaTrigger;
 	[SerializeField] private int areaEntryId;
+	[SerializeField] string sceneToLoad;
 	
 	
 
@@ -59,8 +60,8 @@ public class Door : MonoBehaviour {
 		GameControl.control.fadeImage ("black");
 		yield return StartCoroutine (movePlayer (c, playerSpawn.transform.position));
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
-		GameControl.control.SetAreaEntryID(1);
-		SceneManager.LoadScene("Dev_Josh");//swap this for a configurable option for any door
+		GameControl.control.SetAreaEntryID(areaEntryId);
+		SceneManager.LoadScene(sceneToLoad);//swap this for a configurable option for any door
 	}
 
 	/// <summary>
