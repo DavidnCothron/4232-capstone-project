@@ -165,6 +165,13 @@ public class CameraController : MonoBehaviour {
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
 	}
 
+	///<summary>
+	/// Method that sets the cameraFadeImage to black. Used for area transitioning in
+	///</summary>
+	public void setToBlack(){
+		cameraFadeImage.color = Color.black;
+	}
+
 	/// <summary>
 	/// Fades an image covering the camera viewport to clear.
 	/// </summary>

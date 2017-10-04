@@ -17,7 +17,7 @@ public class GameControl : MonoBehaviour {
 	public RoomController rc;
 	private bool beatBoss1, beatBoss2, beatBoss3; 
 	[SerializeField] private bool phaseAbility, projectileAbility, chargeAttackAbility;
-	private int roomID, areaID;
+	private int areaEntryID;
 
 	//float value used to store time (in seconds) that a room transition takes
 	[SerializeField] private float roomTransitionTime;
@@ -35,7 +35,7 @@ public class GameControl : MonoBehaviour {
 		}
 		setRoomIDs ();
 	}
-
+	
 	public void Save(){
 		BinaryFormatter bf = new BinaryFormatter ();	
 		FileStream file = File.Open (Application.persistentDataPath + "/saveData.dat", FileMode.Open);
@@ -78,11 +78,12 @@ public class GameControl : MonoBehaviour {
 		}	
 	}
 
-	public void SetRoomAreaID(int room, int area)
+	public void SetAreaEntryID(int entryID)
 	{
-		//Call to this from RoomController;
-		roomID = room;
-		areaID = area;
+		areaEntryID = entryID;
+	}
+	public int GetAreaEntryID(){
+		return areaEntryID;
 	}
 
 	public void SetBossDefeated(int bossID){
@@ -168,6 +169,8 @@ public class GameControl : MonoBehaviour {
 	public void fadeImage(string s) {
 		if (s.Equals ("black"))
 			StartCoroutine (Camera.main.GetComponent<CameraController> ().fadeToBlack ());
+		else if(s.Equals("startBlack"))
+			Camera.main.GetComponent<CameraController> ().setToBlack();
 		else
 			StartCoroutine (Camera.main.GetComponent<CameraController> ().fadeToClear ());
 	}
@@ -183,7 +186,7 @@ public class GameControl : MonoBehaviour {
 	}
 
 	//return the room transition time
-	public float getRoomTransTime() {
+	public float getRoomTransTime() {//stores next area spawn room based on previous area exit
 		return roomTransitionTime;
 	}
 

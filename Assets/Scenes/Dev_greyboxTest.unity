@@ -193,6 +193,8 @@ MonoBehaviour:
   playerSpawn: {fileID: 1278304065}
   playerDestination: {fileID: 1948662544}
   other: {fileID: 211647348}
+  switchAreaTrigger: 0
+  areaEntryId: 0
 --- !u!212 &60619674
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -366,6 +368,8 @@ MonoBehaviour:
   playerSpawn: {fileID: 992950918}
   playerDestination: {fileID: 579032448}
   other: {fileID: 60619673}
+  switchAreaTrigger: 0
+  areaEntryId: 0
 --- !u!4 &211647349
 Transform:
   m_ObjectHideFlags: 0
@@ -744,15 +748,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4765430630486842, guid: 48f85dc461c749e45901f2361389366d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.253085
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4765430630486842, guid: 48f85dc461c749e45901f2361389366d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.7821706
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4765430630486842, guid: 48f85dc461c749e45901f2361389366d, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.0859375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4765430630486842, guid: 48f85dc461c749e45901f2361389366d, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1900,6 +1904,7 @@ MonoBehaviour:
   player: {fileID: 1852522375}
   enemies: []
   roomID: 
+  areaRoomID: 0
 --- !u!4 &1181207515
 Transform:
   m_ObjectHideFlags: 0
@@ -3637,6 +3642,7 @@ MonoBehaviour:
   player: {fileID: 1852522375}
   enemies: []
   roomID: 
+  areaRoomID: 0
 --- !u!4 &2072229423
 Transform:
   m_ObjectHideFlags: 0

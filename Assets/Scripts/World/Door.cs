@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Door : MonoBehaviour {
@@ -7,6 +8,10 @@ public class Door : MonoBehaviour {
 	[SerializeField] private GameObject playerSpawn;
 	[SerializeField] private GameObject playerDestination;
 	[SerializeField] private Door other;
+	[SerializeField] private bool switchAreaTrigger;
+	[SerializeField] private int areaEntryId;
+	
+	
 
 	/// <summary>
 	/// Gets the camera pivot associated with this door.
@@ -33,8 +38,49 @@ public class Door : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D c){
-		if (c.tag == "Player" && !c.GetComponent<PlayerPlatformerController>().haltInput)
+		if(c.tag == "Player" && !c.GetComponent<PlayerPlatformerController>().haltInput && switchAreaTrigger){
+			StartCoroutine(areaTransitionOut(c));			
+		}	
+		else if (c.tag == "Player" && !c.GetComponent<PlayerPlatformerController>().haltInput)
 			StartCoroutine (roomTransition (c));
+	}
+
+	/// <summary>
+	/// Handles the transition out of an area. Called from doors with 'switchAreaTrigger' equal to true in OnTriggerEnter2D
+	/// </summary>
+	/// <returns>The transition in</returns>
+	/// <param name="c">C.</param>
+	IEnumerator areaTransitionOut(Collider2D c){
+		Debug.Log("test area transition Out");
+		//Set body type to kinematic to ensure smooth transition (doesn't look right yet)
+		c.GetComponent<PlayerPlatformerController> ().haltInput = true;
+		c.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+
+		GameControl.control.fadeImage ("black");
+		yield return StartCoroutine (movePlayer (c, playerSpawn.transform.position));
+		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
+		GameControl.control.SetAreaEntryID(1);
+		SceneManager.LoadScene("Dev_Josh");//swap this for a configurable option for any door
+	}
+
+	/// <summary>
+	/// Handles the transition into a new area. Called from AreaControl for a given scene/area. 
+	/// </summary>
+	/// <returns>The transition in</returns>
+	/// <param name="c">C.</param>
+	public IEnumerator areaTransitionIn(Collider2D c){
+		Debug.Log("test area transition In");
+		c.GetComponent<PlayerPlatformerController> ().haltInput = true;
+		c.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+		GameControl.control.fadeImage ("startBlack");
+
+		c.transform.position = this.getSpawn ().transform.position;
+		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
+		GameControl.control.fadeImage ("");
+		yield return StartCoroutine (movePlayer (c, this.getDestination ().transform.position));
+
+		//Resets the RigidbodyType2D to Dynamic and returns input control to the player
+		c.GetComponent<PlayerPlatformerController> ().haltInput = false;
 	}
 
 	/// <summary>
