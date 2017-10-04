@@ -114,8 +114,8 @@ MonoBehaviour:
   manaCost: 1
   direction: {x: 0, y: 0}
   lifeTime: 2
-  rigidBody: {fileID: 0}
-  animator: {fileID: 0}
+  rigidBody: {fileID: 50693811628932198}
+  animator: {fileID: 95498311109467318}
 --- !u!212 &212721124881121888
 SpriteRenderer:
   m_ObjectHideFlags: 1
