@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+
 public class Door : MonoBehaviour {
 	[SerializeField] private GameObject cameraPivot;
 	[SerializeField] private GameObject playerSpawn;
 	[SerializeField] private GameObject playerDestination;
 	[SerializeField] private Door other;
 	[SerializeField] private bool switchAreaTrigger;
-	[SerializeField] private int areaEntryId;
+	[SerializeField] private int currentAreaID;
+	[SerializeField] private int nextAreaID;
+	[SerializeField] private int currentAccessPointID;
+	[SerializeField] private int nextAccessPointID;//need to init tuples
+	private AreaTransTuple currentArea;
+	private AreaTransTuple nextArea;
 	[SerializeField] string sceneToLoad;
 	
 	
@@ -38,6 +44,13 @@ public class Door : MonoBehaviour {
 		return playerDestination;
 	}
 
+	public void initAreaTuple(){
+		currentArea.areaID = currentAreaID;
+		currentArea.accessPointID = currentAccessPointID;
+		nextArea.areaID = nextAreaID;
+		nextArea.accessPointID = nextAccessPointID;
+	}
+
 	void OnTriggerEnter2D(Collider2D c){
 		if(c.tag == "Player" && !c.GetComponent<PlayerPlatformerController>().haltInput && switchAreaTrigger){
 			StartCoroutine(areaTransitionOut(c));			
@@ -52,15 +65,15 @@ public class Door : MonoBehaviour {
 	/// <returns>The transition in</returns>
 	/// <param name="c">C.</param>
 	IEnumerator areaTransitionOut(Collider2D c){
-		Debug.Log("test area transition Out");
 		//Set body type to kinematic to ensure smooth transition (doesn't look right yet)
 		c.GetComponent<PlayerPlatformerController> ().haltInput = true;
 		c.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 
+		initAreaTuple();
 		GameControl.control.fadeImage ("black");
 		yield return StartCoroutine (movePlayer (c, playerSpawn.transform.position));
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
-		GameControl.control.SetAreaEntryID(areaEntryId);
+		GameControl.control.TransitionAreas(currentArea, nextArea);
 		SceneManager.LoadScene(sceneToLoad);//swap this for a configurable option for any door
 	}
 
@@ -70,7 +83,6 @@ public class Door : MonoBehaviour {
 	/// <returns>The transition in</returns>
 	/// <param name="c">C.</param>
 	public IEnumerator areaTransitionIn(Collider2D c){
-		Debug.Log("test area transition In");
 		c.GetComponent<PlayerPlatformerController> ().haltInput = true;
 		c.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 		GameControl.control.fadeImage ("startBlack");

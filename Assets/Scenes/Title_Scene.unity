@@ -427,6 +427,11 @@ Prefab:
       propertyPath: sceneToLoad
       value: Dev_Josh
       objectReference: {fileID: 0}
+    - target: {fileID: 114423809752806898, guid: 692ec79cc7407d748afc739b4f37151f,
+        type: 2}
+      propertyPath: nextAreaID
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 692ec79cc7407d748afc739b4f37151f, type: 2}
   m_IsPrefabParent: 0
@@ -2099,7 +2104,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4768743568527134, guid: cc8c520a32acbb14eb8081e68414da91, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4768743568527134, guid: cc8c520a32acbb14eb8081e68414da91, type: 2}
       propertyPath: m_LocalPosition.y

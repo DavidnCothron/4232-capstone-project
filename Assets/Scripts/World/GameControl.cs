@@ -6,6 +6,12 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System;
 
+public struct AreaTransTuple{
+	public int areaID;
+	public int accessPointID;
+
+}
+
 public class GameControl : MonoBehaviour {
 
 	//delegate void onSceneChanged();
@@ -18,7 +24,8 @@ public class GameControl : MonoBehaviour {
 	public RoomController rc;
 	private bool beatBoss1, beatBoss2, beatBoss3; 
 	[SerializeField] private bool phaseAbility, projectileAbility, chargeAttackAbility;
-	[SerializeField] private int areaEntryID;
+	[SerializeField] private AreaTransTuple nextArea;
+	private Dictionary<AreaTransTuple, AreaTransTuple> areaAccessPointMappings = new Dictionary<AreaTransTuple, AreaTransTuple>();
 
 	//float value used to store time (in seconds) that a room transition takes
 	[SerializeField] private float roomTransitionTime;
@@ -88,13 +95,28 @@ public class GameControl : MonoBehaviour {
 			#endregion
 		}	
 	}
-
-	public void SetAreaEntryID(int entryID)
-	{
-		areaEntryID = entryID;
+	
+	public void MapAreaTransitionDoors(AreaTransTuple current, AreaTransTuple next){
+		if(!areaAccessPointMappings.ContainsKey(current)){
+			areaAccessPointMappings.Add(current, next);
+			Debug.Log("linked current to next\n next area ID: " + areaAccessPointMappings[current].areaID);
+			if(!areaAccessPointMappings.ContainsKey(next))
+				areaAccessPointMappings.Add(next, current); Debug.Log("linked next to current\n previous area ID: " + areaAccessPointMappings[next].areaID);			
+		}		
 	}
-	public int GetAreaEntryID(){
-		return areaEntryID;
+	public void TransitionAreas(AreaTransTuple current, AreaTransTuple next){
+		MapAreaTransitionDoors(current, next);
+		SetNextArea(areaAccessPointMappings[current]);
+		Debug.Log("next area set to: " + areaAccessPointMappings[current].areaID);
+	}
+
+	public void SetNextArea(AreaTransTuple next)
+	{
+		nextArea = next;
+	}
+
+	public AreaTransTuple GetNextArea(){
+		return nextArea;
 	}
 
 	public void SetBossDefeated(int bossID){
@@ -112,7 +134,7 @@ public class GameControl : MonoBehaviour {
 		}
 	}
 	
-		public void ItemPickup(string item, bool setValue){
+	public void ItemPickup(string item, bool setValue){
 		switch(item){
 			case "healthRegain":
 				phmc.GainHealth(1);
