@@ -67,7 +67,7 @@ public class UnityDepth : MonoBehaviour {
 		//Done using fieldOfView and screenHeight
 		float distance = screenHeight / Mathf.Tan (Camera.main.fieldOfView * 0.5f * Mathf.Deg2Rad);
 		//Debug.Log ("Calculated using fov = " + distance);
-		pixelResolution(screenWidth, screenHeight);
+		//pixelResolution(screenWidth, screenHeight);
 	}
 
 	void determineTilePixelDim() {
