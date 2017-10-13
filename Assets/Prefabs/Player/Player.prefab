@@ -73,7 +73,7 @@ Transform:
   m_GameObject: {fileID: 1893841220926510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.054469217, y: 0.10893721, z: 0}
-  m_LocalScale: {x: -3.3, y: 3.3, z: 1}
+  m_LocalScale: {x: 3.3, y: 3.3, z: 1}
   m_Children:
   - {fileID: 4212309947958486}
   m_Father: {fileID: 0}
@@ -111,7 +111,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.5}
   m_Size: {x: 0.6636322, y: 1.0056076}
   m_Direction: 0
 --- !u!70 &70593923554172912
@@ -232,7 +232,7 @@ MonoBehaviour:
     healthBar:
       bar: {fileID: 0}
       maxVal: 4
-      currentVal: 0
+      currentVal: 3
   playerMagic: 3
   magicRegen: 1
   playerHealth: 4
@@ -288,6 +288,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -303,6 +304,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -311,7 +313,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d820917408033454db99818bcdc6123a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7966f4ec42330a44e8f3a45389ae9b98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

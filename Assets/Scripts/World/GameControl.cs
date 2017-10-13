@@ -9,7 +9,6 @@ using System;
 public struct AreaTransTuple{
 	public int areaID;
 	public int accessPointID;
-
 }
 
 public class GameControl : MonoBehaviour {
@@ -25,7 +24,7 @@ public class GameControl : MonoBehaviour {
 	private bool beatBoss1, beatBoss2, beatBoss3; 
 	[SerializeField] private bool phaseAbility, projectileAbility, chargeAttackAbility;
 	[SerializeField] private AreaTransTuple nextArea;
-	private Dictionary<AreaTransTuple, AreaTransTuple> areaAccessPointMappings = new Dictionary<AreaTransTuple, AreaTransTuple>();
+	private Dictionary<AreaTransTuple, AreaTransTuple> areaAccessPointMappings = new Dictionary<AreaTransTuple, AreaTransTuple>(); //could save this dictionary in save file at some point
 
 	//float value used to store time (in seconds) that a room transition takes
 	[SerializeField] private float roomTransitionTime;

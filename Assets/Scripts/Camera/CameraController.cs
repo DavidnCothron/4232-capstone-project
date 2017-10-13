@@ -48,7 +48,6 @@ public class CameraController : MonoBehaviour {
 			UnityDepth.instance.PPU = 32;
 		}
 
-		GetComponent<Transform> ().SetPositionAndRotation(new Vector3(0f,0f,-UnityDepth.instance.unityDepth2), Quaternion.identity);
 		camera = this.GetComponent<Camera> ();
 		player = GameObject.FindWithTag ("Player");
 
@@ -64,6 +63,7 @@ public class CameraController : MonoBehaviour {
 	//future to incoperate player moving from room to room
 	void Start(){
 		getRoomCorners ();
+		camera.transform.SetPositionAndRotation(new Vector3(0f,0f,-UnityDepth.instance.unityDepth2), Quaternion.identity);
 	}
 
 	void FixedUpdate () {
@@ -71,7 +71,7 @@ public class CameraController : MonoBehaviour {
 		//basically lerps the camera closer to its target position over time
 		posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
 		posY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y + 1.5f, ref velocity.y, smoothTimeY) + .05f;
-
+		//camera.transform.SetPositionAndRotation(new Vector3(camera.transform.position.x, camera.transform.position.y ,-UnityDepth.instance.unityDepth2), Quaternion.identity);
 		//calculates the distance the camera should be from the bounding walls and sets that as the new position
 		transform.position = new Vector3(
 			/*x*/	Mathf.Clamp(posX, wallBoundBL.x + Mathf.Abs(this.transform.position.x - cameraCont.VpBottomLeft.x), wallBoundTR.x - Mathf.Abs(this.transform.position.x - cameraCont.VpTopRight.x)),

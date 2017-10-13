@@ -30,7 +30,7 @@ public class UnityDepth : MonoBehaviour {
 
 	//SPRITE WORLD SPACE = -16.875 + zDistance
 	void Awake () {
-		centerToEdge = 8;
+		centerToEdge = 2;
 		viewProjection = Camera.main.projectionMatrix * Camera.main.worldToCameraMatrix;
 		FindUnityDepth ();
 
