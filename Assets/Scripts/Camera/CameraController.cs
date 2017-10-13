@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour {
 	private Vector3 velocity;
 	private float posX;
 	private float posY;
-	[SerializeField] private float smoothTimeY = 0.2f;
+	[SerializeField] private float smoothTimeY = .03f;
 	[SerializeField] private float smoothTimeX = 0.2f;
 
 	//Viewport Points
@@ -43,10 +43,12 @@ public class CameraController : MonoBehaviour {
 	//initializes Pixel Per Unit for the camera
 	//initializes camera/player and their controllers
 	void Awake(){
-		UnityDepth.instance.FindUnityDepth ();
+		//UnityDepth.instance.FindUnityDepth ();
 		if (UnityDepth.instance.PPU == null) {
 			UnityDepth.instance.PPU = 32;
 		}
+
+		GetComponent<Transform> ().SetPositionAndRotation(new Vector3(0f,0f,-UnityDepth.instance.unityDepth2), Quaternion.identity);
 		camera = this.GetComponent<Camera> ();
 		player = GameObject.FindWithTag ("Player");
 
@@ -68,7 +70,7 @@ public class CameraController : MonoBehaviour {
 		detectRoom ();
 		//basically lerps the camera closer to its target position over time
 		posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
-		posY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY) + .05f;
+		posY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y + 1.5f, ref velocity.y, smoothTimeY) + .05f;
 
 		//calculates the distance the camera should be from the bounding walls and sets that as the new position
 		transform.position = new Vector3(

@@ -37,14 +37,37 @@ public class PlayerPlatformerController : PhysicsObject {
 					velocity.y = velocity.y * 0.5f;
 				}
 			}
-
+			
 			bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f));
-			if (flipSprite)
-				spriteRenderer.flipX = !spriteRenderer.flipX;
+//			if (flipSprite)
+//				spriteRenderer.flipX = !spriteRenderer.flipX;
+			if (Input.GetAxis("Horizontal") < -0.1) 
+			{
+				spriteRenderer.flipX = true;
+			} 
+			else if (Input.GetAxis ("Horizontal") > 0.1) 
+			{
+				spriteRenderer.flipX = false;
+			}
 
 			//Handle animation state logic here
 			animator.SetBool ("grounded", grounded);
-			animator.SetFloat ("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
+			animator.SetFloat ("velocityX", Mathf.Abs (velocity.x) / maxSpeed);
+			animator.SetFloat ("velocityY", velocity.y / maxSpeed);
+
+			if (Mathf.Abs(Input.GetAxis("Horizontal")) != 0 && grounded)
+			{
+				animator.SetBool ("startRun", true);
+				if (Mathf.Abs(velocity.x) > 0.1f)
+					animator.SetBool ("isRunning", true);
+				else
+					animator.SetBool ("isRunning", false);
+			} 
+			else 
+			{
+				animator.SetBool ("startRun", false);
+				animator.SetBool ("isRunning", false);
+			}
 
 			//Apply target velocity here, which is utilized in the physics base
 			targetVelocity = move * maxSpeed;

@@ -94,10 +94,12 @@ public class PlayerController : MonoBehaviour {
 		//Flip character depending on character direction 
 		if (Input.GetAxis ("Horizontal") < 0)
 		{
+			Debug.Log ("moving left");
 			spriteRenderer.flipX = true;
 		}
 		else if(Input.GetAxis ("Horizontal") > 0)
 		{
+			Debug.Log ("moving right");
 			spriteRenderer.flipX = false;
 		}
 

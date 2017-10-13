@@ -1,0 +1,3577 @@
+fileFormatVersion: 2
+guid: 7966f4ec42330a44e8f3a45389ae9b98
+timeCreated: 1507649405
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: AlucardNew3_0
+    21300002: AlucardNew3_1
+    21300004: AlucardNew3_2
+    21300006: AlucardNew3_3
+    21300008: AlucardNew3_4
+    21300010: AlucardNew3_5
+    21300012: AlucardNew3_6
+    21300014: AlucardNew3_7
+    21300016: AlucardNew3_8
+    21300018: AlucardNew3_9
+    21300020: AlucardNew3_10
+    21300022: AlucardNew3_11
+    21300024: AlucardNew3_12
+    21300026: AlucardNew3_13
+    21300028: AlucardNew3_14
+    21300030: AlucardNew3_15
+    21300032: AlucardNew3_16
+    21300034: AlucardNew3_17
+    21300036: AlucardNew3_18
+    21300038: AlucardNew3_19
+    21300040: AlucardNew3_20
+    21300042: AlucardNew3_21
+    21300044: AlucardNew3_22
+    21300046: AlucardNew3_23
+    21300048: AlucardNew3_24
+    21300050: AlucardNew3_25
+    21300052: AlucardNew3_26
+    21300054: AlucardNew3_27
+    21300056: AlucardNew3_28
+    21300058: AlucardNew3_29
+    21300060: AlucardNew3_30
+    21300062: AlucardNew3_31
+    21300064: AlucardNew3_32
+    21300066: AlucardNew3_33
+    21300068: AlucardNew3_34
+    21300070: AlucardNew3_35
+    21300072: AlucardNew3_36
+    21300074: AlucardNew3_37
+    21300076: AlucardNew3_38
+    21300078: AlucardNew3_39
+    21300080: AlucardNew3_40
+    21300082: AlucardNew3_41
+    21300084: AlucardNew3_42
+    21300086: AlucardNew3_43
+    21300088: AlucardNew3_44
+    21300090: AlucardNew3_45
+    21300092: AlucardNew3_46
+    21300094: AlucardNew3_47
+    21300096: AlucardNew3_48
+    21300098: AlucardNew3_49
+    21300100: AlucardNew3_50
+    21300102: AlucardNew3_51
+    21300104: AlucardNew3_52
+    21300106: AlucardNew3_53
+    21300108: AlucardNew3_54
+    21300110: AlucardNew3_55
+    21300112: AlucardNew3_56
+    21300114: AlucardNew3_57
+    21300116: AlucardNew3_58
+    21300118: AlucardNew3_59
+    21300120: AlucardNew3_60
+    21300122: AlucardNew3_61
+    21300124: AlucardNew3_62
+    21300126: AlucardNew3_63
+    21300128: AlucardNew3_64
+    21300130: AlucardNew3_65
+    21300132: AlucardNew3_66
+    21300134: AlucardNew3_67
+    21300136: AlucardNew3_68
+    21300138: AlucardNew3_69
+    21300140: AlucardNew3_70
+    21300142: AlucardNew3_71
+    21300144: AlucardNew3_72
+    21300146: AlucardNew3_73
+    21300148: AlucardNew3_74
+    21300150: AlucardNew3_75
+    21300152: AlucardNew3_76
+    21300154: AlucardNew3_77
+    21300156: AlucardNew3_78
+    21300158: AlucardNew3_79
+    21300160: AlucardNew3_80
+    21300162: AlucardNew3_81
+    21300164: AlucardNew3_82
+    21300166: AlucardNew3_83
+    21300168: AlucardNew3_84
+    21300170: AlucardNew3_85
+    21300172: AlucardNew3_86
+    21300174: AlucardNew3_87
+    21300176: AlucardNew3_88
+    21300178: AlucardNew3_89
+    21300180: AlucardNew3_90
+    21300182: AlucardNew3_91
+    21300184: AlucardNew3_92
+    21300186: AlucardNew3_93
+    21300188: AlucardNew3_94
+    21300190: AlucardNew3_95
+    21300192: AlucardNew3_96
+    21300194: AlucardNew3_97
+    21300196: AlucardNew3_98
+    21300198: AlucardNew3_99
+    21300200: AlucardNew3_100
+    21300202: AlucardNew3_101
+    21300204: AlucardNew3_102
+    21300206: AlucardNew3_103
+    21300208: AlucardNew3_104
+    21300210: AlucardNew3_105
+    21300212: AlucardNew3_106
+    21300214: AlucardNew3_107
+    21300216: AlucardNew3_108
+    21300218: AlucardNew3_109
+    21300220: AlucardNew3_110
+    21300222: AlucardNew3_111
+    21300224: AlucardNew3_112
+    21300226: AlucardNew3_113
+    21300228: AlucardNew3_114
+    21300230: AlucardNew3_115
+    21300232: AlucardNew3_116
+    21300234: AlucardNew3_117
+    21300236: AlucardNew3_118
+    21300238: AlucardNew3_119
+    21300240: AlucardNew3_120
+    21300242: AlucardNew3_121
+    21300244: AlucardNew3_122
+    21300246: AlucardNew3_123
+    21300248: AlucardNew3_124
+    21300250: AlucardNew3_125
+    21300252: AlucardNew3_126
+    21300254: AlucardNew3_127
+    21300256: AlucardNew3_128
+    21300258: AlucardNew3_129
+    21300260: AlucardNew3_130
+    21300262: AlucardNew3_131
+    21300264: AlucardNew3_132
+    21300266: AlucardNew3_133
+    21300268: AlucardNew3_134
+    21300270: AlucardNew3_135
+    21300272: AlucardNew3_136
+    21300274: AlucardNew3_137
+    21300276: AlucardNew3_138
+    21300278: AlucardNew3_139
+    21300280: AlucardNew3_140
+    21300282: AlucardNew3_141
+    21300284: AlucardNew3_142
+    21300286: AlucardNew3_143
+    21300288: AlucardNew3_144
+    21300290: AlucardNew3_145
+    21300292: AlucardNew3_146
+    21300294: AlucardNew3_147
+    21300296: AlucardNew3_148
+    21300298: AlucardNew3_149
+    21300300: AlucardNew3_150
+    21300302: AlucardNew3_151
+    21300304: AlucardNew3_152
+    21300306: AlucardNew3_153
+    21300308: AlucardNew3_154
+    21300310: AlucardNew3_155
+    21300312: AlucardNew3_156
+    21300314: AlucardNew3_157
+    21300316: AlucardNew3_158
+    21300318: AlucardNew3_159
+    21300320: AlucardNew3_160
+    21300322: AlucardNew3_161
+    21300324: AlucardNew3_162
+    21300326: AlucardNew3_163
+    21300328: AlucardNew3_164
+    21300330: AlucardNew3_165
+    21300332: AlucardNew3_166
+    21300334: AlucardNew3_167
+    21300336: AlucardNew3_168
+    21300338: AlucardNew3_169
+    21300340: AlucardNew3_170
+    21300342: AlucardNew3_171
+    21300344: AlucardNew3_172
+    21300346: AlucardNew3_173
+    21300348: AlucardNew3_174
+    21300350: AlucardNew3_175
+    21300352: AlucardNew3_176
+    21300354: AlucardNew3_177
+    21300356: AlucardNew3_178
+    21300358: AlucardNew3_179
+    21300360: AlucardNew3_180
+    21300362: AlucardNew3_181
+    21300364: AlucardNew3_182
+    21300366: AlucardNew3_183
+    21300368: AlucardNew3_184
+    21300370: AlucardNew3_185
+    21300372: AlucardNew3_186
+    21300374: AlucardNew3_187
+    21300376: AlucardNew3_188
+    21300378: AlucardNew3_189
+    21300380: AlucardNew3_190
+    21300382: AlucardNew3_191
+    21300384: AlucardNew3_192
+    21300386: AlucardNew3_193
+    21300388: AlucardNew3_194
+    21300390: AlucardNew3_195
+    21300392: AlucardNew3_196
+    21300394: AlucardNew3_197
+    21300396: AlucardNew3_198
+    21300398: AlucardNew3_199
+    21300400: AlucardNew3_200
+    21300402: AlucardNew3_201
+    21300404: AlucardNew3_202
+    21300406: AlucardNew3_203
+    21300408: AlucardNew3_204
+    21300410: AlucardNew3_205
+    21300412: AlucardNew3_206
+    21300414: AlucardNew3_207
+    21300416: AlucardNew3_208
+    21300418: AlucardNew3_209
+    21300420: AlucardNew3_210
+    21300422: AlucardNew3_211
+    21300424: AlucardNew3_212
+    21300426: AlucardNew3_213
+    21300428: AlucardNew3_214
+    21300430: AlucardNew3_215
+    21300432: AlucardNew3_216
+    21300434: AlucardNew3_217
+    21300436: AlucardNew3_218
+    21300438: AlucardNew3_219
+    21300440: AlucardNew3_220
+    21300442: AlucardNew3_221
+    21300444: AlucardNew3_222
+    21300446: AlucardNew3_223
+    21300448: AlucardNew3_224
+    21300450: AlucardNew3_225
+    21300452: AlucardNew3_226
+    21300454: AlucardNew3_227
+    21300456: AlucardNew3_228
+    21300458: AlucardNew3_229
+    21300460: AlucardNew3_230
+    21300462: AlucardNew3_231
+    21300464: AlucardNew3_232
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 32
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AlucardNew3_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 840
+        width: 23
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 840
+        width: 44
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 840
+        width: 41
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_3
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 840
+        width: 43
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_4
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 856
+        width: 42
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_5
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 864
+        width: 38
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_6
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 864
+        width: 26
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_7
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 866
+        width: 35
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_8
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 840
+        width: 23
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_9
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 840
+        width: 23
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_10
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 840
+        width: 23
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_11
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 840
+        width: 23
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_12
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 840
+        width: 22
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_13
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 840
+        width: 23
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_14
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 840
+        width: 31
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_15
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 840
+        width: 41
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_16
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 840
+        width: 43
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_17
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 840
+        width: 44
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_18
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 824
+        width: 41
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_19
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 832
+        width: 37
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_20
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 832
+        width: 28
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_21
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 840
+        width: 28
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_22
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 834
+        width: 38
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_23
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 776
+        width: 42
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_24
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 776
+        width: 45
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_25
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 776
+        width: 43
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_26
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 776
+        width: 43
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_27
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 792
+        width: 40
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_28
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 800
+        width: 30
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_29
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 792
+        width: 32
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_30
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 776
+        width: 26
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_31
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 776
+        width: 24
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_32
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 776
+        width: 18
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_33
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 776
+        width: 18
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_34
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 776
+        width: 23
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_35
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 776
+        width: 23
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_36
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 776
+        width: 24
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_37
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 776
+        width: 26
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_38
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 776
+        width: 24
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_39
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 776
+        width: 25
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_40
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 776
+        width: 42
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_41
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 776
+        width: 42
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_42
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 776
+        width: 46
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_43
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 776
+        width: 47
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_44
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 712
+        width: 48
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_45
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 712
+        width: 48
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_46
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 647
+        width: 41
+        height: 97
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_47
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 712
+        width: 43
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_48
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 712
+        width: 37
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_49
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 712
+        width: 41
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_50
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 712
+        width: 39
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_51
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 712
+        width: 36
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_52
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 712
+        width: 28
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_53
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 712
+        width: 17
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_54
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 712
+        width: 18
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_55
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 712
+        width: 30
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_56
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 712
+        width: 30
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_57
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 712
+        width: 39
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_58
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 712
+        width: 31
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_59
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 648
+        width: 46
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_60
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 648
+        width: 42
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_61
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 649
+        width: 36
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_62
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 648
+        width: 37
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_63
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 648
+        width: 35
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_64
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 648
+        width: 36
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_65
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 648
+        width: 38
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_66
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 648
+        width: 25
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_67
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 648
+        width: 19
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_68
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 648
+        width: 36
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_69
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 648
+        width: 36
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_70
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 648
+        width: 24
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_71
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 648
+        width: 23
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_72
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 648
+        width: 22
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_73
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 648
+        width: 26
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_74
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 584
+        width: 19
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_75
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 584
+        width: 18
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_76
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 584
+        width: 23
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_77
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 584
+        width: 24
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_78
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 584
+        width: 34
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_79
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 584
+        width: 41
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_80
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 586
+        width: 41
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_81
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 584
+        width: 40
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_82
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 584
+        width: 31
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_83
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 584
+        width: 24
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_84
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 584
+        width: 27
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_85
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 579
+        width: 52
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_86
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 581
+        width: 50
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_87
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 581
+        width: 67
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_88
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 577
+        width: 47
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_89
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 580
+        width: 69
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_90
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 585
+        width: 30
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_91
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 520
+        width: 22
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_92
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 520
+        width: 20
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_93
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 520
+        width: 30
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_94
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 520
+        width: 25
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_95
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 520
+        width: 39
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_96
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 520
+        width: 40
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_97
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 520
+        width: 36
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_98
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 520
+        width: 34
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_99
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 520
+        width: 35
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_100
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 520
+        width: 38
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_101
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 520
+        width: 24
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_102
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 518
+        width: 44
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_103
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 518
+        width: 52
+        height: 57
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_104
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 517
+        width: 68
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_105
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 521
+        width: 39
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_106
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 524
+        width: 43
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_107
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 527
+        width: 33
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_108
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 440
+        width: 107
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_109
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 465
+        width: 46
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_110
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 465
+        width: 51
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_111
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 456
+        width: 43
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_112
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 461
+        width: 37
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_113
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 456
+        width: 29
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_114
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 457
+        width: 36
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_115
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 456
+        width: 38
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_116
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 456
+        width: 47
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_117
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 456
+        width: 60
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_118
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 480
+        width: 23
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_119
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 455
+        width: 29
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_120
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 455
+        width: 31
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_121
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 464
+        width: 36
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_122
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 465
+        width: 28
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_123
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 465
+        width: 28
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_124
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 465
+        width: 29
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_125
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 469
+        width: 22
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_126
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 448
+        width: 22
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_127
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 418
+        width: 36
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_128
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 418
+        width: 31
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_129
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 418
+        width: 32
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_130
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 392
+        width: 22
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_131
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 392
+        width: 37
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_132
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 397
+        width: 45
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_133
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 395
+        width: 40
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_134
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 394
+        width: 39
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_135
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 398
+        width: 43
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_136
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 394
+        width: 36
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_137
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 392
+        width: 34
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_138
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 392
+        width: 32
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_139
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 394
+        width: 50
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_140
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 392
+        width: 43
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_141
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 416
+        width: 22
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_142
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 390
+        width: 25
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_143
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 389
+        width: 24
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_144
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 392
+        width: 31
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_145
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_146
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 384
+        width: 24
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_147
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 401
+        width: 4
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_148
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 401
+        width: 5
+        height: 7
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_149
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 401
+        width: 6
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_150
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 401
+        width: 7
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_151
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 404
+        width: 8
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_152
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 328
+        width: 21
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_153
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 328
+        width: 21
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_154
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 328
+        width: 21
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_155
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 328
+        width: 21
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_156
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 328
+        width: 32
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_157
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 328
+        width: 32
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_158
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 328
+        width: 34
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_159
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 328
+        width: 32
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_160
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 328
+        width: 30
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_161
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 330
+        width: 29
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_162
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 331
+        width: 28
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_163
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 328
+        width: 27
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_164
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 328
+        width: 34
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_165
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 330
+        width: 39
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_166
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 330
+        width: 37
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_167
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 328
+        width: 22
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_168
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 328
+        width: 22
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_169
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 328
+        width: 21
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_170
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 328
+        width: 19
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_171
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 329
+        width: 44
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_172
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 329
+        width: 42
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_173
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 264
+        width: 25
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_174
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 264
+        width: 31
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_175
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 264
+        width: 32
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_176
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 264
+        width: 40
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_177
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 264
+        width: 29
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_178
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 265
+        width: 29
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_179
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 267
+        width: 27
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_180
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 265
+        width: 26
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_181
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 264
+        width: 39
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_182
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 265
+        width: 37
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_183
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 266
+        width: 39
+        height: 42
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_184
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 265
+        width: 35
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_185
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 264
+        width: 18
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_186
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 264
+        width: 18
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_187
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 264
+        width: 17
+        height: 49
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_188
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 265
+        width: 17
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_189
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 263
+        width: 20
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_190
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 263
+        width: 30
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_191
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 202
+        width: 43
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_192
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 204
+        width: 44
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_193
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 205
+        width: 45
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_194
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 206
+        width: 44
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_195
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 192
+        width: 45
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_196
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 190
+        width: 47
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_197
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 200
+        width: 45
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_198
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 200
+        width: 43
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_199
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 200
+        width: 40
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_200
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 200
+        width: 38
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_201
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 200
+        width: 24
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_202
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 200
+        width: 23
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_203
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 200
+        width: 21
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_204
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 200
+        width: 22
+        height: 47
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_205
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 224
+        width: 26
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_206
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 194
+        width: 53
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_207
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 200
+        width: 37
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_208
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 200
+        width: 36
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_209
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 192
+        width: 52
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_210
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 142
+        width: 47
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_211
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 143
+        width: 47
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_212
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 140
+        width: 45
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_213
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 130
+        width: 46
+        height: 57
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_214
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 141
+        width: 41
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_215
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 141
+        width: 42
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_216
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 136
+        width: 36
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_217
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 136
+        width: 40
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_218
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 136
+        width: 34
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_219
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 136
+        width: 30
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_220
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 131
+        width: 41
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_221
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 136
+        width: 41
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_222
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 160
+        width: 39
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_223
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 130
+        width: 56
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_224
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 136
+        width: 32
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_225
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 136
+        width: 30
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_226
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 128
+        width: 49
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_227
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 75
+        width: 60
+        height: 44
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_228
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 74
+        width: 38
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_229
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 8
+        width: 47
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_230
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 8
+        width: 48
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_231
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 2
+        width: 44
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AlucardNew3_232
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 2
+        width: 43
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

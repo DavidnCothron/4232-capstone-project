@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class UnityDepth : MonoBehaviour {
 
-	public float unityDepth, focusZ, PPU, screenResHeight, screenResWidth; //Screen.currentResolution.height - Screen.currentResolution.Width
+	public float unityDepth, unityDepth2, focusZ, PPU, screenResHeight, screenResWidth; //Screen.currentResolution.height - Screen.currentResolution.Width
+	private int centerToEdge; // If 2, distance from play area will assume 1920x1080 pixels. If 4, 960x540, etc.
 	public Dictionary<int,float> layerAndPPU;
 	public Matrix4x4 viewProjection = new Matrix4x4 ();
 
@@ -29,6 +30,7 @@ public class UnityDepth : MonoBehaviour {
 
 	//SPRITE WORLD SPACE = -16.875 + zDistance
 	void Awake () {
+		centerToEdge = 8;
 		viewProjection = Camera.main.projectionMatrix * Camera.main.worldToCameraMatrix;
 		FindUnityDepth ();
 
@@ -45,21 +47,35 @@ public class UnityDepth : MonoBehaviour {
 
 		//Done with screen width
 		//1920.0f can be replaced with Screen.width
-		float screenWidth = screenResWidth / PPU / 2.0f;
+		float screenWidth = screenResWidth / PPU / centerToEdge;
 		unityDepth = viewProjection [0] * screenWidth;
-
+		//Debug.Log ("viewProjection[0]: " + viewProjection [0]);
+		//Debug.Log ("screenWidth: " + screenWidth);
+		//Debug.Log ("unityDepth: " + unityDepth);
 		focusZ = unityDepth;
+
 		//If done with shifting FOV:
 		//focusZ = Camera.main.transform.position.z + unityDepth;
 
 		//Done with screen height
 		//1080.0f can be replaced by Screen.height
-		float screenHeight = screenResHeight / PPU / 2.0f;
-		float unityDepth2 = viewProjection [5] * screenHeight;
-
+		float screenHeight = screenResHeight / PPU / centerToEdge;
+		unityDepth2 = viewProjection [5] * screenHeight;
+		//Debug.Log ("screenHeight: " + screenHeight);
+		//Debug.Log ("viewProjection[5]" + viewProjection [5]);
+		//Debug.Log ("unityDepth2: " + unityDepth2);
 		//Done using fieldOfView and screenHeight
 		float distance = screenHeight / Mathf.Tan (Camera.main.fieldOfView * 0.5f * Mathf.Deg2Rad);
 		//Debug.Log ("Calculated using fov = " + distance);
+		pixelResolution(screenWidth, screenHeight);
+	}
+
+	void determineTilePixelDim() {
+		for (int i = 1; i < 100; i++) {
+			//if (384 % i == 0 && 216 % i == 0)
+			if (480 % i == 0 && 270 % i == 0)
+				Debug.Log (i);
+		}
 	}
 
 	void OnApplicationQuit(){
@@ -85,6 +101,15 @@ public class UnityDepth : MonoBehaviour {
 		return new KeyValuePair<int, float>(0,0f);
 	}
 
+	private void pixelResolution(float screenWidth, float screenHeight){
+		float pixelWidth, pixelHeight;
+		pixelWidth = screenWidth * PPU * 2f;
+		pixelHeight = screenHeight * PPU * 2f;
+		Debug.Log ("Given a centerToEdge of " + centerToEdge + ", and a given PPU of: " + PPU + 
+			", the pixelWidth of the viewport is: " + pixelWidth + ", the pixelHeight of the viewport is: " + pixelHeight);
+		Debug.Log ("The depth of the camera is: " + -unityDepth2);
+	}
+
 	public Texture2D textureFromSprite(Sprite sprite){
 		if (sprite.rect.width != sprite.texture.width) {
 			Texture2D newText = new Texture2D ((int)sprite.rect.width, (int)sprite.rect.height);
@@ -101,7 +126,6 @@ public class UnityDepth : MonoBehaviour {
 
 
 	/*
-	 * This class is a singleton. 
 	 * It moves the camera away from the world space based on a PPU (Pixels Per Unit) value.
 	 * This is done to give the main camera a pixel-perfect image while in perspective mode.
 	 * 
@@ -112,10 +136,9 @@ public class UnityDepth : MonoBehaviour {
 	 * That is, when PPU = 32, the orthographic size should be 16.875.
 	 * At 90 FOV and PPU = 32, the -z distance is exactly 16.875.
 	 * 
-	 * In the Dev_PlayerController scene, I chose a PPU of 374 because it closely matched the way
-	 * the scene looked before, and I didn't want to upset any dev testing.
-	 * 
-	 * I'm currently looking at using a PPU of 32 for scale, though.
+	 * Given 32 PPU, a centerToEdge value of 2 will give a pixel perfect camera with 1920x1080 pixels displayed
+	 * Given 32 PPU, a centerToEdge value of 4 will give a pixel perfect camera with 960x540 pixels displayed
+	 * Given 32 PPU, a centerToEdge value of 6 will give a pixel perfect camera with 640x360 pixels displayed
 	 * 
 	 * //matrix are linear unidimensional array - column major notation like this:
 	//
@@ -127,5 +150,7 @@ public class UnityDepth : MonoBehaviour {
 	// The first [0,0] element of the matrix (0) is the x scale - effects scale in x direction
 	// [1,1] element of the matrix (5) is the y scale
 	// [2,2] element of the matrix (10) is the z scale
+	// In SBM, PPU = 25, camera orthographicSize = 5.4, and the max size of each room was (roomDimX*roomDimY)/4 pixels. why?
+	
 	*/
 }
