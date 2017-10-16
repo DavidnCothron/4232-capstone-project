@@ -17,7 +17,7 @@ public class GameControl : MonoBehaviour {
 	public static GameControl control;
 	public GameObject player;
 	public PlayerHealthAndMagicController phmc;
-	public PlayerController pc;
+	public PlayerPlatformerController pc;
 	public PlayerMeleeScript pms;
 	public playerProjectileScript pps;
 	public RoomController rc;
@@ -43,11 +43,16 @@ public class GameControl : MonoBehaviour {
 		}
 		setRoomIDs ();
 	}
+
+	public Transform GetPlayerTransform()
+	{
+		return pc.transform;
+	}
 	
 	public void UpdatePlayerReferences(){
 		player = GameObject.Find("Player");
 		phmc = player.GetComponent(typeof(PlayerHealthAndMagicController)) as PlayerHealthAndMagicController;
-		pc = player.GetComponent(typeof(PlayerController)) as PlayerController;
+		pc = player.GetComponent(typeof(PlayerPlatformerController)) as PlayerPlatformerController;
 		pms = player.GetComponent(typeof(PlayerMeleeScript)) as PlayerMeleeScript;
 		pps = player.GetComponent(typeof(playerProjectileScript)) as playerProjectileScript;
 
