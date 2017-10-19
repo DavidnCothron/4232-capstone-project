@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114943608371709304}
   m_Layer: 5
   m_Name: BarSeparator
-  m_TagString: Untagged
+  m_TagString: barSeparator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.30980393, g: 0.1764706, b: 0.4784314, a: 1}
+  m_Color: {r: 0.27450982, g: 0.19607843, b: 0.36862746, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

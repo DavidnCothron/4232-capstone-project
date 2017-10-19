@@ -16,6 +16,9 @@ TagManager:
   - LeftBoundingWall
   - TopBoundingWall
   - melee
+  - healthMask
+  - magicMask
+  - barSeparator
   layers:
   - Default
   - TransparentFX

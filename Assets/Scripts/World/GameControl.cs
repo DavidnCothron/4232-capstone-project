@@ -44,6 +44,16 @@ public class GameControl : MonoBehaviour {
 		setRoomIDs ();
 	}
 
+	
+	void Update(){
+		if(Input.GetKeyDown(KeyCode.H)){
+			phmc.ScaleHealth(1);
+		}
+		if(Input.GetKeyDown(KeyCode.M)){
+			phmc.ScaleMagic(1);
+		}
+	}
+
 	public Transform GetPlayerTransform()
 	{
 		return pc.transform;
