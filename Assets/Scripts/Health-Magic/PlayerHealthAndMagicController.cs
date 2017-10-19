@@ -96,50 +96,49 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
 	#endregion
 
 	public void ScaleHealth(int amountIncrease){
-		playerHealth += amountIncrease;
-		SetMaxHealth(playerHealth);
-		SetHealth(playerHealth);
-		barToScale = GameObject.Find("Health");
-		GameObject healthMask = GameControl.control.FindGameObjectFromArray(GameControl.control.GetChildGameObjects(barToScale), "healthMask");
-		RedrawBars(healthMask, healthMask.GetComponent<RectTransform>(), playerHealth);
+		playerHealth += amountIncrease;//set health in this script
+		SetMaxHealth(playerHealth);//set health max for the 'Health.cs' script
+		SetHealth(playerHealth);//set health for the 'Health.cs' script
+		barToScale = GameObject.Find("Health");//get reference to the Health component in the Health and magic UI
+		GameObject healthMask = GameControl.control.FindGameObjectFromArray(GameControl.control.GetChildGameObjects(barToScale), "healthMask");// Gets an array of objects childed to the Health component and finds hild component with tag 'healthMask'
+		RedrawBars(healthMask, healthMask.GetComponent<RectTransform>(), playerHealth);//calls method to redraw the bar
 	}
 
 	public void ScaleMagic(int amountIncrease){
-		playerMagic += amountIncrease;
-		SetMaxMana(playerMagic);
-		SetMana(playerMagic);
-		barToScale = GameObject.Find("Magic");
-		GameObject magicMask = GameControl.control.FindGameObjectFromArray(GameControl.control.GetChildGameObjects(barToScale), "magicMask");
-		RedrawBars(magicMask, magicMask.GetComponent<RectTransform>(), playerMagic);
+		playerMagic += amountIncrease;//set magic in this script
+		SetMaxMana(playerMagic);//set magic max for the 'Health.cs' script
+		SetMana(playerMagic);//set magic for the 'Health.cs' script
+		barToScale = GameObject.Find("Magic");//get reference to the Magic component in the Health and magic UI
+		GameObject magicMask = GameControl.control.FindGameObjectFromArray(GameControl.control.GetChildGameObjects(barToScale), "magicMask");// Gets an array of objects childed to the Magic component and finds hild component with tag 'magicMask'
+		RedrawBars(magicMask, magicMask.GetComponent<RectTransform>(), playerMagic);//calls method to redraw the bar
 
 	}
 
-	void RedrawBars(GameObject mask, RectTransform maskTrans, int points){
-		GameObject [] separatorArray = GameControl.control.GetChildGameObjects(mask);
-		float posRatio = maskTrans.rect.width/points;
-		int divisions = points-1;
-		int barNum = 1;
-		RectTransform currentBarToMove;
+	void RedrawBars(GameObject mask, RectTransform maskTrans, int numCells){//takes in the mask of the bar that needs to be scaled, its rect-transform, and the number of cells required in the new bar 
+		GameObject [] separatorArray = GameControl.control.GetChildGameObjects(mask);//gets all children of the mask game object
+		float posRatio = maskTrans.rect.width/numCells;//total width of the rectTransform divided by the number of cells needed
+		int divisions = numCells-1;//number of separator bars needed = number of cells needed -1
+		int barNum = 1;//counter for number of bars, multiplied by the posRatio for spacing
+		RectTransform currentBarToMove;//temp variable that holds the current bar being moved
 		
-		foreach(var separator in separatorArray){
-			currentBarToMove = separator.GetComponent<RectTransform>();
-			if(separator.tag == "barSeparator" && divisions != 0){					
-				currentBarToMove.transform.localPosition = new Vector3((barNum * posRatio)-100, 0, 0);
+		foreach(var separator in separatorArray){//loops through the array of mask children and scales the current separators that exist 	
+			if(separator.tag == "barSeparator" && divisions != 0){//as long as there are move divisions needed and the current array element is tagged with barSeparator
+				currentBarToMove = separator.GetComponent<RectTransform>();//gets elements rectTrans	
+				currentBarToMove.transform.localPosition = new Vector3((barNum * posRatio)-100, 0, 0);//sets the new Position
 				barNum ++;
 				divisions--;
 			}else{
 				if(separator.tag == "barSeparator")
-					Destroy(separator.gameObject);
+					Destroy(separator.gameObject);//this destroys and extra bars that are left over after scaling, this will only be called if bar is scaled down
 			}
 		}
 
-		if(divisions > 0){
-			Debug.Log("divs: " + divisions);
+		if(divisions > 0){//if all existing separators have beed scaled but new divisions are needed then this executes
 			for(int i = divisions; i > 0; i--){
-				GameObject newBar = Instantiate(newBarSeparator) as GameObject;					
-				newBar.transform.parent = mask.transform;
-				newBar.transform.localScale = mask.transform.localScale;
-				newBar.transform.localPosition =  new Vector3((barNum * posRatio)-100, 0, 0);
+				GameObject newSep = Instantiate(newBarSeparator) as GameObject;//instantiates new separator			
+				newSep.transform.parent = mask.transform;//childs the new separator to the mask object
+				newSep.transform.localScale = mask.transform.localScale;//sets the new separator scale to that of its parent
+				newSep.transform.localPosition =  new Vector3((barNum * posRatio)-100, 0, 0); //sets position of the new separator
 				barNum ++;
 				divisions--;
 			}
