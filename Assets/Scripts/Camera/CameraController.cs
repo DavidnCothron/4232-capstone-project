@@ -120,6 +120,7 @@ public class CameraController : MonoBehaviour {
 		if (hit != null && hit.collider != null) {
 			if (hit.collider.GetComponentInParent<RoomController> ().getRoomID () != currentRoomID) { //If this is a new room
 				//As it is current set, 'RoomBackground' object must be directly childed to the 'Room' object.
+				GameControl.control.setCurrentRoom(hit.collider.GetComponentInParent<RoomController>()); //set current occupied room in game controller
 				GameObject currentRoom = hit.collider.gameObject.transform.parent.gameObject;
 				currentRoomID = currentRoom.GetComponent<RoomController> ().getRoomID ();
 				GameObject[] objs = GameControl.control.GetChildGameObjects (currentRoom); //Gets all the objects childed to the room

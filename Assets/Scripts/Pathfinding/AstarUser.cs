@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 //MUST BE TURNED OFF IN INSPECTOR PRIOR TO PLAY
 public class AstarUser : MonoBehaviour {
-	//Needs: A list of target's occupied nodes. Target's position. A duplicate list of every node in the room (for h, g, f).
-	private List<AstarNode> targetOccupied, thisEntityOccupied, roomNodes, openList, closedList, path;
+	#region data
+	[SerializeField]private List<AstarNode> targetOccupied, thisEntityOccupied, roomNodes, openList, closedList, path;
 	[SerializeField]private AstarController controller;
 	private Dictionary<string, List<AstarNode>> occupiedDict;
 	[SerializeField]private string guidID;
@@ -13,8 +14,16 @@ public class AstarUser : MonoBehaviour {
 	private List<string> keys;
 	private bool foundGoal;
 
-
+	private int tempCount;
+	#endregion
+	#region initialization
 	void OnEnable () {
+		tempCount = 0;
+		StartCoroutine (tempEnableRoutine ());
+	}
+
+	IEnumerator tempEnableRoutine() {
+		yield return new WaitForSeconds (.25f);
 		roomNodes = controller.getRoomNodeListClone ();
 		occupiedDict = controller.getDict ();
 		keys = new List<string>(occupiedDict.Keys);
@@ -22,20 +31,41 @@ public class AstarUser : MonoBehaviour {
 		openList = new List<AstarNode> ();
 		closedList = new List<AstarNode> ();
 		path = new List<AstarNode> ();
-		//AstarMaster.instance.showNodeNeighbors (roomNodes, 150);
-	}
-
-	void Update () {
-		AstarMaster.instance.colorRoomNodes (roomNodes);
+		AstarMaster.instance.setNeighbors (roomNodes);
 		foreach (string s in keys) {
 			occupiedDict [s] = AstarMaster.instance.getOccupiedNodes (roomNodes, s);
 		}
-		startNode = setStartNode (startNode);
-		targetNode = setGoalNode (targetNode); //SETTING H COSTS AND SEARCHING IN/ FROM THIS FUNCTION
-//		Debug.Log(roomNodes.Count);
-//		Debug.Log(closedList.Count);
+		yield return StartCoroutine (AstarUpdater ());
 	}
 
+	IEnumerator AstarUpdater() {
+		while (true){
+			yield return new WaitForSeconds (.1f);
+			if (roomNodes != null){
+				foreach (string s in keys) {
+					occupiedDict [s] = AstarMaster.instance.getOccupiedNodes (roomNodes, s);
+				}
+				startNode = setStartNode (startNode);
+				targetNode = setGoalNode (targetNode); //SETTING H COSTS AND SEARCHING IN/ FROM THIS FUNCTION
+			}
+		}
+	}
+	#endregion
+
+	//void Update () {
+//		if (roomNodes != null){
+//			AstarMaster.instance.colorRoomNodes (roomNodes);
+//			foreach (string s in keys) {
+//				occupiedDict [s] = AstarMaster.instance.getOccupiedNodes (roomNodes, s);
+//			}
+//			startNode = setStartNode (startNode);
+//			targetNode = setGoalNode (targetNode); //SETTING H COSTS AND SEARCHING IN/ FROM THIS FUNCTION
+	//		Debug.Log(roomNodes.Count);
+	//		Debug.Log(closedList.Count);
+	//	}
+	//}
+
+	#region basic_get_set_methods
 	public void setGuidID(string s) {
 		guidID = s;
 	}
@@ -51,7 +81,9 @@ public class AstarUser : MonoBehaviour {
 	public string getGuidID() {
 		return guidID;
 	}
+	#endregion
 
+	#region ASTAR_search
 	AstarNode setGoalNode(AstarNode tNode) {
 		AstarNode temp;
 		if (occupiedDict [target].Count != 0) 
@@ -65,16 +97,17 @@ public class AstarUser : MonoBehaviour {
 				tNode.setGoal (false);
 			temp.setGoal (true);
 		}
-		//Only setHCosts if goal node has changed
-		//Probably reset values here
+
+		//Only do the following if goal node has changed:
 		controller.setHCosts (roomNodes, temp);
 		foundGoal = false;
 		resetNodes(roomNodes);
 		closedList.Clear();
 		openList.Clear ();
 		path.Clear ();
-		Debug.Log (startNode.getRow () + " " + startNode.getCol ());
+		tempCount = 0;
 		search (startNode);
+		AstarMaster.instance.colorRoomNodes(roomNodes);
 		if (!foundGoal)
 			print ("no path");
 		else
@@ -84,16 +117,17 @@ public class AstarUser : MonoBehaviour {
 
 	AstarNode setStartNode(AstarNode sNode){
 		AstarNode temp;
+		//Get the first node of the occupied list.
 		if (occupiedDict [guidID].Count != 0)
 			temp = occupiedDict [guidID] [Mathf.RoundToInt (occupiedDict [guidID].Count - 1)];
 		else
 			return sNode;
-		if (temp != null) {
-			if (sNode != null && temp.compareTo (sNode)) 
+		if (temp != null) { //If there is a startNode
+			if (sNode != null && temp.compareTo (sNode))  //If the start node has not changed
 				return temp;
-			else if (sNode != null) 
-				sNode.setStart (false);
-			temp.setStart (true);
+			else if (sNode != null) //The current starting node is no longer the starting node.
+				sNode.setStart (false); 
+			temp.setStart (true); //New starting node is temp.
 		}
 		return temp;
 	}
@@ -108,6 +142,7 @@ public class AstarUser : MonoBehaviour {
 	}
 
 	void search(AstarNode currentNode) {
+		//AstarMaster.instance.showNodeNeighbors (roomNodes, roomNodes.IndexOf(currentNode));
 		if (currentNode.getGoal ()) {
 			closedList.Add (currentNode);
 			currentNode.setInClosedList (true);
@@ -123,7 +158,6 @@ public class AstarUser : MonoBehaviour {
 
 		//For each neighboring, pathable node of the current node, set G and F costs and add to openList
 		foreach (AstarNode n in currentNode.getList()) {
-			
 			//if a node is already in the open list, determine if this route is faster
 			if (n.getInOpenList ()) {
 				int tempG;
@@ -156,9 +190,10 @@ public class AstarUser : MonoBehaviour {
 			n.setF ();
 			openList.Add (n);
 		}
+
 		//Sort openList so that first node has lowest F
 		if (openList.Count == 0) {
-			//Debug.Log ("CURRENT: " + currentNode.getRow () + " " + currentNode.getCol ());
+			Debug.Log ("CURRENT: " + currentNode.getRow () + " " + currentNode.getCol ());
 			currentNode = null;
 			//Debug.Log ("No items in openList");
 			return; //If a path is not foundm return
@@ -175,7 +210,13 @@ public class AstarUser : MonoBehaviour {
 		currentNode = openList [0];
 		openList.RemoveAt (0);
 		//print (openList.Count);
-		search (currentNode);
+		search(currentNode);
+//		tempCount+=1;
+//		if (tempCount < 15) {
+//			search (currentNode);
+//		} else {
+//			return;
+//		}
 	}
 
 	public void createPath(AstarNode n){
@@ -188,8 +229,9 @@ public class AstarUser : MonoBehaviour {
 	}
 
 	public void resetNodes(List<AstarNode> list) {
-		
 		foreach (AstarNode n in list)
 			n.reset ();
 	}
+	#endregion
+
 }

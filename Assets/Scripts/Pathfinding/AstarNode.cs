@@ -10,14 +10,18 @@ public class AstarNode {
 	private GameObject nodeSquare;
 	[SerializeField] private List<AstarNode> neighbors = new List<AstarNode> ();
 
-	public AstarNode(){}
+	public void reset() {
+		onPath = visited = inOpenList = inClosedList = false;
+		parent = null;
+	}
 
+	#region constructors
+	public AstarNode(){}
 	public AstarNode(int r, int c, Vector3 loc) {
 		row = r;
 		col = c;
 		location = loc;
 	}
-
 	public AstarNode(int r, int c, Vector3 loc, GameObject obj, List<AstarNode> neighborNodes){
 		row = r;
 		col = c;
@@ -25,22 +29,23 @@ public class AstarNode {
 		nodeSquare = obj;
 		neighbors = neighborNodes;
 	}
-
-	public void reset() {
-		onPath = visited = inOpenList = inClosedList = false;
-		parent = null;
-	}
-		
-	public void setParameters(int r, int c, Vector3 loc) {
-		row = r;
-		col = c;
-		location = loc;
-	}
-
+	#endregion
+	#region overides
 	public bool compareTo(AstarNode other) {
 		if (row == other.getRow () && col == other.getCol ())
 			return true;
 		return false;
+	}
+
+	public string toString(){
+		return "Node: " + row + "_" + col + ", inOpenList: " + getInOpenList() + ", inClosedList: " + getInClosedList() + ", goal?: " + getGoal() + ", start?: " + getStart();
+	}
+	#endregion
+	#region setters
+	public void setParameters(int r, int c, Vector3 loc) {
+		row = r;
+		col = c;
+		location = loc;
 	}
 
 	public void setNodeObj(GameObject obj){
@@ -84,6 +89,7 @@ public class AstarNode {
 	}
 
 	public void setInOpenList (bool b) {
+		//Debug.Log ("open");
 		inOpenList = b;
 	}
 
@@ -94,7 +100,8 @@ public class AstarNode {
 	public void setLoaction (Vector3 loc) {
 		location = loc;
 	}
-
+	#endregion
+	#region getters
 	public bool getInClosedList(){
 		return inClosedList;
 	}
@@ -154,7 +161,10 @@ public class AstarNode {
 	public bool getStart() {
 		return start;
 	}
-	public string toString(){
-		return "Node: " + row + "_" + col;
+
+	public bool getOnPath() {
+		return onPath;
 	}
+	#endregion
+
 }

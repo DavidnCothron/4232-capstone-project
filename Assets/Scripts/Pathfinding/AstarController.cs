@@ -3,63 +3,64 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AstarController : MonoBehaviour {
-
+	#region data
+	//Object References
 	[SerializeField] private GameObject player;
 	[SerializeField] private SpriteRenderer room;
+	public GameObject nodeObject;
+	private GameObject[] enemies;
+	[SerializeField]private GameObject enemyContainer;
+
+	//Vectors
 	private Vector3[] minMax;
 	private Vector3[,] nodeGrid;
 	private Vector3 playerPosition;
+
+	//Basic datatypes
 	private int length, height, minNodeDistance;
 	private float xInc, yInc;
-	public GameObject nodeObject;
 	private bool hitsNotNull, hitsBoundaries, hitDistance;
+	LayerMask Background;
 
+	//Lists and Dictionaries
 	private List<string> keys;
-	private GameObject[] enemies;
 	[SerializeField] private List<AstarNode> nodes, totalOccupiedNodes;
-	//[SerializeField] private List<GameObject> entities;
-
-	//Maybe, instead of using a dictionary, use a class, so that each
 	[SerializeField] private Dictionary<string, List<AstarNode>> occupiedDict;
-
-
+	#endregion
+	#region initialization
 	void Start(){
+		//Layermask that ignores the background layer and collider
+		Background = ~(1 << LayerMask.NameToLayer ("RoomBackground") | 1 << LayerMask.NameToLayer("Enemy") | 1 << LayerMask.NameToLayer("IgnoreAstarGridBuild"));
+		StartCoroutine (tempStart ());
+	}
+	IEnumerator tempStart() {
+		yield return new WaitForSeconds (1f);
+		room = GameControl.control.getCurrentRoom ().getRoomExtents ();
 		totalOccupiedNodes = new List<AstarNode> ();
-
 		occupiedDict = new Dictionary<string, List<AstarNode>> ();
 		occupiedDict.Add ("Player", new List<AstarNode> ()); // has to be here for some reaason
+
 		//List to hold all nodes in the scene 
 		nodes = new List<AstarNode> ();
 		minNodeDistance = 2;
 
+		//Creates a 2D array of Vector3s that hold the location of node in a room.
 		createGrid ();
+		//Populates a list (nodes) that holds all pathable nodes in a room.
 		createNodes ();
-		this.setNeighbors (nodes);
+		//Sets the neighbors of every node in the list (nodes)
+		//this.setNeighbors (nodes);
 
 		//Identifies all enemies using AStar in the scene and adds an entry to the occupiedDict dictionary
 		//Their keys are not a tag, unlike the "Player" tag for the player character; instead
 		//their keys are generated at run-time using createNewGuidID() in the AstarMaster.cs singleton.
 		identifyAndAddAstarEnemies();
-		//Also add a "Player" entry in the dictionary.
-
 
 		//for iteration through dictionary of entities in scene
 		keys = new List<string> (occupiedDict.Keys);
 
 		//AstarMaster.instance.showRoomNodes(nodes);
 	}
-
-	void Update() {
-		//totalOccupiedNodes = AstarMaster.instance.maintainTotalOccupiedNodes(nodes, occupiedDict, totalOccupiedNodes, keys);
-
-//		foreach (string s in keys) {
-//			occupiedDict[s] = AstarMaster.instance.getOccupiedNodes (nodes, s);
-//		}
-
-		//For debugging purposes, color all nodes currently occupied by entities IN RED. MUST HAVE "AstarMaster.instance.showRoomNodes(nodes);" at end of Start().
-		//AstarMaster.instance.colorRoomNodes (nodes, totalOccupiedNodes);
-	}
-
 	public static Vector3[] SpriteCoordinatesLocalToWorld(SpriteRenderer sp) {
 		//Array holds the absolute minimum and maximum Vector3 values
 		Vector3[] array = new Vector3[2];
@@ -84,15 +85,13 @@ public class AstarController : MonoBehaviour {
 
 		return array;
 	}
-
 	void createGrid() {
-
 		minMax = SpriteCoordinatesLocalToWorld (room);
 
 		length = (int)((minMax [1].x - minMax [0].x)/minNodeDistance);//getEvenInt(Mathf.FloorToInt (minMax [1].x - minMax [0].x))
 		height = (int)((minMax [1].y - minMax [0].y)/minNodeDistance); //divided by minNodeDistance
 		nodeGrid = new Vector3[length,height];
-
+	
 		//For traversal
 		Vector3 min, max;
 		min = minMax [0];
@@ -115,7 +114,6 @@ public class AstarController : MonoBehaviour {
 			j = 0;
 		}
 	}
-
 	void createNodes(){
 		for (int k = 0; k < nodeGrid.GetLength (0); k++) {
 			for (int h = 0; h < nodeGrid.GetLength (1); h++) {
@@ -124,17 +122,16 @@ public class AstarController : MonoBehaviour {
 					continue;
 				}
 
-				Vector3 rayStart = new Vector3 (nodeGrid [k, h].x, nodeGrid [k, h].y, -UnityDepth.instance.unityDepth);
+				Vector3 rayStart = new Vector3 (nodeGrid [k, h].x, nodeGrid [k, h].y, -UnityDepth.instance.unityDepth2);
 				Vector3 direction = (Vector3.forward * (UnityDepth.instance.unityDepth));
-				RaycastHit2D hit = Physics2D.CircleCast(rayStart, 1f, direction);
-
+				RaycastHit2D hit = Physics2D.CircleCast(rayStart, 1.75f, direction, 1f, Background);
 				//Check to see if Vector at nodeGrid[k,h] is in a pathable position
-				if (hit == null || (hit != null && (hit.collider == null || hit.collider.tag == "Player" || hit.collider.tag == "enemy"))) {
+				if (hit == null || (hit != null && (hit.collider == null || hit.collider.tag == "Player" || hit.collider.tag == "Enemy"))) {
 					//If vector is in pathable position, check to see if it's in current room
-					RaycastHit2D hitUp = Physics2D.Raycast (nodeGrid [k, h], Vector3.up, 100);
-					RaycastHit2D hitDown = Physics2D.Raycast (nodeGrid [k, h], Vector3.down, 100);
-					RaycastHit2D hitRight = Physics2D.Raycast (nodeGrid [k, h], Vector3.right, 100);
-					RaycastHit2D hitLeft = Physics2D.Raycast (nodeGrid [k, h], Vector3.left, 100);
+					RaycastHit2D hitUp = Physics2D.Raycast (nodeGrid [k, h], Vector3.up, 20);
+					RaycastHit2D hitDown = Physics2D.Raycast (nodeGrid [k, h], Vector3.down, 20);
+					RaycastHit2D hitRight = Physics2D.Raycast (nodeGrid [k, h], Vector3.right, 20);
+					RaycastHit2D hitLeft = Physics2D.Raycast (nodeGrid [k, h], Vector3.left, 20);
 					hitsNotNull = hitsBoundaries = false;
 
 					//Will have to add condition to check if the hit is in the currently occupied room
@@ -159,45 +156,28 @@ public class AstarController : MonoBehaviour {
 			}
 		}
 	}
-
-	public void setNeighbors(List<AstarNode> nodeList){
-		foreach (AstarNode node in nodeList) {
-			int row = node.getRow ();
-			int col = node.getCol ();
-
-			AstarNode neighbor;
-			for (int i = -1; i < 2; i++){
-				for (int j = -1; j < 2; j++) {
-					neighbor = nodeList.Find (n => n.getRow () == (row + i) && n.getCol () == (col + j));
-					if (neighbor != null && !neighbor.compareTo(node)) {
-						//might have to remove this check and ensure that node distance is always less than the minimum thickness of an object
-						RaycastHit2D hit = Physics2D.Raycast (neighbor.getLocation (), node.getLocation (), Vector3.Distance(node.getLocation(), neighbor.getLocation()) );
-						if (hit == null || (hit != null && (hit.collider == null || hit.collider.tag == "Player" || hit.collider.tag == "enemy"))) 
-							node.getList ().Add (neighbor);
-					}
-				}
-			}
-		}
-	}
-
 	/// <summary>
 	/// Identifies the entities in a scene associated with this AstarController that are using AStar, gives them a unique ID, and adds them to the occupiedDict Dictionary.
 	/// </summary>
 	void identifyAndAddAstarEnemies() {
-		if (enemies == null) 
-			enemies = GameObject.FindGameObjectsWithTag ("enemy");
+		
+		if (enemies == null) {
+			enemies = GameControl.control.GetChildGameObjects (enemyContainer);
+			//enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+		}
 		foreach (GameObject enemy in enemies) {
 			AstarUser u = enemy.GetComponent<AstarUser> ();
 			if (u == null) //if object tagged "enemy" does not have an AstarUser script, do not treat it as an Astar entity.
 				continue;
-			u.setGuidID (AstarMaster.instance.createNewGuidID ());
+			u.setGuidID (GameControl.control.createGUID ());
 			occupiedDict.Add (u.getGuidID (), new List<AstarNode> ());
 			//This has to be enabled after EVERYTHING has been
 			u.enabled = true;
 		}
 
 	}
-
+	#endregion
+	#region getters
 	/// <summary>
 	/// Gets the target's occupied nodes. The target is identified by a string, which is used as a key for the occupiedDict Dictionary.
 	/// </summary>
@@ -209,16 +189,8 @@ public class AstarController : MonoBehaviour {
 
 	public List<AstarNode> getRoomNodeListClone(){
 		List<AstarNode> tempList = new List<AstarNode>();
-//		foreach (AstarNode n in nodes)
-//			tempList.Add (new AstarNode(n.getRow(), n.getCol(), n.getLocation()));
 		tempList = nodes.ConvertAll(node => new AstarNode(node.getRow(), node.getCol(), node.getLocation(), node.getObject(), node.getList()));
 		return tempList;
-	}
-
-	public void setHCosts(List<AstarNode> rn, AstarNode goal) {
-		foreach (AstarNode n in rn) {
-			n.setH ((Mathf.Abs (n.getRow () - goal.getRow ()) + Mathf.Abs (n.getCol () - goal.getCol ())) * 10);
-		}
 	}
 
 	public List<string> getKeys(){
@@ -228,15 +200,23 @@ public class AstarController : MonoBehaviour {
 	public Dictionary<string, List<AstarNode>> getDict(){
 		return occupiedDict;
 	}
-//	void showNodeNeighbors(int nodeNum) {
-//		Debug.Log (nodes [nodeNum].toString ());
-//		GameObject obj = GameObject.Instantiate (nodeObject, nodes[nodeNum].getLocation(), Quaternion.identity);
-//		obj.GetComponent<SpriteRenderer> ().color = Color.red;
-//		obj.layer = 2;
-//		foreach (AstarNode n in nodes[nodeNum].getList()) {
-//			Debug.Log (n.toString ());
-//			obj = GameObject.Instantiate (nodeObject, n.getLocation (), Quaternion.identity);
-//			obj.layer = 2;
-//		}
-//	}
+	#endregion
+	#region setters
+	public void setHCosts(List<AstarNode> rn, AstarNode goal) {
+		foreach (AstarNode n in rn) {
+			n.setH ((Mathf.Abs (n.getRow () - goal.getRow ()) + Mathf.Abs (n.getCol () - goal.getCol ())) * 10);
+		}
+	}
+	#endregion
+
+	#region not_used
+	void Update() {
+		//totalOccupiedNodes = AstarMaster.instance.maintainTotalOccupiedNodes(nodes, occupiedDict, totalOccupiedNodes, keys);
+		//foreach (string s in keys) {
+		//	occupiedDict[s] = AstarMaster.instance.getOccupiedNodes (nodes, s);
+		//}
+		//For debugging purposes, color all nodes currently occupied by entities IN RED. MUST HAVE "AstarMaster.instance.showRoomNodes(nodes);" at end of Start().
+		//AstarMaster.instance.colorRoomNodes (nodes, totalOccupiedNodes);
+	}
+	#endregion
 }

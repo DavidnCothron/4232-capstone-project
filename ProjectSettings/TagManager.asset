@@ -19,6 +19,8 @@ TagManager:
   - healthMask
   - magicMask
   - barSeparator
+  - Item
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -29,7 +31,7 @@ TagManager:
   - 
   - 
   - RoomBackground
-  - 
+  - IgnoreAstarGridBuild
   - 
   - 
   - 

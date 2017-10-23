@@ -5,14 +5,15 @@ using System;
 using System.Runtime.InteropServices;
 
 public class AstarMaster : MonoBehaviour {
-	public GameObject nodeObject;
+	#region singleton
 	private static AstarMaster a_Instance = null;
 	public static AstarMaster instance {
 		get {
 			if (a_Instance == null)
 				a_Instance = GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<AstarMaster> ();
-			if (a_Instance == null)
+			if (a_Instance == null) {
 				a_Instance = GameObject.FindGameObjectWithTag ("MainCamera").AddComponent (typeof(AstarMaster)) as AstarMaster;
+			}
 			if (a_Instance == null) {
 				GameObject obj = new GameObject ("AstarMaster");
 				a_Instance = obj.AddComponent (typeof(AstarMaster)) as AstarMaster;
@@ -21,21 +22,25 @@ public class AstarMaster : MonoBehaviour {
 			return a_Instance;
 		}
 	}
+	#endregion
 
+	#region data
+	public GameObject nodeObject;
 	private Vector3 rayStart;
-		
+	LayerMask Background;
+	#endregion
+
 	void Awake() {
-//		rayStart = new Vector3 (0f, 0f, -UnityDepth.instance.unityDepth);
+		//Ignore background layer
+		Background = ~(1 << LayerMask.NameToLayer ("RoomBackground"));
 	}
-
-	void Update () {}
-
+		
 	public List<AstarNode> getOccupiedNodes(List<AstarNode> nodeList, string key){
 		//for each node in room, if a circle-cast from a node hits the object with the appropriate string, then that node is being occupied by the obj.
 		List <AstarNode> occupiedNodes = new List<AstarNode>();
 		foreach (AstarNode n in nodeList) {
 			rayStart = new Vector3 (n.getLocation ().x, n.getLocation ().y, UnityDepth.instance.unityDepth);
-			RaycastHit2D hit = Physics2D.CircleCast (rayStart, .25f, (Vector3.forward * UnityDepth.instance.unityDepth));
+			RaycastHit2D hit = Physics2D.CircleCast (rayStart, .25f, (Vector3.forward * UnityDepth.instance.unityDepth), 1f, Background);
 			if (hit != null && hit.collider != null) {
 				if (hit.collider.tag == key) {
 					n.setIsOccupied (true);
@@ -51,6 +56,26 @@ public class AstarMaster : MonoBehaviour {
 			}
 		}
 		return occupiedNodes;
+	}
+
+	public void setNeighbors(List<AstarNode> nodeList){
+		foreach (AstarNode node in nodeList) {
+			int row = node.getRow ();
+			int col = node.getCol ();
+
+			AstarNode neighbor;
+			for (int i = -1; i < 2; i++){
+				for (int j = -1; j < 2; j++) {
+					neighbor = nodeList.Find (n => n.getRow () == (row + i) && n.getCol () == (col + j));
+					if (neighbor != null && !neighbor.compareTo(node)) {
+						//might have to remove this check and ensure that node distance is always less than the minimum thickness of an object
+						RaycastHit2D hit = Physics2D.Raycast (neighbor.getLocation (), node.getLocation (), Vector3.Distance(node.getLocation(), neighbor.getLocation()), Background );
+						if (hit == null || (hit != null && (hit.collider == null || hit.collider.tag == "Player" || hit.collider.tag == "Enemy"))) 
+							node.getList ().Add (neighbor);
+					}
+				}
+			}
+		}
 	}
 
 	public void setHCosts(List<AstarNode> list, AstarNode startNode, AstarNode endNode){
@@ -87,11 +112,17 @@ public class AstarMaster : MonoBehaviour {
 				}
 				if (n.getStart()) {
 					//Debug.Log (n.getH());
-					n.getObject().GetComponent<SpriteRenderer>().color = Color.black;
+					n.getObject().GetComponent<SpriteRenderer>().color = Color.red;
 				}
 				if (n.getInClosedList ()) {
 					//Debug.Log ("closed");
 					n.getObject ().GetComponent<SpriteRenderer> ().color = Color.black;
+				}
+				if (n.getInOpenList()) {
+					n.getObject ().GetComponent<SpriteRenderer> ().color = Color.yellow;
+				}
+				if(n.getOnPath()) {
+					n.getObject ().GetComponent<SpriteRenderer> ().color = Color.magenta;
 				}
 			}
 		}
@@ -106,14 +137,14 @@ public class AstarMaster : MonoBehaviour {
 	}
 
 	public void showNodeNeighbors(List<AstarNode> rn, int nodeNum) {
-		Debug.Log (rn [nodeNum].toString ());
+		//Debug.Log (rn [nodeNum].toString ());
 		GameObject obj = rn[nodeNum].getObject();
 		if (obj != null) {
 			obj.GetComponent<SpriteRenderer> ().color = Color.red;
 			obj.layer = 2;
 		}
 		foreach (AstarNode n in rn[nodeNum].getList()) {
-			Debug.Log (n.toString ());
+			//Debug.Log (n.toString ());
 			if (n.getObject () == null) {
 				obj = GameObject.Instantiate (nodeObject, n.getLocation (), Quaternion.identity);
 				obj.layer = 2;
@@ -138,5 +169,4 @@ public class AstarMaster : MonoBehaviour {
 		a_Instance = null;
 	}
 
-	//ToDo: AstarUser script; get an object to constantly track towards the player.
 }

@@ -14,6 +14,7 @@ public struct AreaTransTuple{
 public class GameControl : MonoBehaviour {
 
 	//delegate void onSceneChanged();
+	private RoomController currentOccupiedRoom;
 	public static GameControl control;
 	public GameObject player;
 	public PlayerHealthAndMagicController phmc;
@@ -28,6 +29,7 @@ public class GameControl : MonoBehaviour {
 
 	//float value used to store time (in seconds) that a room transition takes
 	[SerializeField] private float roomTransitionTime;
+	private string currentRoomID;
 
 	// Use this for initialization
 	void Awake () {
@@ -41,7 +43,7 @@ public class GameControl : MonoBehaviour {
 			GameControl.control.UpdatePlayerReferences();
 			Destroy (gameObject);
 		}
-		setRoomIDs ();
+		setRoomComponents ();
 	}
 
 	
@@ -225,16 +227,25 @@ public class GameControl : MonoBehaviour {
 	/// <summary>
 	/// Gives each room in the scene a unique string ID
 	/// </summary>
-	private void setRoomIDs() {
+	private void setRoomComponents() {
 		GameObject[] roomObjects = GameObject.FindGameObjectsWithTag ("Room");
 		foreach (GameObject obj in roomObjects) {
 			obj.GetComponent<RoomController> ().setRoomID (createGUID ());
+			obj.GetComponent<RoomController> ().setRoomExtents (FindGameObjectFromArray (GetChildGameObjects (obj), "RoomBackground").GetComponent<SpriteRenderer> ());
 		}
 	}
 
 	//return the room transition time
 	public float getRoomTransTime() {//stores next area spawn room based on previous area exit
 		return roomTransitionTime;
+	}
+
+	public void setCurrentRoom(RoomController room) {
+		currentOccupiedRoom = room;
+	}
+
+	public RoomController getCurrentRoom() {
+		return currentOccupiedRoom;
 	}
 
 }
