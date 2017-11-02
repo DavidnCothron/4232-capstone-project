@@ -33,6 +33,9 @@ public class GameControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+//		for (int i = 0; i < 256; i++) {
+//			Debug.Log (combinations (i, 8));
+//		}
 		//Code for singleton behaviour
 		if (control == null)
 		{
@@ -246,6 +249,10 @@ public class GameControl : MonoBehaviour {
 
 	public RoomController getCurrentRoom() {
 		return currentOccupiedRoom;
+	}
+
+	string combinations(int n, int len) {
+		return (len > 1 ? combinations (n >> 1, len - 1) : null) + "01" [n & 1];
 	}
 
 }
