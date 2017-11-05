@@ -38,7 +38,12 @@ public class UnityDepth : MonoBehaviour {
 		for (int i = 0; i < 128; i++) {
 			float zDistance = PPUzDistance (i);
 			layerAndPPU.Add (i, zDistance);
+			//print ("Distance from 0: " + zDistance + " PPU:" + i);
 		}
+
+//		KeyValuePair<int,float> test;
+//		test = getLayer (-10);
+//		print ("Distance from 0: " + test.Value + " PPU:" + test.Key);
 	}
 
 	public void FindUnityDepth(){
@@ -68,6 +73,8 @@ public class UnityDepth : MonoBehaviour {
 		float distance = screenHeight / Mathf.Tan (Camera.main.fieldOfView * 0.5f * Mathf.Deg2Rad);
 		//Debug.Log ("Calculated using fov = " + distance);
 		//pixelResolution(screenWidth, screenHeight);
+
+		//pixelResolution (screenWidth, screenHeight, 32, centerToEdge);
 	}
 
 	void determineTilePixelDim() {
@@ -89,7 +96,7 @@ public class UnityDepth : MonoBehaviour {
 	}
 
 	public float PPUzDistance(float pixels){
-		float screenWidth = screenResWidth / pixels / 2f;
+		float screenWidth = screenResWidth / pixels / centerToEdge; // maybe 2f instead of centerToEdge
 		return viewProjection [0] * screenWidth;
 	}
 
@@ -101,7 +108,7 @@ public class UnityDepth : MonoBehaviour {
 		return new KeyValuePair<int, float>(0,0f);
 	}
 
-	private void pixelResolution(float screenWidth, float screenHeight){
+	private void pixelResolution(float screenWidth, float screenHeight, float PPU, int centerToEdge){
 		float pixelWidth, pixelHeight;
 		pixelWidth = screenWidth * PPU * 2f;
 		pixelHeight = screenHeight * PPU * 2f;
