@@ -41,9 +41,9 @@ public class UnityDepth : MonoBehaviour {
 			//print ("Distance from 0: " + zDistance + " PPU:" + i);
 		}
 
-//		KeyValuePair<int,float> test;
-//		test = getLayer (-10);
-//		print ("Distance from 0: " + test.Value + " PPU:" + test.Key);
+		KeyValuePair<int,float> test;
+		test = getLayer (-5);
+		print ("Distance from 0: " + test.Value + " PPU:" + test.Key);
 	}
 
 	public void FindUnityDepth(){
