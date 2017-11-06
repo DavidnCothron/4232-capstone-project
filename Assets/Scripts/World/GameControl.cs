@@ -37,26 +37,37 @@ public class GameControl : MonoBehaviour {
 //			Debug.Log (combinations (i, 8));
 //		}
 		//Code for singleton behaviour
+		
 		if (control == null)
 		{
 			control = this;
 			DontDestroyOnLoad (gameObject);
-		}
-		else if(control != this){
+			GameControl.control.UpdatePlayerReferences();
+		}else if(control != this){
 			GameControl.control.UpdatePlayerReferences();
 			Destroy (gameObject);
 		}
 		setRoomComponents ();
+		
 	}
-
 	
 	void Update(){
+		
+		if(Input.GetKeyDown(KeyCode.O))
+		{
+			phmc.LoseHealth(1);
+		}
+
+		if(Input.GetKeyDown(KeyCode.P))
+		{
+			phmc.LoseMana(1);
+		}	
 		if(Input.GetKeyDown(KeyCode.H)){
 			phmc.ScaleHealth(1);
 		}
 		if(Input.GetKeyDown(KeyCode.M)){
 			phmc.ScaleMagic(1);
-		}
+		}		
 	}
 
 	public Transform GetPlayerTransform()

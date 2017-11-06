@@ -13,7 +13,6 @@ public class AreaControl : MonoBehaviour {
 	
 	void Start(){
 		areaEntry = GameControl.control.GetNextArea();
-		Debug.Log("areaEntry " + areaEntry.accessPointID);
 		player = GameObject.Find ("Player").GetComponent(typeof(PlayerManager)) as PlayerManager; //gets player reference
 		if(areaEntry.accessPointID == 0){
 			roomToEnter = GameObject.Find("EntryRoom1").GetComponentInChildren<Door>();//this need to change to look for a specific door			
