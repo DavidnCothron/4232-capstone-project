@@ -30,6 +30,10 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
 		magic.Initialize(playerMagic, magicRegen, regenSpeed, regenDelay);
 		magicRegenDelayCountdown = magicRegenDelay;
 		magicRegenSpeedCountdown = magicRegenSpeed;
+		
+	}
+	
+	void Start(){
 		ScaleHealth(0);
 		ScaleMagic(0);
 	}
@@ -37,16 +41,6 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
 	void Update()
 	{
 		MagicRegen ();
-
-		if(Input.GetKeyDown(KeyCode.O))
-		{
-			LoseHealth(1);
-		}
-
-		if(Input.GetKeyDown(KeyCode.P))
-		{
-			LoseMana(1);
-		}
 	}
 
 	#region Getters/Setters
@@ -135,10 +129,13 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
 
 		if(divisions > 0){//if all existing separators have beed scaled but new divisions are needed then this executes
 			for(int i = divisions; i > 0; i--){
-				GameObject newSep = Instantiate(newBarSeparator) as GameObject;//instantiates new separator			
-				newSep.transform.parent = mask.transform;//childs the new separator to the mask object
-				newSep.transform.localScale = mask.transform.localScale;//sets the new separator scale to that of its parent
+				GameObject newSep = Instantiate(newBarSeparator) as GameObject;//instantiates new separator	
+				newSep.transform.SetParent(mask.transform, false);//sets parent to the mask of the current health bar and sets worldPositionStays to false so that its scaled properly	
+				//newSep.transform.parent = mask.transform;//childs the new separator to the mask object
+				//newSep.transform.localScale = mask.transform.localScale;//sets the new separator scale to that of its parent
+
 				newSep.transform.localPosition =  new Vector3((barNum * posRatio)-100, 0, 0); //sets position of the new separator
+				
 				barNum ++;
 				divisions--;
 			}
