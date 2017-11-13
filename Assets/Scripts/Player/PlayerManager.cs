@@ -11,7 +11,6 @@ public class PlayerManager : MonoBehaviour {
 	{
 		if (control == null)
 		{
-			Debug.Log("testing null");
 			control = this;
 			DontDestroyOnLoad (this.gameObject);
 			//GameControl.control.UpdatePlayerReferences();

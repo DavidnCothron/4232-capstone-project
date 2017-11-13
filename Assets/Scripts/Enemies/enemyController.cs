@@ -8,8 +8,11 @@ using UnityEngine;
 [RequireComponent (typeof(EnemyAILogic))]
 public class enemyController : PhysicsObject {
 
+	Rigidbody2D rigidBody;
+	public bool isBusy = false; //bool that controls actions during FixedUpdate
+	public bool isGrounded = true;
 	public float jumpTakeOffSpeed = 7f;
-	public float maxSpeed = 6.5f;
+	public float maxSpeed = 3.5f;
 	public bool haltInput = false;
 	public EnemyAILogic AILogic;
 	public EnemyAILogic.IntelligenceType intType;
@@ -19,22 +22,40 @@ public class enemyController : PhysicsObject {
 
 	// Use this for initialization
 	void Awake () {
+		rigidBody = gameObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
 		spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
 		animator = gameObject.GetComponent<Animator> ();
 	}
 
 
-	void ComputeVelocity () {
+	protected override void ComputeVelocity () {
 		
 		Vector2 move = Vector2.zero;
-
+		Debug.Log("before if");
 		if (!haltInput)
 		{
+			Debug.Log("in if");
 			#region Enemy Movement
-			move = AILogic.AIMove ((int)intType);
-			move = move - (Vector2)transform.position;
-			targetVelocity = move * maxSpeed;
+			Vector3 target = GameControl.control.GetPlayerTransform().position - this.transform.position;
+			if(target.magnitude < 5){
+				move = target;
+				targetVelocity = move * maxSpeed;
+			}
 			#endregion
 		}
 	}
+
+	void OnCollisionStay2D(Collision2D coll)
+	{
+		rigidBody.gravityScale = 1f;
+
+		if(!isGrounded) {isGrounded = true;}
+	}
+
+	void OnCollisionExit2D(Collision2D coll)
+	{
+		if (coll.gameObject.tag == "ground")
+			isGrounded = false;
+	}
+
 }
