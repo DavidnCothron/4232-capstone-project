@@ -31,10 +31,8 @@ public class enemyController : PhysicsObject {
 	protected override void ComputeVelocity () {
 		
 		Vector2 move = Vector2.zero;
-		Debug.Log("before if");
 		if (!haltInput)
 		{
-			Debug.Log("in if");
 			#region Enemy Movement
 			Vector3 target = GameControl.control.GetPlayerTransform().position - this.transform.position;
 			if(target.magnitude < 5){
