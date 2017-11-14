@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4212309947958486}
   - component: {fileID: 114004270987778220}
   - component: {fileID: 70593923554172912}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Melee
   m_TagString: melee
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 114043219446089576}
   - component: {fileID: 114598150446022830}
   - component: {fileID: 114993909914431830}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -72,8 +72,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893841220926510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.054469217, y: 0.10893721, z: 0}
-  m_LocalScale: {x: 3.3, y: 3.3, z: 1}
+  m_LocalPosition: {x: -0.054469217, y: 0.94, z: 0}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 4212309947958486}
   m_Father: {fileID: 0}
@@ -126,7 +126,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1, y: 0}
+  m_Offset: {x: 1, y: 0}
   m_Size: {x: 2, y: 1}
   m_Direction: 1
 --- !u!95 &95733388420043912
@@ -242,7 +242,10 @@ MonoBehaviour:
   magicRegenSpeedCountdown: 0
   magicRegenDelay: 2
   magicRegenDelayCountdown: 0
+  barToScale: {fileID: 0}
   isMagicRegen: 1
+  newBarSeparator: {fileID: 1821917828345138, guid: 0e64c3b60d6a850458551f2dd6214418,
+    type: 2}
 --- !u!114 &114993909914431830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,8 +279,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  jumpTakeOffSpeed: 32
-  maxSpeed: 20
+  jumpTakeOffSpeed: 15
+  maxSpeed: 5
   haltInput: 0
 --- !u!212 &212318491798282224
 SpriteRenderer:
@@ -318,7 +321,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.24, y: 0.35}
+  m_Size: {x: 0.71875, y: 1.46875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

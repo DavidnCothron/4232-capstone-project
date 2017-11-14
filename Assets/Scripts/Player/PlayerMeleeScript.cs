@@ -17,12 +17,24 @@ public class PlayerMeleeScript : MonoBehaviour {
 	public bool isAttackingEnabled = false;
 	bool isAttacking = false;
 
+	[SerializeField] protected ContactFilter2D contactFilter;
+	[SerializeField] protected Rigidbody2D rb2d;
+	[SerializeField] protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
+	[SerializeField] protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
+
+	protected const float minMoveDistance = 0.001f;
+	protected const float shellRadius = 0.01f;
+
 
 	// Use this for initialization
 	void Awaken () {
 		enemiesHit = new List<GameObject> ();
+		rb2d = gameObject.GetComponent<Rigidbody2D> ();
 		chargeTimeRemaining = chargeTime;
 		attackCooldownRemaining = attackCooldown;
+		contactFilter.useTriggers = true;
+		contactFilter.SetLayerMask (Physics2D.GetLayerCollisionMask(gameObject.layer));
+		contactFilter.useLayerMask = true;
 	}
 	
 	// Update is called once per frame
@@ -82,6 +94,14 @@ public class PlayerMeleeScript : MonoBehaviour {
 	}
 
 	void MeleeAttack(){
+
+//		int count = rb2d.Cast (Vector2.zero, contactFilter, hitBuffer, shellRadius);
+//		hitBufferList.Clear ();
+//
+//		for (int i = 0; i < count; i++)
+//		{
+//			hitBufferList.Add (hitBuffer [i]);
+//		}
 		foreach (GameObject enemyObject in enemiesHit)
 		{
 			Enemy enemyScript = enemyObject.GetComponent (typeof(Enemy)) as Enemy;
