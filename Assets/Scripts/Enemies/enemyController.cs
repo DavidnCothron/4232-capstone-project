@@ -14,6 +14,7 @@ public class enemyController : PhysicsObject {
 	public float jumpTakeOffSpeed = 7f;
 	public float maxSpeed = 3.5f;
 	public bool haltInput = false;
+	public int health = 5;
 	public EnemyAILogic AILogic;
 	public EnemyAILogic.IntelligenceType intType;
 
@@ -27,9 +28,10 @@ public class enemyController : PhysicsObject {
 		animator = gameObject.GetComponent<Animator> ();
 	}
 
-
 	protected override void ComputeVelocity () {
-		
+		if(health <= 0){
+			Destroy(this.gameObject);
+		}
 		Vector2 move = Vector2.zero;
 		if (!haltInput)
 		{
@@ -41,6 +43,10 @@ public class enemyController : PhysicsObject {
 			}
 			#endregion
 		}
+	}
+
+	public void decreaseHealth(int damage){
+		health -= damage;
 	}
 
 	void OnCollisionStay2D(Collision2D coll)

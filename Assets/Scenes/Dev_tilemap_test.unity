@@ -36198,12 +36198,12 @@ Prefab:
     - target: {fileID: 224328847315161750, guid: 1ce776c3154772a4e948866a945cbf9e,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 436.5
+      value: 301.5
       objectReference: {fileID: 0}
     - target: {fileID: 224328847315161750, guid: 1ce776c3154772a4e948866a945cbf9e,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 245.5
+      value: 169.5
       objectReference: {fileID: 0}
     - target: {fileID: 224328847315161750, guid: 1ce776c3154772a4e948866a945cbf9e,
         type: 2}
@@ -36852,25 +36852,6 @@ Prefab:
       propertyPath: health.healthBar.bar
       value: 
       objectReference: {fileID: 1717556760}
-    - target: {fileID: 70593923554172912, guid: cc8c520a32acbb14eb8081e68414da91,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4212309947958486, guid: cc8c520a32acbb14eb8081e68414da91, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 70593923554172912, guid: cc8c520a32acbb14eb8081e68414da91,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114004270987778220, guid: cc8c520a32acbb14eb8081e68414da91,
-        type: 2}
-      propertyPath: rb2d
-      value: 
-      objectReference: {fileID: 2133783466}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8c520a32acbb14eb8081e68414da91, type: 2}
   m_IsPrefabParent: 0
@@ -43319,28 +43300,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2133783465 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1547127426238756, guid: cc8c520a32acbb14eb8081e68414da91,
-    type: 2}
-  m_PrefabInternal: {fileID: 1852522374}
---- !u!50 &2133783466
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2133783465}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0

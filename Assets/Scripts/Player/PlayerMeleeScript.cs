@@ -104,9 +104,10 @@ public class PlayerMeleeScript : MonoBehaviour {
 //		}
 		foreach (GameObject enemyObject in enemiesHit)
 		{
-			Enemy enemyScript = enemyObject.GetComponent (typeof(Enemy)) as Enemy;
+			Debug.Log(enemyObject);
+			enemyController enemyScript = enemyObject.GetComponent (typeof(enemyController)) as enemyController;
 			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
-			enemyScript.health -= meleeDamage;
+			enemyScript.decreaseHealth(meleeDamage);
 			enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackBasic));
 		}
 	}
@@ -121,18 +122,19 @@ public class PlayerMeleeScript : MonoBehaviour {
 			chargeTimeRemaining = chargeTime;
 		}
 	}
-
+	
 	void OnTriggerEnter2D(Collider2D coll){
-		if(coll.gameObject.tag == "enemy"){
-			enemiesHit.Add (coll.gameObject);
+		if(coll.gameObject.tag == "enemy"){		
+			enemiesHit.Add (coll.gameObject.GetComponentInParent<Rigidbody2D>().gameObject);
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D coll){
 		if(coll.gameObject.tag == "enemy"){
-			if (enemiesHit.Contains (coll.gameObject))
+			GameObject enemy = coll.gameObject.GetComponentInParent<Rigidbody2D>().gameObject;
+			if (enemiesHit.Contains (enemy))
 			{
-				enemiesHit.Remove (coll.gameObject);
+				enemiesHit.Remove (enemy);
 			}
 		}
 	}
