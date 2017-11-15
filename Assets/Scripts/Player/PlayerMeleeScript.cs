@@ -64,15 +64,14 @@ public class PlayerMeleeScript : MonoBehaviour {
 					ChargeAttack ();
 				}
 				isAttacking = true;
-				//Debug.Log ("Cooldown Started");
 			}
 			else if (Input.GetMouseButton (0) && hasChargeAttack)
 			{
 				chargeTimeRemaining -= Time.deltaTime;
-				if (chargeTimeRemaining < 0)
-				{
-					//Debug.Log ("Charged!");
-				}
+				// if (chargeTimeRemaining < 0)
+                // {
+                //     Debug.Log("Charged!");
+                // }
 			}
 			else
 			{
@@ -88,8 +87,13 @@ public class PlayerMeleeScript : MonoBehaviour {
 		xy.Raycast(ray, out distance);
 		return ray.GetPoint(distance);
 	}
-
+	
 	void FixedUpdate(){
+		// Vector3 pos = GetWorldPositionOnPlane (Input.mousePosition, 0f) - playerTransform.position;
+		// float angle = Vector3.Angle(transform.right, pos);
+		// angle = angle < 180 ? angle:angle-360;
+		// Debug.Log(angle);
+		// transform.RotateAround(playerTransform.position, transform.forward, angle * Time.deltaTime);
 		transform.right = (GetWorldPositionOnPlane (Input.mousePosition, 0f) - playerTransform.position);
 	}
 
@@ -104,7 +108,6 @@ public class PlayerMeleeScript : MonoBehaviour {
 //		}
 		foreach (GameObject enemyObject in enemiesHit)
 		{
-			Debug.Log(enemyObject);
 			enemyController enemyScript = enemyObject.GetComponent (typeof(enemyController)) as enemyController;
 			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
 			enemyScript.decreaseHealth(meleeDamage);
@@ -113,11 +116,12 @@ public class PlayerMeleeScript : MonoBehaviour {
 	}
 
 	void ChargeAttack(){
+		GameControl.control.phmc.LoseMana(2);
 		foreach (GameObject enemyObject in enemiesHit)
 		{
-			Enemy enemyScript = enemyObject.GetComponent (typeof(Enemy)) as Enemy;
+			enemyController enemyScript = enemyObject.GetComponent (typeof(enemyController)) as enemyController;
 			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
-			enemyScript.health -= chargeAttackDamage;
+			enemyScript.decreaseHealth(chargeAttackDamage);
 			enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackCharged));
 			chargeTimeRemaining = chargeTime;
 		}
