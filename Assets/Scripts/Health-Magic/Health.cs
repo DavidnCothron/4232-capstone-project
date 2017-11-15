@@ -14,8 +14,8 @@ public class Health
 	 private int regenHP = 0;
 
 	public void Initialize(int hp){
-		CurrentHP = hp;
 		MaxHP = hp;
+		CurrentHP = hp;
 	}
 
 	//Health Points getter and setter

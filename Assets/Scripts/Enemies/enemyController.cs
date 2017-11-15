@@ -29,9 +29,6 @@ public class enemyController : PhysicsObject {
 	}
 
 	protected override void ComputeVelocity () {
-		if(health <= 0){
-			Destroy(this.gameObject);
-		}
 		Vector2 move = Vector2.zero;
 		if (!haltInput)
 		{
@@ -43,10 +40,6 @@ public class enemyController : PhysicsObject {
 			}
 			#endregion
 		}
-	}
-
-	public void decreaseHealth(int damage){
-		health -= damage;
 	}
 
 	void OnCollisionStay2D(Collision2D coll)

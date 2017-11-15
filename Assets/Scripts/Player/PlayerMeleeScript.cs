@@ -108,9 +108,9 @@ public class PlayerMeleeScript : MonoBehaviour {
 //		}
 		foreach (GameObject enemyObject in enemiesHit)
 		{
-			enemyController enemyScript = enemyObject.GetComponent (typeof(enemyController)) as enemyController;
+			EnemyHealth enemy_Health = enemyObject.GetComponent (typeof(EnemyHealth)) as EnemyHealth;
 			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
-			enemyScript.decreaseHealth(meleeDamage);
+			enemy_Health.LoseHealth(meleeDamage);
 			enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackBasic));
 		}
 	}
@@ -119,9 +119,9 @@ public class PlayerMeleeScript : MonoBehaviour {
 		GameControl.control.phmc.LoseMana(2);
 		foreach (GameObject enemyObject in enemiesHit)
 		{
-			enemyController enemyScript = enemyObject.GetComponent (typeof(enemyController)) as enemyController;
+			EnemyHealth enemy_Health = enemyObject.GetComponent (typeof(EnemyHealth)) as EnemyHealth;
 			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
-			enemyScript.decreaseHealth(chargeAttackDamage);
+			enemy_Health.LoseHealth(chargeAttackDamage);
 			enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackCharged));
 			chargeTimeRemaining = chargeTime;
 		}
