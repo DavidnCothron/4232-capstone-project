@@ -6,7 +6,8 @@ public class PlayerManager : MonoBehaviour {
 	public static PlayerManager control;
 	public PlayerController moveController;
 	public RoomController currentRoom;
-
+	
+	//Daivd wanted me to note that this script is currently only used for the singleton... your welcome David - Josh 
 	void Awake()
 	{
 		if (control == null)

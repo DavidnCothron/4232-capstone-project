@@ -22,6 +22,7 @@ TagManager:
   - Item
   - Enemy
   - enemy
+  - KillBox
   layers:
   - Default
   - TransparentFX

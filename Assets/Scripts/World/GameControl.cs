@@ -33,9 +33,12 @@ public class GameControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-//		for (int i = 0; i < 256; i++) {
-//			Debug.Log (combinations (i, 8));
-//		}
+	//	for (int i = 0; i < 256; i++) 
+	//	{
+	//		Debug.Log (combinations (i, 8));
+	//	}
+		
+		
 		//Code for singleton behaviour
 		
 		if (control == null)
@@ -181,6 +184,9 @@ public class GameControl : MonoBehaviour {
 		}
 	}
 
+	public void KillPlayer(){
+		
+	}
 
 	/// <summary>
 	/// Creates and returns a unique string ID
