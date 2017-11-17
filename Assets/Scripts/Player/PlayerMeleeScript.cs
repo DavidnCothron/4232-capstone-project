@@ -94,7 +94,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 		// angle = angle < 180 ? angle:angle-360;
 		// Debug.Log(angle);
 		// transform.RotateAround(playerTransform.position, transform.forward, angle * Time.deltaTime);
-		transform.right = (GetWorldPositionOnPlane (Input.mousePosition, 0f) - playerTransform.position);
+		transform.right = (GetWorldPositionOnPlane (Input.mousePosition, 0f) - gameObject.transform.position);
 	}
 
 	void MeleeAttack(){
