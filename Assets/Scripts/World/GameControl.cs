@@ -259,7 +259,7 @@ public class GameControl : MonoBehaviour {
 	public float getRoomTransTime() {//stores next area spawn room based on previous area exit
 		return roomTransitionTime;
 	}
-
+	
 	public void setCurrentRoom(RoomController room) {
 		currentOccupiedRoom = room;
 	}
@@ -271,6 +271,54 @@ public class GameControl : MonoBehaviour {
 	string combinations(int n, int len) {
 		return (len > 1 ? combinations (n >> 1, len - 1) : null) + "01" [n & 1];
 	}
+
+/* OK you need to figure out how to get a save room reference in order to do this 
+	/// <summary>
+	/// Handles the transition between rooms when the player dies
+	/// </summary>
+	/// <returns>The transition.</returns>
+	/// <param name="c">C.</param>
+	public IEnumerator SaveRoomTransition() {
+		GameObject c = GameControl.control.GetPlayerTransform().gameObject;
+		//Set body type to kinematic to ensure smooth transition (doesn't look right yet)
+		c.GetComponent<PlayerPlatformerController> ().haltInput = true;
+		c.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+
+		//fade to black > move player into door > move player behind other door > fade to clear > move player out of other door
+		GameControl.control.fadeImage ("black");
+		yield return StartCoroutine (movePlayer (c, playerSpawn.transform.position));
+		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
+		c.transform.position = other.getSpawn ().transform.position;
+		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
+		GameControl.control.fadeImage ("");
+		yield return StartCoroutine (movePlayer (c, other.getDestination ().transform.position));
+
+		//Resets the RigidbodyType2D to Dynamic and returns input control to the player
+		c.GetComponent<PlayerPlatformerController> ().haltInput = false;
+	}
+
+	/// <summary>
+	/// Coroutine called from roomTransition coroutine that physically moves the player
+	/// from one room to another using Kinematic Movement
+	/// </summary>
+	/// <returns>The player.</returns>
+	/// <param name="c">C.</param>
+	/// <param name="t">T.</param>
+	IEnumerator movePlayer(GameObject c, Vector3 t) {
+		KinematicArrive.KinematicSteering steering;
+		while (true) {
+			c.GetComponent<KinematicArrive> ().setTarget (new Vector3(t.x, c.transform.position.y, t.z));
+			steering = c.GetComponent<KinematicArrive> ().getSteering ();
+			c.GetComponent<KinematicArrive> ().setOrientations (steering);
+			if (c.GetComponent<KinematicArrive> ().getArrived ())
+				yield break;
+			else
+				yield return null;
+		}
+	}
+
+
+*/
 
 }
 

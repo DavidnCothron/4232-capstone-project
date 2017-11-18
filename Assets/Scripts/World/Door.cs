@@ -119,6 +119,8 @@ public class Door : MonoBehaviour {
 		c.GetComponent<PlayerPlatformerController> ().haltInput = false;
 	}
 
+	
+
 	/// <summary>
 	/// Coroutine called from roomTransition coroutine that physically moves the player
 	/// from one room to another using Kinematic Movement
@@ -138,4 +140,5 @@ public class Door : MonoBehaviour {
 				yield return null;
 		}
 	}
+	
 }
