@@ -8,6 +8,8 @@ public class RoomController : MonoBehaviour {
 	[SerializeField] private SpriteRenderer roomExtents;
 	[SerializeField] private string roomID;//ID that every room will have
 	[SerializeField] private int areaRoomID;//ID for area entry and exit rooms
+	[SerializeField] public bool isSaveRoom = false;
+	[SerializeField] private string saveRoomId;
 
 	// Use this for initialization
 	void OnEnable () {
@@ -31,5 +33,9 @@ public class RoomController : MonoBehaviour {
 
 	public void setRoomID(string s) {
 		roomID = s;
+	}
+
+	public void setRoomID() {
+		roomID = saveRoomId;
 	}
 }
