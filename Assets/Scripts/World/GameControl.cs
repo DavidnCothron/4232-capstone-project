@@ -244,7 +244,10 @@ public class GameControl : MonoBehaviour {
 	private void setRoomComponents() {
 		GameObject[] roomObjects = GameObject.FindGameObjectsWithTag ("Room");
 		foreach (GameObject obj in roomObjects) {
-			obj.GetComponent<RoomController> ().setRoomID (createGUID ());
+			if(obj.GetComponent<RoomController> ().isSaveRoom)
+				obj.GetComponent<RoomController> ().setRoomID ();
+			else
+				obj.GetComponent<RoomController> ().setRoomID (createGUID ());
 			obj.GetComponent<RoomController> ().setRoomExtents (FindGameObjectFromArray (GetChildGameObjects (obj), "RoomBackground").GetComponent<SpriteRenderer> ());
 		}
 	}
