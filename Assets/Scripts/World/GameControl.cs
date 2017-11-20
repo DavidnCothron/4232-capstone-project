@@ -21,14 +21,14 @@ public class GameControl : MonoBehaviour {
 	public PlayerPlatformerController pc;
 	public PlayerMeleeScript pms;
 	public playerProjectileScript pps;
-	public RoomController rc;
+	[SerializeField] public RoomController lastSaveRoom ;//{get; set;}
 	private bool beatBoss1, beatBoss2, beatBoss3; 
 	[SerializeField] private bool phaseAbility, projectileAbility, chargeAttackAbility;
 	[SerializeField] private AreaTransTuple nextArea;
 	private Dictionary<AreaTransTuple, AreaTransTuple> areaAccessPointMappings = new Dictionary<AreaTransTuple, AreaTransTuple>(); //could save this dictionary in save file at some point
 
 	//float value used to store time (in seconds) that a room transition takes
-	[SerializeField] private float roomTransitionTime;
+	[SerializeField] private float roomTransitionTime = 1;
 	private string currentRoomID;
 
 	// Use this for initialization
@@ -55,7 +55,7 @@ public class GameControl : MonoBehaviour {
 	}
 	
 	void Update(){
-		
+		//FOR TESTING ONLY
 		if(Input.GetKeyDown(KeyCode.O))
 		{
 			phmc.LoseHealth(1);
@@ -97,11 +97,12 @@ public class GameControl : MonoBehaviour {
 		data.maxMana = phmc.GetMaxMana ();
 		data.hasChargeAttack = pms.hasChargeAttack;
 		data.hasRangedAttack = pps.hasRangedAttack;
-		data.areaID = 1; //Get area ID from RoomController
-		data.roomID = 1; //Get room ID from RoomController
+		//data.areaID = 1; //Get area ID from RoomController
+		//data.roomID = 1; //Get room ID from RoomController
 		data.beatBoss1 = beatBoss1; 
 		data.beatBoss2 = beatBoss2;
 		data.beatBoss3 = beatBoss3;
+		data.lastSaveRoom = lastSaveRoom;
 		#endregion
 		bf.Serialize(file, data);
 		file.Close ();
@@ -125,6 +126,7 @@ public class GameControl : MonoBehaviour {
 			beatBoss1 = data.beatBoss1;
 			beatBoss2 = data.beatBoss2;
 			beatBoss3 = data.beatBoss3;
+			lastSaveRoom = data.lastSaveRoom;
 			#endregion
 		}	
 	}
@@ -184,7 +186,7 @@ public class GameControl : MonoBehaviour {
 		}
 	}
 
-	public void KillPlayer(){
+	public void KillPlayer(){//needs to be implemented, called when player health reaches 0. should handle game logic for player death
 		
 	}
 
@@ -237,11 +239,11 @@ public class GameControl : MonoBehaviour {
 	/// <param name="s">S.</param>
 	public void fadeImage(string s) {
 		if (s.Equals ("black"))
-			StartCoroutine (Camera.main.GetComponent<CameraController> ().fadeToBlack ());
+			StartCoroutine (Camera.main.GetComponent<CameraController>().fadeToBlack());
 		else if(s.Equals("startBlack"))
 			Camera.main.GetComponent<CameraController> ().setToBlack();
 		else
-			StartCoroutine (Camera.main.GetComponent<CameraController> ().fadeToClear ());
+			StartCoroutine (Camera.main.GetComponent<CameraController>().fadeToClear());
 	}
 
 	/// <summary>
@@ -275,53 +277,52 @@ public class GameControl : MonoBehaviour {
 		return (len > 1 ? combinations (n >> 1, len - 1) : null) + "01" [n & 1];
 	}
 
-/* OK you need to figure out how to get a save room reference in order to do this 
+    //OK you need to figure out how to get a save room reference in order to do this 
 	/// <summary>
-	/// Handles the transition between rooms when the player dies
+	/// Handles the transition between rooms given a target room
 	/// </summary>
 	/// <returns>The transition.</returns>
-	/// <param name="c">C.</param>
-	public IEnumerator SaveRoomTransition() {
-		GameObject c = GameControl.control.GetPlayerTransform().gameObject;
-		//Set body type to kinematic to ensure smooth transition (doesn't look right yet)
-		c.GetComponent<PlayerPlatformerController> ().haltInput = true;
-		c.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+	/// <param name="targetRoom">C.</param>
+	public IEnumerator TransitionToNewRoom(RoomController targetRoom) {
+		GameObject player = this.GetPlayerTransform().gameObject;//player reference
+		Door spawnDoor = targetRoom.GetComponentInChildren<Door>();//target door spawn reference
 
-		//fade to black > move player into door > move player behind other door > fade to clear > move player out of other door
-		GameControl.control.fadeImage ("black");
-		yield return StartCoroutine (movePlayer (c, playerSpawn.transform.position));
-		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
-		c.transform.position = other.getSpawn ().transform.position;
-		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
-		GameControl.control.fadeImage ("");
-		yield return StartCoroutine (movePlayer (c, other.getDestination ().transform.position));
+		//Set body type to kinematic to ensure smooth transition (doesn't look right yet)
+		player.GetComponent<PlayerPlatformerController> ().haltInput = true;
+		player.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+
+		//fade to black > move player behind target door > fade to clear > move player out of target door
+		this.fadeImage("black");
+		yield return new WaitForSeconds (this.getRoomTransTime());
+		player.transform.position = spawnDoor.getSpawn().transform.position;
+		yield return new WaitForSeconds (this.getRoomTransTime ());
+		this.fadeImage ("");
+		yield return StartCoroutine (movePlayer (player, spawnDoor.getDestination ().transform.position));
 
 		//Resets the RigidbodyType2D to Dynamic and returns input control to the player
-		c.GetComponent<PlayerPlatformerController> ().haltInput = false;
+		player.GetComponent<PlayerPlatformerController> ().haltInput = false;
 	}
 
 	/// <summary>
-	/// Coroutine called from roomTransition coroutine that physically moves the player
-	/// from one room to another using Kinematic Movement
+	/// Coroutine that physically moves the player
+	/// from one point to another using Kinematic Movement
 	/// </summary>
 	/// <returns>The player.</returns>
-	/// <param name="c">C.</param>
-	/// <param name="t">T.</param>
-	IEnumerator movePlayer(GameObject c, Vector3 t) {
+	/// <param name="player">C.</param>
+	/// <param name="target">T.</param>
+	public IEnumerator movePlayer(GameObject player, Vector3 target) {
 		KinematicArrive.KinematicSteering steering;
 		while (true) {
-			c.GetComponent<KinematicArrive> ().setTarget (new Vector3(t.x, c.transform.position.y, t.z));
-			steering = c.GetComponent<KinematicArrive> ().getSteering ();
-			c.GetComponent<KinematicArrive> ().setOrientations (steering);
-			if (c.GetComponent<KinematicArrive> ().getArrived ())
+			player.GetComponent<KinematicArrive> ().setTarget (new Vector3(target.x, player.transform.position.y, target.z));
+			steering = player.GetComponent<KinematicArrive> ().getSteering ();
+			player.GetComponent<KinematicArrive> ().setOrientations (steering);
+			if (player.GetComponent<KinematicArrive> ().getArrived ())
 				yield break;
 			else
 				yield return null;
 		}
 	}
 
-
-*/
 
 }
 
@@ -337,5 +338,6 @@ class GameData
 	public bool beatBoss1;
 	public bool beatBoss2;
 	public bool beatBoss3;
+	public RoomController lastSaveRoom;
 }
 

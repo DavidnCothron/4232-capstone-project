@@ -65,13 +65,14 @@ public class Door : MonoBehaviour {
 	/// <returns>The transition in</returns>
 	/// <param name="c">C.</param>
 	IEnumerator areaTransitionOut(Collider2D c){
+		GameObject player = c.gameObject;
 		//Set body type to kinematic to ensure smooth transition (doesn't look right yet)
 		c.GetComponent<PlayerPlatformerController> ().haltInput = true;
 		c.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 
 		initAreaTuple();
 		GameControl.control.fadeImage ("black");
-		yield return StartCoroutine (movePlayer (c, playerSpawn.transform.position));
+		yield return StartCoroutine (GameControl.control.movePlayer (player, playerSpawn.transform.position));
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
 		GameControl.control.TransitionAreas(currentArea, nextArea);
 		SceneManager.LoadScene(sceneToLoad);//swap this for a configurable option for any door
@@ -83,6 +84,7 @@ public class Door : MonoBehaviour {
 	/// <returns>The transition in</returns>
 	/// <param name="c">C.</param>
 	public IEnumerator areaTransitionIn(Collider2D c){
+		GameObject player = c.gameObject;
 		c.GetComponent<PlayerPlatformerController> ().haltInput = true;
 		c.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 		GameControl.control.fadeImage ("startBlack");
@@ -90,7 +92,7 @@ public class Door : MonoBehaviour {
 		c.transform.position = this.getSpawn ().transform.position;
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
 		GameControl.control.fadeImage ("");
-		yield return StartCoroutine (movePlayer (c, this.getDestination ().transform.position));
+		yield return StartCoroutine (GameControl.control.movePlayer(player, this.getDestination ().transform.position));
 
 		//Resets the RigidbodyType2D to Dynamic and returns input control to the player
 		c.GetComponent<PlayerPlatformerController> ().haltInput = false;
@@ -103,24 +105,25 @@ public class Door : MonoBehaviour {
 	/// <param name="c">C.</param>
 	IEnumerator roomTransition(Collider2D c) {
 		//Set body type to kinematic to ensure smooth transition (doesn't look right yet)
-		c.GetComponent<PlayerPlatformerController> ().haltInput = true;
-		c.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+		GameObject player = c.gameObject;
+		player.GetComponent<PlayerPlatformerController> ().haltInput = true;
+		player.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 
 		//fade to black > move player into door > move player behind other door > fade to clear > move player out of other door
 		GameControl.control.fadeImage ("black");
-		yield return StartCoroutine (movePlayer (c, playerSpawn.transform.position));
+		yield return StartCoroutine (GameControl.control.movePlayer(player, playerSpawn.transform.position));
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
 		c.transform.position = other.getSpawn ().transform.position;
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
 		GameControl.control.fadeImage ("");
-		yield return StartCoroutine (movePlayer (c, other.getDestination ().transform.position));
+		yield return StartCoroutine (GameControl.control.movePlayer(player, other.getDestination ().transform.position));
 
 		//Resets the RigidbodyType2D to Dynamic and returns input control to the player
 		c.GetComponent<PlayerPlatformerController> ().haltInput = false;
 	}
 
 	
-
+	/* //This method has been moved to Game control so that it can be used for more than just the door script
 	/// <summary>
 	/// Coroutine called from roomTransition coroutine that physically moves the player
 	/// from one room to another using Kinematic Movement
@@ -140,5 +143,7 @@ public class Door : MonoBehaviour {
 				yield return null;
 		}
 	}
+
+	*/
 	
 }
