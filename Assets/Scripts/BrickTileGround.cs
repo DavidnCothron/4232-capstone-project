@@ -35,7 +35,6 @@ public class BrickTileGround : Tile {
 			}
 		}
 		
-
 		tileData.colliderType = ColliderType.Grid;
 		tileData.sprite = top_outer_transparent_background[5];
 
@@ -197,7 +196,7 @@ public class BrickTileGround : Tile {
 			//tiles on all sides
 			tileData.sprite = inner[0]; //All black tile (base case)
 			int num = (int)Random.Range(0,9);
-			if (num <= 2) {
+			if (num <= 1) {
 				tileData.sprite = inner[(int)Random.Range(1,3)];
 			}
 			if (num == 3) {
