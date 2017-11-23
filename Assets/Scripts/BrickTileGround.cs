@@ -50,6 +50,7 @@ public class BrickTileGround : Tile {
 				- Hard Brackets: tile is a Ground Tile.
 				- Soft Brackets: tile is NULL
 				- No Brackets: tile can be either NULL or a Ground Tile
+				- X: this tile
 		*/
 		
 		#region one_tile_height
