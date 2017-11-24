@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
+using System;
 
 public class BrickTileGround : Tile {
 	[SerializeField] private Sprite[] top_outer, top_inner, bottom_outer, bottom_inner, left_outer, left_inner, right_outer, right_inner, inner, inner_transparent_background,
 									top_outer_transparent_background, top_inner_transparent_background, bottom_outer_transparent_background, bottom_inner_transparent_background,
 									left_outer_transparent_background, left_inner_transparent_background, right_outer_transparent_background, right_inner_transparent_background;
 	[SerializeField] private Sprite preview;
-
+	
+	
 	public override void RefreshTile(Vector3Int position, ITilemap tilemap) {
 		for (int y = -2; y <= 2; y++) {
 			for (int x = -2; x <= 2; x++) {
@@ -19,6 +21,7 @@ public class BrickTileGround : Tile {
 				}
 			}
 		}
+		
 	}
 
 	public override void GetTileData (Vector3Int position, ITilemap tilemap, ref TileData tileData) {
@@ -34,15 +37,25 @@ public class BrickTileGround : Tile {
 				}
 			}
 		}
+
+		//if (isGround(tilemap, position)) {
+			//Event e = Event.current;
+			//if ((e.type == EventType.MouseDown) && e.button == 0) {
+				//Debug.Log(tilemap.GetSprite(position));
+				//e.Use();
+			//}
+		//}
 		
 		tileData.colliderType = ColliderType.Grid;
 		tileData.sprite = top_outer_transparent_background[5];
 
-		//If a tile has been delete, remove its collider
+		//If a tile has been deleted, remove its collider
 		if (!isGround(tilemap, position)) {
 			tileData.colliderType = ColliderType.None;
 		} else {
-			//Debug.Log(this.colliderType);
+			//Debug.Log(tilemap.GetTileFlags(position));
+			//tileData.colliderType = this.colliderType;
+			//this.colliderType = tileData.colliderType;
 		}
 
 
@@ -140,10 +153,10 @@ public class BrickTileGround : Tile {
 			//beneath a ramp going to the left on a one-tile height ramp
 			tileData.sprite = top_inner_transparent_background[8];
 		}
-		if (composition[2] == 'G' && composition[6] == 'N' && composition[7] == 'G' && composition[11] == 'G' && composition[12] == 'N' && composition[15] == 'G' && composition[16] == 'N') {
+		if (composition[2] == 'G' && composition[6] == 'N' && composition[7] == 'G' && composition[8] == 'N' && composition[11] == 'G' && composition[12] == 'N' && composition[15] == 'G' && composition[16] == 'N') {
 			/*
 				04		09		13		18		23
-				03		08		(12)	17		22
+				03		(08)	(12)	17		22
 				[02]	[07]	X		(16)	21
 				01		(06)	[11]	[15]	20
 				00		05		10		14		19 
@@ -187,11 +200,22 @@ public class BrickTileGround : Tile {
 			tileData.sprite = top_outer[1];
 		}
 		if (composition[6] == 'G' && composition[7] == 'G' && composition[11] == 'G' && composition[12] == 'N' && composition[16] == 'N') {
-			/*
+			/* SAME TYPE OF TILE AS ONE BELOW
 				04		09		13		18		23
 				03		08		(12)	17		22
 				02		[07]	X		(16)	21
 				01		[06]	[11]	15		20
+				00		05		10		14		19 
+			*/
+			//on the top right with a tile below and to the left
+			tileData.sprite = top_outer[2];
+		}
+		if (composition[8] == 'G' && composition[7] == 'G' && composition[11] == 'G' && composition[12] == 'N' && composition[16] == 'N') {
+			/*
+				04		09		13		18		23
+				03		[08]	(12)	17		22
+				02		[07]	X		(16)	21
+				01		06		[11]	15		20
 				00		05		10		14		19 
 			*/
 			//on the top right with a tile below and to the left
@@ -208,7 +232,7 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//on the left edge of a block
-			tileData.sprite = left_outer[(int)Random.Range(0,4)];
+			tileData.sprite = left_outer[(int)UnityEngine.Random.Range(0,4)];
 		}
 		#endregion
 		#region right_edge
@@ -221,7 +245,7 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//on the right edge of a block
-			tileData.sprite = right_outer[(int)Random.Range(0,4)];
+			tileData.sprite = right_outer[(int)UnityEngine.Random.Range(0,4)];
 		}
 		#endregion
 		#region bottom_edge
@@ -270,9 +294,9 @@ public class BrickTileGround : Tile {
 			*/
 			//tiles on all sides
 			tileData.sprite = inner[0]; //All black tile (base case)
-			int num = (int)Random.Range(0,9);
+			int num = (int)UnityEngine.Random.Range(0,9);
 			if (num <= 1) {
-				tileData.sprite = inner[(int)Random.Range(1,3)];
+				tileData.sprite = inner[(int)UnityEngine.Random.Range(1,3)];
 			}
 			if (num == 3) {
 				//find four inner

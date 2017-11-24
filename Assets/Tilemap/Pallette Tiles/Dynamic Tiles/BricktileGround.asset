@@ -32,7 +32,7 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 1
+  m_ColliderType: 2
   top_outer:
   - {fileID: 21300000, guid: 3f208d3a874df964084bc080b25a3f27, type: 3}
   - {fileID: 21300002, guid: 3f208d3a874df964084bc080b25a3f27, type: 3}
@@ -40,6 +40,8 @@ MonoBehaviour:
   - {fileID: 21300016, guid: 3f208d3a874df964084bc080b25a3f27, type: 3}
   - {fileID: 21300018, guid: 3f208d3a874df964084bc080b25a3f27, type: 3}
   - {fileID: 21300022, guid: 3f208d3a874df964084bc080b25a3f27, type: 3}
+  - {fileID: 21300230, guid: 3f208d3a874df964084bc080b25a3f27, type: 3}
+  - {fileID: 21300224, guid: 3f208d3a874df964084bc080b25a3f27, type: 3}
   top_inner:
   - {fileID: 21300008, guid: 3f208d3a874df964084bc080b25a3f27, type: 3}
   - {fileID: 21300010, guid: 3f208d3a874df964084bc080b25a3f27, type: 3}
@@ -103,7 +105,24 @@ MonoBehaviour:
   - {fileID: 21300016, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
   - {fileID: 21300018, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
   - {fileID: 21300022, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
-  top_inner_transparent_background: []
+  - {fileID: 21300152, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300154, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300168, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300170, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300216, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300222, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300220, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300218, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  top_inner_transparent_background:
+  - {fileID: 21300008, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300010, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300012, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300048, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300052, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300092, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300090, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300166, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
+  - {fileID: 21300160, guid: 2719b7a11f2c7cb4aaaaff8094c460be, type: 3}
   bottom_outer_transparent_background: []
   bottom_inner_transparent_background: []
   left_outer_transparent_background: []

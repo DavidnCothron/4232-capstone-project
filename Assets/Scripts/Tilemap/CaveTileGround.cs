@@ -35,7 +35,6 @@ public class CaveTileGround : Tile {
 		}
 		tileData.colliderType = ColliderType.Grid;
 		tileData.sprite = preview;
-
 		/*
 		 * 2	4	7
 		 * 1	X	6 => 01234567
