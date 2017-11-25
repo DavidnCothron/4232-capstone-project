@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
-using System;
 
-public class BrickTileGround : Tile {
-	[SerializeField] private Sprite[] top_outer, top_inner, bottom_outer, bottom_inner, left_outer, left_inner, right_outer, right_inner, inner, inner_transparent_background,
-									top_outer_transparent_background, top_inner_transparent_background, bottom_outer_transparent_background, bottom_inner_transparent_background,
-									left_outer_transparent_background, left_inner_transparent_background, right_outer_transparent_background, right_inner_transparent_background;
+public class Adaptive2DTileGround : Tile {
 	[SerializeField] private Sprite preview;
-	
-	
+	[SerializeField] private Sprite [] top_left, top_center, top_right, bottom_left, bottom_center, bottom_right,
+										left, right, slope_right_up, slope_left_up, slope_right_down, slope_left_down, inner, debris;
 	public override void RefreshTile(Vector3Int position, ITilemap tilemap) {
 		for (int y = -2; y <= 2; y++) {
 			for (int x = -2; x <= 2; x++) {
@@ -21,7 +17,12 @@ public class BrickTileGround : Tile {
 				}
 			}
 		}
-		
+
+	}
+
+	private bool isGround(ITilemap tilemap, Vector3Int position) {
+		//Debug.Log(this.GetInstanceID());
+		return tilemap.GetTile (position) == this;
 	}
 
 	public override void GetTileData (Vector3Int position, ITilemap tilemap, ref TileData tileData) {
@@ -37,9 +38,6 @@ public class BrickTileGround : Tile {
 				}
 			}
 		}
-		
-		tileData.colliderType = ColliderType.Grid;
-		tileData.sprite = top_outer_transparent_background[5];
 
 		//If a tile has been deleted, remove its collider
 		if (!isGround(tilemap, position)) {
@@ -49,7 +47,9 @@ public class BrickTileGround : Tile {
 			//tileData.colliderType = this.colliderType;
 			//this.colliderType = tileData.colliderType;
 		}
-
+		
+		tileData.colliderType = ColliderType.Grid;
+		tileData.sprite = preview;
 
 		/*
 			04	09	13	18	23
@@ -64,19 +64,18 @@ public class BrickTileGround : Tile {
 				- No Brackets: tile can be either NULL or a Ground Tile
 				- X: this tile
 		*/
-		
+
 		#region one_tile_height
-		
 		if (composition[7] == 'G' && composition[11] == 'N' && composition[12] == 'N' && composition[16] == 'G') {
 			/*
 				04		09		13		18		23
 				03		08		(12)	17		22
 				02		[07]	X		[16]	21
-				01		06		(11)	15		20
+				01		06		(11)		15		20
 				00		05		10		14		19 
 			*/
 			//between two tiles with nothing above or below
-			tileData.sprite = top_outer_transparent_background[1];
+			tileData.sprite = top_center[0];
 		}
 		if (composition[7] == 'N' && composition[11] == 'N' && composition[12] == 'N' && composition[16] == 'G') {
 			/*
@@ -87,7 +86,7 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//on the left of a one_tile_height platform
-			tileData.sprite = top_outer_transparent_background[3];
+			tileData.sprite = top_left[2];
 		}
 		if (composition[7] == 'G' && composition[11] == 'N' && composition[12] == 'N' && composition[16] == 'N') {
 			/*
@@ -97,78 +96,11 @@ public class BrickTileGround : Tile {
 				01		06		(11)	15		20
 				00		05		10		14		19 
 			*/
-			//on the left of a one_tile_height platform
-			tileData.sprite = top_outer_transparent_background[4];
-		}
-		if (composition[7] == 'G' && composition[8] == 'N' && composition[11] == 'N' && composition[12] == 'G' && composition[16] == 'N' && composition[17] == 'G') {
-			/*
-				04		09		13		18		23
-				03		(08)	[12]	[17]		22
-				02		[07]	X		(16)	21
-				01		06		(11)	15		20
-				00		05		10		14		19 
-			*/
-			//beneath a ramp going to the right on a one-tile height ramp
-			tileData.sprite = top_inner_transparent_background[7];
-		}
-		if (composition[6] == 'G' && composition[7] == 'N' && composition[11] == 'G' && composition[12] == 'N' && composition[16] == 'G' && composition[17] == 'N' && composition[21] == 'G') {
-			/*
-				04		09		13		18		23
-				03		08		(12)	(17)	22
-				02		(07)	X		[16]	[21]
-				01		[06]	[11]	15		20
-				00		05		10		14		19 
-			*/
-			//1/2 ramp up moving right
-			tileData.sprite = top_outer_transparent_background[10];
-		}
-		if (composition[6] == 'G' && composition[7] == 'G' && composition[8] == 'N' && composition[11] == 'N' && composition[12] == 'N' && composition[16] == 'G' && composition[17] == 'N') {
-			/*
-				04		09		13		18		23
-				03		(08)	(12)	(17)	22
-				02		[07]	X		[16]	21
-				01		[06]	(11)	15		20
-				00		05		10		14		19 
-			*/
-			//2/2 ramp up moving right
-			tileData.sprite = top_outer_transparent_background[13];
-		}
-		if (composition[3] == 'G' && composition[7] == 'N' && composition[8] == 'G' && composition[11] == 'N' && composition[12] == 'G' && 
-		composition[13] == 'N' && composition[16] == 'G' && composition[17] == 'N') {
-			/*
-				04		09		(13)	18		23
-				[03]	[08]	[12]	(17)	22
-				02		(07)	X		[16]	21
-				01		06		(11)	15		20
-				00		05		10		14		19 
-			*/
-			//beneath a ramp going to the left on a one-tile height ramp
-			tileData.sprite = top_inner_transparent_background[8];
-		}
-		if (composition[2] == 'G' && composition[6] == 'N' && composition[7] == 'G' && composition[8] == 'N' && composition[11] == 'G' && composition[12] == 'N' && composition[15] == 'G' && composition[16] == 'N') {
-			/*
-				04		09		13		18		23
-				03		(08)	(12)	17		22
-				[02]	[07]	X		(16)	21
-				01		(06)	[11]	[15]	20
-				00		05		10		14		19 
-			*/
-			//1/2 ramp up moving left
-			tileData.sprite = top_outer_transparent_background[11];
-		}
-		if (composition[7] == 'G' && composition[8] == 'N' && composition[11] == 'N' && composition[12] == 'N' && composition[15] == 'G' && composition[16] == 'G' && composition[17] == 'N') {
-			/*
-				04		09		13		18		23
-				03		(08)	(12)	(17)	22
-				02		[07]	X		[16]	21
-				01		06		(11)	[15]	20
-				00		05		10		14		19 
-			*/
-			//2/2 ramp up moving left
-			tileData.sprite = top_outer_transparent_background[12];
+			//on the right of a one_tile_height platform
+			tileData.sprite = top_right[2];
 		}
 		#endregion
-		#region top_edge
+		#region top
 		if (composition[7] == 'N' && composition[11] == 'G' && composition[12] == 'N' && composition[15] == 'G' && composition[16] == 'G') {
 			/*
 				04		09		13		18		23
@@ -178,7 +110,7 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//on the top left with a tile below and to the right
-			tileData.sprite = top_outer[0];
+			tileData.sprite = top_left[0];
 		}
 		if (composition[7] == 'G' && composition[11] == 'G' && composition[12] == 'N' && composition[16] == 'G') {
 			/*
@@ -189,7 +121,7 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//on the top of a block with height > 1
-			tileData.sprite = top_outer[1];
+			tileData.sprite = top_center[0];
 		}
 		if (composition[6] == 'G' && composition[7] == 'G' && composition[11] == 'G' && composition[12] == 'N' && composition[16] == 'N') {
 			/* SAME TYPE OF TILE AS ONE BELOW
@@ -200,7 +132,7 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//on the top right with a tile below and to the left
-			tileData.sprite = top_outer[2];
+			tileData.sprite = top_right[0];
 		}
 		if (composition[8] == 'G' && composition[7] == 'G' && composition[11] == 'G' && composition[12] == 'N' && composition[16] == 'N') {
 			/*
@@ -211,36 +143,10 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//on the top right with a tile below and to the left
-			tileData.sprite = top_outer[2];
+			tileData.sprite = top_right[0];
 		}
 		#endregion
-		#region left_edge
-		if (composition[7] == 'N' && composition[11] == 'G' && composition[12] == 'G' && composition[16] == 'G') {
-			/*
-				04		09		13		18		23
-				03		08		[12]	17		22
-				02		(07)	X		[16]	21
-				01		06		[11]	15		20
-				00		05		10		14		19 
-			*/
-			//on the left edge of a block
-			tileData.sprite = left_outer[(int)UnityEngine.Random.Range(0,4)];
-		}
-		#endregion
-		#region right_edge
-		if (composition[7] == 'G' && composition[11] == 'G' && composition[12] == 'G' && composition[16] == 'N') {
-			/*
-				04		09		13		18		23
-				03		08		[12]	17		22
-				02		[07]	X		(16)	21
-				01		06		[11]	15		20
-				00		05		10		14		19 
-			*/
-			//on the right edge of a block
-			tileData.sprite = right_outer[(int)UnityEngine.Random.Range(0,4)];
-		}
-		#endregion
-		#region bottom_edge
+		#region bottom
 		if (composition[7] == 'N' && composition[11] == 'N' && composition[12] == 'G' && composition[16] == 'G' && composition[17] == 'G') {
 			/*
 				04		09		13		18		23
@@ -250,7 +156,7 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//on the left, bottom corner of a block
-			tileData.sprite = bottom_outer[5];
+			tileData.sprite = bottom_left[2];
 		}
 		if (composition[7] == 'G' && composition[11] == 'N' && composition[12] == 'G' && composition[16] == 'G') {
 			/*
@@ -261,7 +167,7 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//on the bottom edge of a block
-			tileData.sprite = bottom_outer[4];
+			tileData.sprite = bottom_center[1];
 		}
 		if (composition[7] == 'G' && composition[8] == 'G' && composition[11] == 'N' && composition[12] == 'G' && composition[16] == 'N') {
 			/*
@@ -272,30 +178,57 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//on the bottom, right corner of a block
-			tileData.sprite = bottom_outer[3];
+			tileData.sprite = bottom_right[2];
 		}
 		#endregion
-		#region inner
-		if (composition[7] == 'G' && composition[11] == 'G' && composition[12] == 'G' && composition[16] == 'G') {
+		#region left
+		if (composition[7] == 'N' && composition[11] == 'G' && composition[12] == 'G' && composition[16] == 'G') {
 			/*
 				04		09		13		18		23
 				03		08		[12]	17		22
-				02		[07]	X		[16]	21
+				02		(07)	X		[16]	21
 				01		06		[11]	15		20
+				00		05		10		14		19 
+			*/
+			//on the left edge of a block
+			tileData.sprite = left[(int)UnityEngine.Random.Range(0,5)];
+		}
+		#endregion
+		#region right
+		if (composition[7] == 'G' && composition[11] == 'G' && composition[12] == 'G' && composition[16] == 'N') {
+			/*
+				04		09		13		18		23
+				03		08		[12]	17		22
+				02		[07]	X		(16)	21
+				01		06		[11]	15		20
+				00		05		10		14		19 
+			*/
+			//on the right edge of a block
+			tileData.sprite = right[(int)UnityEngine.Random.Range(0,5)];
+		}
+		#endregion
+		#region inner
+		if (composition[6] == 'G' && composition[7] == 'G' && composition[8] == 'G' && composition[11] == 'G' && 
+		composition[12] == 'G' && composition[15] == 'G' && composition[16] == 'G' && composition[17] == 'G') {
+			/*
+				04		09		13		18		23
+				03		[08]	[12]	[17]	22
+				02		[07]	X		[16]	21
+				01		[06]	[11]	[15]	20
 				00		05		10		14		19 
 			*/
 			//tiles on all sides
 			tileData.sprite = inner[0]; //All black tile (base case)
 			int num = (int)UnityEngine.Random.Range(0,9);
 			if (num <= 1) {
-				tileData.sprite = inner[(int)UnityEngine.Random.Range(1,3)];
+				tileData.sprite = inner[(int)UnityEngine.Random.Range(1,6)];
 			}
 			if (num == 3) {
 				//find four inner
 			}
 		}
 		#endregion
-		#region inner_edge
+		#region inner_corners
 		if (composition[7] == 'G' && composition[8] == 'N' && composition[11] == 'G' && composition[12] == 'G' && composition[16] == 'G' && composition[17] == 'G') {
 			/*
 				04		09		13		18		23
@@ -305,7 +238,7 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//Inner top-left corner (platform extends to the left)
-			tileData.sprite = top_inner[5];
+			tileData.sprite = top_left[3];
 		}
 		if (composition[7] == 'G' && composition[8] == 'G' && composition[11] == 'G' && composition[12] == 'G' && composition[16] == 'G' && composition[17] == 'N') {
 			/*
@@ -316,7 +249,7 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//Inner top-right corner (platform extends to the right)
-			tileData.sprite = top_inner[4];
+			tileData.sprite = top_right[3];
 		}
 		if (composition[7] == 'G' && composition[11] == 'G' && composition[12] == 'G' && composition[15] == 'N' && composition[16] == 'G') {
 			/*
@@ -327,7 +260,7 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//Inner lower-right corner 
-			tileData.sprite = bottom_inner[0];
+			tileData.sprite = bottom_right[1];
 		}
 		if (composition[6] == 'N' && composition[7] == 'G' && composition[11] == 'G' && composition[12] == 'G' && composition[16] == 'G') {
 			/*
@@ -338,34 +271,20 @@ public class BrickTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//Inner lower-left corner
-			tileData.sprite = bottom_inner[1];
+			tileData.sprite = bottom_left[1];
 		}
 		#endregion
+
 	}
 
-	private bool isGround(ITilemap tilemap, Vector3Int position) {
-		return tilemap.GetTile (position) == this;
-	}
-
-	private void findFourInner(ITilemap tilemap, Vector3Int position) {
-		Vector4 choices = new Vector4(1f, 1f, 1f, 1f);
-		for (int x = -1; x <= 1; x += 2) {
-			for (int y = -1; y <= 1; y += 2) {
-				if (isGround (tilemap, new Vector3Int (position.x + x, position.y + y, position.z))) {
-					//if a diagonal tile is a ground tile, check its surrounding tiles
-					Vector3Int nPos = new Vector3Int (position.x + x, position.y + y, position.z);
-				}
-			}
-		}
-	}
 
 	#if UNITY_EDITOR
-	[MenuItem("Assets/Create/Tiles/BrickTileGround")]
-	public static void CreateBrickTileGroundTile() {
-		string path = EditorUtility.SaveFilePanelInProject ("Save BricktileGround", "New BricktileGround", "asset", "Save BricktileGround", "Assets");
+	[MenuItem("Assets/Create/Tiles/Adaptive2DTileGround")]
+	public static void CreateAdaptive2DTileGroundTile() {
+		string path = EditorUtility.SaveFilePanelInProject ("Save Adaptive2DtileGround", "New Adaptive2DtileGround", "asset", "Save Adaptive2DtileGround", "Assets");
 		if (path == "")
 			return;
-		AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<BrickTileGround>(), path);
+		AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<Adaptive2DTileGround>(), path);
 	}
 	#endif
 }
