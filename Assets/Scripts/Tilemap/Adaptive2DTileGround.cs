@@ -191,7 +191,7 @@ public class Adaptive2DTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//on the left edge of a block
-			tileData.sprite = left[(int)UnityEngine.Random.Range(0,5)];
+			tileData.sprite = left[(int)UnityEngine.Random.Range(0,left.Length)];
 		}
 		#endregion
 		#region right
@@ -204,7 +204,7 @@ public class Adaptive2DTileGround : Tile {
 				00		05		10		14		19 
 			*/
 			//on the right edge of a block
-			tileData.sprite = right[(int)UnityEngine.Random.Range(0,5)];
+			tileData.sprite = right[(int)UnityEngine.Random.Range(0,right.Length)];
 		}
 		#endregion
 		#region inner
