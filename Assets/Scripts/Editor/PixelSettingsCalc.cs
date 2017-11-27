@@ -9,9 +9,10 @@ public class PixelSettingsCalc : EditorWindow {
 	int layerNum = 1;
 	int centerToEdge = 8;
 	int PPU = 32;
-	int displayPPU, displayZ;
-	string calculateZPPU = "Calculate";
-	float screenResWidth, screenResHeight;
+	int squarePixelSubdivision, pixelsInTile;
+	string calculateZPPU = "Calculate Z and PPU";
+	string calculateTilemapScale = "Calculate Tilemap Scale";
+	float screenResWidth, screenResHeight, tilemapScale, gridSize, unitsPerPixel;
 	//Matrix4x4 viewProjection = Camera.main.projectionMatrix * Camera.main.worldToCameraMatrix;
 	double viewProjection_0 = 2.099278;
 	KeyValuePair<int, float> layerInfo = new KeyValuePair<int, float>();
@@ -35,7 +36,22 @@ public class PixelSettingsCalc : EditorWindow {
 			layerInfo = getLayer(layerNum);
 			//GUILayout.Label("PPU: " + layerInfo.Key + " Z-depth: " + layerInfo.Value);
 		}
-		GUILayout.TextArea ("PPU: " + layerInfo.Key + " Z-distance: " + layerInfo.Value);
+
+		GUILayout.TextArea ("PPU: " + layerInfo.Key + "\nZ-distance: " + layerInfo.Value);
+		GUILayout.Label("Grid Settings Calculator", EditorStyles.boldLabel);
+		squarePixelSubdivision = EditorGUILayout.IntField("Number of desired pixels per tile: ", squarePixelSubdivision);
+		pixelsInTile = EditorGUILayout.IntField("Number of actual pixels per tile", pixelsInTile);
+		
+		if (pixelsInTile == 0) pixelsInTile = 1;
+
+		if (GUILayout.Button(calculateTilemapScale)) {
+			if (pixelsInTile == 0) pixelsInTile = 1;
+			tilemapScale = (float)squarePixelSubdivision/(float)pixelsInTile;
+			unitsPerPixel = (float)PPU/(float)pixelsInTile;
+			gridSize = tilemapScale/unitsPerPixel;
+		}
+
+		GUILayout.TextArea("Tilemap Scale: " + tilemapScale + "\nGrid Size: " + gridSize);
 
 
 	}

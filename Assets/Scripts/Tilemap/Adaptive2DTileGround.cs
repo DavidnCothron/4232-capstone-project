@@ -8,6 +8,7 @@ public class Adaptive2DTileGround : Tile {
 	[SerializeField] private Sprite preview;
 	[SerializeField] private Sprite [] top_left, top_center, top_right, bottom_left, bottom_center, bottom_right,
 										left, right, slope_right_up, slope_left_up, slope_right_down, slope_left_down, inner, debris;
+	#if UNITY_EDITOR
 	public override void RefreshTile(Vector3Int position, ITilemap tilemap) {
 		for (int y = -2; y <= 2; y++) {
 			for (int x = -2; x <= 2; x++) {
@@ -276,7 +277,7 @@ public class Adaptive2DTileGround : Tile {
 		#endregion
 
 	}
-
+	#endif
 
 	#if UNITY_EDITOR
 	[MenuItem("Assets/Create/Tiles/Adaptive2DTileGround")]
