@@ -1,0 +1,1771 @@
+fileFormatVersion: 2
+guid: e653494cf8289c44890ba63c7cfde016
+timeCreated: 1484210320
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: shield-back-purple_0
+    21300002: shield-back-purple_1
+    21300004: shield-back-purple_2
+    21300006: shield-back-purple_3
+    21300008: shield-back-purple_4
+    21300010: shield-back-purple_5
+    21300012: shield-back-purple_6
+    21300014: shield-back-purple_7
+    21300016: shield-back-purple_8
+    21300018: shield-back-purple_9
+    21300020: shield-back-purple_10
+    21300022: shield-back-purple_11
+    21300024: shield-back-purple_12
+    21300026: shield-back-purple_13
+    21300028: shield-back-purple_14
+    21300030: shield-back-purple_15
+    21300032: shield-back-purple_16
+    21300034: shield-back-purple_17
+    21300036: shield-back-purple_18
+    21300038: shield-back-purple_19
+    21300040: shield-back-purple_20
+    21300042: shield-back-purple_21
+    21300044: shield-back-purple_22
+    21300046: shield-back-purple_23
+    21300048: shield-back-purple_24
+    21300050: shield-back-purple_25
+    21300052: shield-back-purple_26
+    21300054: shield-back-purple_27
+    21300056: shield-back-purple_28
+    21300058: shield-back-purple_29
+    21300060: shield-back-purple_30
+    21300062: shield-back-purple_31
+    21300064: shield-back-purple_32
+    21300066: shield-back-purple_33
+    21300068: shield-back-purple_34
+    21300070: shield-back-purple_35
+    21300072: shield-back-purple_36
+    21300074: shield-back-purple_37
+    21300076: shield-back-purple_38
+    21300078: shield-back-purple_39
+    21300080: shield-back-purple_40
+    21300082: shield-back-purple_41
+    21300084: shield-back-purple_42
+    21300086: shield-back-purple_43
+    21300088: shield-back-purple_44
+    21300090: shield-back-purple_45
+    21300092: shield-back-purple_46
+    21300094: shield-back-purple_47
+    21300096: shield-back-purple_48
+    21300098: shield-back-purple_49
+    21300100: shield-back-purple_50
+    21300102: shield-back-purple_51
+    21300104: shield-back-purple_52
+    21300106: shield-back-purple_53
+    21300108: shield-back-purple_54
+    21300110: shield-back-purple_55
+    21300112: shield-back-purple_56
+    21300114: shield-back-purple_57
+    21300116: shield-back-purple_58
+    21300118: shield-back-purple_59
+    21300120: shield-back-purple_60
+    21300122: shield-back-purple_61
+    21300124: shield-back-purple_62
+    21300126: shield-back-purple_63
+    21300128: shield-back-purple_64
+    21300130: shield-back-purple_65
+    21300132: shield-back-purple_66
+    21300134: shield-back-purple_67
+    21300136: shield-back-purple_68
+    21300138: shield-back-purple_69
+    21300140: shield-back-purple_70
+    21300142: shield-back-purple_71
+    21300144: shield-back-purple_72
+    21300146: shield-back-purple_73
+    21300148: shield-back-purple_74
+    21300150: shield-back-purple_75
+    21300152: shield-back-purple_76
+    21300154: shield-back-purple_77
+    21300156: shield-back-purple_78
+    21300158: shield-back-purple_79
+    21300160: shield-back-purple_80
+    21300162: shield-back-purple_81
+    21300164: shield-back-purple_82
+    21300166: shield-back-purple_83
+    21300168: shield-back-purple_84
+    21300170: shield-back-purple_85
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: shield-back-purple_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 1}
+        - {x: -7, y: -1}
+        - {x: -7, y: -12}
+        - {x: -3, y: -14}
+        - {x: 1, y: -14}
+        - {x: 5, y: -11}
+        - {x: 5, y: -4}
+        - {x: 3, y: 1}
+    - name: shield-back-purple_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 600
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 2}
+        - {x: -7, y: 0}
+        - {x: -7, y: -11}
+        - {x: -3, y: -13}
+        - {x: 1, y: -13}
+        - {x: 5, y: -10}
+        - {x: 5, y: -3}
+        - {x: 3, y: 2}
+    - name: shield-back-purple_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 600
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: -12}
+        - {x: -5, y: -15}
+        - {x: 2, y: -15}
+        - {x: 5, y: -14}
+        - {x: 5, y: -5}
+        - {x: 3, y: 0}
+        - {x: -3, y: 0}
+        - {x: -7, y: -1}
+    - name: shield-back-purple_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 600
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: -13}
+        - {x: -5, y: -16}
+        - {x: 2, y: -16}
+        - {x: 5, y: -15}
+        - {x: 5, y: -6}
+        - {x: 3, y: -1}
+        - {x: -3, y: -1}
+        - {x: -7, y: -2}
+    - name: shield-back-purple_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 1}
+        - {x: -7, y: -1}
+        - {x: -7, y: -12}
+        - {x: -3, y: -14}
+        - {x: 1, y: -14}
+        - {x: 5, y: -11}
+        - {x: 5, y: -4}
+        - {x: 3, y: 1}
+    - name: shield-back-purple_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 1}
+        - {x: -4, y: 1}
+        - {x: -8, y: -2}
+        - {x: -8, y: -9}
+        - {x: -6, y: -14}
+        - {x: 0, y: -14}
+        - {x: 3, y: -12}
+        - {x: 4, y: -9}
+        - {x: 4, y: -4}
+    - name: shield-back-purple_6
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 2}
+        - {x: -9, y: -1}
+        - {x: -9, y: -10}
+        - {x: -8, y: -13}
+        - {x: -1, y: -13}
+        - {x: 3, y: -11}
+        - {x: 3, y: -3}
+        - {x: -1, y: 2}
+    - name: shield-back-purple_7
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 2}
+        - {x: -7, y: 2}
+        - {x: -10, y: 0}
+        - {x: -11, y: -3}
+        - {x: -11, y: -8}
+        - {x: -7, y: -13}
+        - {x: -3, y: -13}
+        - {x: 0, y: -11}
+        - {x: 1, y: -8}
+        - {x: 1, y: -3}
+    - name: shield-back-purple_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: -2}
+        - {x: -11, y: -3}
+        - {x: -11, y: -12}
+        - {x: -7, y: -17}
+        - {x: 0, y: -17}
+        - {x: 1, y: -14}
+        - {x: 1, y: -3}
+        - {x: 0, y: -2}
+    - name: shield-back-purple_9
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 0}
+        - {x: -11, y: -1}
+        - {x: -11, y: -10}
+        - {x: -7, y: -15}
+        - {x: -3, y: -15}
+        - {x: 1, y: -12}
+        - {x: 1, y: -5}
+        - {x: 0, y: 0}
+    - name: shield-back-purple_10
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 0}
+        - {x: -10, y: -1}
+        - {x: -10, y: -10}
+        - {x: -6, y: -15}
+        - {x: -2, y: -15}
+        - {x: 2, y: -12}
+        - {x: 2, y: -5}
+        - {x: 1, y: 0}
+    - name: shield-back-purple_11
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 0}
+        - {x: -10, y: -1}
+        - {x: -10, y: -10}
+        - {x: -6, y: -15}
+        - {x: -2, y: -15}
+        - {x: 2, y: -12}
+        - {x: 2, y: -5}
+        - {x: 1, y: 0}
+    - name: shield-back-purple_12
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 1}
+        - {x: -4, y: 1}
+        - {x: -8, y: -2}
+        - {x: -8, y: -9}
+        - {x: -6, y: -14}
+        - {x: 0, y: -14}
+        - {x: 3, y: -12}
+        - {x: 4, y: -9}
+        - {x: 4, y: -4}
+    - name: shield-back-purple_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 520
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 3}
+        - {x: -7, y: 1}
+        - {x: -7, y: -10}
+        - {x: -3, y: -12}
+        - {x: 1, y: -12}
+        - {x: 5, y: -9}
+        - {x: 5, y: -2}
+        - {x: 3, y: 3}
+    - name: shield-back-purple_14
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 520
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 5}
+        - {x: -7, y: 3}
+        - {x: -7, y: -5}
+        - {x: -5, y: -10}
+        - {x: 2, y: -10}
+        - {x: 5, y: -8}
+        - {x: 5, y: 0}
+        - {x: 3, y: 5}
+    - name: shield-back-purple_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -12}
+        - {x: -4, y: -15}
+        - {x: 3, y: -15}
+        - {x: 6, y: -14}
+        - {x: 6, y: -5}
+        - {x: 4, y: 0}
+        - {x: -2, y: 0}
+        - {x: -6, y: -1}
+    - name: shield-back-purple_16
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 480
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: -2}
+        - {x: -6, y: -5}
+        - {x: -6, y: -12}
+        - {x: -4, y: -17}
+        - {x: 3, y: -17}
+        - {x: 6, y: -15}
+        - {x: 6, y: -7}
+        - {x: 4, y: -2}
+    - name: shield-back-purple_17
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 480
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: -4}
+        - {x: -7, y: -5}
+        - {x: -7, y: -14}
+        - {x: -3, y: -19}
+        - {x: 1, y: -19}
+        - {x: 5, y: -16}
+        - {x: 5, y: -9}
+        - {x: 4, y: -4}
+    - name: shield-back-purple_18
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 480
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: -6}
+        - {x: -7, y: -7}
+        - {x: -7, y: -16}
+        - {x: -4, y: -20}
+        - {x: 2, y: -20}
+        - {x: 5, y: -18}
+        - {x: 5, y: -11}
+        - {x: 4, y: -6}
+    - name: shield-back-purple_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: -6}
+        - {x: -7, y: -7}
+        - {x: -7, y: -16}
+        - {x: -4, y: -20}
+        - {x: 2, y: -20}
+        - {x: 5, y: -18}
+        - {x: 5, y: -11}
+        - {x: 4, y: -6}
+    - name: shield-back-purple_20
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: -9}
+        - {x: -7, y: -19}
+        - {x: -6, y: -20}
+        - {x: 5, y: -20}
+        - {x: 5, y: -12}
+        - {x: 1, y: -7}
+        - {x: -3, y: -7}
+    - name: shield-back-purple_21
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: -9}
+        - {x: -7, y: -19}
+        - {x: -6, y: -20}
+        - {x: 5, y: -20}
+        - {x: 5, y: -12}
+        - {x: 1, y: -7}
+        - {x: -3, y: -7}
+    - name: shield-back-purple_22
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: -10}
+        - {x: -8, y: -17}
+        - {x: -7, y: -20}
+        - {x: 4, y: -20}
+        - {x: 4, y: -12}
+        - {x: 0, y: -7}
+        - {x: -4, y: -7}
+    - name: shield-back-purple_23
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: -10}
+        - {x: -8, y: -17}
+        - {x: -7, y: -20}
+        - {x: 4, y: -20}
+        - {x: 4, y: -12}
+        - {x: 0, y: -7}
+        - {x: -4, y: -7}
+    - name: shield-back-purple_24
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: -10}
+        - {x: -8, y: -17}
+        - {x: -7, y: -20}
+        - {x: 4, y: -20}
+        - {x: 4, y: -12}
+        - {x: 0, y: -7}
+        - {x: -4, y: -7}
+    - name: shield-back-purple_25
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -6}
+        - {x: -9, y: -8}
+        - {x: -9, y: -17}
+        - {x: -6, y: -20}
+        - {x: 1, y: -20}
+        - {x: 3, y: -18}
+        - {x: 3, y: -9}
+        - {x: 2, y: -6}
+    - name: shield-back-purple_26
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: -6}
+        - {x: -7, y: -7}
+        - {x: -7, y: -16}
+        - {x: -4, y: -20}
+        - {x: 2, y: -20}
+        - {x: 5, y: -18}
+        - {x: 5, y: -11}
+        - {x: 4, y: -6}
+    - name: shield-back-purple_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: -5}
+        - {x: -7, y: -6}
+        - {x: -7, y: -15}
+        - {x: -3, y: -20}
+        - {x: 1, y: -20}
+        - {x: 5, y: -17}
+        - {x: 5, y: -10}
+        - {x: 4, y: -5}
+    - name: shield-back-purple_28
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 400
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 1}
+        - {x: -7, y: -1}
+        - {x: -7, y: -12}
+        - {x: -3, y: -14}
+        - {x: 1, y: -14}
+        - {x: 5, y: -11}
+        - {x: 5, y: -4}
+        - {x: 3, y: 1}
+    - name: shield-back-purple_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 2}
+        - {x: -8, y: -1}
+        - {x: -8, y: -10}
+        - {x: -7, y: -13}
+        - {x: 0, y: -13}
+        - {x: 4, y: -11}
+        - {x: 4, y: -3}
+        - {x: 0, y: 2}
+    - name: shield-back-purple_30
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 360
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 2}
+        - {x: -8, y: -1}
+        - {x: -8, y: -10}
+        - {x: -7, y: -13}
+        - {x: 0, y: -13}
+        - {x: 4, y: -11}
+        - {x: 4, y: -3}
+        - {x: 0, y: 2}
+    - name: shield-back-purple_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 2}
+        - {x: -7, y: 0}
+        - {x: -7, y: -11}
+        - {x: -3, y: -13}
+        - {x: 1, y: -13}
+        - {x: 5, y: -10}
+        - {x: 5, y: -3}
+        - {x: 3, y: 2}
+    - name: shield-back-purple_32
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 1}
+        - {x: -5, y: -1}
+        - {x: -5, y: -12}
+        - {x: -1, y: -14}
+        - {x: 3, y: -14}
+        - {x: 7, y: -11}
+        - {x: 7, y: -4}
+        - {x: 5, y: 1}
+    - name: shield-back-purple_33
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: -5}
+        - {x: -1, y: -7}
+        - {x: -1, y: -15}
+        - {x: 1, y: -20}
+        - {x: 7, y: -20}
+        - {x: 11, y: -17}
+        - {x: 11, y: -10}
+        - {x: 9, y: -5}
+    - name: shield-back-purple_34
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: -5}
+        - {x: 0, y: -7}
+        - {x: 0, y: -15}
+        - {x: 2, y: -20}
+        - {x: 8, y: -20}
+        - {x: 12, y: -17}
+        - {x: 12, y: -10}
+        - {x: 10, y: -5}
+    - name: shield-back-purple_35
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: -7}
+        - {x: 1, y: -8}
+        - {x: 1, y: -19}
+        - {x: 2, y: -20}
+        - {x: 13, y: -20}
+        - {x: 13, y: -10}
+        - {x: 11, y: -7}
+    - name: shield-back-purple_36
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10, y: -6}
+        - {x: 5, y: -6}
+        - {x: 2, y: -8}
+        - {x: 2, y: -16}
+        - {x: 4, y: -20}
+        - {x: 12, y: -20}
+        - {x: 14, y: -19}
+        - {x: 14, y: -10}
+    - name: shield-back-purple_37
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: -8}
+        - {x: 3, y: -14}
+        - {x: 3, y: -20}
+        - {x: 13, y: -20}
+        - {x: 16, y: -18}
+        - {x: 16, y: -12}
+        - {x: 15, y: -8}
+    - name: shield-back-purple_38
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: -9}
+        - {x: 4, y: -13}
+        - {x: 4, y: -20}
+        - {x: 17, y: -20}
+        - {x: 18, y: -17}
+        - {x: 18, y: -11}
+        - {x: 16, y: -9}
+    - name: shield-back-purple_39
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: -12}
+        - {x: 3, y: -16}
+        - {x: 3, y: -18}
+        - {x: 5, y: -20}
+        - {x: 17, y: -20}
+        - {x: 19, y: -18}
+        - {x: 19, y: -16}
+        - {x: 15, y: -12}
+    - name: shield-back-purple_40
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: -15}
+        - {x: 3, y: -18}
+        - {x: 3, y: -19}
+        - {x: 4, y: -20}
+        - {x: 18, y: -20}
+        - {x: 19, y: -19}
+        - {x: 19, y: -18}
+        - {x: 16, y: -15}
+    - name: shield-back-purple_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 2}
+        - {x: -5, y: 0}
+        - {x: -5, y: -11}
+        - {x: -1, y: -13}
+        - {x: 3, y: -13}
+        - {x: 7, y: -10}
+        - {x: 7, y: -3}
+        - {x: 5, y: 2}
+    - name: shield-back-purple_42
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 4}
+        - {x: -8, y: 1}
+        - {x: -8, y: -6}
+        - {x: -6, y: -11}
+        - {x: 1, y: -11}
+        - {x: 4, y: -9}
+        - {x: 4, y: -1}
+        - {x: 2, y: 4}
+    - name: shield-back-purple_43
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 5}
+        - {x: -10, y: 2}
+        - {x: -10, y: -5}
+        - {x: -8, y: -10}
+        - {x: -1, y: -10}
+        - {x: 2, y: -8}
+        - {x: 2, y: 0}
+        - {x: 0, y: 5}
+    - name: shield-back-purple_44
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -12}
+        - {x: -4, y: -15}
+        - {x: 3, y: -15}
+        - {x: 6, y: -14}
+        - {x: 6, y: -5}
+        - {x: 4, y: 0}
+        - {x: -2, y: 0}
+        - {x: -6, y: -1}
+    - name: shield-back-purple_45
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 1}
+        - {x: -2, y: -1}
+        - {x: -2, y: -9}
+        - {x: 0, y: -14}
+        - {x: 6, y: -14}
+        - {x: 10, y: -11}
+        - {x: 10, y: -4}
+        - {x: 8, y: 1}
+    - name: shield-back-purple_46
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 1}
+        - {x: 1, y: -1}
+        - {x: 1, y: -9}
+        - {x: 3, y: -14}
+        - {x: 10, y: -14}
+        - {x: 13, y: -12}
+        - {x: 13, y: -4}
+        - {x: 11, y: 1}
+    - name: shield-back-purple_47
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 4}
+        - {x: 4, y: 2}
+        - {x: 4, y: -9}
+        - {x: 8, y: -11}
+        - {x: 13, y: -11}
+        - {x: 16, y: -9}
+        - {x: 16, y: -1}
+        - {x: 14, y: 4}
+    - name: shield-back-purple_48
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 7}
+        - {x: 5, y: -7}
+        - {x: 9, y: -8}
+        - {x: 16, y: -8}
+        - {x: 17, y: -7}
+        - {x: 17, y: 2}
+        - {x: 15, y: 7}
+    - name: shield-back-purple_49
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 4}
+        - {x: 5, y: 2}
+        - {x: 5, y: -9}
+        - {x: 9, y: -11}
+        - {x: 14, y: -11}
+        - {x: 17, y: -9}
+        - {x: 17, y: -1}
+        - {x: 15, y: 4}
+    - name: shield-back-purple_50
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 1}
+        - {x: 5, y: -1}
+        - {x: 5, y: -12}
+        - {x: 9, y: -14}
+        - {x: 14, y: -14}
+        - {x: 17, y: -12}
+        - {x: 17, y: -4}
+        - {x: 15, y: 1}
+    - name: shield-back-purple_51
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 0}
+        - {x: 2, y: -2}
+        - {x: 2, y: -11}
+        - {x: 4, y: -15}
+        - {x: 10, y: -15}
+        - {x: 14, y: -14}
+        - {x: 14, y: -4}
+        - {x: 10, y: 0}
+    - name: shield-back-purple_52
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 0}
+        - {x: -1, y: -2}
+        - {x: -1, y: -10}
+        - {x: 1, y: -15}
+        - {x: 7, y: -15}
+        - {x: 11, y: -12}
+        - {x: 11, y: -5}
+        - {x: 9, y: 0}
+    - name: shield-back-purple_53
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 1}
+        - {x: -7, y: -1}
+        - {x: -7, y: -12}
+        - {x: -3, y: -14}
+        - {x: 1, y: -14}
+        - {x: 5, y: -11}
+        - {x: 5, y: -4}
+        - {x: 3, y: 1}
+    - name: shield-back-purple_54
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 1}
+        - {x: -4, y: 1}
+        - {x: -8, y: -2}
+        - {x: -8, y: -9}
+        - {x: -6, y: -14}
+        - {x: 0, y: -14}
+        - {x: 3, y: -12}
+        - {x: 4, y: -9}
+        - {x: 4, y: -4}
+    - name: shield-back-purple_55
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 2}
+        - {x: -9, y: -1}
+        - {x: -9, y: -10}
+        - {x: -8, y: -13}
+        - {x: -1, y: -13}
+        - {x: 3, y: -11}
+        - {x: 3, y: -3}
+        - {x: -1, y: 2}
+    - name: shield-back-purple_56
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 2}
+        - {x: -7, y: 2}
+        - {x: -10, y: 0}
+        - {x: -11, y: -3}
+        - {x: -11, y: -8}
+        - {x: -7, y: -13}
+        - {x: -3, y: -13}
+        - {x: 0, y: -11}
+        - {x: 1, y: -8}
+        - {x: 1, y: -3}
+    - name: shield-back-purple_57
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: -2}
+        - {x: -11, y: -3}
+        - {x: -11, y: -12}
+        - {x: -7, y: -17}
+        - {x: 0, y: -17}
+        - {x: 1, y: -14}
+        - {x: 1, y: -3}
+        - {x: 0, y: -2}
+    - name: shield-back-purple_58
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 0}
+        - {x: -11, y: -1}
+        - {x: -11, y: -10}
+        - {x: -7, y: -15}
+        - {x: -3, y: -15}
+        - {x: 1, y: -12}
+        - {x: 1, y: -5}
+        - {x: 0, y: 0}
+    - name: shield-back-purple_59
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 0}
+        - {x: -11, y: -1}
+        - {x: -11, y: -10}
+        - {x: -7, y: -15}
+        - {x: -3, y: -15}
+        - {x: 1, y: -12}
+        - {x: 1, y: -5}
+        - {x: 0, y: 0}
+    - name: shield-back-purple_60
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 0}
+        - {x: -10, y: -1}
+        - {x: -10, y: -10}
+        - {x: -6, y: -15}
+        - {x: -2, y: -15}
+        - {x: 2, y: -12}
+        - {x: 2, y: -5}
+        - {x: 1, y: 0}
+    - name: shield-back-purple_61
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 0}
+        - {x: -10, y: -1}
+        - {x: -10, y: -10}
+        - {x: -6, y: -15}
+        - {x: -2, y: -15}
+        - {x: 2, y: -12}
+        - {x: 2, y: -5}
+        - {x: 1, y: 0}
+    - name: shield-back-purple_62
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 1}
+        - {x: -4, y: 1}
+        - {x: -8, y: -2}
+        - {x: -8, y: -9}
+        - {x: -6, y: -14}
+        - {x: 0, y: -14}
+        - {x: 3, y: -12}
+        - {x: 4, y: -9}
+        - {x: 4, y: -4}
+    - name: shield-back-purple_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 1}
+        - {x: -5, y: -1}
+        - {x: -5, y: -12}
+        - {x: -1, y: -14}
+        - {x: 3, y: -14}
+        - {x: 7, y: -11}
+        - {x: 7, y: -4}
+        - {x: 5, y: 1}
+    - name: shield-back-purple_64
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 9}
+        - {x: -6, y: 7}
+        - {x: -6, y: -4}
+        - {x: -2, y: -6}
+        - {x: 2, y: -6}
+        - {x: 6, y: -3}
+        - {x: 6, y: 4}
+        - {x: 4, y: 9}
+    - name: shield-back-purple_65
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 14}
+        - {x: -7, y: 13}
+        - {x: -7, y: 4}
+        - {x: -5, y: -1}
+        - {x: 5, y: -1}
+        - {x: 5, y: 13}
+        - {x: 1, y: 14}
+    - name: shield-back-purple_66
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 15}
+        - {x: -7, y: 14}
+        - {x: -7, y: 5}
+        - {x: -3, y: 0}
+        - {x: 2, y: 0}
+        - {x: 5, y: 3}
+        - {x: 5, y: 10}
+        - {x: 4, y: 15}
+    - name: shield-back-purple_67
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 15}
+        - {x: -8, y: 14}
+        - {x: -8, y: 5}
+        - {x: -6, y: 0}
+        - {x: 4, y: 0}
+        - {x: 4, y: 14}
+        - {x: 0, y: 15}
+    - name: shield-back-purple_68
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 11}
+        - {x: -7, y: -3}
+        - {x: -3, y: -4}
+        - {x: 4, y: -4}
+        - {x: 5, y: -2}
+        - {x: 5, y: 6}
+        - {x: 3, y: 11}
+    - name: shield-back-purple_69
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 9}
+        - {x: -6, y: 7}
+        - {x: -6, y: -4}
+        - {x: -2, y: -6}
+        - {x: 2, y: -6}
+        - {x: 6, y: -3}
+        - {x: 6, y: 4}
+        - {x: 4, y: 9}
+    - name: shield-back-purple_70
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 3}
+        - {x: -7, y: 1}
+        - {x: -7, y: -10}
+        - {x: -3, y: -12}
+        - {x: 1, y: -12}
+        - {x: 5, y: -9}
+        - {x: 5, y: -2}
+        - {x: 3, y: 3}
+    - name: shield-back-purple_71
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: -1}
+        - {x: -5, y: -3}
+        - {x: -5, y: -11}
+        - {x: -3, y: -16}
+        - {x: 3, y: -16}
+        - {x: 7, y: -13}
+        - {x: 7, y: -6}
+        - {x: 5, y: -1}
+    - name: shield-back-purple_72
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 1}
+        - {x: -5, y: -1}
+        - {x: -5, y: -12}
+        - {x: -1, y: -14}
+        - {x: 3, y: -14}
+        - {x: 7, y: -11}
+        - {x: 7, y: -4}
+        - {x: 5, y: 1}
+    - name: shield-back-purple_73
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 7}
+        - {x: -6, y: 7}
+        - {x: -7, y: 5}
+        - {x: -7, y: -7}
+        - {x: -3, y: -8}
+        - {x: 3, y: -8}
+        - {x: 5, y: -6}
+        - {x: 5, y: 3}
+    - name: shield-back-purple_74
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 160
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 7}
+        - {x: -8, y: -3}
+        - {x: -6, y: -6}
+        - {x: 1, y: -6}
+        - {x: 4, y: -5}
+        - {x: 4, y: 4}
+        - {x: 0, y: 9}
+        - {x: -4, y: 9}
+    - name: shield-back-purple_75
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 160
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 5}
+        - {x: -8, y: 2}
+        - {x: -8, y: -5}
+        - {x: -6, y: -10}
+        - {x: 1, y: -10}
+        - {x: 4, y: -8}
+        - {x: 4, y: 0}
+        - {x: 2, y: 5}
+    - name: shield-back-purple_76
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 1}
+        - {x: -6, y: 1}
+        - {x: -9, y: -1}
+        - {x: -10, y: -4}
+        - {x: -10, y: -9}
+        - {x: -6, y: -14}
+        - {x: -2, y: -14}
+        - {x: 1, y: -12}
+        - {x: 2, y: -9}
+        - {x: 2, y: -4}
+    - name: shield-back-purple_77
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 120
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 2}
+        - {x: -12, y: 0}
+        - {x: -12, y: -11}
+        - {x: -8, y: -13}
+        - {x: -4, y: -13}
+        - {x: 0, y: -10}
+        - {x: 0, y: -3}
+        - {x: -2, y: 2}
+    - name: shield-back-purple_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: -6}
+        - {x: -7, y: -7}
+        - {x: -7, y: -16}
+        - {x: -4, y: -20}
+        - {x: 2, y: -20}
+        - {x: 5, y: -18}
+        - {x: 5, y: -11}
+        - {x: 4, y: -6}
+    - name: shield-back-purple_79
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: -8}
+        - {x: -7, y: -14}
+        - {x: -7, y: -20}
+        - {x: 4, y: -20}
+        - {x: 6, y: -18}
+        - {x: 6, y: -12}
+        - {x: 5, y: -8}
+    - name: shield-back-purple_80
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: -12}
+        - {x: -9, y: -14}
+        - {x: -9, y: -18}
+        - {x: -8, y: -20}
+        - {x: 5, y: -20}
+        - {x: 7, y: -18}
+        - {x: 7, y: -16}
+        - {x: 3, y: -12}
+    - name: shield-back-purple_81
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -20}
+        - {x: 10, y: -20}
+        - {x: 10, y: -18}
+        - {x: 8, y: -15}
+        - {x: -3, y: -15}
+        - {x: -6, y: -18}
+    - name: shield-back-purple_82
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -7}
+        - {x: -18, y: -9}
+        - {x: -18, y: -17}
+        - {x: -17, y: -20}
+        - {x: -10, y: -20}
+        - {x: -4, y: -15}
+        - {x: -4, y: -9}
+        - {x: -8, y: -7}
+    - name: shield-back-purple_83
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: -5}
+        - {x: -16, y: -8}
+        - {x: -17, y: -11}
+        - {x: -17, y: -16}
+        - {x: -14, y: -19}
+        - {x: -9, y: -19}
+        - {x: -5, y: -15}
+        - {x: -4, y: -9}
+        - {x: -8, y: -5}
+    - name: shield-back-purple_84
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -8}
+        - {x: -9, y: -14}
+        - {x: -9, y: -20}
+        - {x: 2, y: -20}
+        - {x: 4, y: -18}
+        - {x: 4, y: -12}
+        - {x: 3, y: -8}
+    - name: shield-back-purple_85
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: -8}
+        - {x: -8, y: -14}
+        - {x: -8, y: -20}
+        - {x: 3, y: -20}
+        - {x: 5, y: -18}
+        - {x: 5, y: -12}
+        - {x: 4, y: -8}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
