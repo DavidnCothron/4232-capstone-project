@@ -1,0 +1,125 @@
+﻿---UPDATED---
+
+Updated on 8th January 2017.
+
+Changes:
+- added subfolders inside the "Customizable Knight Sheets" folder (grouped the sheets according to their position)
+- added a new folder called "Individual PNG files"
+
+This folder is just a duplicate, but some pepole told me that it would be nice to have all these frames as individual files. From now on you can use these assets as sprite sheets or as individual files, depending on your needs and methods.
+
+Informations about the new folder:
+-- this folder contains the same images the asset pack already has
+-- in this folder frames are stored as individual files and not as part of a sprite sheet
+-- there is a folder for each sprite sheet which contains all the frames of that sheet as individual png files
+-- the name of the files are the same, with a number on its end (for example spritesheet-knight-black-2.png)
+-- check the animation section below to know which number of files go with which animation (numbers are in [] brackets)
+-- empty frames are deleted, therefore the number of files you find in the folders are different (for example, the premade knight sprite sheet folders contain all of the frames, 104, while in the customizable knight sheet folders there are sheets that only contain 19 frames), the number at the end of the names of the files are always representing their place in the animation (see animation section below)
+
+
+Updated on 18th July 2016.
+
+Changes
+- added one more animation
+- added five more premade knight sheets
+- added missing color combinations (armors with black cloth for example)
+- changed the name of some files to be more consistent
+- added original GAL (GraphicsGale) files and preview GIFs
+
+---OVERALL NOTES---
+
+First of all, thank you for buying this pack! I hope it suits your needs.
+
+Designed to be viewed at x2 zoom or higher. Use Nearest Neighbour for zooming and no AA.
+
+Compatible with 16x16 tile sets.
+
+---CONTENT OF THE SHEETS----
+
+The sheets are made in way that you can customize the character. Therefore the animations are using many layers.
+
+The name of each sheet indicates its content. For example "head-short-hair-white" is a 3rd layer head, with white colored hair. It's always "type-variant-color".
+
+The sequence should be this:
+TOP
+7. Head with long hair (only if used with the long hair heads)
+//filename: longhair-longhair-...png  ---> renamed: head-top-longhair-...png 
+6. Weapon - front side
+//filename: sword-upper-...png  ---> renamed: sword-front-...png 
+5. Shield - front side
+//filename: shield-front-...png
+4. Torso
+//filename: torso-...png
+3. Head
+//filename: head-...-...png
+2. Weapon - back side
+//filename: sword-back-...png
+1. Shield - back side
+//filename: shield-back-...png 
+BOTTOM
+
+Grid of the sheets is: 40x40
+
+Animations (which row is which, from top to bottom):
+[in brackets are the numbers of the files if you are using the individual PNG files folders]
+
+1. Idle (4 frames)
+[0,1,2,3]
+
+2. Attack (9 frames)
+[12,13,14,15,16,17,18,19,20]
+
+3. Block (4 frames)
+[24,25,26,27]
+
+4. Crouch (4 frames) (play it backwards to stand up)
+[36,37,38,39]
+
+5. Attack from crouch (8 frames)
+[48,49,50,51,52,53,54,55]
+
+6. Block from crouch (4 frames)
+[60,61,62,63]
+
+7. Get hurt (2 frames)
+[72,73]
+
+8. Death (chained with 7th line [72,73] -> 2 + 10 frames)
+[84,85,86,87,88,89,90,91,92,93]
+
+9. Run (12 frames)
+[96,97,98,99,100,101,102,103,104,105,106,107]
+
+10. Throw / Hilt attack / Item use / Whatever you want this to be (10 frames)
+[108,109,110,111,112,113,114,115,116,117]
+
+11. Jump* (10 frames) (use 7th and 8th frame [126,127] of this line for falling animation)
+[120,121,122,123,124,125,126,127,128,129]
+
+12. Mid air hit (3 frames) (play this if the character hits mid air, then return to jumping animation at 7th frame [126])
+[132,133,134]
+
+13. Turning away (4 frames) (play it backwards to turn back)
+[144,145,146,147]
+
+14. Climbing up* (6 frames) (play it backwards to climb down)
+[156,157,158,159,160,161]
+
+15. Getting at the top of something (6 frames) (play it backwards to get down)
+[168,169,170,171,172,173]
+
+UPDATE:
+16. Rolling forward (8 frames) (from crouch)
+[180,181,182,183,184,185,186,187]
+
+Tip: chain 13+14+15 and you got your climbing up on a ladder animation (see example gif).
+*At these animations, you have to add some space. You decide how much.
+
+For example check the preview gifs.
+
+Animation speed: 6 or 7 /100sec is recomended, max 8.
+
+
+---SPECIAL NOTES----
+
+Be careful of what colors you're using. Some combinations can make the sprite even more complicated than it already is. If you design it to change according to which equipment the player has on, you gonna have to live with the fact that in some cases the sprite will be difficult to read. Be careful and play around with the variations before you decide.

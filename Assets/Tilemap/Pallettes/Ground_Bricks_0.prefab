@@ -435,6 +435,8 @@ Tilemap:
     m_DirtyIndex: 0
   - serializedVersion: 1
     m_DirtyIndex: 0
+<<<<<<< HEAD:Assets/Tilemap/Pallettes/Ground_Bricks.prefab
+=======
   - serializedVersion: 1
     m_DirtyIndex: 0
   - serializedVersion: 1
@@ -505,3 +507,4 @@ Tilemap:
     m_DirtyIndex: 0
   - serializedVersion: 1
     m_DirtyIndex: 0
+>>>>>>> ffc3e4f1a1bb7b11e47b13facdbf2676ad541306:Assets/Tilemap/Pallettes/Ground_Bricks_0.prefab

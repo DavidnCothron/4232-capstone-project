@@ -1,0 +1,2112 @@
+fileFormatVersion: 2
+guid: 52c1c8cc621e8214aaa50c39a609c9cb
+timeCreated: 1484210846
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: sword-upper-brownwhite_0
+    21300002: sword-upper-brownwhite_1
+    21300004: sword-upper-brownwhite_2
+    21300006: sword-upper-brownwhite_3
+    21300008: sword-upper-brownwhite_4
+    21300010: sword-upper-brownwhite_5
+    21300012: sword-upper-brownwhite_6
+    21300014: sword-upper-brownwhite_7
+    21300016: sword-upper-brownwhite_8
+    21300018: sword-upper-brownwhite_9
+    21300020: sword-upper-brownwhite_10
+    21300022: sword-upper-brownwhite_11
+    21300024: sword-upper-brownwhite_12
+    21300026: sword-upper-brownwhite_13
+    21300028: sword-upper-brownwhite_14
+    21300030: sword-upper-brownwhite_15
+    21300032: sword-upper-brownwhite_16
+    21300034: sword-upper-brownwhite_17
+    21300036: sword-upper-brownwhite_18
+    21300038: sword-upper-brownwhite_19
+    21300040: sword-upper-brownwhite_20
+    21300042: sword-upper-brownwhite_21
+    21300044: sword-upper-brownwhite_22
+    21300046: sword-upper-brownwhite_23
+    21300048: sword-upper-brownwhite_24
+    21300050: sword-upper-brownwhite_25
+    21300052: sword-upper-brownwhite_26
+    21300054: sword-upper-brownwhite_27
+    21300056: sword-upper-brownwhite_28
+    21300058: sword-upper-brownwhite_29
+    21300060: sword-upper-brownwhite_30
+    21300062: sword-upper-brownwhite_31
+    21300064: sword-upper-brownwhite_32
+    21300066: sword-upper-brownwhite_33
+    21300068: sword-upper-brownwhite_34
+    21300070: sword-upper-brownwhite_35
+    21300072: sword-upper-brownwhite_36
+    21300074: sword-upper-brownwhite_37
+    21300076: sword-upper-brownwhite_38
+    21300078: sword-upper-brownwhite_39
+    21300080: sword-upper-brownwhite_40
+    21300082: sword-upper-brownwhite_41
+    21300084: sword-upper-brownwhite_42
+    21300086: sword-upper-brownwhite_43
+    21300088: sword-upper-brownwhite_44
+    21300090: sword-upper-brownwhite_45
+    21300092: sword-upper-brownwhite_46
+    21300094: sword-upper-brownwhite_47
+    21300096: sword-upper-brownwhite_48
+    21300098: sword-upper-brownwhite_49
+    21300100: sword-upper-brownwhite_50
+    21300102: sword-upper-brownwhite_51
+    21300104: sword-upper-brownwhite_52
+    21300106: sword-upper-brownwhite_53
+    21300108: sword-upper-brownwhite_54
+    21300110: sword-upper-brownwhite_55
+    21300112: sword-upper-brownwhite_56
+    21300114: sword-upper-brownwhite_57
+    21300116: sword-upper-brownwhite_58
+    21300118: sword-upper-brownwhite_59
+    21300120: sword-upper-brownwhite_60
+    21300122: sword-upper-brownwhite_61
+    21300124: sword-upper-brownwhite_62
+    21300126: sword-upper-brownwhite_63
+    21300128: sword-upper-brownwhite_64
+    21300130: sword-upper-brownwhite_65
+    21300132: sword-upper-brownwhite_66
+    21300134: sword-upper-brownwhite_67
+    21300136: sword-upper-brownwhite_68
+    21300138: sword-upper-brownwhite_69
+    21300140: sword-upper-brownwhite_70
+    21300142: sword-upper-brownwhite_71
+    21300144: sword-upper-brownwhite_72
+    21300146: sword-upper-brownwhite_73
+    21300148: sword-upper-brownwhite_74
+    21300150: sword-upper-brownwhite_75
+    21300152: sword-upper-brownwhite_76
+    21300154: sword-upper-brownwhite_77
+    21300156: sword-upper-brownwhite_78
+    21300158: sword-upper-brownwhite_79
+    21300160: sword-upper-brownwhite_80
+    21300162: sword-upper-brownwhite_81
+    21300164: sword-upper-brownwhite_82
+    21300166: sword-upper-brownwhite_83
+    21300168: sword-upper-brownwhite_84
+    21300170: sword-upper-brownwhite_85
+    21300172: sword-upper-brownwhite_86
+    21300174: sword-upper-brownwhite_87
+    21300176: sword-upper-brownwhite_88
+    21300178: sword-upper-brownwhite_89
+    21300180: sword-upper-brownwhite_90
+    21300182: sword-upper-brownwhite_91
+    21300184: sword-upper-brownwhite_92
+    21300186: sword-front-brownwhite_0
+    21300188: sword-front-brownwhite_1
+    21300190: sword-front-brownwhite_2
+    21300192: sword-front-brownwhite_3
+    21300194: sword-front-brownwhite_4
+    21300196: sword-front-brownwhite_5
+    21300198: sword-front-brownwhite_6
+    21300200: sword-front-brownwhite_7
+    21300202: sword-front-brownwhite_8
+    21300204: sword-front-brownwhite_9
+    21300206: sword-front-brownwhite_10
+    21300208: sword-front-brownwhite_11
+    21300210: sword-front-brownwhite_12
+    21300212: sword-front-brownwhite_13
+    21300214: sword-front-brownwhite_14
+    21300216: sword-front-brownwhite_15
+    21300218: sword-front-brownwhite_16
+    21300220: sword-front-brownwhite_17
+    21300222: sword-front-brownwhite_18
+    21300224: sword-front-brownwhite_19
+    21300226: sword-front-brownwhite_20
+    21300228: sword-front-brownwhite_21
+    21300230: sword-front-brownwhite_22
+    21300232: sword-front-brownwhite_23
+    21300234: sword-front-brownwhite_24
+    21300236: sword-front-brownwhite_25
+    21300238: sword-front-brownwhite_26
+    21300240: sword-front-brownwhite_27
+    21300242: sword-front-brownwhite_28
+    21300244: sword-front-brownwhite_29
+    21300246: sword-front-brownwhite_30
+    21300248: sword-front-brownwhite_31
+    21300250: sword-front-brownwhite_32
+    21300252: sword-front-brownwhite_33
+    21300254: sword-front-brownwhite_34
+    21300256: sword-front-brownwhite_35
+    21300258: sword-front-brownwhite_36
+    21300260: sword-front-brownwhite_37
+    21300262: sword-front-brownwhite_38
+    21300264: sword-front-brownwhite_39
+    21300266: sword-front-brownwhite_40
+    21300268: sword-front-brownwhite_41
+    21300270: sword-front-brownwhite_42
+    21300272: sword-front-brownwhite_43
+    21300274: sword-front-brownwhite_44
+    21300276: sword-front-brownwhite_45
+    21300278: sword-front-brownwhite_46
+    21300280: sword-front-brownwhite_47
+    21300282: sword-front-brownwhite_48
+    21300284: sword-front-brownwhite_49
+    21300286: sword-front-brownwhite_50
+    21300288: sword-front-brownwhite_51
+    21300290: sword-front-brownwhite_52
+    21300292: sword-front-brownwhite_53
+    21300294: sword-front-brownwhite_54
+    21300296: sword-front-brownwhite_55
+    21300298: sword-front-brownwhite_56
+    21300300: sword-front-brownwhite_57
+    21300302: sword-front-brownwhite_58
+    21300304: sword-front-brownwhite_59
+    21300306: sword-front-brownwhite_60
+    21300308: sword-front-brownwhite_61
+    21300310: sword-front-brownwhite_62
+    21300312: sword-front-brownwhite_63
+    21300314: sword-front-brownwhite_64
+    21300316: sword-front-brownwhite_65
+    21300318: sword-front-brownwhite_66
+    21300320: sword-front-brownwhite_67
+    21300322: sword-front-brownwhite_68
+    21300324: sword-front-brownwhite_69
+    21300326: sword-front-brownwhite_70
+    21300328: sword-front-brownwhite_71
+    21300330: sword-front-brownwhite_72
+    21300332: sword-front-brownwhite_73
+    21300334: sword-front-brownwhite_74
+    21300336: sword-front-brownwhite_75
+    21300338: sword-front-brownwhite_76
+    21300340: sword-front-brownwhite_77
+    21300342: sword-front-brownwhite_78
+    21300344: sword-front-brownwhite_79
+    21300346: sword-front-brownwhite_80
+    21300348: sword-front-brownwhite_81
+    21300350: sword-front-brownwhite_82
+    21300352: sword-front-brownwhite_83
+    21300354: sword-front-brownwhite_84
+    21300356: sword-front-brownwhite_85
+    21300358: sword-front-brownwhite_86
+    21300360: sword-front-brownwhite_87
+    21300362: sword-front-brownwhite_88
+    21300364: sword-front-brownwhite_89
+    21300366: sword-front-brownwhite_90
+    21300368: sword-front-brownwhite_91
+    21300370: sword-front-brownwhite_92
+    21300372: sword-front-brownwhite_93
+    21300374: sword-front-brownwhite_94
+    21300376: sword-front-brownwhite_95
+    21300378: sword-front-brownwhite_96
+    21300380: sword-front-brownwhite_97
+    21300382: sword-front-brownwhite_98
+    21300384: sword-front-brownwhite_99
+    21300386: sword-front-brownwhite_100
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: sword-front-brownwhite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -15}
+        - {x: -6, y: -20}
+        - {x: 1, y: -20}
+        - {x: 1, y: -15}
+        - {x: -5, y: -4}
+        - {x: -16, y: -4}
+    - name: sword-front-brownwhite_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 600
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: -14}
+        - {x: -7, y: -19}
+        - {x: 1, y: -19}
+        - {x: 1, y: -15}
+        - {x: -5, y: -4}
+        - {x: -11, y: -4}
+        - {x: -14, y: -9}
+    - name: sword-front-brownwhite_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 600
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: -15}
+        - {x: -7, y: -20}
+        - {x: 1, y: -20}
+        - {x: 1, y: -16}
+        - {x: -4, y: -6}
+        - {x: -9, y: -6}
+        - {x: -14, y: -11}
+    - name: sword-front-brownwhite_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 600
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: -17}
+        - {x: -9, y: -20}
+        - {x: 1, y: -20}
+        - {x: 1, y: -16}
+        - {x: -3, y: -7}
+        - {x: -11, y: -7}
+        - {x: -14, y: -12}
+    - name: sword-front-brownwhite_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: -10}
+        - {x: -8, y: -17}
+        - {x: -1, y: -17}
+        - {x: -1, y: -12}
+        - {x: -7, y: -1}
+        - {x: -17, y: -1}
+        - {x: -18, y: -4}
+    - name: sword-front-brownwhite_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 0}
+        - {x: -20, y: -5}
+        - {x: -17, y: -9}
+        - {x: -8, y: -10}
+        - {x: -2, y: -10}
+        - {x: -1, y: -8}
+        - {x: -1, y: -4}
+        - {x: -12, y: 0}
+    - name: sword-front-brownwhite_6
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 14}
+        - {x: -20, y: 9}
+        - {x: -20, y: -3}
+        - {x: -16, y: -3}
+        - {x: -11, y: -2}
+        - {x: -4, y: 7}
+        - {x: -4, y: 14}
+    - name: sword-front-brownwhite_7
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 14}
+        - {x: -20, y: 7}
+        - {x: -20, y: -3}
+        - {x: -15, y: -3}
+        - {x: -9, y: 1}
+        - {x: -5, y: 9}
+        - {x: -5, y: 14}
+    - name: sword-front-brownwhite_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 13}
+        - {x: -9, y: 14}
+        - {x: -11, y: 12}
+        - {x: -10, y: 9}
+        - {x: -10, y: -8}
+        - {x: -3, y: -14}
+        - {x: 15, y: -14}
+        - {x: 16, y: -9}
+        - {x: 16, y: 1}
+        - {x: 6, y: 12}
+    - name: sword-front-brownwhite_9
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 3}
+        - {x: -6, y: -8}
+        - {x: -6, y: -11}
+        - {x: -2, y: -15}
+        - {x: 15, y: -15}
+        - {x: 15, y: -1}
+        - {x: 9, y: 4}
+    - name: sword-front-brownwhite_10
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: -12}
+        - {x: -3, y: -15}
+        - {x: 6, y: -15}
+        - {x: 14, y: -13}
+        - {x: 14, y: -9}
+        - {x: 12, y: -6}
+        - {x: 5, y: -5}
+        - {x: -2, y: -5}
+        - {x: -7, y: -8}
+    - name: sword-front-brownwhite_11
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: -6}
+        - {x: -6, y: -7}
+        - {x: -6, y: -12}
+        - {x: -5, y: -14}
+        - {x: 4, y: -15}
+        - {x: 9, y: -15}
+        - {x: 11, y: -13}
+        - {x: 10, y: -10}
+        - {x: 3, y: -6}
+    - name: sword-front-brownwhite_12
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 560
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: -6}
+        - {x: -8, y: -6}
+        - {x: -8, y: -11}
+        - {x: -7, y: -14}
+        - {x: 2, y: -15}
+        - {x: 7, y: -15}
+        - {x: 9, y: -13}
+        - {x: 9, y: -8}
+    - name: sword-front-brownwhite_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 520
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -15}
+        - {x: -6, y: -20}
+        - {x: 1, y: -20}
+        - {x: 1, y: -15}
+        - {x: -5, y: -4}
+        - {x: -16, y: -4}
+    - name: sword-front-brownwhite_14
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 520
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -15}
+        - {x: -6, y: -20}
+        - {x: 1, y: -20}
+        - {x: 1, y: -15}
+        - {x: -5, y: -4}
+        - {x: -16, y: -4}
+    - name: sword-front-brownwhite_15
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 520
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -15}
+        - {x: -6, y: -20}
+        - {x: 1, y: -20}
+        - {x: 1, y: -15}
+        - {x: -5, y: -4}
+        - {x: -16, y: -4}
+    - name: sword-front-brownwhite_16
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 520
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -13}
+        - {x: -7, y: -20}
+        - {x: 0, y: -20}
+        - {x: 0, y: -15}
+        - {x: -6, y: -4}
+        - {x: -16, y: -4}
+        - {x: -17, y: -7}
+    - name: sword-front-brownwhite_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: -15}
+        - {x: -7, y: -20}
+        - {x: 2, y: -20}
+        - {x: 2, y: -15}
+        - {x: -3, y: -5}
+        - {x: -15, y: -5}
+    - name: sword-front-brownwhite_18
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 480
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: -16}
+        - {x: -8, y: -20}
+        - {x: 2, y: -20}
+        - {x: 2, y: -16}
+        - {x: -2, y: -6}
+        - {x: -15, y: -6}
+    - name: sword-front-brownwhite_19
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 480
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: -9}
+        - {x: -15, y: -12}
+        - {x: -11, y: -17}
+        - {x: -3, y: -19}
+        - {x: 2, y: -19}
+        - {x: 4, y: -17}
+        - {x: 3, y: -14}
+        - {x: -7, y: -9}
+    - name: sword-front-brownwhite_20
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 480
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: -10}
+        - {x: -15, y: -13}
+        - {x: -11, y: -18}
+        - {x: -3, y: -20}
+        - {x: 2, y: -20}
+        - {x: 4, y: -18}
+        - {x: 3, y: -15}
+        - {x: -7, y: -10}
+    - name: sword-front-brownwhite_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -6}
+        - {x: -18, y: -9}
+        - {x: -15, y: -15}
+        - {x: -6, y: -16}
+        - {x: 0, y: -16}
+        - {x: 1, y: -14}
+        - {x: 0, y: -11}
+        - {x: -10, y: -6}
+    - name: sword-front-brownwhite_22
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 9}
+        - {x: -7, y: 9}
+        - {x: -18, y: 3}
+        - {x: -18, y: -8}
+        - {x: -12, y: -8}
+        - {x: -7, y: -4}
+        - {x: -2, y: 4}
+    - name: sword-front-brownwhite_23
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 9}
+        - {x: -8, y: 9}
+        - {x: -19, y: 3}
+        - {x: -19, y: -8}
+        - {x: -13, y: -8}
+        - {x: -8, y: -4}
+        - {x: -3, y: 4}
+    - name: sword-front-brownwhite_24
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 9}
+        - {x: -8, y: 7}
+        - {x: -8, y: -18}
+        - {x: -6, y: -19}
+        - {x: 19, y: -19}
+        - {x: 19, y: 0}
+        - {x: 5, y: 9}
+    - name: sword-front-brownwhite_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: -8}
+        - {x: 13, y: -1}
+        - {x: 9, y: -1}
+        - {x: -4, y: -11}
+        - {x: -4, y: -15}
+        - {x: -3, y: -19}
+        - {x: 3, y: -20}
+        - {x: 8, y: -20}
+        - {x: 15, y: -18}
+        - {x: 17, y: -17}
+    - name: sword-front-brownwhite_26
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -10}
+        - {x: -5, y: -11}
+        - {x: -5, y: -15}
+        - {x: -4, y: -19}
+        - {x: 1, y: -20}
+        - {x: 8, y: -20}
+        - {x: 16, y: -17}
+        - {x: 16, y: -10}
+    - name: sword-front-brownwhite_27
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: -11}
+        - {x: -5, y: -14}
+        - {x: -1, y: -19}
+        - {x: 3, y: -20}
+        - {x: 13, y: -20}
+        - {x: 14, y: -19}
+        - {x: 13, y: -16}
+        - {x: 3, y: -11}
+    - name: sword-front-brownwhite_28
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 440
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: -10}
+        - {x: -12, y: -10}
+        - {x: -12, y: -13}
+        - {x: -8, y: -18}
+        - {x: 0, y: -20}
+        - {x: 5, y: -20}
+        - {x: 7, y: -18}
+        - {x: 7, y: -13}
+    - name: sword-front-brownwhite_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: -10}
+        - {x: -15, y: -13}
+        - {x: -11, y: -18}
+        - {x: -3, y: -20}
+        - {x: 2, y: -20}
+        - {x: 4, y: -18}
+        - {x: 3, y: -15}
+        - {x: -7, y: -10}
+    - name: sword-front-brownwhite_30
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 400
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: -10}
+        - {x: -16, y: -13}
+        - {x: -12, y: -18}
+        - {x: -4, y: -20}
+        - {x: 1, y: -20}
+        - {x: 3, y: -18}
+        - {x: 2, y: -15}
+        - {x: -8, y: -10}
+    - name: sword-front-brownwhite_31
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 400
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: -10}
+        - {x: -16, y: -13}
+        - {x: -12, y: -18}
+        - {x: -4, y: -20}
+        - {x: 1, y: -20}
+        - {x: 3, y: -18}
+        - {x: 2, y: -15}
+        - {x: -8, y: -10}
+    - name: sword-front-brownwhite_32
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 400
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: -10}
+        - {x: -17, y: -13}
+        - {x: -13, y: -18}
+        - {x: -5, y: -20}
+        - {x: 0, y: -20}
+        - {x: 2, y: -18}
+        - {x: 1, y: -15}
+        - {x: -9, y: -10}
+    - name: sword-front-brownwhite_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: -15}
+        - {x: -8, y: -20}
+        - {x: 0, y: -20}
+        - {x: 0, y: -16}
+        - {x: -6, y: -5}
+        - {x: -12, y: -5}
+        - {x: -15, y: -10}
+    - name: sword-front-brownwhite_34
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 360
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: -15}
+        - {x: -8, y: -20}
+        - {x: 0, y: -20}
+        - {x: 0, y: -16}
+        - {x: -6, y: -5}
+        - {x: -12, y: -5}
+        - {x: -15, y: -10}
+    - name: sword-front-brownwhite_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -14}
+        - {x: -8, y: -20}
+        - {x: 0, y: -20}
+        - {x: 0, y: -17}
+        - {x: -5, y: -5}
+        - {x: -17, y: -5}
+        - {x: -17, y: -8}
+    - name: sword-front-brownwhite_36
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: -9}
+        - {x: -17, y: -10}
+        - {x: -17, y: -13}
+        - {x: -15, y: -17}
+        - {x: -9, y: -20}
+        - {x: 1, y: -20}
+        - {x: 1, y: -17}
+        - {x: -7, y: -9}
+    - name: sword-front-brownwhite_37
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: -13}
+        - {x: -17, y: -16}
+        - {x: -14, y: -20}
+        - {x: 2, y: -20}
+        - {x: 2, y: -14}
+        - {x: -5, y: -13}
+    - name: sword-front-brownwhite_38
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -10}
+        - {x: -11, y: -12}
+        - {x: -14, y: -14}
+        - {x: -17, y: -20}
+        - {x: -6, y: -20}
+        - {x: -2, y: -17}
+        - {x: 1, y: -13}
+        - {x: 0, y: -10}
+    - name: sword-front-brownwhite_39
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: -19}
+        - {x: -17, y: -20}
+        - {x: -5, y: -20}
+        - {x: 2, y: -16}
+        - {x: 1, y: -13}
+        - {x: -7, y: -13}
+        - {x: -14, y: -14}
+    - name: sword-front-brownwhite_40
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -19}
+        - {x: -16, y: -20}
+        - {x: 0, y: -20}
+        - {x: 2, y: -18}
+        - {x: 1, y: -15}
+        - {x: -13, y: -15}
+    - name: sword-front-brownwhite_41
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -19}
+        - {x: -16, y: -20}
+        - {x: 1, y: -20}
+        - {x: 2, y: -19}
+        - {x: 1, y: -16}
+        - {x: -12, y: -16}
+    - name: sword-front-brownwhite_42
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -19}
+        - {x: -16, y: -20}
+        - {x: 1, y: -20}
+        - {x: 2, y: -19}
+        - {x: 1, y: -16}
+        - {x: -12, y: -16}
+    - name: sword-front-brownwhite_43
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -19}
+        - {x: -16, y: -20}
+        - {x: 1, y: -20}
+        - {x: 2, y: -19}
+        - {x: 1, y: -16}
+        - {x: -12, y: -16}
+    - name: sword-front-brownwhite_44
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 320
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -19}
+        - {x: -16, y: -20}
+        - {x: 1, y: -20}
+        - {x: 2, y: -19}
+        - {x: 1, y: -16}
+        - {x: -12, y: -16}
+    - name: sword-front-brownwhite_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: -5}
+        - {x: 11, y: -8}
+        - {x: 16, y: -8}
+        - {x: 20, y: -2}
+        - {x: 20, y: 7}
+        - {x: 17, y: 7}
+        - {x: 6, y: 1}
+    - name: sword-front-brownwhite_46
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 13}
+        - {x: 10, y: 13}
+        - {x: 8, y: 10}
+        - {x: 6, y: 5}
+        - {x: 6, y: -3}
+        - {x: 8, y: -7}
+        - {x: 11, y: -8}
+        - {x: 14, y: -7}
+        - {x: 16, y: -3}
+        - {x: 16, y: 6}
+        - {x: 15, y: 12}
+    - name: sword-front-brownwhite_47
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 12}
+        - {x: -2, y: 7}
+        - {x: 3, y: -3}
+        - {x: 10, y: -3}
+        - {x: 13, y: 2}
+        - {x: 13, y: 7}
+        - {x: 5, y: 12}
+    - name: sword-front-brownwhite_48
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: -6}
+        - {x: 8, y: -9}
+        - {x: 9, y: -10}
+        - {x: 13, y: -10}
+        - {x: 16, y: -6}
+        - {x: 16, y: 4}
+        - {x: 14, y: 10}
+        - {x: 12, y: 11}
+        - {x: 9, y: 11}
+        - {x: 6, y: 5}
+    - name: sword-front-brownwhite_49
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 3}
+        - {x: 4, y: -3}
+        - {x: 4, y: -9}
+        - {x: 9, y: -12}
+        - {x: 14, y: -12}
+        - {x: 19, y: -5}
+        - {x: 19, y: 3}
+    - name: sword-front-brownwhite_50
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: -4}
+        - {x: 3, y: -4}
+        - {x: -3, y: -8}
+        - {x: -3, y: -10}
+        - {x: -2, y: -12}
+        - {x: 4, y: -14}
+        - {x: 10, y: -14}
+        - {x: 18, y: -12}
+        - {x: 18, y: -8}
+        - {x: 16, y: -5}
+    - name: sword-front-brownwhite_51
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: -15}
+        - {x: 3, y: -20}
+        - {x: 11, y: -20}
+        - {x: 11, y: -16}
+        - {x: 5, y: -5}
+        - {x: -1, y: -5}
+        - {x: -4, y: -10}
+    - name: sword-front-brownwhite_52
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 3}
+        - {x: -9, y: -1}
+        - {x: -9, y: -10}
+        - {x: -7, y: -16}
+        - {x: -6, y: -18}
+        - {x: 1, y: -18}
+        - {x: 1, y: 3}
+    - name: sword-front-brownwhite_53
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -1}
+        - {x: -8, y: -5}
+        - {x: -8, y: -14}
+        - {x: -7, y: -20}
+        - {x: 2, y: -20}
+        - {x: 2, y: 0}
+        - {x: -3, y: 0}
+    - name: sword-front-brownwhite_54
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: -16}
+        - {x: 2, y: -20}
+        - {x: 11, y: -20}
+        - {x: 11, y: -17}
+        - {x: 5, y: -6}
+        - {x: -1, y: -6}
+        - {x: -4, y: -11}
+    - name: sword-front-brownwhite_55
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: -6}
+        - {x: -2, y: -6}
+        - {x: -2, y: -9}
+        - {x: 1, y: -15}
+        - {x: 10, y: -16}
+        - {x: 16, y: -16}
+        - {x: 17, y: -14}
+        - {x: 17, y: -9}
+    - name: sword-front-brownwhite_56
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 280
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: -4}
+        - {x: 6, y: -4}
+        - {x: 1, y: -9}
+        - {x: 2, y: -13}
+        - {x: 6, y: -14}
+        - {x: 13, y: -14}
+        - {x: 20, y: -12}
+        - {x: 20, y: -7}
+        - {x: 19, y: -5}
+    - name: sword-front-brownwhite_57
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: -10}
+        - {x: -8, y: -17}
+        - {x: -1, y: -17}
+        - {x: -1, y: -12}
+        - {x: -7, y: -1}
+        - {x: -17, y: -1}
+        - {x: -18, y: -4}
+    - name: sword-front-brownwhite_58
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 0}
+        - {x: -20, y: -5}
+        - {x: -17, y: -9}
+        - {x: -8, y: -10}
+        - {x: -2, y: -10}
+        - {x: -1, y: -8}
+        - {x: -1, y: -4}
+        - {x: -12, y: 0}
+    - name: sword-front-brownwhite_59
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 14}
+        - {x: -20, y: 9}
+        - {x: -20, y: -3}
+        - {x: -16, y: -3}
+        - {x: -11, y: -2}
+        - {x: -4, y: 7}
+        - {x: -4, y: 14}
+    - name: sword-front-brownwhite_60
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 14}
+        - {x: -20, y: 7}
+        - {x: -20, y: -3}
+        - {x: -15, y: -3}
+        - {x: -9, y: 1}
+        - {x: -5, y: 9}
+        - {x: -5, y: 14}
+    - name: sword-front-brownwhite_61
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 16}
+        - {x: -6, y: 9}
+        - {x: -6, y: -2}
+        - {x: -5, y: -5}
+        - {x: 4, y: -5}
+        - {x: 4, y: 16}
+    - name: sword-front-brownwhite_62
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 6}
+        - {x: -10, y: 0}
+        - {x: -10, y: -11}
+        - {x: 1, y: -11}
+        - {x: 7, y: -1}
+        - {x: 7, y: 4}
+        - {x: 6, y: 6}
+    - name: sword-front-brownwhite_63
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 240
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: -6}
+        - {x: -8, y: -6}
+        - {x: -8, y: -11}
+        - {x: -7, y: -14}
+        - {x: 2, y: -15}
+        - {x: 7, y: -15}
+        - {x: 9, y: -13}
+        - {x: 9, y: -8}
+    - name: sword-front-brownwhite_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: -14}
+        - {x: -6, y: -19}
+        - {x: 2, y: -19}
+        - {x: 2, y: -15}
+        - {x: -4, y: -4}
+        - {x: -10, y: -4}
+        - {x: -13, y: -9}
+    - name: sword-front-brownwhite_65
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: -12}
+        - {x: -1, y: -12}
+        - {x: -1, y: -6}
+        - {x: -5, y: 3}
+        - {x: -11, y: 3}
+        - {x: -16, y: 0}
+        - {x: -16, y: -6}
+    - name: sword-front-brownwhite_66
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -1}
+        - {x: -9, y: -6}
+        - {x: -1, y: -6}
+        - {x: -1, y: -2}
+        - {x: -7, y: 9}
+        - {x: -13, y: 9}
+        - {x: -16, y: 4}
+    - name: sword-front-brownwhite_67
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 8}
+        - {x: -18, y: 5}
+        - {x: -14, y: 0}
+        - {x: -6, y: -2}
+        - {x: -1, y: -2}
+        - {x: 1, y: 0}
+        - {x: 0, y: 3}
+        - {x: -10, y: 8}
+    - name: sword-front-brownwhite_68
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 10}
+        - {x: -18, y: 7}
+        - {x: -14, y: 2}
+        - {x: -6, y: 0}
+        - {x: -1, y: 0}
+        - {x: 1, y: 2}
+        - {x: 0, y: 5}
+        - {x: -10, y: 10}
+    - name: sword-front-brownwhite_69
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 9}
+        - {x: -18, y: 6}
+        - {x: -14, y: 1}
+        - {x: -6, y: -1}
+        - {x: -1, y: -1}
+        - {x: 1, y: 1}
+        - {x: 0, y: 4}
+        - {x: -10, y: 9}
+    - name: sword-front-brownwhite_70
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 4}
+        - {x: -16, y: 1}
+        - {x: -13, y: -5}
+        - {x: -4, y: -6}
+        - {x: 2, y: -6}
+        - {x: 3, y: -4}
+        - {x: 2, y: -1}
+        - {x: -8, y: 4}
+    - name: sword-front-brownwhite_71
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: -1}
+        - {x: -17, y: -4}
+        - {x: -13, y: -9}
+        - {x: -5, y: -11}
+        - {x: 0, y: -11}
+        - {x: 2, y: -9}
+        - {x: 1, y: -6}
+        - {x: -9, y: -1}
+    - name: sword-front-brownwhite_72
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: -6}
+        - {x: -10, y: -6}
+        - {x: -10, y: -9}
+        - {x: -6, y: -14}
+        - {x: 2, y: -16}
+        - {x: 7, y: -16}
+        - {x: 9, y: -14}
+        - {x: 9, y: -9}
+    - name: sword-front-brownwhite_73
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 200
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: -14}
+        - {x: -6, y: -19}
+        - {x: 2, y: -19}
+        - {x: 2, y: -15}
+        - {x: -4, y: -4}
+        - {x: -10, y: -4}
+        - {x: -13, y: -9}
+    - name: sword-front-brownwhite_74
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 17}
+        - {x: -7, y: 17}
+        - {x: -19, y: 12}
+        - {x: -19, y: 0}
+        - {x: -13, y: 0}
+        - {x: -7, y: 4}
+        - {x: -2, y: 11}
+    - name: sword-front-brownwhite_75
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 160
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 20}
+        - {x: -10, y: 20}
+        - {x: -11, y: 19}
+        - {x: -10, y: 16}
+        - {x: -6, y: 15}
+        - {x: -6, y: -2}
+        - {x: -5, y: -6}
+        - {x: -2, y: -7}
+        - {x: 9, y: -7}
+        - {x: 16, y: -4}
+        - {x: 16, y: 7}
+        - {x: 7, y: 19}
+    - name: sword-front-brownwhite_76
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 160
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 10}
+        - {x: -12, y: -1}
+        - {x: -12, y: -4}
+        - {x: -8, y: -8}
+        - {x: 9, y: -8}
+        - {x: 9, y: 6}
+        - {x: 3, y: 11}
+    - name: sword-front-brownwhite_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -3}
+        - {x: -2, y: -5}
+        - {x: -2, y: -11}
+        - {x: 6, y: -20}
+        - {x: 10, y: -20}
+        - {x: 10, y: -6}
+        - {x: 6, y: -3}
+    - name: sword-front-brownwhite_78
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 120
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: -5}
+        - {x: -3, y: -6}
+        - {x: -3, y: -20}
+        - {x: 3, y: -20}
+        - {x: 6, y: -14}
+        - {x: 6, y: -8}
+        - {x: 5, y: -5}
+    - name: sword-front-brownwhite_79
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 120
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 0}
+        - {x: -11, y: -9}
+        - {x: -11, y: -16}
+        - {x: -5, y: -16}
+        - {x: 6, y: -10}
+        - {x: 6, y: -1}
+        - {x: 5, y: 0}
+    - name: sword-front-brownwhite_80
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 120
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -1}
+        - {x: -12, y: -10}
+        - {x: -12, y: -17}
+        - {x: -6, y: -17}
+        - {x: 5, y: -12}
+        - {x: 5, y: -1}
+    - name: sword-front-brownwhite_81
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -1}
+        - {x: -12, y: -10}
+        - {x: -12, y: -17}
+        - {x: -6, y: -17}
+        - {x: 5, y: -12}
+        - {x: 5, y: -1}
+    - name: sword-front-brownwhite_82
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 80
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -1}
+        - {x: -12, y: -10}
+        - {x: -12, y: -17}
+        - {x: -6, y: -17}
+        - {x: 5, y: -12}
+        - {x: 5, y: -1}
+    - name: sword-front-brownwhite_83
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -1}
+        - {x: -12, y: -10}
+        - {x: -12, y: -17}
+        - {x: -6, y: -17}
+        - {x: 5, y: -12}
+        - {x: 5, y: -1}
+    - name: sword-front-brownwhite_84
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 80
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -1}
+        - {x: -12, y: -10}
+        - {x: -12, y: -17}
+        - {x: -6, y: -17}
+        - {x: 5, y: -12}
+        - {x: 5, y: -1}
+    - name: sword-front-brownwhite_85
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 80
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -1}
+        - {x: -12, y: -10}
+        - {x: -12, y: -17}
+        - {x: -6, y: -17}
+        - {x: 5, y: -12}
+        - {x: 5, y: -1}
+    - name: sword-front-brownwhite_86
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 80
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -1}
+        - {x: -12, y: -10}
+        - {x: -12, y: -17}
+        - {x: -6, y: -17}
+        - {x: 5, y: -12}
+        - {x: 5, y: -1}
+    - name: sword-front-brownwhite_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -1}
+        - {x: -12, y: -10}
+        - {x: -12, y: -17}
+        - {x: -6, y: -17}
+        - {x: 5, y: -12}
+        - {x: 5, y: -1}
+    - name: sword-front-brownwhite_88
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 40
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 2}
+        - {x: 3, y: 3}
+        - {x: -6, y: 3}
+        - {x: -13, y: -5}
+        - {x: -13, y: -8}
+        - {x: -12, y: -10}
+        - {x: -9, y: -10}
+        - {x: -6, y: -9}
+        - {x: 1, y: -5}
+        - {x: 4, y: 0}
+    - name: sword-front-brownwhite_89
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 40
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 6}
+        - {x: -6, y: 6}
+        - {x: -13, y: -2}
+        - {x: -13, y: -6}
+        - {x: -12, y: -7}
+        - {x: -9, y: -7}
+        - {x: -6, y: -6}
+        - {x: 1, y: -2}
+        - {x: 4, y: 3}
+        - {x: 4, y: 5}
+    - name: sword-front-brownwhite_90
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 40
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 3}
+        - {x: -12, y: -2}
+        - {x: -6, y: -2}
+        - {x: 3, y: 2}
+        - {x: 4, y: 8}
+        - {x: 3, y: 10}
+        - {x: -6, y: 10}
+    - name: sword-front-brownwhite_91
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 40
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 4}
+        - {x: -12, y: -1}
+        - {x: -6, y: -1}
+        - {x: 3, y: 3}
+        - {x: 4, y: 9}
+        - {x: 3, y: 11}
+        - {x: -6, y: 11}
+    - name: sword-front-brownwhite_92
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 40
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 11}
+        - {x: 3, y: 12}
+        - {x: -6, y: 12}
+        - {x: -13, y: 4}
+        - {x: -13, y: 1}
+        - {x: -12, y: -1}
+        - {x: -9, y: -1}
+        - {x: -6, y: 0}
+        - {x: 1, y: 4}
+        - {x: 4, y: 9}
+    - name: sword-front-brownwhite_93
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: -10}
+        - {x: -15, y: -13}
+        - {x: -11, y: -18}
+        - {x: -3, y: -20}
+        - {x: 2, y: -20}
+        - {x: 4, y: -18}
+        - {x: 3, y: -15}
+        - {x: -7, y: -10}
+    - name: sword-front-brownwhite_94
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: -10}
+        - {x: -16, y: -13}
+        - {x: -12, y: -18}
+        - {x: -4, y: -20}
+        - {x: 1, y: -20}
+        - {x: 3, y: -18}
+        - {x: 2, y: -15}
+        - {x: -8, y: -10}
+    - name: sword-front-brownwhite_95
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: -11}
+        - {x: -9, y: -11}
+        - {x: -9, y: -14}
+        - {x: -5, y: -19}
+        - {x: -1, y: -20}
+        - {x: 9, y: -20}
+        - {x: 10, y: -19}
+        - {x: 10, y: -14}
+    - name: sword-front-brownwhite_96
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: -19}
+        - {x: -7, y: -20}
+        - {x: 10, y: -20}
+        - {x: 11, y: -19}
+        - {x: 10, y: -16}
+        - {x: -3, y: -16}
+    - name: sword-front-brownwhite_97
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: -6}
+        - {x: -16, y: -12}
+        - {x: -11, y: -14}
+        - {x: -8, y: -12}
+        - {x: -8, y: -5}
+        - {x: -16, y: 0}
+        - {x: -20, y: 0}
+    - name: sword-front-brownwhite_98
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: -1}
+        - {x: -14, y: -9}
+        - {x: -9, y: -12}
+        - {x: -7, y: -12}
+        - {x: -5, y: -10}
+        - {x: -6, y: -4}
+        - {x: -12, y: 7}
+        - {x: -15, y: 6}
+    - name: sword-front-brownwhite_99
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: -8}
+        - {x: -3, y: -8}
+        - {x: -3, y: -11}
+        - {x: 1, y: -16}
+        - {x: 9, y: -18}
+        - {x: 14, y: -18}
+        - {x: 16, y: -16}
+        - {x: 16, y: -11}
+    - name: sword-front-brownwhite_100
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: -10}
+        - {x: -16, y: -13}
+        - {x: -12, y: -18}
+        - {x: -4, y: -20}
+        - {x: 1, y: -20}
+        - {x: 3, y: -18}
+        - {x: 2, y: -15}
+        - {x: -8, y: -10}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
