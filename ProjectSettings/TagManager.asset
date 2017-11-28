@@ -25,6 +25,9 @@ TagManager:
   - KillBox
   - PauseMenu
   - ContinueButton
+  - platform
+  - ledge
+  - testAstar
   layers:
   - Default
   - TransparentFX
@@ -38,7 +41,7 @@ TagManager:
   - IgnoreAstarGridBuild
   - AttackLayer
   - MiniMapLayer
-  - 
+  - FadeToBlackOverlay
   - 
   - 
   - 

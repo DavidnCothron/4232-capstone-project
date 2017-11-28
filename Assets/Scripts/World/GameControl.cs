@@ -134,15 +134,15 @@ public class GameControl : MonoBehaviour {
 	public void MapAreaTransitionDoors(AreaTransTuple current, AreaTransTuple next){
 		if(!areaAccessPointMappings.ContainsKey(current)){
 			areaAccessPointMappings.Add(current, next);
-			Debug.Log("linked current to next\n next area ID: " + areaAccessPointMappings[current].areaID);
+			//Debug.Log("linked current to next\n next area ID: " + areaAccessPointMappings[current].areaID);
 			if(!areaAccessPointMappings.ContainsKey(next))
-				areaAccessPointMappings.Add(next, current); Debug.Log("linked next to current\n previous area ID: " + areaAccessPointMappings[next].areaID);			
+				areaAccessPointMappings.Add(next, current); //Debug.Log("linked next to current\n previous area ID: " + areaAccessPointMappings[next].areaID);			
 		}		
 	}
 	public void TransitionAreas(AreaTransTuple current, AreaTransTuple next){
 		MapAreaTransitionDoors(current, next);
 		SetNextArea(areaAccessPointMappings[current]);
-		Debug.Log("next area set to: " + areaAccessPointMappings[current].areaID);
+		//Debug.Log("next area set to: " + areaAccessPointMappings[current].areaID);
 	}
 
 	public void SetNextArea(AreaTransTuple next)

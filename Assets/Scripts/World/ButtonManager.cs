@@ -8,24 +8,29 @@ public class ButtonManager : MonoBehaviour {
 
 	bool paused = false;
 	[SerializeField] public Transform PauseCanvas;
+	[SerializeField] public string titleScene;
 	[SerializeField] public Transform MainStartButton;
-
+	
 	void Start()
     {	
 		PauseCanvas.gameObject.SetActive(true);
-		GameObject ContinueButton = GameObject.Find("Continue");
-        Button btn = ContinueButton.GetComponent<Button>();
-		Debug.Log(btn);
-        btn.onClick.AddListener(delegate {ResumeGame();});
+		Button ContinueButton = GameObject.Find("Continue").GetComponent<Button>();
+		Button ReloadSaveButton = GameObject.Find("ReloadSave").GetComponent<Button>();
+		Button QuitButton = GameObject.Find("Quit").GetComponent<Button>();
+        ContinueButton.onClick.AddListener(ResumeGame);
+		ReloadSaveButton.onClick.AddListener(ReturnToSaveRoom);
+		QuitButton.onClick.AddListener(QuitGame);
 		PauseCanvas.gameObject.SetActive(false);
     }
 
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.Escape) && !paused){//press escape to pause
-			PauseGame();
-		}else if(Input.GetKeyDown(KeyCode.Escape) && paused){//press escape to unpause
-			ResumeGame();
+		if(SceneManager.GetActiveScene().name != "Title_Scene"){
+			if(Input.GetKeyDown(KeyCode.Escape) && !paused){//press escape to pause
+				PauseGame();
+			}else if(Input.GetKeyDown(KeyCode.Escape) && paused){//press escape to unpause
+				ResumeGame();
+			}
 		}
 	}
 
@@ -43,9 +48,12 @@ public class ButtonManager : MonoBehaviour {
 		Time.timeScale = 1;
 	}
 
-	public void QuitGame(string titleScreenName)//quits to the title scene, set in inspector
+	public void QuitGame()//quits to the title scene, set in inspector
 	{
-		SceneManager.LoadScene (titleScreenName);
+		paused = false;
+		PauseCanvas.gameObject.SetActive (false);
+		Time.timeScale = 1;
+		SceneManager.LoadScene ("Title_Scene");
 	}
 
 	public void ReturnToSaveRoom(){//returns the player to the last known save room and reloads their last save

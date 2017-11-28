@@ -53,10 +53,13 @@ public class CameraController : MonoBehaviour {
 
 		playerCont = player.GetComponent<PlayerController>();
 		cameraCont = this.GetComponent<CameraController>();
-
+		cameraFadeImage = GameObject.Find("cameraFadeImage").GetComponent<Image>();
+		Debug.Log("awake: " + cameraFadeImage);
 		//If the cameraFadeImage has been set for the camera
-		if (cameraFadeImage != null)
+		if (cameraFadeImage != null){
 			cameraFadeImage.rectTransform.localScale = new Vector2 (Screen.width, Screen.height);
+			cameraFadeImage.gameObject.SetActive(false);
+		}
 	}
 
 	//gets the four corners of the room on start *note this will need to change in the
@@ -80,8 +83,8 @@ public class CameraController : MonoBehaviour {
 		);
 
 		//gets the worldpoint coordinates of the camera viewport at a particular z distance
-		//the camera current lies at -16.875z in world space so in order to get 0z (where the main game/sprite layers are)
-		//the z coordinate in the VieportToWorldPoint asks for a point 16.875 units in front of the camera
+		//the camera currently lies at -16.875z in world space so in order to get 0z (where the main game/sprite layers are)
+		//the z coordinate in the VieportToWorldPoint asks for a point 16.875 units in front of the camera, thus Mathf.Abs(camera.transform.position.z) = 16.875
 		VpTopRight = camera.ViewportToWorldPoint (new Vector3 (1, 1, Mathf.Abs(camera.transform.position.z)));
 		VpBottomRight = camera.ViewportToWorldPoint (new Vector3 (1, 0, Mathf.Abs(camera.transform.position.z)));
 		VpTopLeft = camera.ViewportToWorldPoint (new Vector3 (0, 1, Mathf.Abs(camera.transform.position.z)));
@@ -157,6 +160,7 @@ public class CameraController : MonoBehaviour {
 	/// </summary>
 	/// <returns>The to black.</returns>
 	public IEnumerator fadeToBlack() {
+		cameraFadeImage.gameObject.SetActive(true);
 		cameraFadeImage.enabled = true;
 		while (true) {
 			cameraFadeImage.color = Color.Lerp (cameraFadeImage.color, Color.black, fadeSpeed * Time.deltaTime);
@@ -172,6 +176,7 @@ public class CameraController : MonoBehaviour {
 	/// Method that sets the cameraFadeImage to black. Used for area transitioning in
 	///</summary>
 	public void setToBlack(){
+		cameraFadeImage.gameObject.SetActive(true);
 		cameraFadeImage.color = Color.black;
 	}
 
@@ -180,11 +185,15 @@ public class CameraController : MonoBehaviour {
 	/// </summary>
 	/// <returns>The to clear.</returns>
 	public IEnumerator fadeToClear() {
+		Debug.Log("FROM CAMERACONTROLLER: " + cameraFadeImage);
+		cameraFadeImage.gameObject.SetActive(true);
 		cameraFadeImage.enabled = true;
 		while (true) {
 			cameraFadeImage.color = Color.Lerp (cameraFadeImage.color, Color.clear, fadeSpeed * Time.deltaTime);
-			if (cameraFadeImage.color.a <= 0.05f) //If the camera is sufficiently cleared
-				yield break;
+			if (cameraFadeImage.color.a <= 0.05f){ //If the camera is sufficiently cleared
+				cameraFadeImage.gameObject.SetActive(false);
+				yield break;				
+			}
 			else
 				yield return null;
 		}
