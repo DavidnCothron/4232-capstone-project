@@ -8,13 +8,13 @@ public class PlayerPlatformerController : PhysicsObject {
 	public float maxSpeed = 7f;
 	public bool haltInput = false;
 
-	private SpriteRenderer spriteRenderer;
-	private Animator animator;
+	[SerializeField]private SpriteRenderer spriteRenderer;
+	[SerializeField]private Animator animator;
 
 	// Use this for initialization
 	void Awake () {
-		spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
-		animator = gameObject.GetComponent<Animator> ();
+		//spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
+		//animator = gameObject.GetComponent<Animator> ();
 	}
 
 	protected override void ComputeVelocity()
@@ -58,10 +58,10 @@ public class PlayerPlatformerController : PhysicsObject {
 			if (Mathf.Abs(Input.GetAxis("Horizontal")) != 0 && grounded)
 			{
 				animator.SetBool ("startRun", true);
-				if (Mathf.Abs(velocity.x) > 0.1f)
+				if (Mathf.Abs(velocity.x) > 0.01f)
 					animator.SetBool ("isRunning", true);
-				else
-					animator.SetBool ("isRunning", false);
+				//else
+					//animator.SetBool ("isRunning", false);
 			} 
 			else 
 			{
