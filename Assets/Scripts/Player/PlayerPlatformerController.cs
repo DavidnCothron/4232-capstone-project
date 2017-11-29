@@ -8,6 +8,8 @@ public class PlayerPlatformerController : PhysicsObject {
 	public float maxSpeed = 7f;
 	public bool haltInput = false;
 
+	private bool attacking;
+
 	[SerializeField]private SpriteRenderer spriteRenderer;
 	[SerializeField]private Animator animator;
 
@@ -23,6 +25,7 @@ public class PlayerPlatformerController : PhysicsObject {
 
 		if (!haltInput) //Stop input if we need to halt it
 		{
+			//Possibly temporarily halt input when attacking? (no direction switch?)
 			move.x = Input.GetAxis ("Horizontal"); //Get left or right input
 
 			if (Input.GetButtonDown ("Jump") && grounded)
@@ -54,6 +57,17 @@ public class PlayerPlatformerController : PhysicsObject {
 			animator.SetBool ("grounded", grounded);
 			animator.SetFloat ("velocityX", Mathf.Abs (velocity.x) / maxSpeed);
 			animator.SetFloat ("velocityY", velocity.y / maxSpeed);
+			
+			if (Input.GetButton(("Fire1"))) 
+			{
+				attacking = true;
+				animator.SetBool("groundAttack", attacking);
+			}
+			else
+			{
+				attacking = false;
+				animator.SetBool("groundAttack", attacking);
+			}
 
 			if (Mathf.Abs(Input.GetAxis("Horizontal")) != 0 && grounded)
 			{
