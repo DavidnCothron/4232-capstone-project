@@ -5,18 +5,19 @@ using UnityEngine;
 
 public class AreaControl : MonoBehaviour {
 
-
 	private AreaTransTuple areaEntry; 
 	[SerializeField] private Door roomToEnter;
 	private PlayerManager player;
 
 	
 	void Start(){
-		areaEntry = GameControl.control.GetNextArea();
-		player = GameObject.Find ("Player").GetComponent(typeof(PlayerManager)) as PlayerManager; //gets player reference
-		Debug.Log("trans from area control");			
-		StartCoroutine(roomToEnter.areaTransitionIn(player.GetComponent<Collider2D>()));//start area transitionIn cooroutines
-		
+		if(roomToEnter != null){
+			areaEntry = GameControl.control.GetNextArea();
+			player = GameObject.Find ("Player").GetComponent(typeof(PlayerManager)) as PlayerManager; //gets player reference
+			StartCoroutine(roomToEnter.areaTransitionIn(player.GetComponent<Collider2D>()));//start area transitionIn cooroutines
+		}else{
+			Debug.Log("No starting Room");
+		}
 		
 	}
 

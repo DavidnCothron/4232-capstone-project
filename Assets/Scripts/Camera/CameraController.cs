@@ -54,11 +54,10 @@ public class CameraController : MonoBehaviour {
 		playerCont = player.GetComponent<PlayerController>();
 		cameraCont = this.GetComponent<CameraController>();
 		cameraFadeImage = GameObject.Find("cameraFadeImage").GetComponent<Image>();
-		Debug.Log("awake: " + cameraFadeImage);
 		//If the cameraFadeImage has been set for the camera
 		if (cameraFadeImage != null){
 			cameraFadeImage.rectTransform.localScale = new Vector2 (Screen.width, Screen.height);
-			cameraFadeImage.gameObject.SetActive(false);
+			setActiveFadeImage(false);
 		}
 	}
 
@@ -89,6 +88,10 @@ public class CameraController : MonoBehaviour {
 		VpBottomRight = camera.ViewportToWorldPoint (new Vector3 (1, 0, Mathf.Abs(camera.transform.position.z)));
 		VpTopLeft = camera.ViewportToWorldPoint (new Vector3 (0, 1, Mathf.Abs(camera.transform.position.z)));
 		VpBottomLeft = camera.ViewportToWorldPoint (new Vector3 (0, 0, Mathf.Abs(camera.transform.position.z)));
+	}
+
+	public void setActiveFadeImage(bool value){
+		cameraFadeImage.gameObject.SetActive(value);
 	}
 
 	//calculates the four corners of a room based on the bounding walls of that room
@@ -160,7 +163,7 @@ public class CameraController : MonoBehaviour {
 	/// </summary>
 	/// <returns>The to black.</returns>
 	public IEnumerator fadeToBlack() {
-		cameraFadeImage.gameObject.SetActive(true);
+		setActiveFadeImage(true);
 		cameraFadeImage.enabled = true;
 		while (true) {
 			cameraFadeImage.color = Color.Lerp (cameraFadeImage.color, Color.black, fadeSpeed * Time.deltaTime);
@@ -176,7 +179,7 @@ public class CameraController : MonoBehaviour {
 	/// Method that sets the cameraFadeImage to black. Used for area transitioning in
 	///</summary>
 	public void setToBlack(){
-		cameraFadeImage.gameObject.SetActive(true);
+		setActiveFadeImage(true);
 		cameraFadeImage.color = Color.black;
 	}
 
@@ -185,13 +188,12 @@ public class CameraController : MonoBehaviour {
 	/// </summary>
 	/// <returns>The to clear.</returns>
 	public IEnumerator fadeToClear() {
-		Debug.Log("FROM CAMERACONTROLLER: " + cameraFadeImage);
-		cameraFadeImage.gameObject.SetActive(true);
+		setActiveFadeImage(true);
 		cameraFadeImage.enabled = true;
 		while (true) {
 			cameraFadeImage.color = Color.Lerp (cameraFadeImage.color, Color.clear, fadeSpeed * Time.deltaTime);
 			if (cameraFadeImage.color.a <= 0.05f){ //If the camera is sufficiently cleared
-				cameraFadeImage.gameObject.SetActive(false);
+				setActiveFadeImage(false);
 				yield break;				
 			}
 			else

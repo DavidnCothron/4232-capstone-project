@@ -77,7 +77,9 @@ public class GameControl : MonoBehaviour {
 	{
 		return pc.transform;
 	}
-	
+	public void setFadeImage(bool value){
+		Camera.main.GetComponent<CameraController>().setActiveFadeImage(value);
+	}
 	public void UpdatePlayerReferences(){
 		player = GameObject.Find("Player");
 		phmc = player.GetComponent(typeof(PlayerHealthAndMagicController)) as PlayerHealthAndMagicController;

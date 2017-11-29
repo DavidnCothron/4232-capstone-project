@@ -52,6 +52,7 @@ public class ButtonManager : MonoBehaviour {
 	{
 		paused = false;
 		PauseCanvas.gameObject.SetActive (false);
+		GameControl.control.setFadeImage(true);//sets the 'cameraFadeImage' object to active otherwise it cannot be found in the hierarchy when title scene is loaded
 		Time.timeScale = 1;
 		SceneManager.LoadScene ("Title_Scene");
 	}
