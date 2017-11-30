@@ -17,6 +17,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 	public bool isAttackingEnabled = false;
 	bool isAttacking = false;
 	bool canAttack = true;
+	public GameObject particleSystem;
 
 	[SerializeField] protected ContactFilter2D contactFilter;
 	[SerializeField] protected Rigidbody2D rb2d;
@@ -42,9 +43,13 @@ public class PlayerMeleeScript : MonoBehaviour {
 		contactFilter.useLayerMask = true;
 	}
 	
+	void Start(){
+		particleSystem.SetActive(false);
+	}
 	// Update is called once per frame
 	void Update () {
 		//Prevent the player from click spamming attacks. May replace with animation state value later.
+		//Debug.Log(particleSystem.isPlaying + "\r\n" + particleSystem.isEmitting);
 		if(canAttack){
 			if (isAttacking)
 			{
@@ -54,6 +59,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 				{
 					isAttacking = false;
 					attackCooldownRemaining = attackCooldown;
+					
 					//Debug.Log ("Cooldown Ended");
 				}
 			}
@@ -77,10 +83,10 @@ public class PlayerMeleeScript : MonoBehaviour {
 				else if (Input.GetMouseButton (0) && hasChargeAttack)
 				{
 					chargeTimeRemaining -= Time.deltaTime;
-					// if (chargeTimeRemaining < 0)
-					// {
-					//     Debug.Log("Charged!");
-					// }
+					if (chargeTimeRemaining < 0)
+					{
+					    particleSystem.SetActive(true);
+					}
 				}
 				else
 				{
@@ -141,6 +147,8 @@ public class PlayerMeleeScript : MonoBehaviour {
 			enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackCharged));
 			chargeTimeRemaining = chargeTime;
 		}
+
+		particleSystem.SetActive(false);
 	}
 	
 	void OnTriggerEnter2D(Collider2D coll){
