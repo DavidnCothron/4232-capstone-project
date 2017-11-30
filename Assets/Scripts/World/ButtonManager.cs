@@ -37,15 +37,17 @@ public class ButtonManager : MonoBehaviour {
 	public void PauseGame()//pauses time and turns on the pause menu
 	{
 		paused = true;
-		Time.timeScale = 0;
 		PauseCanvas.gameObject.SetActive(true);
+		GameControl.control.SetPlayerMeleeActivity(false);		
+		Time.timeScale = 0;		
 	}	
 
 	public void ResumeGame()//unpauses time and turns off the pause menu
 	{
-		paused = false;
-		PauseCanvas.gameObject.SetActive (false);
+		paused = false;		
 		Time.timeScale = 1;
+		GameControl.control.SetPlayerMeleeActivity(true);
+		PauseCanvas.gameObject.SetActive (false);
 	}
 
 	public void QuitGame()//quits to the title scene, set in inspector

@@ -17,6 +17,7 @@ public class GameControl : MonoBehaviour {
 	private RoomController currentOccupiedRoom;
 	public static GameControl control;
 	public GameObject player;
+	public PlayerMeleeScript pMelee;
 	public PlayerHealthAndMagicController phmc;
 	public PlayerPlatformerController pc;
 	public PlayerMeleeScript pms;
@@ -86,6 +87,7 @@ public class GameControl : MonoBehaviour {
 		pc = player.GetComponent(typeof(PlayerPlatformerController)) as PlayerPlatformerController;
 		pms = player.GetComponent(typeof(PlayerMeleeScript)) as PlayerMeleeScript;
 		pps = player.GetComponent(typeof(playerProjectileScript)) as playerProjectileScript;
+		pMelee = player.GetComponentInChildren(typeof(PlayerMeleeScript)) as PlayerMeleeScript;
 
 	} 
 
@@ -190,6 +192,10 @@ public class GameControl : MonoBehaviour {
 
 	public void KillPlayer(){//needs to be implemented, called when player health reaches 0. should handle game logic for player death
 		
+	}
+
+	public void SetPlayerMeleeActivity(bool value){
+		pMelee.gameObject.SetActive(value);
 	}
 
 	/// <summary>

@@ -16,6 +16,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 	public bool hasChargeAttack = false;
 	public bool isAttackingEnabled = false;
 	bool isAttacking = false;
+	bool canAttack = true;
 
 	[SerializeField] protected ContactFilter2D contactFilter;
 	[SerializeField] protected Rigidbody2D rb2d;
@@ -44,45 +45,47 @@ public class PlayerMeleeScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Prevent the player from click spamming attacks. May replace with animation state value later.
-		if (isAttacking)
-		{
-			attackCooldownRemaining -= Time.deltaTime;
-			//Debug.Log (attackCooldownRemaining);
-			if (attackCooldownRemaining < 0f)
+		if(canAttack){
+			if (isAttacking)
 			{
-				isAttacking = false;
-				attackCooldownRemaining = attackCooldown;
-				//Debug.Log ("Cooldown Ended");
-			}
-		}
-		else
-		{ //Check for attack input
-			attacking = false;
-			animator.SetBool("groundAttack", attacking);
-
-			if (Input.GetMouseButtonUp (0))
-			{
-				if (chargeTimeRemaining > 0)
+				attackCooldownRemaining -= Time.deltaTime;
+				//Debug.Log (attackCooldownRemaining);
+				if (attackCooldownRemaining < 0f)
 				{
-					MeleeAttack ();
+					isAttacking = false;
+					attackCooldownRemaining = attackCooldown;
+					//Debug.Log ("Cooldown Ended");
+				}
+			}
+			else
+			{ //Check for attack input
+				attacking = false;
+				animator.SetBool("groundAttack", attacking);
+
+				if (Input.GetMouseButtonUp (0))
+				{
+					if (chargeTimeRemaining > 0)
+					{
+						MeleeAttack ();
+					}
+					else
+					{
+						ChargeAttack ();
+					}
+					isAttacking = true;
+				}
+				else if (Input.GetMouseButton (0) && hasChargeAttack)
+				{
+					chargeTimeRemaining -= Time.deltaTime;
+					// if (chargeTimeRemaining < 0)
+					// {
+					//     Debug.Log("Charged!");
+					// }
 				}
 				else
 				{
-					ChargeAttack ();
+					chargeTimeRemaining = chargeTime;
 				}
-				isAttacking = true;
-			}
-			else if (Input.GetMouseButton (0) && hasChargeAttack)
-			{
-				chargeTimeRemaining -= Time.deltaTime;
-				// if (chargeTimeRemaining < 0)
-                // {
-                //     Debug.Log("Charged!");
-                // }
-			}
-			else
-			{
-				chargeTimeRemaining = chargeTime;
 			}
 		}
 	}
@@ -104,6 +107,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 		transform.right = (GetWorldPositionOnPlane (Input.mousePosition, 0f) - gameObject.transform.position);
 	}
 
+	
 	void MeleeAttack(){
 
 //		int count = rb2d.Cast (Vector2.zero, contactFilter, hitBuffer, shellRadius);
