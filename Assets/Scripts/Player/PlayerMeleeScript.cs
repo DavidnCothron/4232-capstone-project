@@ -17,8 +17,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 	public bool isAttackingEnabled = false;
 	bool isAttacking = false;
 	bool canAttack = true;
-	public GameObject particleSystem;
-
+	private Vector3 currentAttackDirection;
 	[SerializeField] protected ContactFilter2D contactFilter;
 	[SerializeField] protected Rigidbody2D rb2d;
 	[SerializeField] protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
@@ -30,6 +29,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 	private bool attacking;
 	[SerializeField]private SpriteRenderer spriteRenderer;
 	[SerializeField]private Animator animator;
+	public GameObject particleSystem;
 
 
 	// Use this for initialization
@@ -68,7 +68,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 				attacking = false;
 				animator.SetBool("groundAttack", attacking);
 
-				if (Input.GetMouseButtonUp (0))
+				if (Input.GetMouseButtonUp (0) && !Input.GetKey(KeyCode.LeftShift))
 				{
 					if (chargeTimeRemaining > 0)
 					{
@@ -80,7 +80,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 					}
 					isAttacking = true;
 				}
-				else if (Input.GetMouseButton (0) && hasChargeAttack)
+				else if (Input.GetMouseButton (0) && hasChargeAttack && !Input.GetKey(KeyCode.LeftShift))
 				{
 					chargeTimeRemaining -= Time.deltaTime;
 					if (chargeTimeRemaining < 0)
@@ -110,7 +110,19 @@ public class PlayerMeleeScript : MonoBehaviour {
 		// angle = angle < 180 ? angle:angle-360;
 		// Debug.Log(angle);
 		// transform.RotateAround(playerTransform.position, transform.forward, angle * Time.deltaTime);
-		transform.right = (GetWorldPositionOnPlane (Input.mousePosition, 0f) - gameObject.transform.position);
+		//transform.right = (GetWorldPositionOnPlane (Input.mousePosition, 0f) - gameObject.transform.position);
+
+		if(Input.GetAxis("Horizontal") > 0) {
+			currentAttackDirection = new Vector3(1f, 0f, 0f);
+		}
+		else if(Input.GetAxis("Horizontal") < 0) {
+			currentAttackDirection = new Vector3(-1f, 0f, 0f);
+		}
+		
+		if(Input.GetKey(KeyCode.W))
+			transform.right = new Vector3(0f, 1f, 0f);
+		else
+			transform.right = currentAttackDirection;
 	}
 
 	

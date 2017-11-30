@@ -23,6 +23,10 @@ public class Projectile : MonoBehaviour {
 		animator.Play ("Fired", 0);
 	}
 
+	void Awake(){
+		rigidBody.velocity = direction * speed * 60;
+	}
+
 	void OnDisable(){
 		CancelInvoke ();
 	}
