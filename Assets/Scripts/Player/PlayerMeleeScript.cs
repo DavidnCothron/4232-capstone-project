@@ -25,6 +25,10 @@ public class PlayerMeleeScript : MonoBehaviour {
 	protected const float minMoveDistance = 0.001f;
 	protected const float shellRadius = 0.01f;
 
+	private bool attacking;
+	[SerializeField]private SpriteRenderer spriteRenderer;
+	[SerializeField]private Animator animator;
+
 
 	// Use this for initialization
 	void Awaken () {
@@ -53,6 +57,9 @@ public class PlayerMeleeScript : MonoBehaviour {
 		}
 		else
 		{ //Check for attack input
+			attacking = false;
+			animator.SetBool("groundAttack", attacking);
+
 			if (Input.GetMouseButtonUp (0))
 			{
 				if (chargeTimeRemaining > 0)
@@ -106,6 +113,9 @@ public class PlayerMeleeScript : MonoBehaviour {
 //		{
 //			hitBufferList.Add (hitBuffer [i]);
 //		}
+		attacking = true;
+		animator.SetBool("groundAttack", attacking);
+
 		foreach (GameObject enemyObject in enemiesHit)
 		{
 			EnemyHealth enemy_Health = enemyObject.GetComponent (typeof(EnemyHealth)) as EnemyHealth;
@@ -117,6 +127,8 @@ public class PlayerMeleeScript : MonoBehaviour {
 
 	void ChargeAttack(){
 		GameControl.control.phmc.LoseMana(2);
+		attacking = true;
+		animator.SetBool("groundAttack", attacking);
 		foreach (GameObject enemyObject in enemiesHit)
 		{
 			EnemyHealth enemy_Health = enemyObject.GetComponent (typeof(EnemyHealth)) as EnemyHealth;

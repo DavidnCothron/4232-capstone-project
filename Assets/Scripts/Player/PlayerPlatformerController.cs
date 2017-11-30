@@ -58,7 +58,7 @@ public class PlayerPlatformerController : PhysicsObject {
 			animator.SetFloat ("velocityX", Mathf.Abs (velocity.x) / maxSpeed);
 			animator.SetFloat ("velocityY", velocity.y / maxSpeed);
 			
-			if (Input.GetButton(("Fire1"))) 
+			/*if (Input.GetButton(("Fire1"))) 
 			{
 				attacking = true;
 				animator.SetBool("groundAttack", attacking);
@@ -67,7 +67,7 @@ public class PlayerPlatformerController : PhysicsObject {
 			{
 				attacking = false;
 				animator.SetBool("groundAttack", attacking);
-			}
+			}*/
 
 			if (Mathf.Abs(Input.GetAxis("Horizontal")) != 0 && grounded)
 			{
