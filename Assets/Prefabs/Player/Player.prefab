@@ -280,7 +280,6 @@ MonoBehaviour:
   enemiesHit: []
   hasChargeAttack: 1
   isAttackingEnabled: 0
-  particleSystem: {fileID: 1110403452839602}
   contactFilter:
     useTriggers: 0
     useLayerMask: 0
@@ -298,6 +297,7 @@ MonoBehaviour:
   rb2d: {fileID: 50503167034933404}
   spriteRenderer: {fileID: 212611323117067442}
   animator: {fileID: 95753316552553772}
+  particleSystem: {fileID: 1110403452839602}
 --- !u!114 &114043219446089576
 MonoBehaviour:
   m_ObjectHideFlags: 1
