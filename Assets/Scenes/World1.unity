@@ -444,43 +444,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &43880954 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1547127426238756, guid: cc8c520a32acbb14eb8081e68414da91,
-    type: 2}
-  m_PrefabInternal: {fileID: 730070742}
---- !u!60 &43880959
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 43880954}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.7257843, y: 0.73229295}
-      - {x: 0.34910583, y: 1.0282276}
-      - {x: -0.22969818, y: 1.1020877}
-      - {x: -0.15988159, y: 0.08782464}
-      - {x: -0.12837982, y: 0.041712582}
-      - {x: 0.2559967, y: -0.46872443}
-      - {x: 0.877655, y: -0.064183414}
-      - {x: 0.9510565, y: 0.30901712}
 --- !u!1 &76456241
 GameObject:
   m_ObjectHideFlags: 0
@@ -75702,31 +75665,6 @@ Prefab:
       propertyPath: projectilePooler
       value: 
       objectReference: {fileID: 1340624947}
-    - target: {fileID: 70593923554172912, guid: cc8c520a32acbb14eb8081e68414da91,
-        type: 2}
-      propertyPath: m_Offset.x
-      value: 0.6129175
-      objectReference: {fileID: 0}
-    - target: {fileID: 70593923554172912, guid: cc8c520a32acbb14eb8081e68414da91,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 0.000000046143853
-      objectReference: {fileID: 0}
-    - target: {fileID: 70593923554172912, guid: cc8c520a32acbb14eb8081e68414da91,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 1.2258419
-      objectReference: {fileID: 0}
-    - target: {fileID: 70593923554172912, guid: cc8c520a32acbb14eb8081e68414da91,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.5400029
-      objectReference: {fileID: 0}
-    - target: {fileID: 70593923554172912, guid: cc8c520a32acbb14eb8081e68414da91,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cc8c520a32acbb14eb8081e68414da91, type: 2}
   m_IsPrefabParent: 0
