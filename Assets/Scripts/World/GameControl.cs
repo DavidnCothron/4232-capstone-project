@@ -318,14 +318,19 @@ public class GameControl : MonoBehaviour {
 	/// <returns>The player.</returns>
 	/// <param name="player">C.</param>
 	/// <param name="target">T.</param>
-	public IEnumerator movePlayer(GameObject player, Vector3 target) {
+	public IEnumerator movePlayer(GameObject player, Vector3 target, PlayerPlatformerController ppc = null) {
 		KinematicArrive.KinematicSteering steering;
 		while (true) {
 			player.GetComponent<KinematicArrive> ().setTarget (new Vector3(target.x, player.transform.position.y, target.z));
 			steering = player.GetComponent<KinematicArrive> ().getSteering ();
 			player.GetComponent<KinematicArrive> ().setOrientations (steering);
-			if (player.GetComponent<KinematicArrive> ().getArrived ())
+			if (player.GetComponent<KinematicArrive> ().getArrived ()){
+				if(ppc != null){
+					ppc.SetGravity(4f); //renable gravity if player is passing through floor or ceiling door
+					//ppc.SetVelocityOverride(Vector2.zero);
+				}
 				yield break;
+			}
 			else
 				yield return null;
 		}

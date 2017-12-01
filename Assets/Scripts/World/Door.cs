@@ -67,7 +67,9 @@ public class Door : MonoBehaviour {
 	IEnumerator areaTransitionOut(Collider2D c){
 		GameObject player = c.gameObject;
 		//Set body type to kinematic to ensure smooth transition (doesn't look right yet)
-		c.GetComponent<PlayerPlatformerController> ().haltInput = true;
+		var ppc = c.GetComponent<PlayerPlatformerController> ();
+		ppc.haltInput = true;
+		//ppc.SetGravity(0f);
 		c.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 
 		initAreaTuple();
@@ -85,7 +87,8 @@ public class Door : MonoBehaviour {
 	/// <param name="c">C.</param>
 	public IEnumerator areaTransitionIn(Collider2D c){
 		GameObject player = c.gameObject;
-		c.GetComponent<PlayerPlatformerController> ().haltInput = true;
+		var ppc = c.GetComponent<PlayerPlatformerController> ();
+		ppc.haltInput = true;
 		c.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 		GameControl.control.fadeImage ("startBlack");
 
@@ -96,6 +99,7 @@ public class Door : MonoBehaviour {
 
 		//Resets the RigidbodyType2D to Dynamic and returns input control to the player
 		c.GetComponent<PlayerPlatformerController> ().haltInput = false;
+		//ppc.SetGravity();
 	}
 
 	/// <summary>
@@ -106,7 +110,9 @@ public class Door : MonoBehaviour {
 	IEnumerator roomTransition(Collider2D c) {
 		//Set body type to kinematic to ensure smooth transition (doesn't look right yet)
 		GameObject player = c.gameObject;
-		player.GetComponent<PlayerPlatformerController> ().haltInput = true;
+		var ppc = c.GetComponent<PlayerPlatformerController> ();
+		ppc.haltInput = true;
+		//ppc.SetGravity(0f);
 		player.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 
 		//fade to black > move player into door > move player behind other door > fade to clear > move player out of other door
@@ -116,10 +122,11 @@ public class Door : MonoBehaviour {
 		c.transform.position = other.getSpawn ().transform.position;
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
 		GameControl.control.fadeImage ("");
-		yield return StartCoroutine (GameControl.control.movePlayer(player, other.getDestination ().transform.position));
+		yield return StartCoroutine (GameControl.control.movePlayer(player, other.getDestination ().transform.position, ppc));
 
 		//Resets the RigidbodyType2D to Dynamic and returns input control to the player
 		c.GetComponent<PlayerPlatformerController> ().haltInput = false;
+		//ppc.SetGravity(4f);
 	}
 
 	

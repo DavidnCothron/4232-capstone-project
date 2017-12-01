@@ -24,6 +24,14 @@ public class PhysicsObject : MonoBehaviour {
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
 	}
 
+	public void SetGravity(float value){
+		gravityModifier = value;
+	}
+
+	public void SetVelocityOverride(Vector2 newVelocity){
+		velocity = newVelocity;
+	}
+
 	// Use this for initialization
 	void Start () {
 		contactFilter.useTriggers = false;
