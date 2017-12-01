@@ -5,7 +5,6 @@ using UnityEngine;
 
 [RequireComponent (typeof(SpriteRenderer))]
 [RequireComponent (typeof(Animator))]
-[RequireComponent (typeof(EnemyAILogic))]
 public class enemyController : PhysicsObject {
 
 	Rigidbody2D rigidBody;
@@ -15,9 +14,6 @@ public class enemyController : PhysicsObject {
 	public float maxSpeed = 3.5f;
 	public bool haltInput = false;
 	public int health = 5;
-	public EnemyAILogic AILogic;
-	public EnemyAILogic.IntelligenceType intType;
-
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
 
