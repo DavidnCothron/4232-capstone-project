@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour {
+public class PlayerProjectile : MonoBehaviour {
 
 	public bool hostileDamage = false;
 	public float damage = 1f;

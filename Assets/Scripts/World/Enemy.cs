@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D coll){
 		if (coll.gameObject.tag == "projectile")
 		{
-			Projectile proj = coll.gameObject.GetComponent (typeof(Projectile)) as Projectile;
+			PlayerProjectile proj = coll.gameObject.GetComponent (typeof(PlayerProjectile)) as PlayerProjectile;
 			health -= (int)proj.damage;
 			proj.Destroy ();
 		}

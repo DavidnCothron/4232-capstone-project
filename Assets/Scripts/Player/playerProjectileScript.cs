@@ -23,7 +23,7 @@ public class playerProjectileScript : MonoBehaviour {
 		direction = (Vector2)(GetWorldPositionOnPlane(Input.mousePosition, 0f) - playerPosition.position);
 		GameObject projObj = projectilePooler.PopFromPool ();
 		projObj.transform.position = (Vector2)playerPosition.position;// + (direction.normalized * 1f);
-		Projectile proj = projObj.GetComponent (typeof(Projectile)) as Projectile;
+		PlayerProjectile proj = projObj.GetComponent (typeof(PlayerProjectile)) as PlayerProjectile;
 		proj.direction = direction.normalized;
 		projObj.SetActive (true);
 	}
