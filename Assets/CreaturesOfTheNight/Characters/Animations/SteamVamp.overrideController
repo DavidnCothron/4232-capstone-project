@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: SteamVamp
+  m_Controller: {fileID: 9100000, guid: 656186af8de790641bc8b9714d08631b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 6d132015910b72e4080ac76481237276, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 10afe7667f1cf054f90691575ebb2e25, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ee064c6c9d78df44eb117142956bf815, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 30c8ddcd1dd66804eb6542d966a1b0a1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a7adc0a61920c674bb695bfa84f126de, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d1308046aedd57b4e9bca4e9fda06a59, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 89d7a7faedace8449bb1c1dbd4068493, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 447809cf96fb58144a1a60172bdc097c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e879ed7c83600f444a911432cd52917f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2fcc135184d90fa44b2e756e49089719, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 85a9b604f85bb8f4e95ae00bdc9f0b53, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 38087db22928f7d45b0cd5b83e540699, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: defb9f3b658a66440acea3c018f60aea, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bf71055d5c7b2b44dbe117add5232631, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3242aeb709f98774dadaaef3938cb101, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 101d765ba54605a48a96d89e75e75d8d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5eeb93f3db625054b9cf3783239f22d8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 08e68053bfe7a3545bc60f4f0902b847, type: 2}
