@@ -64,7 +64,8 @@ public class CameraController : MonoBehaviour {
 	//gets the four corners of the room on start *note this will need to change in the
 	//future to incoperate player moving from room to room
 	void Start(){
-		getRoomCorners ();
+		if (BottomWall != null && TopWall != null && LeftWall != null && RightWall!= null)
+			getRoomCorners ();
 		camera.transform.SetPositionAndRotation(new Vector3(0f,0f,-UnityDepth.instance.unityDepth2), Quaternion.identity);
 	}
 
