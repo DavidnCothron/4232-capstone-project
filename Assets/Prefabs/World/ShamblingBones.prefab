@@ -59,7 +59,6 @@ GameObject:
   - component: {fileID: 50062000647546676}
   - component: {fileID: 70113108893379072}
   - component: {fileID: 95719423144875046}
-  - component: {fileID: 114630417625522512}
   - component: {fileID: 114206473849150456}
   - component: {fileID: 114041803481286800}
   m_Layer: 10
@@ -93,9 +92,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627885701364060}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.91, y: 4.31, z: 0}
-  m_LocalScale: {x: 1.3378199, y: 1.3378197, z: 1.3378197}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.63, y: 0.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224711756272186318}
   m_Father: {fileID: 0}
@@ -133,8 +132,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000023841858, y: 0}
-  m_Size: {x: 0.53, y: 1.01}
+  m_Offset: {x: 0.06, y: -0.54}
+  m_Size: {x: 0.75, y: 1.74}
   m_Direction: 0
 --- !u!95 &95719423144875046
 Animator:
@@ -145,7 +144,7 @@ Animator:
   m_GameObject: {fileID: 1627885701364060}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 656186af8de790641bc8b9714d08631b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -230,14 +229,28 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  CurrentAttackTime: 0
+  standAnimationState: GhoulStand
+  RunAnimationState: GhoulRun
+  JumpAnimationState: GhoulJump
+  FallAnimationState: GhoulFall
+  Attack1AnimationState: GhouAttack1
+  Attack1AnimationDuration: 0
+  Attack2AnimationState: GhoulAttack2
+  Attack2AnimationDuration: 0
+  Attack3AnimationState: GhoulAttack3
+  Attack3AnimationDuration: 0
+  DefAnimationState: GhoulDef
+  DeathAnimationState: GhoulDeath
+  State: 0
   isBusy: 0
   isGrounded: 1
   jumpTakeOffSpeed: 7
   maxSpeed: 1
   haltInput: 0
   health: 5
-  AILogic: {fileID: 0}
-  intType: 0
+  sightDistance: 10
+  arc: 45
 --- !u!114 &114420928688226500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13725491, g: 0.09411765, b: 0.21960784, a: 1}
+  m_Color: {r: 0.05219099, g: 0.125, b: 0.0147058815, a: 0.697}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -279,18 +292,6 @@ MonoBehaviour:
   lerpSpeed: 0
   fillAmount: 0
   filler: {fileID: 114127011989705456}
---- !u!114 &114630417625522512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1627885701364060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3376d83cb763cbf419b959dd392a1b42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aStarUser: {fileID: 0}
 --- !u!114 &114691561669861394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,12 +375,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300074, guid: d820917408033454db99818bcdc6123a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7283ff14b6db5804580b2a6874e428b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.875, y: 1.03125}
+  m_Size: {x: 2.08, y: 3.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -423,7 +424,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1866306280133134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224974790825149850}
@@ -460,7 +461,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174544751203884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000011920929, y: 0.00654988, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.32609022, y: 0.3260903, z: 0.3260903}
   m_Children:
   - {fileID: 224862953647912238}
