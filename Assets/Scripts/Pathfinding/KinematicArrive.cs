@@ -11,10 +11,13 @@ public class KinematicArrive : MonoBehaviour {
 	[SerializeField] private float radius;
 	private const float timeToTarget = 0.1f;
 	private bool arrived;
+	private PlayerPlatformerController playerControl;
 
 	// Use this for initialization
 	void Start () {
 		arrived = false;
+		playerControl = GameObject.Find("Player").GetComponent<PlayerPlatformerController>();
+		if (playerControl != null) maxSpeed = playerControl.maxSpeed;
 	}
 
 	public KinematicSteering getSteering() {

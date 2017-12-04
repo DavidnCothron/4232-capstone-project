@@ -14,6 +14,10 @@ public struct AreaTransTuple{
 public class GameControl : MonoBehaviour {
 
 	//delegate void onSceneChanged();
+	/*vars for moving player*/
+	private KinematicArrive.KinematicSteering steering;
+	private KinematicArrive playerArrive;
+
 	private RoomController currentOccupiedRoom;
 	public static GameControl control;
 	public GameObject player;
@@ -41,7 +45,6 @@ public class GameControl : MonoBehaviour {
 		
 		
 		//Code for singleton behaviour
-		
 		if (control == null)
 		{
 			control = this;
@@ -53,6 +56,7 @@ public class GameControl : MonoBehaviour {
 		}
 		setRoomComponents ();
 		
+		playerArrive = GameObject.Find("Player").GetComponent<KinematicArrive>();
 	}
 	
 	void Update(){
@@ -319,12 +323,12 @@ public class GameControl : MonoBehaviour {
 	/// <param name="player">C.</param>
 	/// <param name="target">T.</param>
 	public IEnumerator movePlayer(GameObject player, Vector3 target, PlayerPlatformerController ppc = null) {
-		KinematicArrive.KinematicSteering steering;
+		//KinematicArrive.KinematicSteering steering;
 		while (true) {
-			player.GetComponent<KinematicArrive> ().setTarget (new Vector3(target.x, player.transform.position.y, target.z));
-			steering = player.GetComponent<KinematicArrive> ().getSteering ();
-			player.GetComponent<KinematicArrive> ().setOrientations (steering);
-			if (player.GetComponent<KinematicArrive> ().getArrived ()){
+			playerArrive.setTarget (new Vector3(target.x, player.transform.position.y, target.z));
+			steering = playerArrive.getSteering ();
+			playerArrive.setOrientations (steering);
+			if (playerArrive.getArrived ()){
 				if(ppc != null){
 					ppc.SetGravity(4f); //renable gravity if player is passing through floor or ceiling door
 					//ppc.SetVelocityOverride(Vector2.zero);
