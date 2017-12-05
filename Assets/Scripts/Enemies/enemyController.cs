@@ -35,7 +35,7 @@ public class enemyController : PhysicsObject {
 	public bool haltInput = false;
 	public int health = 5;
 	public float sightDistance = 25f;
-	public float arc = 45f;
+	public float arc = 15f;
 	Vector3 enemyFacingDirection = new Vector3(1,0,0);
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
@@ -84,6 +84,7 @@ public class enemyController : PhysicsObject {
 					scale.x = -Mathf.Abs(scale.x);
 					transform.localScale = scale;
 					enemyFacingDirection = -transform.right;
+					//arc = 
 				}
 				else if ((target.x + transform.position.x) > transform.position.x)//if moving right face right
 				{ //Flip to right
@@ -92,7 +93,7 @@ public class enemyController : PhysicsObject {
 					enemyFacingDirection = transform.right;
 				}
 			}
-			Debug.Log(grounded);
+			//Debug.Log(grounded);
 			if(!grounded){//if falling play falling animation
 				State = state.fall;
 			}
@@ -105,7 +106,8 @@ public class enemyController : PhysicsObject {
 	bool canSee(Vector3 targetVector){
 		playerTrans = GameControl.control.GetPlayerTransform();
 		if(Vector3.SqrMagnitude(targetVector) < sightDistance){
-			if(Vector3.Dot(enemyFacingDirection, playerTrans.position) > 0 && Vector3.Angle(enemyFacingDirection, playerTrans.position) < arc){
+			Debug.Log(Vector3.SqrMagnitude(targetVector));
+			if(Vector3.SqrMagnitude(targetVector) < 4.1f || (Vector3.Dot(enemyFacingDirection, targetVector) > 0 && Vector3.Angle(targetVector, enemyFacingDirection) < arc)){
 
 				RaycastHit2D hit = new RaycastHit2D();
 				LayerMask mask = ~(1 << LayerMask.NameToLayer("AttackLayer") | 1 << LayerMask.NameToLayer("RoomBackground"));//ignore self (attack layer) and roombackground layer
@@ -123,7 +125,7 @@ public class enemyController : PhysicsObject {
 
  void UpdateAnimations()
     {
-		Debug.Log(State);
+		//Debug.Log(State);
         if (State == state.stand)
         {
             animator.CrossFade(standAnimationState, 0f);
