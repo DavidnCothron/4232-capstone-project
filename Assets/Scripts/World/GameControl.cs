@@ -348,6 +348,8 @@ public class GameControl : MonoBehaviour {
 			playerArrive.setTarget(new Vector3 (xVelocity, player.transform.position.y, 0f));
 			steering = playerArrive.getSteering();
 			playerArrive.setOrientations(steering);
+			//Debug.DrawRay(player.transform.position, playerArrive.getSteering().velocity, Color.green);
+			//Debug.DrawRay(player.transform.position, playerArrive.getTarget(), Color.magenta);
 			yield return new WaitForFixedUpdate();
 		}
 		steering.velocity = Vector3.zero;

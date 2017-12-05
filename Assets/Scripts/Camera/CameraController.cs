@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour {
 	[SerializeField] private Camera camera; 
 	[SerializeField] private CameraController cameraCont;
 	[SerializeField] private PlayerController playerCont;
+	private bool inRoom;
 
 	//Smooth Damp variables
 	private Vector3 velocity;
@@ -124,7 +125,8 @@ public class CameraController : MonoBehaviour {
 		Vector3 rayStart = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z - 5f);
 		LayerMask room = (1 << LayerMask.NameToLayer ("RoomBackground"));
 		RaycastHit2D hit = Physics2D.Raycast (rayStart, Vector3.forward, 10f, room); //Raycast only interacts with 'room' LayerMask
-		if (hit != null && hit.collider != null) {
+		if (hit  && hit.collider != null) {
+			inRoom = true;
 			if (hit.collider.GetComponentInParent<RoomController> ().getRoomID () != currentRoomID) { //If this is a new room
 				//As it is current set, 'RoomBackground' object must be directly childed to the 'Room' object.
 				GameControl.control.setCurrentRoom(hit.collider.GetComponentInParent<RoomController>()); //set current occupied room in game controller
@@ -137,6 +139,8 @@ public class CameraController : MonoBehaviour {
 				if (objs.Length == 4) //If all four bounding walls exist in the new room
 					setBoundingWalls (objs);
 			}
+		} else {
+			inRoom = false;
 		}
 	}
 
@@ -200,5 +204,9 @@ public class CameraController : MonoBehaviour {
 			else
 				yield return null;
 		}
+	}
+
+	public bool getInRoom() {
+		return inRoom;
 	}
 }

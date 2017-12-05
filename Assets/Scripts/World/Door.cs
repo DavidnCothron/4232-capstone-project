@@ -20,6 +20,8 @@ public class Door : MonoBehaviour {
 	[SerializeField] string sceneToLoad;
 	private LayerMask ignore;
 	[SerializeField] private CameraController controller;
+
+	private static IEnumerator roomTransCo, checkExitCo, movePlayer, pushPlayer;
 	
 	void Awake() {
 		ignore = ~(1<<LayerMask.NameToLayer("RoomBackground"));
@@ -29,10 +31,25 @@ public class Door : MonoBehaviour {
 		controller = Camera.main.GetComponent<CameraController>();
 	}
 
-	void Update() {
-		if(isDoorDown) {
-			Debug.DrawRay(this.transform.position + new Vector3 (0f, 2f, 0f), transform.right * 2f, Color.red);
-			Debug.DrawRay(this.transform.position + new Vector3 (0f, 2f, 0f), -transform.right * 2f, Color.blue);
+	void FixedUpdate() {
+		//if(isDoorDown) {
+		//	Debug.DrawRay(this.transform.position + new Vector3 (0f, 2f, 0f), transform.right * 2f, Color.red);
+		//	Debug.DrawRay(this.transform.position + new Vector3 (0f, 2f, 0f), -transform.right * 2f, Color.blue);
+		//}
+	}
+
+	void DisableCoroutines() {
+		if (roomTransCo != null) {
+			StopCoroutine(roomTransCo);
+		}
+		if (checkExitCo != null) {
+			StopCoroutine(checkExitCo);
+		}
+		if (movePlayer != null) {
+			StopCoroutine(movePlayer);
+		}
+		if (pushPlayer != null) {
+			StopCoroutine(pushPlayer);
 		}
 	}
 
@@ -71,8 +88,11 @@ public class Door : MonoBehaviour {
 		if(c.tag == "Player" && !c.GetComponent<PlayerPlatformerController>().haltInput && switchAreaTrigger){
 			StartCoroutine(areaTransitionOut(c));			
 		}	
-		else if (c.tag == "Player" && !c.GetComponent<PlayerPlatformerController>().haltInput)
-			StartCoroutine (roomTransition (c));
+		else if (c.tag == "Player" && !c.GetComponent<PlayerPlatformerController>().haltInput) {
+			if (roomTransCo != null) StopCoroutine(roomTransCo);
+			roomTransCo = roomTransition(c);
+			StartCoroutine (roomTransCo);
+		}
 	}
 
 	/// <summary>
@@ -132,18 +152,24 @@ public class Door : MonoBehaviour {
 
 		if (isDoorDown || isDoorUp) { 
 			ppc.SetGravity(0f);
+
 			if (isDoorDown) {
 				ppc.SetVelocityOverride(new Vector2(ppc.getVelocity().x, -ppc.getMaxYVelocity()));
 			}
+
 			if (isDoorUp) {
+				ppc.SetVelocityOverride(new Vector2(ppc.getVelocity().x, ppc.getMaxYVelocity()));
 				RaycastHit2D hitRight = Physics2D.Raycast(other.transform.position + new Vector3(0f,2f,0f), transform.right, 2f, ignore);
 				RaycastHit2D hitLeft = Physics2D.Raycast(other.transform.position + new Vector3(0f,2f,0f), -transform.right, 2f, ignore);
+				
+				//Debug.Log(ppc.getDirection());
 				switch(ppc.getDirection()) {
 					case 1:
 						if (!hitRight) {
 							jumpDir = 1;
 						} else {
-							Debug.Log(hitRight.collider.tag);
+							jumpDir = -1;
+							//Debug.Log(hitRight.collider.tag);
 							mustFlipSprite = true;
 							ppc.setDirection(-1);
 						}
@@ -152,13 +178,14 @@ public class Door : MonoBehaviour {
 						if (!hitLeft) {
 							jumpDir = -1;
 						} else {
-							Debug.Log(hitLeft.collider.tag);
+							jumpDir = 1;
+							//Debug.Log(hitLeft.collider.tag);
 							mustFlipSprite = true;
 							ppc.setDirection(1);
 						}
 						break;
 					default:
-						Debug.Log("This should never happen. Game detected player velocity.x as neither negative nor positive when moving through an upwards door.");
+						Debug.Log("This should never happen. Game detected player face direction as neither left or right");
 						break;
 				}
 			} 
@@ -166,21 +193,39 @@ public class Door : MonoBehaviour {
 
 		//fade to black > move player into door > move player behind other door > fade to clear > move player out of other door
 		GameControl.control.fadeImage ("black");
-		yield return StartCoroutine (GameControl.control.movePlayer(player, playerSpawn.transform.position));
+
+		//We need to stop the player velocity if the player is no longer in a room;
+		if(checkExitCo != null) StopCoroutine(checkExitCo);
+		checkExitCo = checkForRoomExitAndStop(ppc);
+		StartCoroutine(checkExitCo);
+
+		if (movePlayer != null) StopCoroutine(movePlayer);
+		movePlayer = GameControl.control.movePlayer(player, playerSpawn.transform.position);
+		yield return StartCoroutine (movePlayer);
+
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
 		c.transform.position = other.getSpawn ().transform.position;
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
+
 		GameControl.control.fadeImage ("");
-		if (!isDoorUp) yield return StartCoroutine (GameControl.control.movePlayer(player, other.getDestination ().transform.position, ppc));
+
+		if (!isDoorUp) {
+			if (movePlayer != null) StopCoroutine(movePlayer);
+			movePlayer = GameControl.control.movePlayer(player, other.getDestination ().transform.position, ppc);
+			yield return StartCoroutine (movePlayer);
+		}
 
 		if (isDoorDown || isDoorUp) {
 
 			ppc.SetGravity(4f);
 			if (isDoorUp) {
+				if (movePlayer != null) StopCoroutine(movePlayer);
 				if (mustFlipSprite) ppc.flipSprite();
 				ppc.SetVelocityOverride(new Vector2(0f, ppc.getMaxYVelocity()));
-				yield return StartCoroutine(GameControl.control.pushPlayer(ppc, Mathf.Sign(jumpDir)*ppc.maxSpeed)); 
-				//StartCoroutine(GameControl.control.pushPlayer(ppc, Mathf.Sign(jumpDir)*ppc.maxSpeed));
+				if (pushPlayer != null) StopCoroutine(pushPlayer);
+				//other.transform.position.x is added to the target to convert the target to world space.
+				pushPlayer = GameControl.control.pushPlayer(ppc, Mathf.Sign(jumpDir)*ppc.maxSpeed + other.transform.position.x);
+				yield return StartCoroutine(pushPlayer); 
 			}
 			
 			
@@ -188,6 +233,12 @@ public class Door : MonoBehaviour {
 		c.GetComponent<PlayerPlatformerController> ().haltInput = false;
 	}
 
-
+	IEnumerator checkForRoomExitAndStop(PlayerPlatformerController ppc) {
+		while (controller.getInRoom()) {
+			yield return new WaitForFixedUpdate();
+		}
+		ppc.SetVelocityOverride(new Vector2(0f,0f));
+		yield return null;
+	}
 	
 }
