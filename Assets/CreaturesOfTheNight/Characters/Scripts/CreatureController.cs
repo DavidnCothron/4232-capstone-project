@@ -128,13 +128,13 @@ public class CreatureController : MonoBehaviour {
     {
         if (!Defensing)
         {
-            // if (Input.GetButtonDown())
-            // {
-            //     animator.CrossFade(DefAnimationState, 0f, 0, 0f);
-            //     Defensing = true;
-            //     holdingDefense = true;
-            //     State = state.Def;
-            // }
+            if (Input.GetButtonDown("Defense"))
+            {
+                animator.CrossFade(DefAnimationState, 0f, 0, 0f);
+                Defensing = true;
+                holdingDefense = true;
+                State = state.Def;
+            }
         }
         else
         {

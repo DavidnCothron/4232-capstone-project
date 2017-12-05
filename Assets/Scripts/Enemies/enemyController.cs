@@ -45,6 +45,7 @@ public class enemyController : PhysicsObject {
 		rigidBody = gameObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
 		spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
 		animator = gameObject.GetComponent<Animator> ();
+		
 	}
 
 
@@ -52,7 +53,8 @@ public class enemyController : PhysicsObject {
 	protected override void ComputeVelocity () {
 		Vector2 move = Vector2.zero;
 		Vector3 scale = transform.localScale;		
-
+		State = state.stand;
+		
 		if (!haltInput)
 		{
 			playerTrans = GameControl.control.GetPlayerTransform();
@@ -90,7 +92,7 @@ public class enemyController : PhysicsObject {
 					enemyFacingDirection = transform.right;
 				}
 			}
-			
+			Debug.Log(grounded);
 			if(!grounded){//if falling play falling animation
 				State = state.fall;
 			}
@@ -121,7 +123,7 @@ public class enemyController : PhysicsObject {
 
  void UpdateAnimations()
     {
-		//Debug.Log(State);
+		Debug.Log(State);
         if (State == state.stand)
         {
             animator.CrossFade(standAnimationState, 0f);
