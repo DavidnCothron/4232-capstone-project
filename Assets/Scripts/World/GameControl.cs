@@ -36,6 +36,8 @@ public class GameControl : MonoBehaviour {
 	[SerializeField] private float roomTransitionTime = 1;
 	private string currentRoomID;
 
+	private Rigidbody2D playerRigidBody;
+
 	// Use this for initialization
 	void Awake () {
 	//	for (int i = 0; i < 256; i++) 
@@ -56,6 +58,7 @@ public class GameControl : MonoBehaviour {
 		}
 		setRoomComponents ();
 		
+		playerRigidBody = player.GetComponent<Rigidbody2D>();
 		playerArrive = GameObject.Find("Player").GetComponent<KinematicArrive>();
 	}
 	
@@ -339,6 +342,19 @@ public class GameControl : MonoBehaviour {
 				yield return null;
 		}
 	}
+
+	public IEnumerator pushPlayer(PlayerPlatformerController ppc, float xVelocity) {
+		while (!ppc.getGrounded()) {
+			playerArrive.setTarget(new Vector3 (xVelocity, player.transform.position.y, 0f));
+			steering = playerArrive.getSteering();
+			playerArrive.setOrientations(steering);
+			yield return new WaitForFixedUpdate();
+		}
+		steering.velocity = Vector3.zero;
+		playerArrive.setOrientations(steering);
+		yield return null;
+	}
+
 
 
 }

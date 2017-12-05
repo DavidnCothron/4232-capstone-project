@@ -7,7 +7,7 @@ public class PlayerPlatformerController : PhysicsObject {
 	public float jumpTakeOffSpeed = 7f;
 	public float maxSpeed = 7f;
 	public bool haltInput = false;
-
+	private int direction;
 	private bool attacking;
 
 	[SerializeField]private SpriteRenderer spriteRenderer;
@@ -17,6 +17,22 @@ public class PlayerPlatformerController : PhysicsObject {
 	void Awake () {
 		//spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
 		//animator = gameObject.GetComponent<Animator> ();
+	}
+
+	public int getDirection() {
+		return direction;
+	}
+
+	public void setDirection(int d) {
+		direction = d;
+	}
+
+	public void flipSprite() {
+		spriteRenderer.flipX = !spriteRenderer.flipX;
+	}
+
+	public bool getGrounded() {
+		return grounded;
 	}
 
 	protected override void ComputeVelocity()
@@ -46,10 +62,12 @@ public class PlayerPlatformerController : PhysicsObject {
 //				spriteRenderer.flipX = !spriteRenderer.flipX;
 			if (Input.GetAxis("Horizontal") < -0.1) 
 			{
+				direction = -1; //When -1, player is facing left
 				spriteRenderer.flipX = true;
 			} 
 			else if (Input.GetAxis ("Horizontal") > 0.1) 
 			{
+				direction = 1; //When 1, player is facing right
 				spriteRenderer.flipX = false;
 			}
 

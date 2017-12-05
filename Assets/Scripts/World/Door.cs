@@ -10,6 +10,7 @@ public class Door : MonoBehaviour {
 	[SerializeField] private GameObject playerDestination;
 	[SerializeField] private Door other;
 	[SerializeField] private bool switchAreaTrigger;
+	[SerializeField] private bool isDoorUp, isDoorDown;
 	[SerializeField] private int currentAreaID;
 	[SerializeField] private int nextAreaID;
 	[SerializeField] private int currentAccessPointID;
@@ -17,8 +18,23 @@ public class Door : MonoBehaviour {
 	private AreaTransTuple currentArea;
 	private AreaTransTuple nextArea;
 	[SerializeField] string sceneToLoad;
+	private LayerMask ignore;
+	[SerializeField] private CameraController controller;
 	
-	
+	void Awake() {
+		ignore = ~(1<<LayerMask.NameToLayer("RoomBackground"));
+	}
+
+	void Start() {
+		controller = Camera.main.GetComponent<CameraController>();
+	}
+
+	void Update() {
+		if(isDoorDown) {
+			Debug.DrawRay(this.transform.position + new Vector3 (0f, 2f, 0f), transform.right * 2f, Color.red);
+			Debug.DrawRay(this.transform.position + new Vector3 (0f, 2f, 0f), -transform.right * 2f, Color.blue);
+		}
+	}
 
 	/// <summary>
 	/// Gets the camera pivot associated with this door.
@@ -108,12 +124,45 @@ public class Door : MonoBehaviour {
 	/// <returns>The transition.</returns>
 	/// <param name="c">C.</param>
 	IEnumerator roomTransition(Collider2D c) {
-		//Set body type to kinematic to ensure smooth transition (doesn't look right yet)
 		GameObject player = c.gameObject;
 		var ppc = c.GetComponent<PlayerPlatformerController> ();
 		ppc.haltInput = true;
-		//ppc.SetGravity(0f);
-		player.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
+		int jumpDir = 1; //-1 for left, 1 for right
+		bool mustFlipSprite = false;
+
+		if (isDoorDown || isDoorUp) { 
+			ppc.SetGravity(0f);
+			if (isDoorDown) {
+				ppc.SetVelocityOverride(new Vector2(ppc.getVelocity().x, -ppc.getMaxYVelocity()));
+			}
+			if (isDoorUp) {
+				RaycastHit2D hitRight = Physics2D.Raycast(other.transform.position + new Vector3(0f,2f,0f), transform.right, 2f, ignore);
+				RaycastHit2D hitLeft = Physics2D.Raycast(other.transform.position + new Vector3(0f,2f,0f), -transform.right, 2f, ignore);
+				switch(ppc.getDirection()) {
+					case 1:
+						if (!hitRight) {
+							jumpDir = 1;
+						} else {
+							Debug.Log(hitRight.collider.tag);
+							mustFlipSprite = true;
+							ppc.setDirection(-1);
+						}
+						break;
+					case -1:
+						if (!hitLeft) {
+							jumpDir = -1;
+						} else {
+							Debug.Log(hitLeft.collider.tag);
+							mustFlipSprite = true;
+							ppc.setDirection(1);
+						}
+						break;
+					default:
+						Debug.Log("This should never happen. Game detected player velocity.x as neither negative nor positive when moving through an upwards door.");
+						break;
+				}
+			} 
+		}
 
 		//fade to black > move player into door > move player behind other door > fade to clear > move player out of other door
 		GameControl.control.fadeImage ("black");
@@ -122,35 +171,23 @@ public class Door : MonoBehaviour {
 		c.transform.position = other.getSpawn ().transform.position;
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
 		GameControl.control.fadeImage ("");
-		yield return StartCoroutine (GameControl.control.movePlayer(player, other.getDestination ().transform.position, ppc));
+		if (!isDoorUp) yield return StartCoroutine (GameControl.control.movePlayer(player, other.getDestination ().transform.position, ppc));
 
-		//Resets the RigidbodyType2D to Dynamic and returns input control to the player
-		c.GetComponent<PlayerPlatformerController> ().haltInput = false;
-		//ppc.SetGravity(4f);
-	}
+		if (isDoorDown || isDoorUp) {
 
-	
-	/* //This method has been moved to Game control so that it can be used for more than just the door script
-	/// <summary>
-	/// Coroutine called from roomTransition coroutine that physically moves the player
-	/// from one room to another using Kinematic Movement
-	/// </summary>
-	/// <returns>The player.</returns>
-	/// <param name="c">C.</param>
-	/// <param name="t">T.</param>
-	IEnumerator movePlayer(Collider2D c , Vector3 t) {
-		KinematicArrive.KinematicSteering steering;
-		while (true) {
-			c.GetComponent<KinematicArrive> ().setTarget (new Vector3(t.x, c.transform.position.y, t.z));
-			steering = c.GetComponent<KinematicArrive> ().getSteering ();
-			c.GetComponent<KinematicArrive> ().setOrientations (steering);
-			if (c.GetComponent<KinematicArrive> ().getArrived ())
-				yield break;
-			else
-				yield return null;
+			ppc.SetGravity(4f);
+			if (isDoorUp) {
+				if (mustFlipSprite) ppc.flipSprite();
+				ppc.SetVelocityOverride(new Vector2(0f, ppc.getMaxYVelocity()));
+				yield return StartCoroutine(GameControl.control.pushPlayer(ppc, Mathf.Sign(jumpDir)*ppc.maxSpeed)); 
+				//StartCoroutine(GameControl.control.pushPlayer(ppc, Mathf.Sign(jumpDir)*ppc.maxSpeed));
+			}
+			
+			
 		}
+		c.GetComponent<PlayerPlatformerController> ().haltInput = false;
 	}
 
-	*/
+
 	
 }

@@ -7,6 +7,7 @@ public class PhysicsObject : MonoBehaviour {
 	public float minGroundNormalY = 0.65f;
 	public float gravityModifier = 1f;
 
+	[SerializeField] protected float maxYVelocity;
 	[SerializeField] protected Vector2 targetVelocity;
 	[SerializeField] protected bool grounded;
 	[SerializeField] protected Vector2 groundNormal;
@@ -26,6 +27,32 @@ public class PhysicsObject : MonoBehaviour {
 
 	public void SetGravity(float value){
 		gravityModifier = value;
+	}
+
+	/// <summary>
+	/// Sets the maxYVelocity for this PhysicsObject.
+	/// This is applied as both positive and negative y velocity.
+	/// </summary>
+	/// <returns></returns>
+	/// <param name="value">a float point number</param>
+	public void SetMaxYVelocity(float value) {
+		maxYVelocity = value;
+	}
+
+	/// <summary>
+	/// Returns the maximum Y velocity set for this PhysicsObject
+	/// </summary>
+	/// <returns>(float)maxYVelocity</returns>
+	public float getMaxYVelocity() {
+		return maxYVelocity;
+	}
+
+	/// <summary>
+	/// Returns the Vector2 velocity of a given PhysicsObject
+	/// </summary>
+	/// <returns>(Vector2)velocity</returns>
+	public Vector2 getVelocity() {
+		return velocity;
 	}
 
 	public void SetVelocityOverride(Vector2 newVelocity){
@@ -89,6 +116,11 @@ public class PhysicsObject : MonoBehaviour {
 					{
 						groundNormal = currentNormal;
 						currentNormal.x = 0;
+					}
+					/* if maxYVelocity, velocity.y is capped to a signed velocity at maxYVelocity value */
+					if (maxYVelocity != 0 && Mathf.Abs(velocity.y) > maxYVelocity)
+					{
+						velocity.y = Mathf.Sign(velocity.y) * maxYVelocity;
 					}
 				}
 
