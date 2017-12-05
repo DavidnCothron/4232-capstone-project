@@ -455,6 +455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minGroundNormalY: 0.65
   gravityModifier: 4
+  maxYVelocity: 0
   targetVelocity: {x: 0, y: 0}
   grounded: 0
   groundNormal: {x: 0, y: 0}
