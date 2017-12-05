@@ -344,7 +344,7 @@ public class GameControl : MonoBehaviour {
 	}
 
 	public IEnumerator pushPlayer(PlayerPlatformerController ppc, float xVelocity) {
-		while (!ppc.getGrounded()) {
+		while (!ppc.getGrounded() && ppc.getBufferListCount() == 0) {
 			playerArrive.setTarget(new Vector3 (xVelocity, player.transform.position.y, 0f));
 			steering = playerArrive.getSteering();
 			playerArrive.setOrientations(steering);

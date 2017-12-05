@@ -21,7 +21,7 @@ public class Door : MonoBehaviour {
 	private LayerMask ignore;
 	[SerializeField] private CameraController controller;
 
-	private static IEnumerator roomTransCo, checkExitCo, movePlayer, pushPlayer;
+	private static IEnumerator roomTransCo, checkExitCo, movePlayerCo, pushPlayerCo;
 	
 	void Awake() {
 		ignore = ~(1<<LayerMask.NameToLayer("RoomBackground"));
@@ -45,11 +45,11 @@ public class Door : MonoBehaviour {
 		if (checkExitCo != null) {
 			StopCoroutine(checkExitCo);
 		}
-		if (movePlayer != null) {
-			StopCoroutine(movePlayer);
+		if (movePlayerCo != null) {
+			StopCoroutine(movePlayerCo);
 		}
-		if (pushPlayer != null) {
-			StopCoroutine(pushPlayer);
+		if (pushPlayerCo != null) {
+			StopCoroutine(pushPlayerCo);
 		}
 	}
 
@@ -154,11 +154,11 @@ public class Door : MonoBehaviour {
 			ppc.SetGravity(0f);
 
 			if (isDoorDown) {
-				ppc.SetVelocityOverride(new Vector2(ppc.getVelocity().x, -ppc.getMaxYVelocity()));
+				ppc.SetVelocityOverride(new Vector2(ppc.getVelocity().x, -ppc.getMaxYVelocity()+3));
 			}
 
 			if (isDoorUp) {
-				ppc.SetVelocityOverride(new Vector2(ppc.getVelocity().x, ppc.getMaxYVelocity()));
+				ppc.SetVelocityOverride(new Vector2(ppc.getVelocity().x, ppc.getMaxYVelocity()-3));
 				RaycastHit2D hitRight = Physics2D.Raycast(other.transform.position + new Vector3(0f,2f,0f), transform.right, 2f, ignore);
 				RaycastHit2D hitLeft = Physics2D.Raycast(other.transform.position + new Vector3(0f,2f,0f), -transform.right, 2f, ignore);
 				
@@ -199,9 +199,9 @@ public class Door : MonoBehaviour {
 		checkExitCo = checkForRoomExitAndStop(ppc);
 		StartCoroutine(checkExitCo);
 
-		if (movePlayer != null) StopCoroutine(movePlayer);
-		movePlayer = GameControl.control.movePlayer(player, playerSpawn.transform.position);
-		yield return StartCoroutine (movePlayer);
+		if (movePlayerCo != null) StopCoroutine(movePlayerCo);
+		movePlayerCo = GameControl.control.movePlayer(player, playerSpawn.transform.position);
+		yield return StartCoroutine (movePlayerCo);
 
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
 		c.transform.position = other.getSpawn ().transform.position;
@@ -210,22 +210,22 @@ public class Door : MonoBehaviour {
 		GameControl.control.fadeImage ("");
 
 		if (!isDoorUp) {
-			if (movePlayer != null) StopCoroutine(movePlayer);
-			movePlayer = GameControl.control.movePlayer(player, other.getDestination ().transform.position, ppc);
-			yield return StartCoroutine (movePlayer);
+			if (movePlayerCo != null) StopCoroutine(movePlayerCo);
+			movePlayerCo = GameControl.control.movePlayer(player, other.getDestination ().transform.position, ppc);
+			yield return StartCoroutine (movePlayerCo);
 		}
 
 		if (isDoorDown || isDoorUp) {
 
 			ppc.SetGravity(4f);
 			if (isDoorUp) {
-				if (movePlayer != null) StopCoroutine(movePlayer);
+				if (movePlayerCo != null) StopCoroutine(movePlayerCo);
 				if (mustFlipSprite) ppc.flipSprite();
-				ppc.SetVelocityOverride(new Vector2(0f, ppc.getMaxYVelocity()));
-				if (pushPlayer != null) StopCoroutine(pushPlayer);
+				ppc.SetVelocityOverride(new Vector2(0f, ppc.getMaxYVelocity()-2f));
+				if (pushPlayerCo != null) StopCoroutine(pushPlayerCo);
 				//other.transform.position.x is added to the target to convert the target to world space.
-				pushPlayer = GameControl.control.pushPlayer(ppc, Mathf.Sign(jumpDir)*ppc.maxSpeed + other.transform.position.x);
-				yield return StartCoroutine(pushPlayer); 
+				pushPlayerCo = GameControl.control.pushPlayer(ppc, Mathf.Sign(jumpDir)*(ppc.maxSpeed*2) + other.transform.position.x);
+				yield return StartCoroutine(pushPlayerCo); 
 			}
 			
 			

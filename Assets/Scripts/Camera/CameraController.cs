@@ -172,9 +172,10 @@ public class CameraController : MonoBehaviour {
 		cameraFadeImage.enabled = true;
 		while (true) {
 			cameraFadeImage.color = Color.Lerp (cameraFadeImage.color, Color.black, fadeSpeed * Time.deltaTime);
-			if (cameraFadeImage.color.a >= 0.95f) //If the camera is sufficiently blocked
+			if (cameraFadeImage.color.a >= 0.97f){ //If the camera is sufficiently blocked
+				cameraFadeImage.color = Color.black;
 				yield break;
-			else
+			} else
 				yield return null;
 		}
 		yield return new WaitForSeconds (GameControl.control.getRoomTransTime ());
@@ -197,7 +198,8 @@ public class CameraController : MonoBehaviour {
 		cameraFadeImage.enabled = true;
 		while (true) {
 			cameraFadeImage.color = Color.Lerp (cameraFadeImage.color, Color.clear, fadeSpeed * Time.deltaTime);
-			if (cameraFadeImage.color.a <= 0.05f){ //If the camera is sufficiently cleared
+			if (cameraFadeImage.color.a <= 0.03f){ //If the camera is sufficiently cleared
+				cameraFadeImage.color = Color.clear;
 				setActiveFadeImage(false);
 				yield break;				
 			}

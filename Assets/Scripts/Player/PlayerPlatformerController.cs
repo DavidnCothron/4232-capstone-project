@@ -19,6 +19,10 @@ public class PlayerPlatformerController : PhysicsObject {
 		//animator = gameObject.GetComponent<Animator> ();
 	}
 
+	public int getBufferListCount() {
+		return (hitBufferList.Count);
+	}
+
 	public int getDirection() {
 		return direction;
 	}
