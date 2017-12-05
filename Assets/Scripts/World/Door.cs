@@ -32,10 +32,10 @@ public class Door : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		//if(isDoorDown) {
-		//	Debug.DrawRay(this.transform.position + new Vector3 (0f, 2f, 0f), transform.right * 2f, Color.red);
-		//	Debug.DrawRay(this.transform.position + new Vector3 (0f, 2f, 0f), -transform.right * 2f, Color.blue);
-		//}
+		if(isDoorDown) {
+			Debug.DrawRay(this.transform.position + new Vector3 (0f, 2.5f, 0f), transform.right * 5f, Color.red);
+			Debug.DrawRay(this.transform.position + new Vector3 (0f, 2.5f, 0f), -transform.right * 5f, Color.blue);
+		}
 	}
 
 	void DisableCoroutines() {
@@ -159,8 +159,8 @@ public class Door : MonoBehaviour {
 
 			if (isDoorUp) {
 				ppc.SetVelocityOverride(new Vector2(ppc.getVelocity().x, ppc.getMaxYVelocity()-3));
-				RaycastHit2D hitRight = Physics2D.Raycast(other.transform.position + new Vector3(0f,2f,0f), transform.right, 2f, ignore);
-				RaycastHit2D hitLeft = Physics2D.Raycast(other.transform.position + new Vector3(0f,2f,0f), -transform.right, 2f, ignore);
+				RaycastHit2D hitRight = Physics2D.Raycast(other.transform.position + new Vector3(0f,2.5f,0f), transform.right, 5f, ignore);
+				RaycastHit2D hitLeft = Physics2D.Raycast(other.transform.position + new Vector3(0f,2.5f,0f), -transform.right, 5f, ignore);
 				
 				//Debug.Log(ppc.getDirection());
 				switch(ppc.getDirection()) {
@@ -169,7 +169,7 @@ public class Door : MonoBehaviour {
 							jumpDir = 1;
 						} else {
 							jumpDir = -1;
-							//Debug.Log(hitRight.collider.tag);
+							Debug.Log(hitRight.collider.tag);
 							mustFlipSprite = true;
 							ppc.setDirection(-1);
 						}
@@ -179,7 +179,7 @@ public class Door : MonoBehaviour {
 							jumpDir = -1;
 						} else {
 							jumpDir = 1;
-							//Debug.Log(hitLeft.collider.tag);
+							Debug.Log(hitLeft.collider.tag);
 							mustFlipSprite = true;
 							ppc.setDirection(1);
 						}
