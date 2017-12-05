@@ -243,6 +243,7 @@ MonoBehaviour:
   DefAnimationState: GhoulDef
   DeathAnimationState: GhoulDeath
   State: 0
+  onAlert: 0
   isBusy: 0
   isGrounded: 1
   jumpTakeOffSpeed: 7

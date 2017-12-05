@@ -121,7 +121,7 @@ public class enemyController : PhysicsObject {
 
  void UpdateAnimations()
     {
-		//Debug.Log(State);
+		Debug.Log(State);
         if (State == state.stand)
         {
             animator.CrossFade(standAnimationState, 0f);
