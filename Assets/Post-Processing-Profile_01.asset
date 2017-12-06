@@ -283,10 +283,10 @@ MonoBehaviour:
   chromaticAberration:
     m_Enabled: 1
     m_Settings:
-      spectralTexture: {fileID: 0}
-      intensity: 0.2
+      spectralTexture: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
+      intensity: 0.3
   grain:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       colored: 0
       intensity: 0.5
