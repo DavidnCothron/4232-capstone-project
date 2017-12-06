@@ -36,13 +36,13 @@ MonoBehaviour:
         preset: 2
       taaSettings:
         jitterSpread: 0.75
-        sharpen: 0.3
+        sharpen: 0
         stationaryBlending: 0.95
         motionBlending: 0.85
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 2.93
+      intensity: 3
       radius: 0.3
       sampleCount: 10
       downsampling: 1
@@ -79,14 +79,14 @@ MonoBehaviour:
   motionBlur:
     m_Enabled: 0
     m_Settings:
-      shutterAngle: 270
-      sampleCount: 10
+      shutterAngle: 54
+      sampleCount: 26
       frameBlending: 0
   eyeAdaptation:
     m_Enabled: 0
     m_Settings:
-      lowPercent: 45
-      highPercent: 95
+      lowPercent: 42.39823
+      highPercent: 92.39821
       minLuminance: -5
       maxLuminance: 1
       keyValue: 0.25
@@ -94,20 +94,20 @@ MonoBehaviour:
       adaptationType: 0
       speedUp: 2
       speedDown: 1
-      logMin: -8
-      logMax: 4
+      logMin: -14
+      logMax: 16
   bloom:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.5
+        intensity: 2
         threshold: 1.1
         softKnee: 0.5
         radius: 2.6
         antiFlicker: 1
       lensDirt:
         texture: {fileID: 0}
-        intensity: 3
+        intensity: 2
   colorGrading:
     m_Enabled: 1
     m_Settings:
@@ -284,7 +284,7 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       spectralTexture: {fileID: 10906, guid: 0000000000000000f000000000000000, type: 0}
-      intensity: 0.3
+      intensity: 0.2
   grain:
     m_Enabled: 0
     m_Settings:
