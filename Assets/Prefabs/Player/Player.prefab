@@ -563,8 +563,7 @@ MonoBehaviour:
   playerTransform: {fileID: 4768743568527134}
   meleeDamage: 1
   chargeAttackDamage: 4
-  knockbackBasic: 1
-  knockbackCharged: 4
+  attackHitDelay: 0.4
   chargeTime: 1.5
   chargeTimeRemaining: 0
   attackCooldown: 0.5
