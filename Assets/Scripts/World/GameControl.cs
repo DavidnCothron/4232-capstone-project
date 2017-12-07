@@ -331,6 +331,7 @@ public class GameControl : MonoBehaviour {
 			playerArrive.setTarget (new Vector3(target.x, player.transform.position.y, target.z));
 			steering = playerArrive.getSteering ();
 			playerArrive.setOrientations (steering);
+			//Debug.Log(playerArrive.getSteering().velocity.x);
 			if (playerArrive.getArrived ()){
 				if(ppc != null){
 					ppc.SetGravity(4f); //renable gravity if player is passing through floor or ceiling door
