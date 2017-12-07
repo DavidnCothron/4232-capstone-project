@@ -19,7 +19,7 @@ public class KinematicArrive : MonoBehaviour {
 		playerControl = GameObject.Find("Player").GetComponent<PlayerPlatformerController>();
 		if (playerControl != null) maxSpeed = playerControl.maxSpeed;
 	}
-	
+
 	public KinematicSteering getSteering() {
 		if (steering == null)
 			steering = new KinematicSteering ();
@@ -45,6 +45,11 @@ public class KinematicArrive : MonoBehaviour {
 		//if (Mathf.Abs ((target - this.transform.position).magnitude) > 1.6f)
 			//steering.rotation.SetLookRotation (target - this.transform.position);
 		return steering;
+	}
+
+	public Vector3 getSteeringVelocity() {
+		if (steering != null) return steering.velocity;
+		return Vector3.zero;
 	}
 
 	public Vector3 getTarget() {

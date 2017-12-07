@@ -42,7 +42,7 @@ public class PlayerPlatformerController : PhysicsObject {
 	protected override void ComputeVelocity()
 	{
 		Vector2 move = Vector2.zero;
-
+		
 		if (!haltInput) //Stop input if we need to halt it
 		{
 			//Possibly temporarily halt input when attacking? (no direction switch?)
