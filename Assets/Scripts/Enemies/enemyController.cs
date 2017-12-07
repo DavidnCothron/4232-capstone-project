@@ -26,15 +26,18 @@ public class enemyController : PhysicsObject {
     public string DeathAnimationState;
 	public enum state { stand, jump, fall, run, attack1, attack2, attack3, Def, Death}
 	public state State;
-
+	private bool canAttack = false;
+	private bool attacking = false;
+	private float attackCooldown = .75f;
+	//public float attackTime = .75f;
+	private float attackCooldownRemaining;
 	public bool onAlert = false;
 	public bool isBusy = false; //bool that controls actions during FixedUpdate
 	public bool isGrounded = true;
 	public float jumpTakeOffSpeed = 7f;
 	public float maxSpeed = 3.5f;
 	public bool haltInput = false;
-	public float sightDistance = 25f;
-	public float attackTime = .75f;
+	public float sightDistance = 25f;	
 	public float arc = 15f;
 	Vector3 enemyFacingDirection = new Vector3(1,0,0);
 	private SpriteRenderer spriteRenderer;
@@ -56,7 +59,8 @@ public class enemyController : PhysicsObject {
 		Vector3 scale = transform.localScale;
 
 		if(State != state.Death){
-			State = state.stand;
+			if(!attacking)
+				State = state.stand;
 
 			if (!haltInput)
 			{
@@ -74,17 +78,24 @@ public class enemyController : PhysicsObject {
 
 				if(onAlert){
 					//Debug.Log(Mathf.Abs(target.x));
-					if(Mathf.Abs(target.x) > .8f){//move towards target until reasonably close
+					if(Mathf.Abs(target.x) > .8f && !attacking){//move towards target until reasonably close
 						move = target;
 						targetVelocity = move * maxSpeed;
 						State = state.run;//play run animation
+						canAttack = false;
 					}else{
-						Debug.Log("pre routine");
-						haltInput = true;
-						StartCoroutine(attack());//State = state.attack1
-						//State = state.stand;//play stand animation
-						Debug.Log("post routine");
-						haltInput = false;
+						canAttack = true;
+					}
+
+					if(canAttack){
+						attackCooldownRemaining -= Time.deltaTime;
+						Debug.Log(attackCooldownRemaining);
+						if(attackCooldownRemaining < 0f){
+							attackCooldownRemaining = attackCooldown;
+							Debug.Log ("Cooldown Ended");
+							StartCoroutine(attack());
+						}						
+						
 					}
 
 					if ((target.x + transform.position.x) < transform.position.x)//if moving left face left
@@ -132,16 +143,40 @@ public class enemyController : PhysicsObject {
 	}
 
 	public IEnumerator attack(){
-		
 		State = state.attack1;
-		if(enemyMelee.Hit()){
-			Debug.Log("player hit");
-		}
-		yield return new WaitForSeconds(this.returnAttackTime());
-	}
+		attacking = true;
+		haltInput = true;
+		enemyMelee.Hit();
+		yield return new WaitForSeconds(attackCooldown);		
+		haltInput = false;
+		attacking = false;
+		State = state.stand;
+		Debug.Log("finished routine");
 
-	public float returnAttackTime(){
-		return attackTime;
+		// if(attacking){
+		// 	attackCooldownRemaining -= Time.deltaTime;
+		// 	Debug.Log(attackCooldownRemaining);
+		// 	if(attackCooldownRemaining < 0f){								
+		// 		attacking = false;
+		// 		haltInput = false;
+		// 		attackCooldownRemaining = attackCooldown;
+		// 		Debug.Log ("Cooldown Ended");
+		// 	}
+			
+		// 	// State = state.attack1;
+		// 	// enemyMelee.Hit();
+		// 	// attacking = false;
+		// 	// haltInput = false;
+		// 	// State = state.stand;
+		// }else{
+		// 	attacking = true;
+		// 	haltInput = true;
+		// 	State = state.attack1;
+		// 	enemyMelee.Hit();
+		// 	Debug.Log("hit");													
+		// }
+		// yield return null; 
+
 	}
 
 	public void Die(){

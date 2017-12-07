@@ -10,8 +10,14 @@ public class EnemyMelee : MonoBehaviour {
 	bool isAttacking = false;
 	bool canAttack = true;
 	private bool attacking;
+	private bool inRange = false;
 
-	private PlayerHealthAndMagicController phmc;
+	public PlayerHealthAndMagicController phmc;
+
+	void Start()
+	{
+		phmc = GameControl.control.GetPlayerTransform().gameObject.GetComponent<PlayerHealthAndMagicController>();
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -46,22 +52,24 @@ public class EnemyMelee : MonoBehaviour {
 		// }
 	}
 
-	public bool Hit(){
-		if(phmc != null){
+	public bool Hit(){		
+		if(inRange){
+			//Debug.Log("trying attack");
 			phmc.LoseHealth(attackDamage);
 			return true; 
 		}
+		//Debug.Log("false");
 		return false;
 	}
-	void OnTriggerEnter2D(Collider2D coll){
-		if(coll.gameObject.tag == "Player"){		
-			phmc = coll.gameObject.GetComponent<PlayerHealthAndMagicController>();
+	void OnTriggerEnter2D(Collider2D coll){	
+		if(coll.gameObject.tag == "melee"){		
+			inRange = true;
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D coll){
-		if(coll.gameObject.tag == "Player"){
-			phmc = null;
+		if(coll.gameObject.tag == "melee"){
+			inRange = false;
 		}
 	}
 }
