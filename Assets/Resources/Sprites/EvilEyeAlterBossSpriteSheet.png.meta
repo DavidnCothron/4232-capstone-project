@@ -1,0 +1,520 @@
+fileFormatVersion: 2
+guid: 72735763ac3b2e647993f2075d342e63
+timeCreated: 1512677419
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: EvilEyeAlterBossSpriteSheet_0
+    21300002: EvilEyeAlterBossSpriteSheet_1
+    21300004: EvilEyeAlterBossSpriteSheet_2
+    21300006: EvilEyeAlterBossSpriteSheet_3
+    21300008: EvilEyeAlterBossSpriteSheet_4
+    21300010: EvilEyeAlterBossSpriteSheet_5
+    21300012: EvilEyeAlterBossSpriteSheet_6
+    21300014: EvilEyeAlterBossSpriteSheet_7
+    21300016: EvilEyeAlterBossSpriteSheet_8
+    21300018: EvilEyeAlterBossSpriteSheet_9
+    21300020: EvilEyeAlterBossSpriteSheet_10
+    21300022: EvilEyeAlterBossSpriteSheet_11
+    21300024: EvilEyeAlterBossSpriteSheet_12
+    21300026: EvilEyeAlterBossSpriteSheet_13
+    21300028: EvilEyeAlterBossSpriteSheet_14
+    21300030: EvilEyeAlterBossSpriteSheet_15
+    21300032: EvilEyeAlterBossSpriteSheet_16
+    21300034: EvilEyeAlterBossSpriteSheet_17
+    21300036: EvilEyeAlterBossSpriteSheet_18
+    21300038: EvilEyeAlterBossSpriteSheet_19
+    21300040: EvilEyeAlterBossSpriteSheet_20
+    21300042: EvilEyeAlterBossSpriteSheet_21
+    21300044: EvilEyeAlterBossSpriteSheet_22
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 33
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: EvilEyeAlterBossSpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline:
+    - - {x: -48, y: 144}
+      - {x: -48, y: -144}
+      - {x: 48, y: -144}
+      - {x: 48, y: 138}
+      - {x: 34, y: 144}
+    physicsShape:
+    - - {x: 10, y: -143}
+      - {x: 16, y: -144}
+      - {x: 42, y: -144}
+      - {x: 43, y: -143}
+      - {x: 48, y: -137}
+      - {x: 48, y: -119}
+      - {x: 47, y: -118}
+      - {x: 48, y: -114}
+      - {x: 48, y: -84}
+      - {x: 43, y: -79}
+      - {x: 48, y: -75}
+      - {x: 48, y: 12}
+      - {x: 37, y: 19}
+      - {x: 27, y: 19}
+      - {x: 15, y: 12}
+      - {x: 20, y: 37}
+      - {x: 15, y: 53}
+      - {x: 18, y: 60}
+      - {x: 19, y: 69}
+      - {x: 12, y: 81}
+      - {x: 17, y: 84}
+      - {x: 27, y: 76}
+      - {x: 44, y: 80}
+      - {x: 48, y: 86}
+      - {x: 48, y: 107}
+      - {x: 37, y: 115}
+      - {x: 11, y: 112}
+      - {x: -5, y: 116}
+      - {x: -17, y: 108}
+      - {x: -20, y: 113}
+      - {x: -12, y: 123}
+      - {x: -16, y: 140}
+      - {x: -21, y: 144}
+      - {x: -44, y: 144}
+      - {x: -48, y: 140}
+      - {x: -48, y: -105}
+      - {x: -47, y: -106}
+      - {x: -48, y: -110}
+      - {x: -48, y: -140}
+      - {x: -44, y: -144}
+      - {x: 9, y: -144}
+    - - {x: -16, y: -118}
+      - {x: -21, y: -112}
+      - {x: -16, y: -107}
+      - {x: -11, y: -112}
+    - - {x: 16, y: -118}
+      - {x: 11, y: -112}
+      - {x: 16, y: -107}
+      - {x: 21, y: -112}
+    - - {x: -16, y: -86}
+      - {x: -21, y: -80}
+      - {x: -16, y: -75}
+      - {x: -11, y: -80}
+    - - {x: 16, y: -86}
+      - {x: 11, y: -80}
+      - {x: 16, y: -75}
+      - {x: 21, y: -80}
+    - - {x: -16, y: -54}
+      - {x: -21, y: -48}
+      - {x: -16, y: -43}
+      - {x: -11, y: -48}
+    - - {x: 16, y: -54}
+      - {x: 11, y: -48}
+      - {x: 16, y: -43}
+      - {x: 21, y: -48}
+    - - {x: -16, y: -22}
+      - {x: -21, y: -16}
+      - {x: -16, y: -11}
+      - {x: -11, y: -16}
+    - - {x: 16, y: -22}
+      - {x: 11, y: -16}
+      - {x: 16, y: -11}
+      - {x: 21, y: -16}
+    - - {x: -16, y: 10}
+      - {x: -21, y: 16}
+      - {x: -16, y: 21}
+      - {x: -11, y: 16}
+    - - {x: -16, y: 42}
+      - {x: -21, y: 48}
+      - {x: -16, y: 53}
+      - {x: -11, y: 48}
+    - - {x: -16, y: 74}
+      - {x: -21, y: 80}
+      - {x: -16, y: 85}
+      - {x: -11, y: 80}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
