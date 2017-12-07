@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class PlayerAudio : MonoBehaviour {
 	[SerializeField]private AudioClip[] footsteps_dirt;
-	[SerializeField]private AudioSource audioSource;
+	[SerializeField]private AudioSource audioSource, audioSource_jump_land;
 	[SerializeField]private PlayerPlatformerController platformController;
 	[SerializeField]private KinematicArrive playerArrive;
-	IEnumerator runDirtCo, jumpDirtCo, landDirtCo;
-	int counter;
-	// Use this for initialization
+	IEnumerator runDirtCo, jumpDirtCo, landDirtCo, checkForLandingCo;
+	int jumpCounter, landCounter;
+	float fallTime;
+
 	void OnEnable () {
 		runDirtCo = run_dirt();
 		StartCoroutine(checkForMovement());
 		StartCoroutine(checkForJump());
+		StartCoroutine(checkForFalling());
 	}
 	
 	void stopAllCoroutines() {
@@ -28,6 +30,11 @@ public class PlayerAudio : MonoBehaviour {
 		}
 	}
 
+	void initializeCoroutines() {
+		runDirtCo = run_dirt();
+		jumpDirtCo = jump_dirt();
+	}
+
 	IEnumerator checkForMovement() {
 		while(true) {
 			if (platformController.getGrounded() && (Mathf.Abs(platformController.getVelocity().x) > 0.01f) || Mathf.Abs(playerArrive.getSteeringVelocity().x) > 0.1f) {
@@ -40,39 +47,84 @@ public class PlayerAudio : MonoBehaviour {
 	}
 
 	IEnumerator checkForJump() {
-		if(platformController.getGrounded() && Input.GetButtonDown("Jump")) {
-			//if (jumpDirtCo != null) StopCoroutine(jumpDirtCo);
-			stopAllCoroutines();
-			jumpDirtCo = jump_dirt();
-			yield return StartCoroutine(jumpDirtCo);
+		while(true) {
+			if(platformController.getGrounded() && Input.GetButtonDown("Jump")) {
+				if (jumpDirtCo != null) StopCoroutine(jumpDirtCo);
+				jumpDirtCo = jump_dirt();
+				yield return StartCoroutine(jumpDirtCo);
+			}
+			yield return new WaitForFixedUpdate();
 		}
+	}
+
+	IEnumerator checkForFalling() {
+		while (true) {
+			if (!platformController.getGrounded()) {
+				if (checkForLandingCo != null) StopCoroutine(checkForLandingCo);
+				checkForLandingCo = checkForLanding();
+				yield return StartCoroutine(checkForLandingCo);
+			}
+			yield return new WaitForFixedUpdate();
+		}
+	}
+
+	IEnumerator checkForLanding() {
+		fallTime = 0f;
+		while(true) {
+			fallTime += Time.fixedDeltaTime;
+			if (platformController.getGrounded()) {
+				if (landDirtCo != null) StopCoroutine(landDirtCo);
+				landDirtCo = land_dirt(fallTime);
+				yield return StartCoroutine(landDirtCo);
+				break;
+			}
+			yield return new WaitForFixedUpdate();
+		}
+		yield return new WaitForSeconds(0.025f);
+		audioSource.mute = false;
 		yield return null;
 	}
 
 	IEnumerator run_dirt() {
 		while(platformController.getGrounded() && (Mathf.Abs(platformController.getVelocity().x) > 0.01f || Mathf.Abs(playerArrive.getSteeringVelocity().x) > 0.1f)) {
-			//Debug.Log(playerArrive.getSteering().velocity.x);
+			if (Input.GetButtonDown("Jump")) {
+				yield return null;
+			}
 			audioSource.clip = footsteps_dirt[Random.Range(0, footsteps_dirt.Length)];
-			audioSource.volume = 0.35f;
+			audioSource.volume = 0.20f;
 			audioSource.Play();
-			yield return new WaitForSeconds(0.3f);
+			yield return new WaitForSeconds(0.35f);
 		}
 		yield return null;
 	}
 
 	IEnumerator jump_dirt() {
-		counter = 0;
-		while(counter < 2){
-			audioSource.clip = footsteps_dirt[Random.Range(0, footsteps_dirt.Length)];
-			audioSource.volume = 0.45f;
-			audioSource.Play();
-			yield return new WaitForSeconds(0.1f);
-			counter++;
+		audioSource.mute = true;
+		jumpCounter = 0;
+		audioSource_jump_land.volume = 0f;
+		while(jumpCounter < 2){
+			audioSource_jump_land.clip = footsteps_dirt[jumpCounter];
+			audioSource_jump_land.volume += 0.05f;
+			audioSource_jump_land.Play();
+			yield return new WaitForSeconds(0.025f);
+			jumpCounter++;
 		}
+		yield return new WaitForSeconds(0.025f);
+		audioSource.mute = false;
 		yield return null;
 	}
 
-	IEnumerator land_dirt() {
+	IEnumerator land_dirt(float fallTimeMult) {
+		landCounter = 0;
+		if (fallTimeMult > 1f) fallTimeMult = 1f;
+		while (landCounter < 2) {
+			audioSource.mute = true;
+			audioSource_jump_land.clip = footsteps_dirt[Random.Range(0, footsteps_dirt.Length)];
+			audioSource_jump_land.volume = fallTimeMult/2f;
+			audioSource_jump_land.Play();
+			yield return new WaitForSeconds(0.025f);
+			landCounter++;
+		}
 		yield return null;
 	}
 }
