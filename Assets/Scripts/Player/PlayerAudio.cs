@@ -10,6 +10,7 @@ public class PlayerAudio : MonoBehaviour {
 	IEnumerator runDirtCo, jumpDirtCo, landDirtCo, checkForLandingCo;
 	int jumpCounter, landCounter;
 	float fallTime;
+	private static string jumpButton = "Jump";
 
 	void OnEnable () {
 		runDirtCo = run_dirt();
@@ -48,7 +49,7 @@ public class PlayerAudio : MonoBehaviour {
 
 	IEnumerator checkForJump() {
 		while(true) {
-			if(platformController.getGrounded() && Input.GetButtonDown("Jump")) {
+			if(platformController.getGrounded() && Input.GetButtonDown(jumpButton)) {
 				if (jumpDirtCo != null) StopCoroutine(jumpDirtCo);
 				jumpDirtCo = jump_dirt();
 				yield return StartCoroutine(jumpDirtCo);
@@ -59,7 +60,7 @@ public class PlayerAudio : MonoBehaviour {
 
 	IEnumerator checkForFalling() {
 		while (true) {
-			if (!platformController.getGrounded()) {
+			if (!platformController.getGrounded() && !platformController.haltInput) {
 				if (checkForLandingCo != null) StopCoroutine(checkForLandingCo);
 				checkForLandingCo = checkForLanding();
 				yield return StartCoroutine(checkForLandingCo);
@@ -71,7 +72,7 @@ public class PlayerAudio : MonoBehaviour {
 	IEnumerator checkForLanding() {
 		fallTime = 0f;
 		while(true) {
-			fallTime += Time.fixedDeltaTime;
+			if (platformController.getVelocity().y < 0) fallTime += Time.fixedDeltaTime;
 			if (platformController.getGrounded()) {
 				if (landDirtCo != null) StopCoroutine(landDirtCo);
 				landDirtCo = land_dirt(fallTime);
@@ -80,14 +81,14 @@ public class PlayerAudio : MonoBehaviour {
 			}
 			yield return new WaitForFixedUpdate();
 		}
-		yield return new WaitForSeconds(0.025f);
+		yield return new WaitForSeconds(0.05f);
 		audioSource.mute = false;
 		yield return null;
 	}
 
 	IEnumerator run_dirt() {
 		while(platformController.getGrounded() && (Mathf.Abs(platformController.getVelocity().x) > 0.01f || Mathf.Abs(playerArrive.getSteeringVelocity().x) > 0.1f)) {
-			if (Input.GetButtonDown("Jump")) {
+			if (Input.GetButtonDown(jumpButton)) {
 				yield return null;
 			}
 			audioSource.clip = footsteps_dirt[Random.Range(0, footsteps_dirt.Length)];
@@ -116,6 +117,7 @@ public class PlayerAudio : MonoBehaviour {
 
 	IEnumerator land_dirt(float fallTimeMult) {
 		landCounter = 0;
+		if (fallTimeMult < 0.25f) fallTimeMult = 0.25f;
 		if (fallTimeMult > 1f) fallTimeMult = 1f;
 		while (landCounter < 2) {
 			audioSource.mute = true;
