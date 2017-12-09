@@ -26,94 +26,124 @@ public class enemyController : PhysicsObject {
     public string DeathAnimationState;
 	public enum state { stand, jump, fall, run, attack1, attack2, attack3, Def, Death}
 	public state State;
-
+	private bool canAttack = false;
+	private bool attacking = false;
+	private float attackCooldown = .75f;
+	//public float attackTime = .75f;
+	private float attackCooldownRemaining;
+	private bool inKnockback;
+	private Vector2 knockbackVec;
 	public bool onAlert = false;
 	public bool isBusy = false; //bool that controls actions during FixedUpdate
 	public bool isGrounded = true;
 	public float jumpTakeOffSpeed = 7f;
 	public float maxSpeed = 3.5f;
 	public bool haltInput = false;
-	public int health = 5;
-	public float sightDistance = 25f;
+	public float sightDistance = 25f;	
 	public float arc = 15f;
 	Vector3 enemyFacingDirection = new Vector3(1,0,0);
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
+	private EnemyMelee enemyMelee;
 
 	// Use this for initialization
 	void Awake () {
 		rigidBody = gameObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
 		spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
 		animator = gameObject.GetComponent<Animator> ();
-		
+		enemyMelee = gameObject.GetComponentInChildren<EnemyMelee>();		
 	}
 
 
 	//TODO: Add logic to path towards last known position if can no longer see target
 	protected override void ComputeVelocity () {
 		Vector2 move = Vector2.zero;
-		Vector3 scale = transform.localScale;		
-		State = state.stand;
+		Vector3 scale = transform.localScale;
 		
-		if (!haltInput)
-		{
-			playerTrans = GameControl.control.GetPlayerTransform();
-			Vector3 target = playerTrans.position - transform.position;
-			#region Enemy Movement
 
-			//TODO: implement patrol and chase
-			if(Vector3.SqrMagnitude(target) < sightDistance){//if withing sight distance
-				if(canSee(target))//if can see target
-					onAlert = true;		//put enemy on alert
-			}else{
-				onAlert = false;//if not withing sight distance
-			}
+		if(State != state.Death){
+			if(!attacking)
+				State = state.stand;
 
-			if(onAlert){
-				//Debug.Log(Mathf.Abs(target.x));
-				if(Mathf.Abs(target.x) > .8f){//move towards target until reasonably close
-					move = target;
-					targetVelocity = move * maxSpeed;
-					State = state.run;//play run animation
+			if (!haltInput)
+			{
+				playerTrans = GameControl.control.GetPlayerTransform();
+				Vector3 target = playerTrans.position - transform.position;
+				#region Enemy Movement
+
+				//TODO: implement patrol and chase
+				if(Vector3.SqrMagnitude(target) < sightDistance){//if withing sight distance
+					if(canSee(target))//if can see target
+						onAlert = true;		//put enemy on alert
 				}else{
-					State = state.stand;//play stand animation
+					onAlert = false;//if not withing sight distance
 				}
 
-				if ((target.x + transform.position.x) < transform.position.x)//if moving left face left
-				{ //Flip to left
-					scale.x = -Mathf.Abs(scale.x);
-					transform.localScale = scale;
-					enemyFacingDirection = -transform.right;
-					//arc = 
+				if(onAlert){
+					//Debug.Log(Mathf.Abs(target.x));
+					if(inKnockback){
+							updateKnockbackFall();
+							//velocity.x = knockbackVec.x;
+							velocity.y = knockbackVec.y;
+							targetVelocity = knockbackVec;
+					}else{
+						if(Mathf.Abs(target.x) > .8f && !attacking){//move towards target until reasonably close
+							move = target;					
+							targetVelocity = move * maxSpeed;
+							//Debug.Log("target: " + targetVelocity);
+							State = state.run;//play run animation
+							canAttack = false;
+						}else{
+							canAttack = true;
+						}
+
+						if(canAttack){
+							attackCooldownRemaining -= Time.deltaTime;
+							//Debug.Log(attackCooldownRemaining);
+							if(attackCooldownRemaining < 0f){
+								attackCooldownRemaining = attackCooldown;
+								//Debug.Log ("Cooldown Ended");
+								StartCoroutine(attack());
+							}						
+							
+						}
+
+						if ((target.x + transform.position.x) < transform.position.x)//if moving left face left
+						{ //Flip to left
+							scale.x = -Mathf.Abs(scale.x);
+							transform.localScale = scale;
+							enemyFacingDirection = -transform.right;
+							//arc = 
+						}
+						else if ((target.x + transform.position.x) > transform.position.x)//if moving right face right
+						{ //Flip to right
+							scale.x = Mathf.Abs(scale.x);
+							transform.localScale = scale;
+							enemyFacingDirection = transform.right;
+						}
+					}
 				}
-				else if ((target.x + transform.position.x) > transform.position.x)//if moving right face right
-				{ //Flip to right
-					scale.x = Mathf.Abs(scale.x);
-					transform.localScale = scale;
-					enemyFacingDirection = transform.right;
-				}
+				//Debug.Log(grounded);
+				if(!grounded){//if falling play falling animation
+					State = state.fall;
+				}				
+				#endregion			
 			}
-			//Debug.Log(grounded);
-			if(!grounded){//if falling play falling animation
-				State = state.fall;
-			}
-			UpdateAnimations();	//update animation state
-			#endregion
-			
 		}
+		UpdateAnimations();//update animation state
 	}
 
 	bool canSee(Vector3 targetVector){
 		playerTrans = GameControl.control.GetPlayerTransform();
 		if(Vector3.SqrMagnitude(targetVector) < sightDistance){
-			Debug.Log(Vector3.SqrMagnitude(targetVector));
+			//Debug.Log(Vector3.SqrMagnitude(targetVector));
 			if(Vector3.SqrMagnitude(targetVector) < 4.1f || (Vector3.Dot(enemyFacingDirection, targetVector) > 0 && Vector3.Angle(targetVector, enemyFacingDirection) < arc)){
 
 				RaycastHit2D hit = new RaycastHit2D();
 				LayerMask mask = ~(1 << LayerMask.NameToLayer("AttackLayer") | 1 << LayerMask.NameToLayer("RoomBackground"));//ignore self (attack layer) and roombackground layer
 				
 				hit = Physics2D.Raycast(transform.position, (targetVector+ new Vector3(0, .5f, 0)), sightDistance, mask);//raycast towards player
-				Debug.DrawRay(transform.position, (targetVector + new Vector3(0, .5f, 0)), Color.green);
+				//Debug.DrawRay(transform.position, (targetVector + new Vector3(0, .5f, 0)), Color.green);
 				
 				if(hit.collider.tag == "Player"){//if hit player then return true. hit anything else return false.
 					return true;					
@@ -121,6 +151,37 @@ public class enemyController : PhysicsObject {
 			}
 		}
 		return false;
+	}
+
+	public IEnumerator attack(){
+		State = state.attack1;
+		attacking = true;
+		haltInput = true;
+		enemyMelee.Hit();
+		yield return new WaitForSeconds(attackCooldown);		
+		haltInput = false;
+		attacking = false;
+		State = state.stand;
+		//Debug.Log("finished routine");
+	}
+
+	public IEnumerator setKnockbackVec(Vector3 force){
+		inKnockback = true;
+		knockbackVec = (enemyFacingDirection == transform.right ? new Vector2(-force.x, force.y) : new Vector2(force.x, force.y));
+		Debug.DrawRay(gameObject.transform.position, knockbackVec, Color.red);
+		//Debug.Log("starting value: " + knockbackVec);
+		yield return new WaitForSeconds(.3f);
+		inKnockback = false;
+	}
+
+	void updateKnockbackFall(){
+		knockbackVec.y = Mathf.Lerp(knockbackVec.y, 0, .1f);
+		Debug.Log(knockbackVec.y);
+	}
+
+	public void Die(){
+		haltInput = true;
+		State = state.Death;	
 	}
 
  void UpdateAnimations()
@@ -161,7 +222,7 @@ public class enemyController : PhysicsObject {
         if (State == state.Death)
         {
             animator.CrossFade(DeathAnimationState, 0f);
-            print("morra");
+            //print("morra");
         }
         else if (State == state.Def)
         {

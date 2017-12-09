@@ -7,14 +7,16 @@ public class EnemyHealth : MonoBehaviour {
 	[SerializeField] private Health health;
 	[SerializeField] private int enemyHP = 5;
 	private int enemyCurrentHP;
+	enemyController enemy;
 	
 	void Awake(){
 		health.Initialize(enemyHP);
+		enemy = this.GetComponent<enemyController>();
 	}
 	void FixedUpdate()
 	{
 		if(health.CurrentHP <= 0){
-			Destroy(this.gameObject);
+			enemy.Die();
 		}
 	}
 

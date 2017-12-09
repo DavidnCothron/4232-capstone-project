@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4729373963059576}
   - component: {fileID: 212611323117067442}
   - component: {fileID: 95753316552553772}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Player_art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114687856437680426}
   - component: {fileID: 199966806688526322}
   - component: {fileID: 198483713958407946}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ChargeParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 114993909914431830}
   - component: {fileID: 82382372847002100}
   - component: {fileID: 114410710857304792}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -563,8 +563,7 @@ MonoBehaviour:
   playerTransform: {fileID: 4768743568527134}
   meleeDamage: 1
   chargeAttackDamage: 4
-  knockbackBasic: 1
-  knockbackCharged: 4
+  attackHitDelay: 0.4
   chargeTime: 1.5
   chargeTimeRemaining: 0
   attackCooldown: 0.5

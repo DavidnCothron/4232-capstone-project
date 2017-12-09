@@ -6,8 +6,9 @@ public class PlayerMeleeScript : MonoBehaviour {
 	public Transform playerTransform;
 	public int meleeDamage = 1;
 	public int chargeAttackDamage = 4;
-	public float knockbackBasic = 1f;
-	public float knockbackCharged = 4f;
+	public float attackHitDelay = .4f;
+	private float knockbackBasic = 5f;
+	private float knockbackCharged = 10f;
 	public float chargeTime = 1.5f;
 	public float chargeTimeRemaining;
 	public float attackCooldown = 0.5f; 
@@ -74,11 +75,11 @@ public class PlayerMeleeScript : MonoBehaviour {
 				{
 					if (chargeTimeRemaining > 0)
 					{
-						MeleeAttack ();
+						StartCoroutine(MeleeAttack());
 					}
 					else
 					{
-						ChargeAttack ();
+						StartCoroutine(ChargeAttack ());
 					}
 					isAttacking = true;
 				}
@@ -128,7 +129,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 	}
 
 	
-	void MeleeAttack(){
+	IEnumerator MeleeAttack(){
 
 //		int count = rb2d.Cast (Vector2.zero, contactFilter, hitBuffer, shellRadius);
 //		hitBufferList.Clear ();
@@ -137,28 +138,34 @@ public class PlayerMeleeScript : MonoBehaviour {
 //		{
 //			hitBufferList.Add (hitBuffer [i]);
 //		}
+		
 		attacking = true;
 		animator.SetBool("groundAttack", attacking);
-
+		yield return new WaitForSeconds(attackHitDelay);
 		foreach (GameObject enemyObject in enemiesHit)
 		{
 			EnemyHealth enemy_Health = enemyObject.GetComponent (typeof(EnemyHealth)) as EnemyHealth;
 			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
+			enemyController enemyCont = enemyObject.GetComponent (typeof(enemyController)) as enemyController;
 			enemy_Health.LoseHealth(meleeDamage);
-			enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackBasic));
+			StartCoroutine(enemyCont.setKnockbackVec((new Vector2 (knockbackBasic, knockbackBasic/2))));
+			//enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackBasic));
 		}
 	}
 
-	void ChargeAttack(){
+	IEnumerator ChargeAttack(){
 		GameControl.control.phmc.LoseMana(2);
 		attacking = true;
 		animator.SetBool("groundAttack", attacking);
+		yield return new WaitForSeconds(attackHitDelay);
 		foreach (GameObject enemyObject in enemiesHit)
 		{
 			EnemyHealth enemy_Health = enemyObject.GetComponent (typeof(EnemyHealth)) as EnemyHealth;
-			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
+			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;			
+			enemyController enemyCont = enemyObject.GetComponent (typeof(enemyController)) as enemyController;
 			enemy_Health.LoseHealth(chargeAttackDamage);
-			enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackCharged));
+			StartCoroutine(enemyCont.setKnockbackVec(new Vector2 (knockbackCharged, knockbackCharged)));
+			//enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackCharged));
 			chargeTimeRemaining = chargeTime;
 		}
 
