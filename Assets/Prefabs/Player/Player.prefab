@@ -61,7 +61,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1499134041478508
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +93,22 @@ GameObject:
   m_Layer: 10
   m_Name: Melee
   m_TagString: melee
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1649854426698546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4671233363873208}
+  - component: {fileID: 82374437278313952}
+  m_Layer: 9
+  m_Name: Sword_Swoosh_AudioSource
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,6 +146,7 @@ GameObject:
   - component: {fileID: 114993909914431830}
   - component: {fileID: 82382372847002100}
   - component: {fileID: 114410710857304792}
+  - component: {fileID: 168128452735026930}
   m_Layer: 13
   m_Name: Player
   m_TagString: Player
@@ -203,6 +220,19 @@ Transform:
   m_Father: {fileID: 4768743568527134}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4671233363873208
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1649854426698546}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4768743568527134}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4729373963059576
 Transform:
   m_ObjectHideFlags: 1
@@ -231,6 +261,7 @@ Transform:
   - {fileID: 4729373963059576}
   - {fileID: 4599385216124660}
   - {fileID: 4659259456599172}
+  - {fileID: 4671233363873208}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -416,6 +447,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82374437278313952
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1649854426698546}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82382372847002100
 AudioSource:
   m_ObjectHideFlags: 1
@@ -588,7 +699,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 212611323117067442}
   animator: {fileID: 95753316552553772}
   particleSystem: {fileID: 1110403452839602}
-  ppc: {fileID: 0}
+  ppc: {fileID: 114993909914431830}
 --- !u!114 &114043219446089576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -640,11 +751,24 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c1eac1c698fc84605adb7e1074fd7d34, type: 3}
   - {fileID: 8300000, guid: f54a7e8aabfc8436b965149db8156132, type: 3}
   - {fileID: 8300000, guid: 3a06a27039e144e5c853a93d408fd63a, type: 3}
-  sword_swoosh_ground: []
-  sword_swoosh_air: []
+  sword_swoosh_ground:
+  - {fileID: 8300000, guid: b02c3460481f4be4e8fabcb307a042d5, type: 3}
+  - {fileID: 8300000, guid: 2322f7660e3a4e04180ba5e4d2accf32, type: 3}
+  - {fileID: 8300000, guid: 7265b64c4e8b13543adf1122d5c8b423, type: 3}
+  - {fileID: 8300000, guid: ecfe449eeb365a041b8fa8ec654ae544, type: 3}
+  - {fileID: 8300000, guid: dc8d6768d1ea78c49be31af70f2ad3e8, type: 3}
+  - {fileID: 8300000, guid: 6dc44bfe850ea934f90ca91458dfcd47, type: 3}
+  - {fileID: 8300000, guid: 3cafc0c06bc89754285746e898fc66d8, type: 3}
+  sword_swoosh_air:
+  - {fileID: 8300000, guid: b02c3460481f4be4e8fabcb307a042d5, type: 3}
+  - {fileID: 8300000, guid: 82a9381616e047b4fa294d1b4ec572a9, type: 3}
+  - {fileID: 8300000, guid: c8a3ca6225e14954185ead13d3067e5d, type: 3}
+  - {fileID: 8300000, guid: 9d9c2fba1a0620946b13c3235f99e313, type: 3}
+  - {fileID: 8300000, guid: b8cbde35c09c18745ad56e6a7e66d020, type: 3}
+  - {fileID: 8300000, guid: ee2dfd8835b31d0479769aa4679e160e, type: 3}
   audioSource: {fileID: 82382372847002100}
   audioSource_jump_land: {fileID: 82339941498709012}
-  audioSource_sword: {fileID: 0}
+  audioSource_sword: {fileID: 82374437278313952}
   platformController: {fileID: 114993909914431830}
   playerArrive: {fileID: 114598150446022830}
 --- !u!114 &114598150446022830
@@ -768,6 +892,17 @@ MonoBehaviour:
   haltInput: 0
   spriteRenderer: {fileID: 212611323117067442}
   animator: {fileID: 95753316552553772}
+--- !u!168 &168128452735026930
+AudioEchoFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893841220926510}
+  m_Enabled: 1
+  m_Delay: 500
+  m_DecayRatio: 0.5
+  m_WetMix: 1
+  m_DryMix: 1
 --- !u!198 &198483713958407946
 ParticleSystem:
   m_ObjectHideFlags: 1
