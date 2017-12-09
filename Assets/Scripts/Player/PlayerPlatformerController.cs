@@ -39,6 +39,14 @@ public class PlayerPlatformerController : PhysicsObject {
 		return grounded;
 	}
 
+	public void setAttacking(bool b) {
+		attacking = b;
+	}
+
+	public bool getAttacking() {
+		return attacking;
+	}
+
 	protected override void ComputeVelocity()
 	{
 		Vector2 move = Vector2.zero;

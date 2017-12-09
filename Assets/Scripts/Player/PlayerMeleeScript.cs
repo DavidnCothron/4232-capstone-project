@@ -31,6 +31,8 @@ public class PlayerMeleeScript : MonoBehaviour {
 	[SerializeField]private Animator animator;
 	public GameObject particleSystem;
 
+	[SerializeField]private PlayerPlatformerController ppc;
+
 
 	// Use this for initialization
 	void Awaken () {
@@ -93,7 +95,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 					chargeTimeRemaining = chargeTime;
 				}
 			}
-		}
+		} 
 	}
 
 	public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) {

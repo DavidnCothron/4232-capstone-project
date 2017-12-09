@@ -589,6 +589,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 212611323117067442}
   animator: {fileID: 95753316552553772}
   particleSystem: {fileID: 1110403452839602}
+  ppc: {fileID: 0}
 --- !u!114 &114043219446089576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -640,8 +641,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c1eac1c698fc84605adb7e1074fd7d34, type: 3}
   - {fileID: 8300000, guid: f54a7e8aabfc8436b965149db8156132, type: 3}
   - {fileID: 8300000, guid: 3a06a27039e144e5c853a93d408fd63a, type: 3}
+  sword_swoosh_ground: []
+  sword_swoosh_air: []
   audioSource: {fileID: 82382372847002100}
   audioSource_jump_land: {fileID: 82339941498709012}
+  audioSource_sword: {fileID: 0}
   platformController: {fileID: 114993909914431830}
   playerArrive: {fileID: 114598150446022830}
 --- !u!114 &114598150446022830

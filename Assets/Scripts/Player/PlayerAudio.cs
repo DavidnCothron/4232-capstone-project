@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAudio : MonoBehaviour {
-	[SerializeField]private AudioClip[] footsteps_dirt;
-	[SerializeField]private AudioSource audioSource, audioSource_jump_land;
+	[SerializeField]private AudioClip[] footsteps_dirt, sword_swoosh_ground, sword_swoosh_air;
+	[SerializeField]private AudioSource audioSource, audioSource_jump_land, audioSource_sword;
 	[SerializeField]private PlayerPlatformerController platformController;
 	[SerializeField]private KinematicArrive playerArrive;
-	IEnumerator runDirtCo, jumpDirtCo, landDirtCo, checkForLandingCo;
+	IEnumerator runDirtCo, jumpDirtCo, landDirtCo, checkForLandingCo, swingSwordCo;
 	int jumpCounter, landCounter;
 	float fallTime;
 	private static string jumpButton = "Jump";
+	private AudioClip[] attack_orientation;
 
 	void OnEnable () {
-		runDirtCo = run_dirt();
 		StartCoroutine(checkForMovement());
 		StartCoroutine(checkForJump());
 		StartCoroutine(checkForFalling());
+		StartCoroutine(checkForAttack());
 	}
 	
 	void stopAllCoroutines() {
@@ -54,7 +55,7 @@ public class PlayerAudio : MonoBehaviour {
 				jumpDirtCo = jump_dirt();
 				yield return StartCoroutine(jumpDirtCo);
 			}
-			yield return new WaitForFixedUpdate();
+			yield return null;
 		}
 	}
 
@@ -66,6 +67,20 @@ public class PlayerAudio : MonoBehaviour {
 				yield return StartCoroutine(checkForLandingCo);
 			}
 			yield return new WaitForFixedUpdate();
+		}
+	}
+
+	IEnumerator checkForAttack() {
+		while(true) {
+			if (Input.GetMouseButtonUp(0)) {
+				yield return new WaitForSeconds(0.25f);
+				if (platformController.getGrounded()) attack_orientation = sword_swoosh_ground;
+				else attack_orientation = sword_swoosh_air;
+				if (swingSwordCo != null) StopCoroutine(swingSwordCo);
+				swingSwordCo = swing_sword();
+				yield return StartCoroutine(swingSwordCo);
+			}
+			yield return null;
 		}
 	}
 
@@ -92,7 +107,7 @@ public class PlayerAudio : MonoBehaviour {
 				yield return null;
 			}
 			audioSource.clip = footsteps_dirt[Random.Range(0, footsteps_dirt.Length)];
-			audioSource.volume = 0.20f;
+			audioSource.volume = 0.40f;
 			audioSource.Play();
 			yield return new WaitForSeconds(0.35f);
 		}
@@ -105,7 +120,7 @@ public class PlayerAudio : MonoBehaviour {
 		audioSource_jump_land.volume = 0f;
 		while(jumpCounter < 2){
 			audioSource_jump_land.clip = footsteps_dirt[jumpCounter];
-			audioSource_jump_land.volume += 0.05f;
+			audioSource_jump_land.volume += 0.20f;
 			audioSource_jump_land.Play();
 			yield return new WaitForSeconds(0.025f);
 			jumpCounter++;
@@ -122,11 +137,18 @@ public class PlayerAudio : MonoBehaviour {
 		while (landCounter < 2) {
 			audioSource.mute = true;
 			audioSource_jump_land.clip = footsteps_dirt[Random.Range(0, footsteps_dirt.Length)];
-			audioSource_jump_land.volume = fallTimeMult/2f;
+			audioSource_jump_land.volume = fallTimeMult;
 			audioSource_jump_land.Play();
 			yield return new WaitForSeconds(0.025f);
 			landCounter++;
 		}
+		yield return null;
+	}
+
+	IEnumerator swing_sword() {
+		audioSource_sword.clip = attack_orientation[Random.Range(0, attack_orientation.Length)];
+		audioSource_sword.volume = 0.40f;
+		audioSource_sword.Play();
 		yield return null;
 	}
 }
