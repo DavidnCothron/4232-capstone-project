@@ -138,9 +138,14 @@ public class PlayerMeleeScript : MonoBehaviour {
 //		{
 //			hitBufferList.Add (hitBuffer [i]);
 //		}
-		
 		attacking = true;
-		animator.SetBool("groundAttack", attacking);
+		if(ppc.getGrounded()) {
+			animator.SetBool("groundAttack", attacking);
+			animator.SetBool("airAttack", !attacking);
+		} else {
+			animator.SetBool("groundAttack", !attacking);
+			animator.SetBool("airAttack", attacking);
+		}
 		yield return new WaitForSeconds(attackHitDelay);
 		foreach (GameObject enemyObject in enemiesHit)
 		{
@@ -151,12 +156,21 @@ public class PlayerMeleeScript : MonoBehaviour {
 			StartCoroutine(enemyCont.setKnockbackVec((new Vector2 (knockbackBasic, knockbackBasic/2))));
 			//enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackBasic));
 		}
+		attacking = false;
+		animator.SetBool("groundAttack", attacking);
+		animator.SetBool("airAttack", attacking);
 	}
 
 	IEnumerator ChargeAttack(){
 		GameControl.control.phmc.LoseMana(2);
 		attacking = true;
-		animator.SetBool("groundAttack", attacking);
+		if(ppc.getGrounded()) {
+			animator.SetBool("groundAttack", attacking);
+			animator.SetBool("airAttack", !attacking);
+		} else {
+			animator.SetBool("groundAttack", !attacking);
+			animator.SetBool("airAttack", attacking);
+		}
 		yield return new WaitForSeconds(attackHitDelay);
 		foreach (GameObject enemyObject in enemiesHit)
 		{
@@ -168,7 +182,9 @@ public class PlayerMeleeScript : MonoBehaviour {
 			//enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackCharged));
 			chargeTimeRemaining = chargeTime;
 		}
-
+		attacking = false;
+		animator.SetBool("groundAttack", attacking);
+		animator.SetBool("airAttack", attacking);
 		particleSystem.SetActive(false);
 	}
 	

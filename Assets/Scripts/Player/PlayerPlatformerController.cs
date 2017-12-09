@@ -99,7 +99,7 @@ public class PlayerPlatformerController : PhysicsObject {
 				animator.SetBool("groundAttack", attacking);
 			}*/
 
-			if (Mathf.Abs(Input.GetAxis("Horizontal")) != 0 && grounded)
+			if (velocity.x!= 0 && grounded)
 			{
 				animator.SetBool ("startRun", true);
 				if (Mathf.Abs(velocity.x) > 0.01f)

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAudio : MonoBehaviour {
-	[SerializeField]private AudioClip[] footsteps_dirt, sword_swoosh_ground, sword_swoosh_air;
-	[SerializeField]private AudioSource audioSource, audioSource_jump_land, audioSource_sword;
+	[SerializeField]private AudioClip[] footsteps_dirt, sword_swoosh_ground, sword_swoosh_air, jump_grunts, landing_grunts;
+	[SerializeField]private AudioSource audioSource, audioSource_jump_land, audioSource_sword, audioSource_voice;
 	[SerializeField]private PlayerPlatformerController platformController;
 	[SerializeField]private KinematicArrive playerArrive;
 	IEnumerator runDirtCo, jumpDirtCo, landDirtCo, checkForLandingCo, swingSwordCo;
@@ -118,10 +118,16 @@ public class PlayerAudio : MonoBehaviour {
 		audioSource.mute = true;
 		jumpCounter = 0;
 		audioSource_jump_land.volume = 0f;
+		//if (Random.Range(0,10) < 2){
+		//	audioSource_voice.clip = jump_grunts[Random.Range(0, jump_grunts.Length)];
+		//	audioSource_voice.volume = .15f;
+		//	audioSource_voice.Play();
+		//}
 		while(jumpCounter < 2){
 			audioSource_jump_land.clip = footsteps_dirt[jumpCounter];
 			audioSource_jump_land.volume += 0.20f;
 			audioSource_jump_land.Play();
+
 			yield return new WaitForSeconds(0.025f);
 			jumpCounter++;
 		}
@@ -133,7 +139,13 @@ public class PlayerAudio : MonoBehaviour {
 	IEnumerator land_dirt(float fallTimeMult) {
 		landCounter = 0;
 		if (fallTimeMult < 0.25f) fallTimeMult = 0.25f;
-		if (fallTimeMult > 1f) fallTimeMult = 1f;
+
+		if (fallTimeMult > 1f){ 
+			fallTimeMult = 1f;
+			audioSource_voice.clip = landing_grunts[Random.Range(0, landing_grunts.Length)];
+			audioSource_voice.volume = 0.35f;
+			audioSource_voice.Play();
+		}
 		while (landCounter < 2) {
 			audioSource.mute = true;
 			audioSource_jump_land.clip = footsteps_dirt[Random.Range(0, footsteps_dirt.Length)];
