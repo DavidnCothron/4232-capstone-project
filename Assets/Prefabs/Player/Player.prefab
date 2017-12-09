@@ -46,6 +46,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1366493661368536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4158451604537140}
+  - component: {fileID: 82480136236574588}
+  m_Layer: 13
+  m_Name: voice_AudioSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1387319199795732
 GameObject:
   m_ObjectHideFlags: 1
@@ -167,6 +183,19 @@ Transform:
   m_Father: {fileID: 4729373963059576}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4158451604537140
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366493661368536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4768743568527134}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4212309947958486
 Transform:
   m_ObjectHideFlags: 1
@@ -262,6 +291,7 @@ Transform:
   - {fileID: 4599385216124660}
   - {fileID: 4659259456599172}
   - {fileID: 4671233363873208}
+  - {fileID: 4158451604537140}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -607,6 +637,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82480136236574588
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1366493661368536}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95753316552553772
 Animator:
   serializedVersion: 3
@@ -766,11 +876,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9d9c2fba1a0620946b13c3235f99e313, type: 3}
   - {fileID: 8300000, guid: b8cbde35c09c18745ad56e6a7e66d020, type: 3}
   - {fileID: 8300000, guid: ee2dfd8835b31d0479769aa4679e160e, type: 3}
+  jump_grunts:
+  - {fileID: 8300000, guid: f8e5373c24f1e7c4aaa1c09df2a577fd, type: 3}
+  landing_grunts:
+  - {fileID: 8300000, guid: d5771b968254bda46a2e93eddad4db77, type: 3}
+  - {fileID: 8300000, guid: ba526be855296474f87c83cdefc61f32, type: 3}
+  - {fileID: 8300000, guid: 21e468e99c73a2b499cc58cd496e04a1, type: 3}
+  - {fileID: 8300000, guid: 64499f31337cdb94fa4474752f288f40, type: 3}
+  hit_stoneWall:
+  - {fileID: 8300000, guid: ed147a9b9ad371e4c9d68cbe505a69c3, type: 3}
   audioSource: {fileID: 82382372847002100}
   audioSource_jump_land: {fileID: 82339941498709012}
   audioSource_sword: {fileID: 82374437278313952}
+  audioSource_voice: {fileID: 82480136236574588}
   platformController: {fileID: 114993909914431830}
   playerArrive: {fileID: 114598150446022830}
+  playerMelee: {fileID: 114004270987778220}
 --- !u!114 &114598150446022830
 MonoBehaviour:
   m_ObjectHideFlags: 1

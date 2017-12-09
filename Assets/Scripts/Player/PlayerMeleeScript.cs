@@ -34,6 +34,8 @@ public class PlayerMeleeScript : MonoBehaviour {
 
 	[SerializeField]private PlayerPlatformerController ppc;
 
+	private int wallsHit;
+
 
 	// Use this for initialization
 	void Awaken () {
@@ -44,6 +46,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 		contactFilter.useTriggers = true;
 		contactFilter.SetLayerMask (Physics2D.GetLayerCollisionMask(gameObject.layer));
 		contactFilter.useLayerMask = true;
+		wallsHit = 0;
 	}
 	
 	void Start(){
@@ -191,6 +194,8 @@ public class PlayerMeleeScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D coll){
 		if(coll.gameObject.tag == "enemy"){		
 			enemiesHit.Add (coll.gameObject.GetComponentInParent<Rigidbody2D>().gameObject);
+		} else {
+			wallsHit++;
 		}
 	}
 
@@ -201,6 +206,12 @@ public class PlayerMeleeScript : MonoBehaviour {
 			{
 				enemiesHit.Remove (enemy);
 			}
+		} else {
+			wallsHit--;
 		}
+	}
+
+	public int getWallsHit() {
+		return wallsHit;
 	}
 }
