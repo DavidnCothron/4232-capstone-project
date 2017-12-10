@@ -140,8 +140,13 @@ public class PlayerAudio : MonoBehaviour {
 	IEnumerator land_dirt(float fallTimeMult) {
 		landCounter = 0;
 		if (fallTimeMult < 0.25f) fallTimeMult = 0.25f;
-		if (fallTimeMult > 0.5f) {
-			audioSource_voice.clip = landing_grunts[Random.Range(0, landing_grunts.Length)];
+		if (fallTimeMult >= 0.75f) {
+			audioSource_voice.clip = landing_grunts[Random.Range(0, landing_grunts.Length-1)];
+			audioSource_voice.volume = 0.20f;
+			audioSource_voice.Play();
+		}
+		if (fallTimeMult >= 0.50f && fallTimeMult < 0.75f) {
+			audioSource_voice.clip = landing_grunts[3];
 			audioSource_voice.volume = 0.20f;
 			audioSource_voice.Play();
 		}
