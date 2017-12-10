@@ -139,6 +139,10 @@ MonoBehaviour:
   playerPosition: {fileID: 0}
   eyeAnimator: {fileID: 95430638907074170}
   isActive: 0
+  attackCooldown: 0
+  attackCooldownMax: 2
+  attackChargeUp: 0
+  attackChargeUpMax: 1
 --- !u!198 &198471491893423664
 ParticleSystem:
   m_ObjectHideFlags: 1
