@@ -44,7 +44,7 @@ TagManager:
   - MiniMapLayer
   - FadeToBlackOverlay
   - Player
-  - 
+  - GroundGrid
   - 
   - 
   - 

@@ -36,7 +36,7 @@ public class enemyController : PhysicsObject {
 	public bool onAlert = false;
 	public bool isBusy = false; //bool that controls actions during FixedUpdate
 	public bool isGrounded = true;
-	public float jumpTakeOffSpeed = 7f;
+	public float jumpTakeOffSpeed = 8f;
 	public float maxSpeed = 3.5f;
 	public bool haltInput = false;
 	public float sightDistance = 25f;	
@@ -84,28 +84,30 @@ public class enemyController : PhysicsObject {
 					if(inKnockback){
 							updateKnockbackFall();
 							//velocity.x = knockbackVec.x;
+							Debug.Log(knockbackVec.y);
 							velocity.y = knockbackVec.y;
 							targetVelocity = knockbackVec;
 					}else{
-						if(Mathf.Abs(target.x) > .8f && !attacking){//move towards target until reasonably close
-							move = target;					
+						if(Mathf.Abs(target.x) > .8f && !attacking){//move towards target 
+							move = target;
+							if(checkForJump() && grounded){
+								
+							//if(Input.GetKeyDown(KeyCode.J))
+								jump();
+							}
+
 							targetVelocity = move * maxSpeed;
 							//Debug.Log("target: " + targetVelocity);
 							State = state.run;//play run animation
-							canAttack = false;
-						}else{
-							canAttack = true;
-						}
+							//canAttack = false;
 
-						if(canAttack){
+						}else{//attack target if reasonably close
+							//canAttack = true;
 							attackCooldownRemaining -= Time.deltaTime;
-							//Debug.Log(attackCooldownRemaining);
 							if(attackCooldownRemaining < 0f){
 								attackCooldownRemaining = attackCooldown;
-								//Debug.Log ("Cooldown Ended");
 								StartCoroutine(attack());
-							}						
-							
+							}
 						}
 
 						if ((target.x + transform.position.x) < transform.position.x)//if moving left face left
@@ -131,6 +133,27 @@ public class enemyController : PhysicsObject {
 			}
 		}
 		UpdateAnimations();//update animation state
+	}
+
+	void jump(){
+		velocity.y = jumpTakeOffSpeed;
+	}
+
+	bool checkForJump(){
+		LayerMask mask = ~(1 << LayerMask.NameToLayer("AttackLayer") | 1 << LayerMask.NameToLayer("RoomBackground"));
+		RaycastHit2D hit = new RaycastHit2D();
+		hit = Physics2D.Raycast(transform.position - new Vector3(0, .5f, 0), enemyFacingDirection, .5f, mask);
+		Debug.DrawRay(transform.position- new Vector3(0, .7f, 0), enemyFacingDirection * .5f, Color.red);
+		//Debug.Log(hit.collider.tag);
+		if(hit){
+			if(hit.collider.tag == "ground"){
+				return true;			
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
 	}
 
 	bool canSee(Vector3 targetVector){

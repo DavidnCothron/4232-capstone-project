@@ -97,8 +97,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1825841124567762}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -11.56, y: 0, z: 0}
-  m_LocalScale: {x: 10.390843, y: 23.119637, z: 0}
+  m_LocalPosition: {x: -13.1, y: -1, z: 0}
+  m_LocalScale: {x: 30.1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 4766130698071666}
   m_RootOrder: 0
@@ -110,8 +110,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1097729070472898}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.0000038147, y: 5.1954, z: 0}
-  m_LocalScale: {x: 23.119638, y: 10.390855, z: 0}
+  m_LocalPosition: {x: 1, y: 14, z: 0}
+  m_LocalScale: {x: 28, y: 10.390855, z: 0}
   m_Children: []
   m_Father: {fileID: 4766130698071666}
   m_RootOrder: 2
@@ -123,8 +123,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1178809239602294}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 11.56, y: 0, z: 0}
-  m_LocalScale: {x: 10.390843, y: 23.119637, z: 0}
+  m_LocalPosition: {x: 15, y: -1, z: 0}
+  m_LocalScale: {x: 30.1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 4766130698071666}
   m_RootOrder: 1
@@ -135,8 +135,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1466939320632874}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.38, y: 3.32, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.88, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4191867263220128}
@@ -153,8 +153,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1811359425104014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000038147, y: -5.1954, z: 0}
-  m_LocalScale: {x: 23.119638, y: 10.390855, z: 0}
+  m_LocalPosition: {x: 1, y: -16, z: 0}
+  m_LocalScale: {x: 28.2, y: 10.390855, z: 0}
   m_Children: []
   m_Father: {fileID: 4766130698071666}
   m_RootOrder: 3
@@ -198,7 +198,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 1, y: 0.01}
+  m_Size: {x: 1, y: 0.05}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -242,7 +242,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 1, y: 0.01}
+  m_Size: {x: 1, y: 0.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
