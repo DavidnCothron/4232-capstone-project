@@ -140,10 +140,10 @@ public class enemyController : PhysicsObject {
 	}
 
 	bool checkForJump(){
-		LayerMask mask = ~(1 << LayerMask.NameToLayer("AttackLayer") | 1 << LayerMask.NameToLayer("RoomBackground"));
+		LayerMask mask = ~(1 << LayerMask.NameToLayer("AttackLayer") | 1 << LayerMask.NameToLayer("RoomBackground") | 1 << LayerMask.NameToLayer("Enemy") | 1 << LayerMask.NameToLayer("Player"));
 		RaycastHit2D hit = new RaycastHit2D();
-		hit = Physics2D.Raycast(transform.position - new Vector3(0, .5f, 0), enemyFacingDirection, .5f, mask);
-		Debug.DrawRay(transform.position- new Vector3(0, .7f, 0), enemyFacingDirection * .5f, Color.red);
+		hit = Physics2D.Raycast(transform.position - new Vector3(0, .5f, 0), enemyFacingDirection, 1f, mask);
+		Debug.DrawRay(transform.position- new Vector3(0, .7f, 0), enemyFacingDirection * 1f, Color.red);
 		//Debug.Log(hit.collider.tag);
 		if(hit){
 			if(hit.collider.tag == "ground"){
@@ -163,11 +163,11 @@ public class enemyController : PhysicsObject {
 			if(Vector3.SqrMagnitude(targetVector) < 4.1f || (Vector3.Dot(enemyFacingDirection, targetVector) > 0 && Vector3.Angle(targetVector, enemyFacingDirection) < arc)){
 
 				RaycastHit2D hit = new RaycastHit2D();
-				LayerMask mask = ~(1 << LayerMask.NameToLayer("AttackLayer") | 1 << LayerMask.NameToLayer("RoomBackground"));//ignore self (attack layer) and roombackground layer
+				LayerMask mask = ~(1 << LayerMask.NameToLayer("AttackLayer") | 1 << LayerMask.NameToLayer("RoomBackground") | 1 << LayerMask.NameToLayer("Enemy"));//ignore self (attack layer) and roombackground layer
 				
 				hit = Physics2D.Raycast(transform.position, (targetVector+ new Vector3(0, .5f, 0)), sightDistance, mask);//raycast towards player
 				//Debug.DrawRay(transform.position, (targetVector + new Vector3(0, .5f, 0)), Color.green);
-				
+				Debug.Log(hit.collider.tag);
 				if(hit.collider.tag == "Player"){//if hit player then return true. hit anything else return false.
 					return true;					
 				}

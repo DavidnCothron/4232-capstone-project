@@ -11,8 +11,16 @@ public class EnemyMelee : MonoBehaviour {
 	bool canAttack = true;
 	private bool attacking;
 	private bool inRange = false;
+	[SerializeField] protected ContactFilter2D contactFilter;
 
 	public PlayerHealthAndMagicController phmc;
+
+	void Awake()
+	{
+		contactFilter.useTriggers = true;
+		contactFilter.SetLayerMask (Physics2D.GetLayerCollisionMask(gameObject.layer));
+		contactFilter.useLayerMask = true;	
+	}
 
 	void Start()
 	{
