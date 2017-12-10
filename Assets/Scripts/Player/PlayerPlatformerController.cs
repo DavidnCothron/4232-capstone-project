@@ -83,6 +83,24 @@ public class PlayerPlatformerController : PhysicsObject {
 				spriteRenderer.flipX = false;
 			}
 
+			//Handle animation state logic here
+			animator.SetBool ("grounded", grounded);
+			animator.SetFloat ("velocityX", Mathf.Abs (velocity.x) / maxSpeed);
+			animator.SetFloat ("velocityY", velocity.y / maxSpeed);
+
+			if (velocity.x!= 0 && grounded)
+			{
+				animator.SetBool ("startRun", true);
+				if (Mathf.Abs(velocity.x) > 0.01f)
+					animator.SetBool ("isRunning", true);
+			} 
+			else 
+			{
+				animator.SetBool ("startRun", false);
+				animator.SetBool ("isRunning", false);
+			}
+			animator.SetBool("dead", !PlayerManager.control.getAlive());
+
 			//Apply target velocity here, which is utilized in the physics base
 			targetVelocity = move * maxSpeed;
 		}

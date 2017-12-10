@@ -75765,7 +75765,8 @@ Prefab:
       propertyPath: health.healthBar.bar
       value: 
       objectReference: {fileID: 1717556760}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114678287560470924, guid: cc8c520a32acbb14eb8081e68414da91, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: cc8c520a32acbb14eb8081e68414da91, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &1852522375 stripped

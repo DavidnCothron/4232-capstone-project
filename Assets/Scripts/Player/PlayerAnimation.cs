@@ -13,22 +13,6 @@ public class PlayerAnimation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Handle animation state logic here
-			animator.SetBool ("grounded", ppc.getGrounded());
-			animator.SetFloat ("velocityX", Mathf.Abs (ppc.getVelocity().x) / ppc.maxSpeed);
-			animator.SetFloat ("velocityY", ppc.getVelocity().y / ppc.maxSpeed);
-
-			if (ppc.getVelocity().x!= 0 && ppc.getGrounded())
-			{
-				animator.SetBool ("startRun", true);
-				if (Mathf.Abs(ppc.getVelocity().x) > 0.01f)
-					animator.SetBool ("isRunning", true);
-			} 
-			else 
-			{
-				animator.SetBool ("startRun", false);
-				animator.SetBool ("isRunning", false);
-			}
-			animator.SetBool("dead", !PlayerManager.control.getAlive());
+		
 	}
 }
