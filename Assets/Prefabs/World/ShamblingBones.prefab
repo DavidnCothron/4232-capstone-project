@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4860828618361574}
   - component: {fileID: 70471658116368818}
   - component: {fileID: 114343988247260902}
+  - component: {fileID: 60258113022503574}
   m_Layer: 10
   m_Name: attackCollider
-  m_TagString: Untagged
+  m_TagString: melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +79,7 @@ GameObject:
   - component: {fileID: 95719423144875046}
   - component: {fileID: 114206473849150456}
   - component: {fileID: 114041803481286800}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: ShamblingBones
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -96,7 +97,7 @@ GameObject:
   - component: {fileID: 223153358471454930}
   - component: {fileID: 114838619131193646}
   - component: {fileID: 114691561669861394}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: ememyHealthCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,6 +152,43 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &60258113022503574
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106120489568488}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.18, y: 0.1222973}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.4192484, y: 0.052142933}
+      - {x: 0.35510117, y: 0.23731692}
+      - {x: 0.01993543, y: 0.42706066}
+      - {x: -0.4024133, y: 0.21453114}
+      - {x: -0.5267367, y: -0.5253389}
+      - {x: -0.516241, y: -0.7950299}
+      - {x: -0.3988182, y: -0.9695318}
+      - {x: -0.20576185, y: -0.9569938}
+      - {x: -0.13763088, y: -0.93271327}
+      - {x: -0.04236263, y: -0.8339362}
+      - {x: 0.3338309, y: -0.52216625}
+      - {x: 0.419751, y: -0.38933003}
+      - {x: 0.4251824, y: -0.21027423}
 --- !u!70 &70113108893379072
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -172,14 +210,14 @@ CapsuleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106120489568488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.047037482, y: -0.12229729}
-  m_Size: {x: 0.8951142, y: 1.3278584}
+  m_Offset: {x: -0.18, y: -0.12229729}
+  m_Size: {x: 0.84, y: 1.3278584}
   m_Direction: 0
 --- !u!95 &95719423144875046
 Animator:
@@ -212,8 +250,8 @@ MonoBehaviour:
   health:
     healthBar:
       bar: {fileID: 114508447095936438}
-      maxVal: 0
-      currentVal: 0
+      maxVal: 5
+      currentVal: 5
   enemyHP: 5
 --- !u!114 &114127011989705456
 MonoBehaviour:
@@ -256,22 +294,22 @@ MonoBehaviour:
   minGroundNormalY: 0.65
   gravityModifier: 4
   maxYVelocity: 0
-  targetVelocity: {x: 0, y: 0}
+  targetVelocity: {x: 2.8860607, y: -1.106949}
   grounded: 0
-  groundNormal: {x: 0, y: 0}
+  groundNormal: {x: 0, y: 1}
   rb2d: {fileID: 50062000647546676}
-  velocity: {x: 0, y: 0}
-  move: {x: 0, y: 0}
+  velocity: {x: 1.0573581, y: 2.350835}
+  move: {x: 0, y: 0.030451298}
   contactFilter:
     useTriggers: 0
-    useLayerMask: 0
+    useLayerMask: 1
     useDepth: 0
     useOutsideDepth: 0
     useNormalAngle: 0
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 4294958847
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
@@ -289,8 +327,8 @@ MonoBehaviour:
   Attack3AnimationDuration: 0
   DefAnimationState: GhoulDef
   DeathAnimationState: GhoulDeath
-  State: 0
-  onAlert: 0
+  State: 2
+  onAlert: 1
   isBusy: 0
   isGrounded: 1
   jumpTakeOffSpeed: 7
@@ -311,6 +349,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 1
   attackCooldown: 0.5
+  contactFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
   phmc: {fileID: 0}
 --- !u!114 &114420928688226500
 MonoBehaviour:
@@ -324,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05219099, g: 0.125, b: 0.0147058815, a: 0.697}
+  m_Color: {r: 0.08627451, g: 0.2, b: 0.03137255, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -350,8 +402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d434413a47fe1ae40847dd26d0edd04f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpSpeed: 0
-  fillAmount: 0
+  lerpSpeed: 15
+  fillAmount: 1
   filler: {fileID: 114127011989705456}
 --- !u!114 &114691561669861394
 MonoBehaviour:
@@ -436,7 +488,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7283ff14b6db5804580b2a6874e428b8, type: 3}
+  m_Sprite: {fileID: 21300020, guid: 7283ff14b6db5804580b2a6874e428b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
