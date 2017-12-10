@@ -28,6 +28,7 @@ TagManager:
   - platform
   - ledge
   - testAstar
+  - boss
   layers:
   - Default
   - TransparentFX
