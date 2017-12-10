@@ -8,7 +8,9 @@ public class EvilEyeScript : MonoBehaviour {
 	public GameObject particleSystem;
 	public Transform playerPosition;
 	public Animator eyeAnimator;
-	public bool isActive = false;
+	public bool isActive {
+		get; set;
+	}
 	public float attackCooldown;
 	public float attackCooldownMax = 2f;
 	public float attackChargeUp;
@@ -22,6 +24,7 @@ public class EvilEyeScript : MonoBehaviour {
 		particleSystem.SetActive(false);
 		attackChargeUp = attackChargeUpMax;
 		attackCooldown = attackCooldownMax;
+		isActive = false;
 	}
 	
 	// Update is called once per frame

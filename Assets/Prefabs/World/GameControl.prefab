@@ -53,10 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseCanvas: {fileID: 0}
+  titleScene: 
   MainStartButton: {fileID: 0}
-  TutorialButton: {fileID: 0}
-  SongOneButton: {fileID: 0}
-  SongTwoButton: {fileID: 0}
 --- !u!114 &114953912928686944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,7 +66,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78fe8f4cc4c36294c9c2b74896f7f752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimator: {fileID: 0}
   player: {fileID: 1893841220926510, guid: cc8c520a32acbb14eb8081e68414da91, type: 2}
+  pMelee: {fileID: 0}
   phmc: {fileID: 0}
   pc: {fileID: 0}
   pms: {fileID: 0}

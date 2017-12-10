@@ -19,6 +19,7 @@ public class GameControl : MonoBehaviour {
 	private KinematicArrive playerArrive;
 
 	private RoomController currentOccupiedRoom;
+	public Animator playerAnimator;
 	public static GameControl control;
 	public GameObject player;
 	public PlayerMeleeScript pMelee;

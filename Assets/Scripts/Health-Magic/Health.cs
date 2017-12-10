@@ -54,4 +54,11 @@ public class Health
 		healthBar.CurrentVal = CurrentHP;
 	}
 
+	public bool CheckIfDead(){
+		if (currentHP <= 0)
+			return true;
+		else
+			return false;
+	}
+
 }
