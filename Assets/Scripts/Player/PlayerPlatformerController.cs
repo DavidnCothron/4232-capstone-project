@@ -70,8 +70,8 @@ public class PlayerPlatformerController : PhysicsObject {
 			}
 			
 			bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f));
-//			if (flipSprite)
-//				spriteRenderer.flipX = !spriteRenderer.flipX;
+			//if (flipSprite)
+			//	spriteRenderer.flipX = !spriteRenderer.flipX;
 			if (Input.GetAxis("Horizontal") < -0.1) 
 			{
 				direction = -1; //When -1, player is facing left
@@ -87,25 +87,12 @@ public class PlayerPlatformerController : PhysicsObject {
 			animator.SetBool ("grounded", grounded);
 			animator.SetFloat ("velocityX", Mathf.Abs (velocity.x) / maxSpeed);
 			animator.SetFloat ("velocityY", velocity.y / maxSpeed);
-			
-			/*if (Input.GetButton(("Fire1"))) 
-			{
-				attacking = true;
-				animator.SetBool("groundAttack", attacking);
-			}
-			else
-			{
-				attacking = false;
-				animator.SetBool("groundAttack", attacking);
-			}*/
 
 			if (velocity.x!= 0 && grounded)
 			{
 				animator.SetBool ("startRun", true);
 				if (Mathf.Abs(velocity.x) > 0.01f)
 					animator.SetBool ("isRunning", true);
-				//else
-					//animator.SetBool ("isRunning", false);
 			} 
 			else 
 			{
