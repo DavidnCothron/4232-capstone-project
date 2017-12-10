@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 82382372847002100}
   - component: {fileID: 114410710857304792}
   - component: {fileID: 168128452735026930}
+  - component: {fileID: 114678287560470924}
   m_Layer: 13
   m_Name: Player
   m_TagString: Player
@@ -840,6 +841,7 @@ MonoBehaviour:
   moveController: {fileID: 0}
   currentRoom: {fileID: 0}
   ppc: {fileID: 0}
+  playerAudio: {fileID: 114410710857304792}
 --- !u!114 &114410710857304792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -907,6 +909,19 @@ MonoBehaviour:
   maxSpeed: 21
   turnSpeed: 2
   radius: 0.5
+--- !u!114 &114678287560470924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893841220926510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ec053938d86a64a827fb1ed44e88d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ppc: {fileID: 114993909914431830}
+  animator: {fileID: 95753316552553772}
 --- !u!114 &114687856437680426
 MonoBehaviour:
   m_ObjectHideFlags: 1

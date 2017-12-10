@@ -8,6 +8,7 @@ public class PlayerAudio : MonoBehaviour {
 	[SerializeField]private PlayerPlatformerController platformController;
 	[SerializeField]private KinematicArrive playerArrive;
 	IEnumerator runDirtCo, jumpDirtCo, landDirtCo, checkForLandingCo, swingSwordCo, swordHitWallCo;
+	IEnumerator checkMoveCo, checkJumpCo, checkFallCo, checkAttackCo;
 	int jumpCounter, landCounter;
 	float fallTime;
 	private static string jumpButton = "Jump";
@@ -15,13 +16,24 @@ public class PlayerAudio : MonoBehaviour {
 	[SerializeField]private PlayerMeleeScript playerMelee;
 
 	void OnEnable () {
-		StartCoroutine(checkForMovement());
-		StartCoroutine(checkForJump());
-		StartCoroutine(checkForFalling());
-		StartCoroutine(checkForAttack());
+		if (checkMoveCo != null) StopCoroutine(checkMoveCo);
+		checkMoveCo = checkForMovement();
+		StartCoroutine(checkMoveCo);
+
+		if (checkJumpCo != null) StopCoroutine(checkJumpCo);
+		checkJumpCo = checkForJump();
+		StartCoroutine(checkJumpCo);
+
+		if (checkFallCo != null) StopCoroutine(checkFallCo);
+		checkFallCo = checkForFalling();
+		StartCoroutine(checkFallCo);
+
+		if (checkAttackCo != null) StopCoroutine(checkAttackCo);
+		checkAttackCo = checkForAttack();
+		StartCoroutine(checkAttackCo);
 	}
 	
-	void stopAllCoroutines() {
+	public void stopAllCoroutines() {
 		if (runDirtCo != null) {
 			StopCoroutine(runDirtCo);
 		}
@@ -30,6 +42,27 @@ public class PlayerAudio : MonoBehaviour {
 		}
 		if(landDirtCo != null) {
 			StopCoroutine(landDirtCo);
+		}
+		if(checkForLandingCo != null) {
+			StopCoroutine(checkForLandingCo);
+		}
+		if(swingSwordCo != null) {
+			StopCoroutine(swingSwordCo);
+		}
+		if(swordHitWallCo != null) {
+			StopCoroutine(swordHitWallCo);
+		}
+		if(checkMoveCo != null) {
+			StopCoroutine(checkMoveCo);
+		}
+		if(checkJumpCo != null) {
+			StopCoroutine(checkJumpCo);
+		}
+		if(checkFallCo != null) {
+			StopCoroutine(checkFallCo);
+		}
+		if(checkAttackCo != null) {
+			StopCoroutine(checkAttackCo);
 		}
 	}
 

@@ -39,13 +39,7 @@ public class GameControl : MonoBehaviour {
 	private Rigidbody2D playerRigidBody;
 
 	// Use this for initialization
-	void Awake () {
-	//	for (int i = 0; i < 256; i++) 
-	//	{
-	//		Debug.Log (combinations (i, 8));
-	//	}
-		
-		
+	void Awake () {		
 		//Code for singleton behaviour
 		if (control == null)
 		{
@@ -57,9 +51,12 @@ public class GameControl : MonoBehaviour {
 			Destroy (gameObject);
 		}
 		setRoomComponents ();
-		
 		playerRigidBody = player.GetComponent<Rigidbody2D>();
 		playerArrive = GameObject.Find("Player").GetComponent<KinematicArrive>();
+	}
+
+	void Start() {
+		PlayerManager.control.setAlive(true);
 	}
 	
 	void Update(){
@@ -198,7 +195,9 @@ public class GameControl : MonoBehaviour {
 	}
 
 	public void KillPlayer(){//needs to be implemented, called when player health reaches 0. should handle game logic for player death
-		
+		Debug.Log("Player dead");
+		PlayerManager.control.setAlive(false);
+		pc.haltInput = true;
 	}
 
 	public void SetPlayerMeleeActivity(bool value){

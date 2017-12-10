@@ -9,7 +9,7 @@ public class PlayerPlatformerController : PhysicsObject {
 	public bool haltInput = false;
 	private int direction;
 	private bool attacking;
-
+	
 	[SerializeField]private SpriteRenderer spriteRenderer;
 	[SerializeField]private Animator animator;
 
@@ -81,23 +81,6 @@ public class PlayerPlatformerController : PhysicsObject {
 			{
 				direction = 1; //When 1, player is facing right
 				spriteRenderer.flipX = false;
-			}
-
-			//Handle animation state logic here
-			animator.SetBool ("grounded", grounded);
-			animator.SetFloat ("velocityX", Mathf.Abs (velocity.x) / maxSpeed);
-			animator.SetFloat ("velocityY", velocity.y / maxSpeed);
-
-			if (velocity.x!= 0 && grounded)
-			{
-				animator.SetBool ("startRun", true);
-				if (Mathf.Abs(velocity.x) > 0.01f)
-					animator.SetBool ("isRunning", true);
-			} 
-			else 
-			{
-				animator.SetBool ("startRun", false);
-				animator.SetBool ("isRunning", false);
 			}
 
 			//Apply target velocity here, which is utilized in the physics base

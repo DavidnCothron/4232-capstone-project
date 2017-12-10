@@ -41,6 +41,7 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
 	void Update()
 	{
 		if(health.CurrentHP <= 0){
+			Debug.Log(health.CurrentHP);
 			GameControl.control.KillPlayer();
 		}
 		MagicRegen ();

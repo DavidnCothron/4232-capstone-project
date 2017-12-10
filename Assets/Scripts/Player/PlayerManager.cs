@@ -9,6 +9,8 @@ public class PlayerManager : MonoBehaviour {
 
 	[SerializeField]private PlayerPlatformerController ppc;
 
+	public PlayerAudio playerAudio;
+
 	private bool alive;
 	
 	//Daivd wanted me to note that this script is currently only used for the singleton... your welcome David - Josh 
@@ -40,5 +42,15 @@ public class PlayerManager : MonoBehaviour {
 
 	public void setAlive(bool b) {
 		alive = b;
+		if (!alive) {
+			playerAudio.stopAllCoroutines();
+			playerAudio.enabled = false;
+		} else {
+			playerAudio.enabled = true;
+		}
+	}
+
+	public bool getAlive() {
+		return alive;
 	}
 }
