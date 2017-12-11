@@ -8,9 +8,7 @@ public class EvilEyeScript : MonoBehaviour {
 	public GameObject particleSystem;
 	public Transform playerPosition;
 	public Animator eyeAnimator;
-	public bool isActive {
-		get; set;
-	}
+	public bool isActive;
 	public float attackCooldown;
 	public float attackCooldownMax = 2f;
 	public float attackChargeUp;
