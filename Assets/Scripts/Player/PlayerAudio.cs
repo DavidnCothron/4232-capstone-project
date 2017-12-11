@@ -141,7 +141,7 @@ public class PlayerAudio : MonoBehaviour {
 				yield return null;
 			}
 			audioSource.clip = footsteps_dirt[Random.Range(0, footsteps_dirt.Length)];
-			audioSource.volume = 0.40f;
+			audioSource.volume = 0.25f;
 			audioSource.Play();
 			yield return new WaitForSeconds(0.35f);
 		}
@@ -159,7 +159,7 @@ public class PlayerAudio : MonoBehaviour {
 		
 		while(jumpCounter < 2){
 			audioSource_jump_land.clip = footsteps_dirt[jumpCounter];
-			audioSource_jump_land.volume += 0.30f;
+			audioSource_jump_land.volume += 0.20f;
 			audioSource_jump_land.Play();
 
 			yield return new WaitForSeconds(0.025f);
@@ -204,12 +204,12 @@ public class PlayerAudio : MonoBehaviour {
 		yield return new WaitForSeconds(0.10f);
 		if (playerMelee.enemiesHit.Count > 0) {
 			audioSource_sword.clip = hit_enemy[Random.Range(0,hit_enemy.Length)];
-			audioSource_sword.volume = 0.40f;
+			audioSource_sword.volume = 0.30f;
 			audioSource_sword.Play();
 		}
 		if (playerMelee.getWallsHit() != 0 && playerMelee.enemiesHit.Count == 0){
 			audioSource_sword.clip = hit_stoneWall[0];
-			audioSource_sword.volume = 0.40f;
+			audioSource_sword.volume = 0.30f;
 			audioSource_sword.Play();
 			//if (swordHitWallCo != null) StopCoroutine(swordHitWallCo);
 			//swordHitWallCo = swordHit_wall();
@@ -220,7 +220,7 @@ public class PlayerAudio : MonoBehaviour {
 
 	public IEnumerator swordHit_wall(){
 		audioSource_sword.clip = hit_stoneWall[0];
-		audioSource_sword.volume = 0.40f;
+		audioSource_sword.volume = 0.30f;
 		audioSource_sword.Play();
 		yield return null;
 	}
