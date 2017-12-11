@@ -99,7 +99,6 @@ public class PlayerPlatformerController : PhysicsObject {
 				animator.SetBool ("startRun", false);
 				animator.SetBool ("isRunning", false);
 			}
-			animator.SetBool("dead", !PlayerManager.control.getAlive());
 
 			//Apply target velocity here, which is utilized in the physics base
 			targetVelocity = move * maxSpeed;
