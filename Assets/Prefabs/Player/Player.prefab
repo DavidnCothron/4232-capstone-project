@@ -162,11 +162,29 @@ GameObject:
   - component: {fileID: 114993909914431830}
   - component: {fileID: 82382372847002100}
   - component: {fileID: 114410710857304792}
-  - component: {fileID: 168128452735026930}
   - component: {fileID: 114267809582589502}
+  - component: {fileID: 164249836986972696}
+  - component: {fileID: 168447025584813238}
   m_Layer: 13
   m_Name: Player
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1978081629713286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4136065724303854}
+  - component: {fileID: 81806741418118168}
+  - component: {fileID: 164743525254914750}
+  m_Layer: 13
+  m_Name: AudioListener
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +201,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4729373963059576}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4136065724303854
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1978081629713286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4768743568527134}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4158451604537140
 Transform:
@@ -293,6 +324,7 @@ Transform:
   - {fileID: 4659259456599172}
   - {fileID: 4671233363873208}
   - {fileID: 4158451604537140}
+  - {fileID: 4136065724303854}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -401,6 +433,13 @@ CapsuleCollider2D:
   m_Offset: {x: 0.6129175, y: 0.000000046143853}
   m_Size: {x: 1.2258419, y: 0.5400029}
   m_Direction: 1
+--- !u!81 &81806741418118168
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1978081629713286}
+  m_Enabled: 1
 --- !u!82 &82339941498709012
 AudioSource:
   m_ObjectHideFlags: 1
@@ -583,7 +622,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -747,7 +786,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.8627451, b: 0.5647059, a: 1}
   m_Intensity: 2
   m_Range: 15
   m_SpotAngle: 30
@@ -1038,13 +1077,57 @@ MonoBehaviour:
   spriteRenderer: {fileID: 212611323117067442}
   animator: {fileID: 95753316552553772}
   playerMelee: {fileID: 114004270987778220}
---- !u!168 &168128452735026930
+--- !u!164 &164249836986972696
+AudioReverbFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893841220926510}
+  m_Enabled: 0
+  m_DryLevel: -3833
+  m_Room: -1800
+  m_RoomHF: -800
+  m_DecayTime: 4
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -10000
+  m_ReverbLevel: 500
+  m_ReverbDelay: 0.04
+  m_Diffusion: 75
+  m_Density: 85
+  m_HFReference: 5000
+  m_RoomLF: -500
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27
+--- !u!164 &164743525254914750
+AudioReverbFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1978081629713286}
+  m_Enabled: 1
+  m_DryLevel: -700
+  m_Room: -1800
+  m_RoomHF: -800
+  m_DecayTime: 3
+  m_DecayHFRatio: 0.5
+  m_ReflectionsLevel: -10000
+  m_ReverbLevel: 500
+  m_ReverbDelay: 0.04
+  m_Diffusion: 75
+  m_Density: 85
+  m_HFReference: 5000
+  m_RoomLF: -300
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 27
+--- !u!168 &168447025584813238
 AudioEchoFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893841220926510}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Delay: 500
   m_DecayRatio: 0.5
   m_WetMix: 1

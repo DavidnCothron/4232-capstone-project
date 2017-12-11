@@ -155,7 +155,7 @@ public class PlayerAudio : MonoBehaviour {
 		
 		audioSource_voice.clip = jump_grunts[Random.Range(0, jump_grunts.Length)];
 		audioSource_voice.volume = .20f;
-		audioSource_voice.Play();
+		//audioSource_voice.Play();
 		
 		while(jumpCounter < 2){
 			audioSource_jump_land.clip = footsteps_dirt[jumpCounter];
