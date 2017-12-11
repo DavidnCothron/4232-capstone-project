@@ -78,10 +78,12 @@ public class PlayerMeleeScript : MonoBehaviour {
 				{
 					if (chargeTimeRemaining > 0)
 					{
+						attacking = true;
 						StartCoroutine(MeleeAttack());
 					}
 					else
 					{
+						attacking = true;
 						StartCoroutine(ChargeAttack ());
 					}
 					isAttacking = true;
@@ -100,6 +102,23 @@ public class PlayerMeleeScript : MonoBehaviour {
 				}
 			}
 		} 
+		
+	}
+
+	void LateUpdate() {
+		if (!isAttacking && !ppc.haltInput && !attacking){
+			if(Input.GetAxis("Horizontal") > 0) {
+				currentAttackDirection = new Vector3(1f, 0f, 0f);
+			}
+			else if(Input.GetAxis("Horizontal") < 0) {
+				currentAttackDirection = new Vector3(-1f, 0f, 0f);
+			}
+		
+			if(Input.GetKey(KeyCode.W))
+				transform.right = new Vector3(0f, 1f, 0f);
+			else
+				transform.right = currentAttackDirection;
+		}
 	}
 
 	public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) {
@@ -117,20 +136,12 @@ public class PlayerMeleeScript : MonoBehaviour {
 		// Debug.Log(angle);
 		// transform.RotateAround(playerTransform.position, transform.forward, angle * Time.deltaTime);
 		//transform.right = (GetWorldPositionOnPlane (Input.mousePosition, 0f) - gameObject.transform.position);
-
-		if(Input.GetAxis("Horizontal") > 0) {
-			currentAttackDirection = new Vector3(1f, 0f, 0f);
-		}
-		else if(Input.GetAxis("Horizontal") < 0) {
-			currentAttackDirection = new Vector3(-1f, 0f, 0f);
-		}
 		
-		if(Input.GetKey(KeyCode.W))
-			transform.right = new Vector3(0f, 1f, 0f);
-		else
-			transform.right = currentAttackDirection;
 	}
 
+	public bool getAttacking() {
+		return isAttacking;
+	}
 	
 	IEnumerator MeleeAttack(){
 
@@ -185,6 +196,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 			//enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackCharged));
 			chargeTimeRemaining = chargeTime;
 		}
+		//yield return new WaitForSeconds(.5f);
 		attacking = false;
 		animator.SetBool("groundAttack", attacking);
 		animator.SetBool("airAttack", attacking);

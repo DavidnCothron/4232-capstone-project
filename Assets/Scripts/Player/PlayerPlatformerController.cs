@@ -12,6 +12,7 @@ public class PlayerPlatformerController : PhysicsObject {
 	
 	[SerializeField]private SpriteRenderer spriteRenderer;
 	[SerializeField]private Animator animator;
+	[SerializeField]private PlayerMeleeScript playerMelee;
 
 	// Use this for initialization
 	void Awake () {
@@ -72,15 +73,17 @@ public class PlayerPlatformerController : PhysicsObject {
 			bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f));
 			//if (flipSprite)
 			//	spriteRenderer.flipX = !spriteRenderer.flipX;
-			if (Input.GetAxis("Horizontal") < -0.1) 
-			{
-				direction = -1; //When -1, player is facing left
-				spriteRenderer.flipX = true;
-			} 
-			else if (Input.GetAxis ("Horizontal") > 0.1) 
-			{
-				direction = 1; //When 1, player is facing right
-				spriteRenderer.flipX = false;
+			if (!playerMelee.getAttacking() && !haltInput){
+				if (Input.GetAxis("Horizontal") < -0.1) 
+				{
+					direction = -1; //When -1, player is facing left
+					spriteRenderer.flipX = true;
+				} 
+				else if (Input.GetAxis ("Horizontal") > 0.1) 
+				{
+					direction = 1; //When 1, player is facing right
+					spriteRenderer.flipX = false;
+				}
 			}
 
 			//Handle animation state logic here

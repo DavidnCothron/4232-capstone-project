@@ -788,7 +788,7 @@ MonoBehaviour:
   attackHitDelay: 0.4
   chargeTime: 1.5
   chargeTimeRemaining: 0
-  attackCooldown: 0.5
+  attackCooldown: 0.65
   enemiesHit: []
   hasChargeAttack: 1
   isAttackingEnabled: 0
@@ -1028,6 +1028,7 @@ MonoBehaviour:
   haltInput: 0
   spriteRenderer: {fileID: 212611323117067442}
   animator: {fileID: 95753316552553772}
+  playerMelee: {fileID: 114004270987778220}
 --- !u!168 &168128452735026930
 AudioEchoFilter:
   m_ObjectHideFlags: 1
