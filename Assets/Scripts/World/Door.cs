@@ -24,7 +24,7 @@ public class Door : MonoBehaviour {
 	private static IEnumerator roomTransCo, checkExitCo, movePlayerCo, pushPlayerCo;
 	
 	void Awake() {
-		ignore = ~(1<<LayerMask.NameToLayer("RoomBackground"));
+		ignore = ~(1<<LayerMask.NameToLayer("RoomBackground")|1<<LayerMask.NameToLayer("Enemy"));
 	}
 
 	void Start() {

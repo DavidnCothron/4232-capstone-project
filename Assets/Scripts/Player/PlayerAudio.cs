@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAudio : MonoBehaviour {
-	[SerializeField]private AudioClip[] footsteps_dirt, sword_swoosh_ground, sword_swoosh_air, jump_grunts, landing_grunts, hit_stoneWall;
+	[SerializeField]private AudioClip[] footsteps_dirt, sword_swoosh_ground, sword_swoosh_air, jump_grunts, landing_grunts, hit_stoneWall, hit_enemy;
 	[SerializeField]private AudioSource audioSource, audioSource_jump_land, audioSource_sword, audioSource_voice;
 	[SerializeField]private PlayerPlatformerController platformController;
 	[SerializeField]private KinematicArrive playerArrive;
@@ -202,10 +202,18 @@ public class PlayerAudio : MonoBehaviour {
 		audioSource_sword.volume = 0.40f;
 		audioSource_sword.Play();
 		yield return new WaitForSeconds(0.10f);
-		if (playerMelee.getWallsHit() != 0){
-			if (swordHitWallCo != null) StopCoroutine(swordHitWallCo);
-			swordHitWallCo = swordHit_wall();
-			yield return StartCoroutine(swordHitWallCo);
+		if (playerMelee.enemiesHit.Count > 0) {
+			audioSource_sword.clip = hit_enemy[Random.Range(0,hit_enemy.Length)];
+			audioSource_sword.volume = 0.40f;
+			audioSource_sword.Play();
+		}
+		if (playerMelee.getWallsHit() != 0 && playerMelee.enemiesHit.Count == 0){
+			audioSource_sword.clip = hit_stoneWall[0];
+			audioSource_sword.volume = 0.40f;
+			audioSource_sword.Play();
+			//if (swordHitWallCo != null) StopCoroutine(swordHitWallCo);
+			//swordHitWallCo = swordHit_wall();
+			//yield return StartCoroutine(swordHitWallCo);
 		}
 		yield return null;
 	}

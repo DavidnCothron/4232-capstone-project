@@ -206,7 +206,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D coll){
 		if(coll.gameObject.tag == "enemy"){		
 			enemiesHit.Add (coll.gameObject.GetComponentInParent<Rigidbody2D>().gameObject);
-		} else {
+		} else if (coll.gameObject.CompareTag("ground")) {
 			wallsHit++;
 		}
 	}
@@ -218,7 +218,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 			{
 				enemiesHit.Remove (enemy);
 			}
-		} else {
+		} else if (coll.gameObject.CompareTag("ground")){
 			wallsHit--;
 		}
 	}
