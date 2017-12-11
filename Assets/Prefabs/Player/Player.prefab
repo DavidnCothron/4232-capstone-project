@@ -898,7 +898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ppc: {fileID: 114993909914431830}
   animator: {fileID: 95753316552553772}
-  airAttackAnimTime: 0.25
+  airAttackAnimTime: 0.27
   groundAttackAnimTime: 0.25
 --- !u!114 &114410710857304792
 MonoBehaviour:
