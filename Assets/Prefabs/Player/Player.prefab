@@ -814,6 +814,7 @@ MonoBehaviour:
   animator: {fileID: 95753316552553772}
   particleSystem: {fileID: 1110403452839602}
   ppc: {fileID: 114993909914431830}
+  playerAnimation: {fileID: 114267809582589502}
 --- !u!114 &114043219446089576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -858,6 +859,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ppc: {fileID: 114993909914431830}
   animator: {fileID: 95753316552553772}
+  airAttackAnimTime: 0.25
+  groundAttackAnimTime: 0.25
 --- !u!114 &114410710857304792
 MonoBehaviour:
   m_ObjectHideFlags: 1

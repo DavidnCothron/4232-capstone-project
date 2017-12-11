@@ -34,6 +34,10 @@ public class PlayerMeleeScript : MonoBehaviour {
 
 	[SerializeField]private PlayerPlatformerController ppc;
 
+	[SerializeField]private PlayerAnimation playerAnimation;
+
+	private IEnumerator airAttackCo, groundAttackCo;
+
 	private int wallsHit;
 
 
@@ -154,12 +158,15 @@ public class PlayerMeleeScript : MonoBehaviour {
 //		}
 		attacking = true;
 		if(ppc.getGrounded()) {
-			animator.SetBool("groundAttack", attacking);
-			animator.SetBool("airAttack", !attacking);
+			if (groundAttackCo != null) StopCoroutine(groundAttackCo);
+			groundAttackCo = playerAnimation.groundAttackAnimation();
+			StartCoroutine(groundAttackCo);
 		} else {
-			animator.SetBool("groundAttack", !attacking);
-			animator.SetBool("airAttack", attacking);
+			if(airAttackCo != null) StopCoroutine(airAttackCo);
+			airAttackCo = playerAnimation.airAttackAnimation();
+			StartCoroutine(airAttackCo);
 		}
+		
 		yield return new WaitForSeconds(attackHitDelay);
 		foreach (GameObject enemyObject in enemiesHit)
 		{
@@ -171,20 +178,23 @@ public class PlayerMeleeScript : MonoBehaviour {
 			//enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackBasic));
 		}
 		attacking = false;
-		animator.SetBool("groundAttack", attacking);
-		animator.SetBool("airAttack", attacking);
+		//animator.SetBool("groundAttack", attacking);
+		//animator.SetBool("airAttack", attacking);
 	}
 
 	IEnumerator ChargeAttack(){
 		GameControl.control.phmc.LoseMana(2);
 		attacking = true;
 		if(ppc.getGrounded()) {
-			animator.SetBool("groundAttack", attacking);
-			animator.SetBool("airAttack", !attacking);
+			if (groundAttackCo != null) StopCoroutine(groundAttackCo);
+			groundAttackCo = playerAnimation.groundAttackAnimation();
+			StartCoroutine(groundAttackCo);
 		} else {
-			animator.SetBool("groundAttack", !attacking);
-			animator.SetBool("airAttack", attacking);
+			if(airAttackCo != null) StopCoroutine(airAttackCo);
+			airAttackCo = playerAnimation.airAttackAnimation();
+			StartCoroutine(airAttackCo);
 		}
+		
 		yield return new WaitForSeconds(attackHitDelay);
 		foreach (GameObject enemyObject in enemiesHit)
 		{
@@ -198,8 +208,8 @@ public class PlayerMeleeScript : MonoBehaviour {
 		}
 		//yield return new WaitForSeconds(.5f);
 		attacking = false;
-		animator.SetBool("groundAttack", attacking);
-		animator.SetBool("airAttack", attacking);
+		//animator.SetBool("groundAttack", attacking);
+		//animator.SetBool("airAttack", attacking);
 		particleSystem.SetActive(false);
 	}
 	

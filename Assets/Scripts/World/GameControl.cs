@@ -58,6 +58,7 @@ public class GameControl : MonoBehaviour {
 
 	void Start() {
 		PlayerManager.control.setAlive(true);
+		//Time.timeScale = 0.1f;
 	}
 	
 	void Update(){
