@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4714468549014312}
   - component: {fileID: 212597697119324344}
   - component: {fileID: 82282483461231398}
+  - component: {fileID: 114946873996080626}
   m_Layer: 0
   m_Name: Street_Lamp
   m_TagString: Untagged
@@ -37,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4147749607570086}
   - component: {fileID: 108983847352664422}
+  - component: {fileID: 114772596922193604}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -64,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477418230088758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.3, y: 5.9775424, z: 0}
+  m_LocalPosition: {x: 33.26302, y: 5.9775424, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4147749607570086}
@@ -81,7 +83,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 36fa60ed212c6e94982de77524aef140, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.03
   m_Pitch: 1
   Loop: 1
@@ -187,6 +189,28 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114772596922193604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1973234738983712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7e8df4abadd6c46abb6a64975c585e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114946873996080626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477418230088758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae1d9f31d602fb4e99d74c7079b0f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212597697119324344
 SpriteRenderer:
   m_ObjectHideFlags: 1
