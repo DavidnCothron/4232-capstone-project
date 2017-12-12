@@ -7,29 +7,44 @@ using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour {
 
 	bool paused = false;
+	bool death = false;
 	[SerializeField] public Transform PauseCanvas;
+	[SerializeField] public Transform DeathCanvas;
 	[SerializeField] public string titleScene;
 	[SerializeField] public Transform MainStartButton;
+	AreaControl AreaControl;
 	
 	void Start()
     {	
 		PauseCanvas.gameObject.SetActive(true);
-		Button ContinueButton = GameObject.Find("Continue").GetComponent<Button>();
-		Button ReloadSaveButton = GameObject.Find("ReloadSave").GetComponent<Button>();
-		Button QuitButton = GameObject.Find("Quit").GetComponent<Button>();
-        ContinueButton.onClick.AddListener(ResumeGame);
-		ReloadSaveButton.onClick.AddListener(ReturnToSaveRoom);
-		QuitButton.onClick.AddListener(QuitGame);
+		Button PauseContinueButton = GameObject.Find("Continue").GetComponent<Button>();
+		Button PauseReloadSaveButton = GameObject.Find("ReloadSave").GetComponent<Button>();
+		Button PauseQuitButton = GameObject.Find("Quit").GetComponent<Button>();
+        PauseContinueButton.onClick.AddListener(ResumeGame);
+		PauseReloadSaveButton.onClick.AddListener(ReturnToSaveRoom);
+		PauseQuitButton.onClick.AddListener(QuitGame);
 		PauseCanvas.gameObject.SetActive(false);
+
+		DeathCanvas.gameObject.SetActive(true);
+		Button DeathContinueButton = GameObject.Find("Continue").GetComponent<Button>();
+		Button DeathQuitButton = GameObject.Find("Quit").GetComponent<Button>();
+        DeathContinueButton.onClick.AddListener(ReturnToLevelStart);
+		DeathQuitButton.onClick.AddListener(QuitGame);
+		DeathCanvas.gameObject.SetActive(false);
+
+
+		AreaControl = GameControl.control.getAreaControl();
     }
 
 	void Update()
 	{
 		if(SceneManager.GetActiveScene().name != "Title_Scene"){
-			if(Input.GetKeyDown(KeyCode.Escape) && !paused){//press escape to pause
-				PauseGame();
-			}else if(Input.GetKeyDown(KeyCode.Escape) && paused){//press escape to unpause
-				ResumeGame();
+			if(!death){
+				if(Input.GetKeyDown(KeyCode.Escape) && !paused){//press escape to pause
+					PauseGame();
+				}else if(Input.GetKeyDown(KeyCode.Escape) && paused){//press escape to unpause
+					ResumeGame();
+				}
 			}
 		}
 	}
@@ -50,6 +65,20 @@ public class ButtonManager : MonoBehaviour {
 		PauseCanvas.gameObject.SetActive (false);
 	}
 
+	public void DeathMenuActive(){
+		death = true;
+		DeathCanvas.gameObject.SetActive(true);
+		GameControl.control.SetPlayerMeleeActivity(false);		
+		Time.timeScale = 0;	
+	}
+
+	public void DeathMenuInactive(){
+		death = false;
+		DeathCanvas.gameObject.SetActive(false);
+		GameControl.control.SetPlayerMeleeActivity(true);		
+		Time.timeScale = 1;		
+	}
+
 	public void QuitGame()//quits to the title scene, set in inspector
 	{
 		paused = false;
@@ -65,6 +94,12 @@ public class ButtonManager : MonoBehaviour {
 		PauseCanvas.gameObject.SetActive(false);
 		Time.timeScale = 1;
 		StartCoroutine(GameControl.control.TransitionToNewRoom(GameControl.control.lastSaveRoom));
+	}
+
+	public void ReturnToLevelStart(){
+		DeathCanvas.gameObject.SetActive(false);
+		Time.timeScale = 1;
+		StartCoroutine(GameControl.control.TransitionToNewRoom(AreaControl.startingRoom));
 	}
 
 	public void ExitToWindows()//closes the application

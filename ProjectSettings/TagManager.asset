@@ -29,6 +29,7 @@ TagManager:
   - ledge
   - testAstar
   - boss
+  - Door
   layers:
   - Default
   - TransparentFX

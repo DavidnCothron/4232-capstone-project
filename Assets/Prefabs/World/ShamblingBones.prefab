@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4860828618361574}
-  - component: {fileID: 70471658116368818}
   - component: {fileID: 114343988247260902}
   - component: {fileID: 60258113022503574}
+  - component: {fileID: 50348669465342436}
   m_Layer: 10
   m_Name: attackCollider
   m_TagString: melee
@@ -110,8 +110,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627885701364060}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.05, y: -0.34, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.915667, y: 2.5195622, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224711756272186318}
@@ -152,6 +152,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!50 &50348669465342436
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106120489568488}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &60258113022503574
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -161,7 +181,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.18, y: 0.1222973}
@@ -203,21 +223,6 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.06, y: -0.54}
   m_Size: {x: 0.75, y: 1.74}
-  m_Direction: 0
---- !u!70 &70471658116368818
-CapsuleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1106120489568488}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.18, y: -0.12229729}
-  m_Size: {x: 0.84, y: 1.3278584}
   m_Direction: 0
 --- !u!95 &95719423144875046
 Animator:
@@ -331,7 +336,7 @@ MonoBehaviour:
   onAlert: 1
   isBusy: 0
   isGrounded: 1
-  jumpTakeOffSpeed: 7
+  jumpTakeOffSpeed: 10
   maxSpeed: 1
   haltInput: 0
   sightDistance: 25
