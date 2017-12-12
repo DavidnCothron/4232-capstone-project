@@ -9,7 +9,7 @@ public class RandomAudioStart : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		audioSource = GetComponent<AudioSource>();
-		waitTime = Random.Range(0,3);
+		waitTime = Random.Range(0,5);
 	}
 	
 	// Update is called once per frame
