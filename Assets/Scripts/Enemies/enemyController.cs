@@ -37,7 +37,7 @@ public class enemyController : PhysicsObject {
 	public bool isBusy = false; //bool that controls actions during FixedUpdate
 	public bool isGrounded = true;
 	public float jumpTakeOffSpeed = 10f;
-	public float maxSpeed = 3.5f;
+	private float baseSpeed = .5f;
 	public bool haltInput = false;
 	public float sightDistance = 25f;	
 	public float arc = 15f;
@@ -52,6 +52,16 @@ public class enemyController : PhysicsObject {
 		spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
 		animator = gameObject.GetComponent<Animator> ();
 		enemyMelee = gameObject.GetComponentInChildren<EnemyMelee>();		
+	}
+
+	/// <summary>
+	/// Start is called on the frame when a script is enabled just before
+	/// any of the Update methods is called the first time.
+	/// </summary>
+	void Start()
+	{
+		baseSpeed += Random.value;
+		Debug.Log(baseSpeed);
 	}
 
 
@@ -94,7 +104,7 @@ public class enemyController : PhysicsObject {
 								jump();
 							}
 
-							targetVelocity = move * maxSpeed;
+							targetVelocity = move * baseSpeed;
 							//Debug.Log("target: " + targetVelocity);
 							State = state.run;//play run animation
 							//canAttack = false;
