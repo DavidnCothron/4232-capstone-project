@@ -17,6 +17,7 @@ public class PlayerAnimation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		animator.SetBool("dead", !PlayerManager.control.getAlive());
+		//Debug.Log(!PlayerManager.control.getAlive());
 	}
 
 	public IEnumerator airAttackAnimation() {

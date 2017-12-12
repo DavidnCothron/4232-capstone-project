@@ -53781,7 +53781,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1577305187513050, guid: 692ec79cc7407d748afc739b4f37151f, type: 2}
       propertyPath: m_Name
-      value: RoomEntryDoor
+      value: EntryDoor
       objectReference: {fileID: 0}
     - target: {fileID: 4286712399045366, guid: 692ec79cc7407d748afc739b4f37151f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -73659,7 +73659,7 @@ GameObject:
   - component: {fileID: 1986906657}
   - component: {fileID: 1986906659}
   m_Layer: 0
-  m_Name: Door_3
+  m_Name: RoomEntryDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

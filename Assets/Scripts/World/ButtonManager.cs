@@ -37,7 +37,7 @@ public class ButtonManager : MonoBehaviour {
     }
 
 	void Update()
-	{
+	{		
 		if(SceneManager.GetActiveScene().name != "Title_Scene"){
 			if(!death){
 				if(Input.GetKeyDown(KeyCode.Escape) && !paused){//press escape to pause
@@ -46,7 +46,7 @@ public class ButtonManager : MonoBehaviour {
 					ResumeGame();
 				}
 			}
-		}
+		}		
 	}
 
 	public void PauseGame()//pauses time and turns on the pause menu
@@ -68,23 +68,26 @@ public class ButtonManager : MonoBehaviour {
 	public void DeathMenuActive(){
 		death = true;
 		DeathCanvas.gameObject.SetActive(true);
-		GameControl.control.SetPlayerMeleeActivity(false);		
-		Time.timeScale = 0;	
+		Time.timeScale = 0;
+		//Debug.Log(DeathCanvas.gameObject.activeInHierarchy);
 	}
 
 	public void DeathMenuInactive(){
-		death = false;
+		Time.timeScale = 1;
+		death = false;			
 		DeathCanvas.gameObject.SetActive(false);
-		GameControl.control.SetPlayerMeleeActivity(true);		
-		Time.timeScale = 1;		
+		//Debug.Log(DeathCanvas.gameObject.activeInHierarchy);
 	}
 
 	public void QuitGame()//quits to the title scene, set in inspector
 	{
 		paused = false;
-		PauseCanvas.gameObject.SetActive (false);
-		GameControl.control.setFadeImage(true);//sets the 'cameraFadeImage' object to active otherwise it cannot be found in the hierarchy when title scene is loaded
 		Time.timeScale = 1;
+		PauseCanvas.gameObject.SetActive (false);
+		DeathMenuInactive();
+		GameControl.control.setFadeImage(true);//sets the 'cameraFadeImage' object to active otherwise it cannot be found in the hierarchy when title scene is loaded
+		Debug.Log("reset player health");
+		GameControl.control.ResetPlayerHealth();
 		SceneManager.LoadScene ("Title_Scene");
 	}
 
@@ -97,8 +100,8 @@ public class ButtonManager : MonoBehaviour {
 	}
 
 	public void ReturnToLevelStart(){
-		DeathCanvas.gameObject.SetActive(false);
 		Time.timeScale = 1;
+		DeathCanvas.gameObject.SetActive(false);
 		StartCoroutine(GameControl.control.TransitionToNewRoom(AreaControl.startingRoom));
 	}
 

@@ -28,6 +28,7 @@ public class GameControl : MonoBehaviour {
 	public PlayerPlatformerController pc;
 	public PlayerMeleeScript pms;
 	public playerProjectileScript pps;
+	public ButtonManager buttonManager;
 	[SerializeField] public RoomController lastSaveRoom ;//{get; set;}
 	private bool beatBoss1, beatBoss2, beatBoss3; 
 	[SerializeField] private bool phaseAbility, projectileAbility, chargeAttackAbility;
@@ -55,11 +56,14 @@ public class GameControl : MonoBehaviour {
 		setRoomComponents ();
 		playerRigidBody = player.GetComponent<Rigidbody2D>();
 		playerArrive = GameObject.Find("Player").GetComponent<KinematicArrive>();
+		buttonManager = this.GetComponent<ButtonManager>();
 	}
-
+	
 	void Start() {
 		areaControl = GameObject.FindObjectOfType(typeof(AreaControl)) as AreaControl;
+		phmc.canDie = true;
 		PlayerManager.control.setAlive(true);
+		
 		//Time.timeScale = 0.1f;
 	}
 	
@@ -203,9 +207,16 @@ public class GameControl : MonoBehaviour {
 	}
 
 	public void KillPlayer(){//needs to be implemented, called when player health reaches 0. should handle game logic for player death
-		Debug.Log("Player dead");
+		//Debug.Log("Player dead");
+		//Debug.Log("called");
 		PlayerManager.control.setAlive(false);
 		pc.haltInput = true;
+		buttonManager.DeathMenuActive();
+	}
+
+	public void ResetPlayerHealth(){
+		PlayerManager.control.setAlive(true);
+		phmc.ResetHealth();
 	}
 
 	public void SetPlayerMeleeActivity(bool value){

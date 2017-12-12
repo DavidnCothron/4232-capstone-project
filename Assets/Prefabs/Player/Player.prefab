@@ -1035,6 +1035,7 @@ MonoBehaviour:
   magicRegenDelayCountdown: 0
   barToScale: {fileID: 0}
   isMagicRegen: 1
+  canDie: 0
   newBarSeparator: {fileID: 1821917828345138, guid: 0e64c3b60d6a850458551f2dd6214418,
     type: 2}
 --- !u!114 &114993909914431830

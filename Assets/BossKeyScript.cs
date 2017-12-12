@@ -17,6 +17,7 @@ public class BossKeyScript : MonoBehaviour {
 		if(bossDoor = null){
 			//bossDoor = GameObject.FindGameObjectWithTag("BossDoor").GetComponent<BossDoorScript>();
 		}
+		coll = this.gameObject.GetComponent<Collider2D>();
 	}
 	
 	/// <summary>

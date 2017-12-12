@@ -23,6 +23,7 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
 	private int maxMP = 3;
 	private int currentMP = 3;
 	private int regenMagic = 0;
+	public bool canDie = false;
 	[SerializeField] private GameObject newBarSeparator;
 	
 	void Awake(){
@@ -40,9 +41,10 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
 		
 	void Update()
 	{
-		if(health.CurrentHP <= 0){
-			Debug.Log(health.CurrentHP);
+		if(health.CurrentHP <= 0 && canDie){
+			//Debug.Log(health.CurrentHP);
 			GameControl.control.KillPlayer();
+			canDie = false;
 		}
 		MagicRegen ();
 	}
@@ -92,6 +94,11 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
 		magic.MaxMP = amount;
 	}
 	#endregion
+
+	public void ResetHealth(){
+		health.CurrentHP = playerHealth;
+		magic.CurrentMP = playerMagic;
+	}
 
 	public void ScaleHealth(int amountIncrease){
 		playerHealth += amountIncrease;//set health in this script
