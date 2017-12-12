@@ -98,6 +98,7 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
 	public void ResetHealth(){
 		health.CurrentHP = playerHealth;
 		magic.CurrentMP = playerMagic;
+		canDie = true;
 	}
 
 	public void ScaleHealth(int amountIncrease){
