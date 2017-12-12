@@ -138,6 +138,7 @@ MonoBehaviour:
   particleSystem: {fileID: 1755471316869452}
   playerPosition: {fileID: 0}
   eyeAnimator: {fileID: 95430638907074170}
+  isActive: 0
   attackCooldown: 0
   attackCooldownMax: 2
   attackChargeUp: 0

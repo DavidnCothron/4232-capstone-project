@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 222632137506182864}
   - component: {fileID: 114875599498326308}
   m_Layer: 5
-  m_Name: YouLoseMenu
+  m_Name: DeathMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -21,6 +21,7 @@ public class GameControl : MonoBehaviour {
 	private RoomController currentOccupiedRoom;
 	public Animator playerAnimator;
 	public static GameControl control;
+	public AreaControl areaControl;
 	public GameObject player;
 	public PlayerMeleeScript pMelee;
 	public PlayerHealthAndMagicController phmc;
@@ -57,6 +58,7 @@ public class GameControl : MonoBehaviour {
 	}
 
 	void Start() {
+		areaControl = GameObject.FindObjectOfType(typeof(AreaControl)) as AreaControl;
 		PlayerManager.control.setAlive(true);
 		//Time.timeScale = 0.1f;
 	}
@@ -162,6 +164,10 @@ public class GameControl : MonoBehaviour {
 
 	public AreaTransTuple GetNextArea(){
 		return nextArea;
+	}
+
+	public AreaControl getAreaControl(){
+		return areaControl;
 	}
 
 	public void SetBossDefeated(int bossID){
@@ -300,8 +306,15 @@ public class GameControl : MonoBehaviour {
 	/// <returns>The transition.</returns>
 	/// <param name="targetRoom">C.</param>
 	public IEnumerator TransitionToNewRoom(RoomController targetRoom) {
+		Door spawnDoor = null;
 		GameObject player = this.GetPlayerTransform().gameObject;//player reference
-		Door spawnDoor = targetRoom.GetComponentInChildren<Door>();//target door spawn reference
+		GameObject[] DoorList = GameObject.FindGameObjectsWithTag ("Door");
+		foreach(var door in DoorList){
+			if(door.name == "EntryDoor"){
+				spawnDoor = door.GetComponent<Door>();//check this works
+			}
+		}
+		//target door spawn reference
 
 		//Set body type to kinematic to ensure smooth transition (doesn't look right yet)
 		player.GetComponent<PlayerPlatformerController> ().haltInput = true;

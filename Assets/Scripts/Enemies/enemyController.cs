@@ -36,7 +36,7 @@ public class enemyController : PhysicsObject {
 	public bool onAlert = false;
 	public bool isBusy = false; //bool that controls actions during FixedUpdate
 	public bool isGrounded = true;
-	public float jumpTakeOffSpeed = 8f;
+	public float jumpTakeOffSpeed = 10f;
 	public float maxSpeed = 3.5f;
 	public bool haltInput = false;
 	public float sightDistance = 25f;	
@@ -84,15 +84,13 @@ public class enemyController : PhysicsObject {
 					if(inKnockback){
 							updateKnockbackFall();
 							//velocity.x = knockbackVec.x;
-							Debug.Log(knockbackVec.y);
+							//Debug.Log(knockbackVec.y);
 							velocity.y = knockbackVec.y;
 							targetVelocity = knockbackVec;
 					}else{
 						if(Mathf.Abs(target.x) > .8f && !attacking){//move towards target 
 							move = target;
-							if(checkForJump() && grounded){
-								
-							//if(Input.GetKeyDown(KeyCode.J))
+							if((checkForJump() && grounded) || (playerTrans.position.y > (transform.position.y + 1.5)) && grounded){
 								jump();
 							}
 
@@ -167,7 +165,7 @@ public class enemyController : PhysicsObject {
 				
 				hit = Physics2D.Raycast(transform.position, (targetVector+ new Vector3(0, .5f, 0)), sightDistance, mask);//raycast towards player
 				//Debug.DrawRay(transform.position, (targetVector + new Vector3(0, .5f, 0)), Color.green);
-				Debug.Log(hit.collider.tag);
+				//Debug.Log(hit.collider.tag);
 				if(hit.collider.tag == "Player"){//if hit player then return true. hit anything else return false.
 					return true;					
 				}
@@ -199,7 +197,7 @@ public class enemyController : PhysicsObject {
 
 	void updateKnockbackFall(){
 		knockbackVec.y = Mathf.Lerp(knockbackVec.y, 0, .1f);
-		Debug.Log(knockbackVec.y);
+		//Debug.Log(knockbackVec.y);
 	}
 
 	public void Die(){

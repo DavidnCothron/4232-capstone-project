@@ -109,6 +109,14 @@ public class PlayerMeleeScript : MonoBehaviour {
 		
 	}
 
+	float getKnockbackBasic(){
+		return Random.Range(knockbackBasic -2, knockbackBasic +2);
+	}
+
+	float getKnockbackCharged(){
+		return Random.Range(knockbackCharged -5, knockbackCharged +5);
+	}
+
 	void LateUpdate() {
 		if (!isAttacking && !ppc.haltInput && !attacking){
 			if(Input.GetAxis("Horizontal") > 0) {
@@ -174,7 +182,8 @@ public class PlayerMeleeScript : MonoBehaviour {
 			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
 			enemyController enemyCont = enemyObject.GetComponent (typeof(enemyController)) as enemyController;
 			enemy_Health.LoseHealth(meleeDamage);
-			StartCoroutine(enemyCont.setKnockbackVec((new Vector2 (knockbackBasic, knockbackBasic/2))));
+			var knockback = getKnockbackBasic();
+			StartCoroutine(enemyCont.setKnockbackVec((new Vector2 (knockback, knockback/2))));
 			//enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackBasic));
 		}
 		attacking = false;
@@ -202,7 +211,8 @@ public class PlayerMeleeScript : MonoBehaviour {
 			Rigidbody2D enemyRB2D = enemyObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;			
 			enemyController enemyCont = enemyObject.GetComponent (typeof(enemyController)) as enemyController;
 			enemy_Health.LoseHealth(chargeAttackDamage);
-			StartCoroutine(enemyCont.setKnockbackVec(new Vector2 (knockbackCharged, knockbackCharged)));
+			var knockback = getKnockbackCharged();
+			StartCoroutine(enemyCont.setKnockbackVec(new Vector2 (knockback, knockback/2)));
 			//enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackCharged));
 			chargeTimeRemaining = chargeTime;
 		}

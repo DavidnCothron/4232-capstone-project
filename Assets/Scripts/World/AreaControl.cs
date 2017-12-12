@@ -6,6 +6,7 @@ using UnityEngine;
 public class AreaControl : MonoBehaviour {
 
 	private AreaTransTuple areaEntry; 
+	public RoomController startingRoom;
 	[SerializeField] private Door roomToEnter;
 	private PlayerManager player;
 
@@ -22,8 +23,4 @@ public class AreaControl : MonoBehaviour {
 	}
 
 
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
