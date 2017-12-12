@@ -16,6 +16,7 @@ public class PlayerAnimation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Debug.Log("seatting dead to " + !PlayerManager.control.getAlive());
 		animator.SetBool("dead", !PlayerManager.control.getAlive());
 		//Debug.Log(!PlayerManager.control.getAlive());
 	}
