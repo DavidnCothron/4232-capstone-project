@@ -1257,6 +1257,7 @@ MonoBehaviour:
   jumpTakeOffSpeed: 15
   maxSpeed: 5
   haltInput: 0
+  hasPhase: 0
   phaseUpModifier: 1
   phaseTimeMax: 0.25
   phaseSpeed: 20

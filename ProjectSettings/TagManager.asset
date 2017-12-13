@@ -34,6 +34,7 @@ TagManager:
   - Door
   - mouthOfEvil
   - mouthOfEvilController
+  - phaseItem
   layers:
   - Default
   - TransparentFX
