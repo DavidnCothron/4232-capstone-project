@@ -1102,7 +1102,7 @@ MonoBehaviour:
   audioSource_jump_land: {fileID: 82339941498709012}
   audioSource_sword: {fileID: 82374437278313952}
   audioSource_voice: {fileID: 82480136236574588}
-  audioSource_phase: {fileID: 0}
+  audioSource_phase: {fileID: 82281325993919704}
   platformController: {fileID: 114993909914431830}
   playerArrive: {fileID: 114598150446022830}
   playerMelee: {fileID: 114004270987778220}
