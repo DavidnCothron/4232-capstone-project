@@ -146,6 +146,8 @@ public class Door : MonoBehaviour {
 	IEnumerator roomTransition(Collider2D c) {
 		GameObject player = c.gameObject;
 		var ppc = c.GetComponent<PlayerPlatformerController> ();
+		ppc.setPhaseTime(0f);
+		ppc.forcePhaseStop();
 		ppc.haltInput = true;
 		int jumpDir = 1; //-1 for left, 1 for right
 		bool mustFlipSprite = false;

@@ -32,7 +32,9 @@ public class PlayerPlatformerController : PhysicsObject {
 		phaseTime = phaseTimeMax;
 		phaseParticleSystem.SetActive(false);
 	}
-
+	public bool getPhasing() {
+		return phasing;
+	}
 	public int getBufferListCount() {
 		return (hitBufferList.Count);
 	}
@@ -59,6 +61,14 @@ public class PlayerPlatformerController : PhysicsObject {
 
 	public bool getAttacking() {
 		return attacking;
+	}
+
+	public void setPhaseTime(float f) {
+		phaseTime = f;
+	}
+
+	public void setPhasing(bool b) {
+		phasing = b;
 	}
 
 	private void Phase(){
@@ -167,5 +177,17 @@ public class PlayerPlatformerController : PhysicsObject {
 				spriteRenderer.enabled = true;
 			}
 		}
+	}
+
+	public void forcePhaseStop(){
+		phaseTime = 0f;
+		targetVelocity = Vector2.zero;
+		phasing = false;
+		velocityUncapped=false;
+		phaseTime = phaseTimeMax;
+		gravityModifier = 4;
+		particleSystem.Stop();
+		phaseParticleSystem.SetActive(false);
+		spriteRenderer.enabled = true;
 	}
 }

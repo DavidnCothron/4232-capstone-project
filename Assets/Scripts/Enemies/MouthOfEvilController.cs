@@ -6,16 +6,20 @@ public class MouthOfEvilController : MonoBehaviour {
 
 	public List<EvilEyeScript> evilEyes;
 	public int mouthOfEvilHealth = 12;
-	private int hitsLeftInPhase;
+	public int hitsLeftInPhase;
 	public int maxHitsPerPhase = 4;
 	public bool isInPhase = false;
 	public int totalPhases;
 	public int currentPhase;
 	public bool isBossFightActive = false;
+	public bool startBossFight = false;
+	private bool allEyesDead = false;
+	public bool bossIsDead = false;
 
 	void Awake () {
 		foreach(EvilEyeScript eye in evilEyes){
 			eye.isActive = false;
+			eye.eyeLid.isDead = true;
 		}
 		hitsLeftInPhase = 4;
 		isInPhase = false;
@@ -23,50 +27,67 @@ public class MouthOfEvilController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log(isBossFightActive + " " + startBossFight);
 		if(isBossFightActive){
-			if(hitsLeftInPhase <= 0){
-				IteratePhase();
+			if(startBossFight) StartBossFight();
+
+			if(!isInPhase){
+				foreach(EvilEyeScript eye in evilEyes){
+					if(eye.GetIfDead() != true){
+						allEyesDead = false;
+					}
+					else {
+						allEyesDead = true;
+					}
+				}
+
+				if(allEyesDead){
+					isInPhase = true;
+				}
+			}else if(hitsLeftInPhase <= 0){
+				
+				if(mouthOfEvilHealth > 0){
+					IteratePhase();
+					Debug.Log("Iterating Phase");
+				}
+				else{
+					foreach(EvilEyeScript eye in evilEyes){
+						eye.isActive = false;
+						eye.eyeLid.isDead = true;
+						bossIsDead = true;
+					}
+				}
 			}
+		}
+	}
+
+	private void StartBossFight(){
+		startBossFight = false;
+		foreach(EvilEyeScript eye in evilEyes){
+			eye.isActive = true;
+			eye.eyeLid.isDead = false;
 		}
 	}
 
 	private void IteratePhase(){
 		currentPhase++;
 		hitsLeftInPhase = 4;
+		foreach(EvilEyeScript eye in evilEyes){
+			eye.isActive = true;
+			eye.eyeLid.isDead = false;
+			eye.eyeHealth = 4;
+		}
+		mouthOfEvilHealth -= 4;
+		isInPhase = false;
 		return;
 	}
 
-	//stolen from: https://forum.unity.com/threads/make-a-sprite-flash.224086/
-	IEnumerator FlashSprites(SpriteRenderer[] sprites, int numTimes, float delay, bool disable = false) {
-        // number of times to loop
-        for (int loop = 0; loop < numTimes; loop++) {            
-            // cycle through all sprites
-            for (int i = 0; i < sprites.Length; i++) {                
-                if (disable) {
-                    // for disabling
-                    sprites[i].enabled = false;
-                } else {
-                    // for changing the alpha
-                    sprites[i].color = new Color(sprites[i].color.r, sprites[i].color.g, sprites[i].color.b, 0.5f);
-                }
-            }
- 
-            // delay specified amount
-            yield return new WaitForSeconds(delay);
- 
-            // cycle through all sprites
-            for (int i = 0; i < sprites.Length; i++) {
-                if (disable) {
-                    // for disabling
-                    sprites[i].enabled = true;
-                } else {
-                    // for changing the alpha
-                    sprites[i].color = new Color(sprites[i].color.r, sprites[i].color.g, sprites[i].color.b, 1);
-                }
-            }
- 
-            // delay specified amount
-            yield return new WaitForSeconds(delay);
-        }
-    }
+	// private void OnTriggerEnter2D(Collider2D other) {
+	// 	if(isInPhase){
+	// 		if(other.tag == "melee"){
+	// 			//var meleeScript = other.GetComponent<PlayerMeleeScript>();
+	// 			hitsLeftInPhase--;
+	// 		}
+	// 	  }	
+	// }
 }

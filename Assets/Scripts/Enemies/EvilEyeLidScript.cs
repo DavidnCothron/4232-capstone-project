@@ -5,8 +5,7 @@ using UnityEngine;
 public class EvilEyeLidScript : MonoBehaviour {
 
 	public Animator eyeLidAnimator;
-	public bool isDead = false;
-	public int health = 5;
+	public bool isDead = true;
 
 	// Use this for initialization
 	void Awake () {
@@ -16,9 +15,5 @@ public class EvilEyeLidScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		eyeLidAnimator.SetBool("isDead", isDead);
-
-		if(health <= 0){
-			isDead = true;
-		}
 	}
 }
