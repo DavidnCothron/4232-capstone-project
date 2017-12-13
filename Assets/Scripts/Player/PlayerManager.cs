@@ -42,7 +42,7 @@ public class PlayerManager : MonoBehaviour {
 
 	public void setAlive(bool b) {
 		alive = b;
-		Debug.Log(alive);
+		//Debug.Log(alive);
 		if (!alive) {
 			playerAudio.stopAllCoroutines();
 			playerAudio.enabled = false;

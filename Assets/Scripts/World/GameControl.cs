@@ -321,7 +321,8 @@ public class GameControl : MonoBehaviour {
 		GameObject player = this.GetPlayerTransform().gameObject;//player reference
 		GameObject[] DoorList = GameObject.FindGameObjectsWithTag ("Door");
 		foreach(var door in DoorList){
-			if(door.name == "EntryDoor"){
+			Debug.Log(door.name);
+			if(door.name == "AreaEntryDoor"){
 				spawnDoor = door.GetComponent<Door>();//check this works
 			}
 		}

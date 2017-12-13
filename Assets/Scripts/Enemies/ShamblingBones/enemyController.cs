@@ -41,7 +41,9 @@ public class enemyController : PhysicsObject {
 	public bool haltInput = false;
 	public float sightDistance = 25f;	
 	public float arc = 15f;
+	public bool isFacingRight;
 	Vector3 enemyFacingDirection = new Vector3(1,0,0);
+	Vector3 scale;
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
 	private EnemyMelee enemyMelee;
@@ -51,7 +53,8 @@ public class enemyController : PhysicsObject {
 		rigidBody = gameObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
 		spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
 		animator = gameObject.GetComponent<Animator> ();
-		enemyMelee = gameObject.GetComponentInChildren<EnemyMelee>();		
+		enemyMelee = gameObject.GetComponentInChildren<EnemyMelee>();
+			
 	}
 
 	/// <summary>
@@ -61,14 +64,17 @@ public class enemyController : PhysicsObject {
 	void Start()
 	{
 		baseSpeed += Random.value;
-		Debug.Log(baseSpeed);
+		//Debug.Log(baseSpeed);
+		// if(!isFacingRight)
+		// 	flipLeft();
+		// scale = transform.localScale;
 	}
 
 
 	//TODO: Add logic to path towards last known position if can no longer see target
 	protected override void ComputeVelocity () {
 		Vector2 move = Vector2.zero;
-		Vector3 scale = transform.localScale;
+		scale = transform.localScale;
 		
 
 		if(State != state.Death){
@@ -120,16 +126,12 @@ public class enemyController : PhysicsObject {
 
 						if ((target.x + transform.position.x) < transform.position.x)//if moving left face left
 						{ //Flip to left
-							scale.x = -Mathf.Abs(scale.x);
-							transform.localScale = scale;
-							enemyFacingDirection = -transform.right;
+							flipLeft();
 							//arc = 
 						}
 						else if ((target.x + transform.position.x) > transform.position.x)//if moving right face right
 						{ //Flip to right
-							scale.x = Mathf.Abs(scale.x);
-							transform.localScale = scale;
-							enemyFacingDirection = transform.right;
+							flipRight();
 						}
 					}
 				}
@@ -145,6 +147,17 @@ public class enemyController : PhysicsObject {
 
 	void jump(){
 		velocity.y = jumpTakeOffSpeed;
+	}
+
+	void flipLeft(){
+		scale.x = -Mathf.Abs(scale.x);
+		transform.localScale = scale;
+		enemyFacingDirection = -transform.right;	
+	}
+	void flipRight(){
+		scale.x = Mathf.Abs(scale.x);
+		transform.localScale = scale;
+		enemyFacingDirection = transform.right;
 	}
 
 	bool checkForJump(){
