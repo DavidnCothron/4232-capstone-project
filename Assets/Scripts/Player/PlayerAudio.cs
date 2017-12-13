@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAudio : MonoBehaviour {
-	[SerializeField]private AudioClip[] footsteps_dirt, sword_swoosh_ground, sword_swoosh_air, jump_grunts, landing_grunts, hit_stoneWall, hit_enemy, phase_swooshes;
+	[SerializeField]private AudioClip[] footsteps_dirt, sword_swoosh_ground, sword_swoosh_air, jump_grunts, landing_grunts, hit_stoneWall, hit_enemy, phase_swooshes, boss_hitEyes;
 	[SerializeField]private AudioSource audioSource, audioSource_jump_land, audioSource_sword, audioSource_voice, audioSource_phase;
 	[SerializeField]private PlayerPlatformerController platformController;
 	[SerializeField]private KinematicArrive playerArrive;
@@ -221,6 +221,11 @@ public class PlayerAudio : MonoBehaviour {
 			//if (swordHitWallCo != null) StopCoroutine(swordHitWallCo);
 			//swordHitWallCo = swordHit_wall();
 			//yield return StartCoroutine(swordHitWallCo);
+		}
+		if (playerMelee.getBossHits() != 0) {
+			audioSource_sword.clip = hit_enemy[Random.Range(0, hit_enemy.Length)];
+			audioSource_sword.volume = 0.30f;
+			audioSource_sword.Play();
 		}
 		yield return null;
 	}

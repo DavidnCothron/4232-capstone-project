@@ -14,6 +14,10 @@ public class RoomController : MonoBehaviour {
 
 	[SerializeField]private GameObject enemyContainer;
 
+	private GameObject [] allEnemies;
+
+	private EnemySettings [] allEnemySettings;
+
 
 
 	// Use this for initialization
@@ -22,6 +26,9 @@ public class RoomController : MonoBehaviour {
 		{
 			player = GameObject.Find ("Player").GetComponent(typeof(PlayerManager)) as PlayerManager;
 		}
+		if (enemyContainer != null)
+			allEnemies = GameControl.control.GetChildGameObjects(enemyContainer);
+
 	}
 
 	public SpriteRenderer getRoomExtents() {
@@ -63,6 +70,7 @@ public class RoomController : MonoBehaviour {
 		while(this.roomID == GameControl.control.getCurrentRoom().getRoomID()) {
 			yield return null;
 		}
+		
 		Debug.Log("leaving room");
 		yield return null;
 	}
