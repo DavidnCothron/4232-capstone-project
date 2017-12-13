@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossDoorScript : MonoBehaviour {
 
-	//public BossKeyScript bossKey;
+	public BossKeyScript bossKey;
 	public bool isUnlocked = false;
 	public Animator doorAnimator;
 	void Awake () {
@@ -29,10 +29,10 @@ public class BossDoorScript : MonoBehaviour {
 	/// OnTriggerEnter is called when the Collider other enters the trigger.
 	/// </summary>
 	/// <param name="other">The other Collider involved in this collision.</param>
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.tag == "Player"){
-			if(other.GetComponent<BossKeyScript>().isInPlayerPossession){
+			if(bossKey.isInPlayerPossession){
 				isUnlocked = true;
 			}
 		}
