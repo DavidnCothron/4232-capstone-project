@@ -375,7 +375,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893841220926510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.29, y: -0.9, z: 0}
+  m_LocalPosition: {x: 0.31, y: -25.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4212309947958486}
@@ -1094,7 +1094,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3298ceb3efe9dfa40b90e834c3127c9e, type: 3}
   phase_swooshes:
   - {fileID: 8300000, guid: c122ce5992f987b4dba775c3c27a4e91, type: 3}
-  boss_hitEyes: []
+  boss_hitEyes:
+  - {fileID: 8300000, guid: 19e626c9290104242b73a52f5ea48959, type: 3}
+  - {fileID: 8300000, guid: 47ee379809ec14992bedd7eecb777f94, type: 3}
+  - {fileID: 8300000, guid: 8cd0258beac8f45d3b23e901100834dd, type: 3}
   audioSource: {fileID: 82382372847002100}
   audioSource_jump_land: {fileID: 82339941498709012}
   audioSource_sword: {fileID: 82374437278313952}
@@ -1103,6 +1106,7 @@ MonoBehaviour:
   platformController: {fileID: 114993909914431830}
   playerArrive: {fileID: 114598150446022830}
   playerMelee: {fileID: 114004270987778220}
+  mouth: {fileID: 0}
 --- !u!114 &114598150446022830
 MonoBehaviour:
   m_ObjectHideFlags: 1

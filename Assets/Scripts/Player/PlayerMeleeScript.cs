@@ -309,4 +309,8 @@ public class PlayerMeleeScript : MonoBehaviour {
 	public int getBossHits() {
 		return bossHit.Count;
 	}
+
+	public int getBossControllerHits() {
+		return bossControllerHit.Count;
+	}
 }

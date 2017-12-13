@@ -14,6 +14,7 @@ public class PlayerAudio : MonoBehaviour {
 	private static string jumpButton = "Jump";
 	private AudioClip[] attack_orientation;
 	[SerializeField]private PlayerMeleeScript playerMelee;
+	[SerializeField]private MouthOfEvilController mouth;
 
 	void OnEnable () {
 		if (checkMoveCo != null) StopCoroutine(checkMoveCo);
@@ -224,7 +225,12 @@ public class PlayerAudio : MonoBehaviour {
 		}
 		if (playerMelee.getBossHits() != 0) {
 			audioSource_sword.clip = hit_enemy[Random.Range(0, hit_enemy.Length)];
-			audioSource_sword.volume = 0.30f;
+			audioSource_sword.volume = 0.50f;
+			audioSource_sword.Play();
+		}
+		if (playerMelee.getBossControllerHits() != 0 && mouth.GetComponent<MouthOfEvilController>().isInPhase) {
+			audioSource_sword.clip = boss_hitEyes[Random.Range(0, boss_hitEyes.Length)];
+			audioSource_sword.volume = 0.50f;
 			audioSource_sword.Play();
 		}
 		yield return null;
