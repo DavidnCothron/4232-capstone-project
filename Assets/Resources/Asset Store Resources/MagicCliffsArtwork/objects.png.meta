@@ -9,14 +9,17 @@ TextureImporter:
     21300004: floating-rock-2
     21300006: floating-rock-1
     21300008: tree
-  serializedVersion: 2
+  externalObjects: {}
+  serializedVersion: 4
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -26,36 +29,61 @@ TextureImporter:
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: 0
     aniso: 16
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: big-floating-rock
+    - serializedVersion: 2
+      name: big-floating-rock
       rect:
         serializedVersion: 2
         x: 9
@@ -65,15 +93,11 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -49, y: 38}
-        - {x: -49, y: 1}
-        - {x: -24, y: -35}
-        - {x: -14, y: -38}
-        - {x: 31, y: -38}
-        - {x: 49, y: 11}
-        - {x: 49, y: 38}
-    - name: small-floating-rock
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: small-floating-rock
       rect:
         serializedVersion: 2
         x: 121
@@ -83,14 +107,11 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -16, y: 16}
-        - {x: -16, y: -15}
-        - {x: -14, y: -16}
-        - {x: 8, y: -16}
-        - {x: 16, y: -6}
-        - {x: 16, y: 16}
-    - name: floating-rock-2
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: floating-rock-2
       rect:
         serializedVersion: 2
         x: 185
@@ -100,13 +121,11 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -24, y: 16}
-        - {x: -24, y: -16}
-        - {x: 20, y: -16}
-        - {x: 24, y: -14}
-        - {x: 24, y: 16}
-    - name: floating-rock-1
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: floating-rock-1
       rect:
         serializedVersion: 2
         x: 16
@@ -116,16 +135,11 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -23, y: 19.5}
-        - {x: -24, y: 17.5}
-        - {x: -24, y: -14.5}
-        - {x: -19, y: -18.5}
-        - {x: -16, y: -17.5}
-        - {x: -15, y: -19.5}
-        - {x: 24, y: -19.5}
-        - {x: 24, y: 19.5}
-    - name: tree
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: tree
       rect:
         serializedVersion: 2
         x: 159
@@ -135,16 +149,11 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -56.5, y: 57}
-        - {x: -61.5, y: 40}
-        - {x: -61.5, y: -25}
-        - {x: -3.5, y: -57}
-        - {x: 23.5, y: -57}
-        - {x: 61.5, y: -2}
-        - {x: 61.5, y: 47}
-        - {x: 40.5, y: 57}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

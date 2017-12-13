@@ -36,10 +36,14 @@ public class AudioController : MonoBehaviour {
 		currentRoom = GameControl.control.getCurrentRoom();
 		if (currentRoom != null && currentRoom.getRoomID() != currentRoomID){
 			currentRoomID = currentRoom.getRoomID();
+			//Debug.Log(currentRoom.getMusicType());
 			if (currentRoom.getMusicType() != currentMusicType) {
 				
 				currentMusicType = currentRoom.getMusicType();
-
+				if (currentMusicType == null) 
+				{
+					musicInactive.TransitionTo(1f);
+				}
 				if (currentMusicType == "boss" && !fightBoss) 
 				{
 					musicInactive.TransitionTo(1f);
