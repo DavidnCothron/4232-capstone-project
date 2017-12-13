@@ -61,6 +61,10 @@ public class PlayerPlatformerController : PhysicsObject {
 		return attacking;
 	}
 
+	public void setPhaseTime(float f) {
+		phaseTime = f;
+	}
+
 	private void Phase(){
 		switch(playerMelee.GetAttackDirection()){
 			case "right":
