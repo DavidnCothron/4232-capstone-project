@@ -35,6 +35,7 @@ TagManager:
   - mouthOfEvil
   - mouthOfEvilController
   - phaseItem
+  - bossProjectile
   layers:
   - Default
   - TransparentFX

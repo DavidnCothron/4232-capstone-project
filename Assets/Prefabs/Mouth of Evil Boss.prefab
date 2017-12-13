@@ -65,6 +65,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1191265226625812
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4079455724117892}
+  m_Layer: 15
+  m_Name: ProjectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1253748933448500
 GameObject:
   m_ObjectHideFlags: 1
@@ -102,6 +117,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1269279015037604
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4066058464386114}
+  m_Layer: 15
+  m_Name: ProjectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1272213466099824
 GameObject:
   m_ObjectHideFlags: 1
@@ -113,6 +143,21 @@ GameObject:
   - component: {fileID: 212624321694627360}
   m_Layer: 15
   m_Name: DamageFlash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1406685442499608
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4994349059614986}
+  m_Layer: 15
+  m_Name: ProjectileSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,6 +318,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1813936447914064
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4688191097693046}
+  m_Layer: 15
+  m_Name: ProjectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1880184319770618
 GameObject:
   m_ObjectHideFlags: 1
@@ -394,6 +454,32 @@ Transform:
   m_Father: {fileID: 4935970305111914}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4066058464386114
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1269279015037604}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4816015410595910}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4079455724117892
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1191265226625812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4301384443923268}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4091084069654444
 Transform:
   m_ObjectHideFlags: 1
@@ -461,6 +547,7 @@ Transform:
   m_Children:
   - {fileID: 4091084069654444}
   - {fileID: 4775881233406970}
+  - {fileID: 4079455724117892}
   m_Father: {fileID: 4766154371930246}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -489,6 +576,7 @@ Transform:
   m_Children:
   - {fileID: 4785089423130778}
   - {fileID: 4330020616127550}
+  - {fileID: 4688191097693046}
   m_Father: {fileID: 4766154371930246}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -544,6 +632,19 @@ Transform:
   m_Father: {fileID: 4237987396543032}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4688191097693046
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1813936447914064}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4568785023823026}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4766154371930246
 Transform:
   m_ObjectHideFlags: 1
@@ -551,7 +652,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1450247762309290}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.58, y: 2.92, z: 0}
+  m_LocalPosition: {x: 17.6, y: 2.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4921259712145684}
@@ -602,6 +703,7 @@ Transform:
   m_Children:
   - {fileID: 4237987396543032}
   - {fileID: 4580922670092506}
+  - {fileID: 4066058464386114}
   m_Father: {fileID: 4766154371930246}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -657,6 +759,7 @@ Transform:
   m_Children:
   - {fileID: 4125645705095384}
   - {fileID: 4023191914564158}
+  - {fileID: 4994349059614986}
   m_Father: {fileID: 4766154371930246}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -673,6 +776,19 @@ Transform:
   - {fileID: 4575384400809690}
   m_Father: {fileID: 4766154371930246}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4994349059614986
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1406685442499608}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4935970305111914}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &58070852864901480
 CircleCollider2D:
@@ -924,6 +1040,9 @@ MonoBehaviour:
   attackChargeUp: 0
   attackChargeUpMax: 1
   eyeHealth: 4
+  projectilePrefab: {fileID: 1499727510424314, guid: 643039ce7ebb6c943a6e05c4bab9e7b5,
+    type: 2}
+  projectileSpawn: {fileID: 4066058464386114}
 --- !u!114 &114130535125411522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1038,6 +1157,9 @@ MonoBehaviour:
   attackChargeUp: 0
   attackChargeUpMax: 1
   eyeHealth: 4
+  projectilePrefab: {fileID: 1499727510424314, guid: 643039ce7ebb6c943a6e05c4bab9e7b5,
+    type: 2}
+  projectileSpawn: {fileID: 4994349059614986}
 --- !u!114 &114525626242777436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1210,6 +1332,9 @@ MonoBehaviour:
   attackChargeUp: 0
   attackChargeUpMax: 1
   eyeHealth: 4
+  projectilePrefab: {fileID: 1499727510424314, guid: 643039ce7ebb6c943a6e05c4bab9e7b5,
+    type: 2}
+  projectileSpawn: {fileID: 4688191097693046}
 --- !u!114 &114959628080295882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1265,6 +1390,9 @@ MonoBehaviour:
   attackChargeUp: 0
   attackChargeUpMax: 1
   eyeHealth: 4
+  projectilePrefab: {fileID: 1499727510424314, guid: 643039ce7ebb6c943a6e05c4bab9e7b5,
+    type: 2}
+  projectileSpawn: {fileID: 4079455724117892}
 --- !u!198 &198025988549204530
 ParticleSystem:
   m_ObjectHideFlags: 1

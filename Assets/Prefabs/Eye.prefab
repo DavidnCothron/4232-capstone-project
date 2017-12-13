@@ -136,13 +136,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 1755471316869452}
+  spriteFlash: {fileID: 0}
   playerPosition: {fileID: 0}
   eyeAnimator: {fileID: 95430638907074170}
+  eyeLid: {fileID: 0}
   isActive: 0
   attackCooldown: 0
   attackCooldownMax: 2
   attackChargeUp: 0
   attackChargeUpMax: 1
+  eyeHealth: 0
+  projectilePrefab: {fileID: 0}
+  projectileSpawn: {fileID: 0}
 --- !u!198 &198471491893423664
 ParticleSystem:
   m_ObjectHideFlags: 1

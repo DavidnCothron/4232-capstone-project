@@ -16,6 +16,8 @@ public class EvilEyeScript : MonoBehaviour {
 	public float attackChargeUp;
 	public float attackChargeUpMax = 1f;
 	public int eyeHealth;
+	public GameObject projectilePrefab;
+	public Transform projectileSpawn;
 	//public bool isDead = false;
 	//public int health = 5;
 
@@ -58,7 +60,7 @@ public class EvilEyeScript : MonoBehaviour {
 	}
 
 	void FireEyeBall(){
-		//Debug.Log("Die, player!");
+		Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
 		return;
 	}
 
