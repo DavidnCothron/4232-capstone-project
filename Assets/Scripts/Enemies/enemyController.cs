@@ -41,6 +41,9 @@ public class enemyController : PhysicsObject {
 	public bool haltInput = false;
 	public float sightDistance = 25f;	
 	public float arc = 15f;
+	public bool isFacingRight;
+	public float senseBehindDistance = 5;
+	Vector3 scale;
 	Vector3 enemyFacingDirection = new Vector3(1,0,0);
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
@@ -62,13 +65,15 @@ public class enemyController : PhysicsObject {
 	{
 		baseSpeed += Random.value;
 		Debug.Log(baseSpeed);
+		if(!isFacingRight)
+			flipLeft();
 	}
 
 
 	//TODO: Add logic to path towards last known position if can no longer see target
 	protected override void ComputeVelocity () {
 		Vector2 move = Vector2.zero;
-		Vector3 scale = transform.localScale;
+		scale = transform.localScale;
 		
 
 		if(State != state.Death){
@@ -120,16 +125,18 @@ public class enemyController : PhysicsObject {
 
 						if ((target.x + transform.position.x) < transform.position.x)//if moving left face left
 						{ //Flip to left
-							scale.x = -Mathf.Abs(scale.x);
-							transform.localScale = scale;
-							enemyFacingDirection = -transform.right;
+							flipLeft();
+							//scale.x = -Mathf.Abs(scale.x);
+							//transform.localScale = scale;
+							//enemyFacingDirection = -transform.right;
 							//arc = 
 						}
 						else if ((target.x + transform.position.x) > transform.position.x)//if moving right face right
 						{ //Flip to right
-							scale.x = Mathf.Abs(scale.x);
-							transform.localScale = scale;
-							enemyFacingDirection = transform.right;
+							flipRight();	
+							// scale.x = Mathf.Abs(scale.x);
+							// transform.localScale = scale;
+							// enemyFacingDirection = transform.right;
 						}
 					}
 				}
@@ -145,6 +152,17 @@ public class enemyController : PhysicsObject {
 
 	void jump(){
 		velocity.y = jumpTakeOffSpeed;
+	}
+
+	void flipLeft(){
+		scale.x = -Mathf.Abs(scale.x);
+		transform.localScale = scale;
+		enemyFacingDirection = -transform.right;	
+	}
+	void flipRight(){
+		scale.x = Mathf.Abs(scale.x);
+		transform.localScale = scale;
+		enemyFacingDirection = transform.right;
 	}
 
 	bool checkForJump(){
@@ -168,7 +186,7 @@ public class enemyController : PhysicsObject {
 		playerTrans = GameControl.control.GetPlayerTransform();
 		if(Vector3.SqrMagnitude(targetVector) < sightDistance){
 			//Debug.Log(Vector3.SqrMagnitude(targetVector));
-			if(Vector3.SqrMagnitude(targetVector) < 4.1f || (Vector3.Dot(enemyFacingDirection, targetVector) > 0 && Vector3.Angle(targetVector, enemyFacingDirection) < arc)){
+			if(Vector3.SqrMagnitude(targetVector) < senseBehindDistance || (Vector3.Dot(enemyFacingDirection, targetVector) > 0 && Vector3.Angle(targetVector, enemyFacingDirection) < arc)){
 
 				RaycastHit2D hit = new RaycastHit2D();
 				LayerMask mask = ~(1 << LayerMask.NameToLayer("AttackLayer") | 1 << LayerMask.NameToLayer("RoomBackground") | 1 << LayerMask.NameToLayer("Enemy"));//ignore self (attack layer) and roombackground layer

@@ -83,11 +83,12 @@ public class ButtonManager : MonoBehaviour {
 	{
 		paused = false;
 		Time.timeScale = 1;
-		PauseCanvas.gameObject.SetActive (false);
+		PauseCanvas.gameObject.SetActive (false);		
 		DeathMenuInactive();
 		GameControl.control.setFadeImage(true);//sets the 'cameraFadeImage' object to active otherwise it cannot be found in the hierarchy when title scene is loaded
 		Debug.Log("reset player health");
 		GameControl.control.ResetPlayerHealth();
+		GameControl.control.SetPlayerMeleeActivity(true);
 		SceneManager.LoadScene ("Title_Scene");
 	}
 
@@ -102,6 +103,7 @@ public class ButtonManager : MonoBehaviour {
 	public void ReturnToLevelStart(){
 		Time.timeScale = 1;
 		DeathCanvas.gameObject.SetActive(false);
+		GameControl.control.ResetPlayerHealth();
 		StartCoroutine(GameControl.control.TransitionToNewRoom(AreaControl.startingRoom));
 	}
 
