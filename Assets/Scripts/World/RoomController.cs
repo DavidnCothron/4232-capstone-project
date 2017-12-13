@@ -12,6 +12,10 @@ public class RoomController : MonoBehaviour {
 	[SerializeField] private string saveRoomId;
 	public bool roam_music, title_music, boss_music, bossKey_music;
 
+	[SerializeField]private GameObject enemyContainer;
+
+
+
 	// Use this for initialization
 	void OnEnable () {
 		if (player == null)
@@ -53,5 +57,13 @@ public class RoomController : MonoBehaviour {
 		if (bossKey_music) return "key";
 		if (boss_music) return "boss";
 		return null;
+	}
+
+	public IEnumerator checkForPlayerExit() {
+		while(this.roomID == GameControl.control.getCurrentRoom().getRoomID()) {
+			yield return null;
+		}
+		Debug.Log("leaving room");
+		yield return null;
 	}
 }

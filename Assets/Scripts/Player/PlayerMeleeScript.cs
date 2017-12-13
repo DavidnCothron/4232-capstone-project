@@ -145,7 +145,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 	public string GetAttackDirection(){
 		return attackDirection;
 	}
-
+	//this method lol
 	public int GetCurrentAttackPower(){
 		if(isChargeAttacking){
 			return chargeAttackDamage;
