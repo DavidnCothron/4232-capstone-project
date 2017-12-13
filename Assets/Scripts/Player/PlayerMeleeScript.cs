@@ -41,7 +41,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 
 	private IEnumerator airAttackCo, groundAttackCo;
 
-	private int wallsHit;
+	private int wallsHit, bossHits;
 	private bool isChargeAttacking = false;
 
 
@@ -304,5 +304,13 @@ public class PlayerMeleeScript : MonoBehaviour {
 
 	public int getWallsHit() {
 		return wallsHit;
+	}
+
+	public int getBossHits() {
+		return bossHit.Count;
+	}
+
+	public int getBossControllerHits() {
+		return bossControllerHit.Count;
 	}
 }

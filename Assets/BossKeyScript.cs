@@ -14,10 +14,6 @@ public class BossKeyScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		if(bossDoor = null){
-			//bossDoor = GameObject.FindGameObjectWithTag("BossDoor").GetComponent<BossDoorScript>();
-		}
-		coll = this.gameObject.GetComponent<Collider2D>();
 	}
 	
 	/// <summary>

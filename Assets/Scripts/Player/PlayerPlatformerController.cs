@@ -11,6 +11,7 @@ public class PlayerPlatformerController : PhysicsObject {
 	private bool attacking;
 	private bool phasing;
 	private Vector2 phaseDirection;
+	public bool hasPhase = false;
 	private float phaseTime;
 	public float phaseUpModifier = 1f;
 	public float phaseTimeMax;
@@ -29,6 +30,9 @@ public class PlayerPlatformerController : PhysicsObject {
 		if(playerHealthAndMagicController == null){
 			gameObject.GetComponent<PlayerHealthAndMagicController>();
 		}
+
+		hasPhase = false;
+
 		phaseTime = phaseTimeMax;
 		phaseParticleSystem.SetActive(false);
 	}

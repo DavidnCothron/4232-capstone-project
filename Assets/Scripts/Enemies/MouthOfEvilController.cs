@@ -58,9 +58,8 @@ public class MouthOfEvilController : MonoBehaviour {
 					foreach(EvilEyeScript eye in evilEyes){
 						eye.isActive = false;
 						eye.eyeLid.isDead = true;
-						bossIsDead = true;
-						
 					}
+					bossIsDead = true;
 				}
 			}
 		}
