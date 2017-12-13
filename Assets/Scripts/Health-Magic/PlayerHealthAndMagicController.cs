@@ -24,6 +24,7 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
 	private int currentMP = 3;
 	private int regenMagic = 0;
 	public bool canDie = false;
+	public bool godMode = false;
 	[SerializeField] private GameObject newBarSeparator;
 	
 	void Awake(){
@@ -41,12 +42,18 @@ public class PlayerHealthAndMagicController : MonoBehaviour {
 		
 	void Update()
 	{
+		if(godMode)
+			health.CurrentHP = health.MaxHP;
 		if(health.CurrentHP <= 0 && canDie){
 			//Debug.Log(health.CurrentHP);
 			GameControl.control.KillPlayer();
 			canDie = false;
 		}
 		MagicRegen ();
+	}
+
+	public void SetGodMode(){
+		godMode = !godMode;
 	}
 
 	#region Getters/Setters

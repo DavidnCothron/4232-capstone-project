@@ -7025,12 +7025,12 @@ GameObject:
   - component: {fileID: 1675180863}
   - component: {fileID: 1675180862}
   m_Layer: 5
-  m_Name: Start
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1675180861
 RectTransform:
   m_ObjectHideFlags: 0

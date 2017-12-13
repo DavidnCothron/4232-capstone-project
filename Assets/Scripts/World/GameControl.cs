@@ -84,7 +84,10 @@ public class GameControl : MonoBehaviour {
 		}
 		if(Input.GetKeyDown(KeyCode.M)){
 			phmc.ScaleMagic(1);
-		}		
+		}
+		if(Input.GetKeyDown(KeyCode.BackQuote)){
+			phmc.SetGodMode();
+		}	
 	}
 
 	public Transform GetPlayerTransform()
