@@ -132,6 +132,7 @@ public class CameraController : MonoBehaviour {
 				GameControl.control.setCurrentRoom(hit.collider.GetComponentInParent<RoomController>()); //set current occupied room in game controller
 				GameObject currentRoom = hit.collider.gameObject.transform.parent.gameObject;
 				currentRoomID = currentRoom.GetComponent<RoomController> ().getRoomID ();
+				StartCoroutine(currentRoom.GetComponent<RoomController>().checkForPlayerExit());
 				GameObject[] objs = GameControl.control.GetChildGameObjects (currentRoom); //Gets all the objects childed to the room
 				//Object which holds Bounding Walls must have "CameraBounds" tag and be directly childed to the 'Room' object.
 				GameObject obj = GameControl.control.FindGameObjectFromArray (objs, "CameraBounds");

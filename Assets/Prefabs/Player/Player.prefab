@@ -375,7 +375,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893841220926510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.37, y: 3.9, z: 0}
+  m_LocalPosition: {x: -4.29, y: -0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4212309947958486}
@@ -1092,7 +1092,9 @@ MonoBehaviour:
   hit_enemy:
   - {fileID: 8300000, guid: 8fbe6e16c4f6ef94db219082e9dff9a4, type: 3}
   - {fileID: 8300000, guid: 3298ceb3efe9dfa40b90e834c3127c9e, type: 3}
-  phase_swooshes: []
+  phase_swooshes:
+  - {fileID: 8300000, guid: c122ce5992f987b4dba775c3c27a4e91, type: 3}
+  boss_hitEyes: []
   audioSource: {fileID: 82382372847002100}
   audioSource_jump_land: {fileID: 82339941498709012}
   audioSource_sword: {fileID: 82374437278313952}
