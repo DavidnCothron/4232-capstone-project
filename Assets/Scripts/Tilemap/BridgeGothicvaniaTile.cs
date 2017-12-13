@@ -48,6 +48,18 @@ public class BridgeGothicvaniaTile : Tile {
 
 		tileData.colliderType = ColliderType.Grid;
 		tileData.sprite = preview;
+
+		if (composition[7] == 'N' && composition[11] == 'G' && composition[12] == 'G' && composition[16] == 'N') {
+			/*
+				04		09		13		18		23
+				03		08		[12]	17		22
+				02		07		X		16		21
+				01		06		[11]	15		20
+				00		05		10		14		19 
+			*/
+			//between two tiles with nothing above or below
+			tileData.sprite = bridgeTiles[13];
+		}
 	}
 
 	#if UNITY_EDITOR
