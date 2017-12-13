@@ -21,6 +21,8 @@ public class AudioController : MonoBehaviour {
 	private float switchToIntro_title;
 	[SerializeField] private string currentRoomID, currentMusicType;
 	private bool fightBoss;
+
+	//CHECK COROUTINE EXECUTION FOR NUMBER OF COROUTINES RUNNING
 	// Use this for initialization
 	void Start () {
 		fightBoss = false;
