@@ -91,6 +91,7 @@ public class PlayerPlatformerController : PhysicsObject {
 				break;
 		}
 
+		playerHealthAndMagicController.LoseMana(1);
 		spriteRenderer.enabled = false;
 		phasing = true;
 		velocityUncapped = true;
@@ -118,7 +119,7 @@ public class PlayerPlatformerController : PhysicsObject {
 				}
 			}
 
-			if(Input.GetMouseButtonDown(1)){
+			if(Input.GetMouseButtonDown(1) && hasPhase && playerHealthAndMagicController.GetMana() > 0){
 				gravityModifier = 0f;
 				Phase();
 			}
@@ -137,10 +138,6 @@ public class PlayerPlatformerController : PhysicsObject {
 					direction = 1; //When 1, player is facing right
 					spriteRenderer.flipX = false;
 				}
-			}
-
-			if(Input.GetMouseButtonDown(1)){
-				Phase();
 			}
 
 			//Handle animation state logic here
