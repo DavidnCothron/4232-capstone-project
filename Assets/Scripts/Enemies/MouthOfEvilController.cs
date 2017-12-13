@@ -27,7 +27,7 @@ public class MouthOfEvilController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(isBossFightActive + " " + startBossFight);
+		//Debug.Log(isBossFightActive + " " + startBossFight);
 		if(isBossFightActive){
 			if(startBossFight) StartBossFight();
 

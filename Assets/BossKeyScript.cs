@@ -34,11 +34,9 @@ public class BossKeyScript : MonoBehaviour {
 	}
 
 	void KeyPickup(){
-		//TODO: Add animator stuff for pickup
 		sprite.enabled = false;
 		sparkleAnimator.enabled = false;
 		coll.enabled = false;
 		keyJingle.Play();
-		//gameObject.SetActive(false);
 	}
 }
