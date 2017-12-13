@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.InteropServices;
@@ -172,6 +173,17 @@ public class GameControl : MonoBehaviour {
 
 	public AreaControl getAreaControl(){
 		return areaControl;
+	}
+
+	public IEnumerator BossIsDead(){
+		
+		Time.timeScale = .25f;
+		yield return new WaitForSecondsRealtime(2f);
+		Time.timeScale = 0;
+		SceneManager.LoadScene ("EndGame");
+		Time.timeScale = 1;
+		StartCoroutine(buttonManager.ExitToWindows());
+		
 	}
 
 	public void SetBossDefeated(int bossID){

@@ -27,6 +27,10 @@ public class MouthOfEvilController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(bossIsDead){
+			//Debug.Log("dead");
+			StartCoroutine(GameControl.control.BossIsDead());
+		}
 		//Debug.Log(isBossFightActive + " " + startBossFight);
 		if(isBossFightActive){
 			if(startBossFight) StartBossFight();
@@ -55,6 +59,7 @@ public class MouthOfEvilController : MonoBehaviour {
 						eye.isActive = false;
 						eye.eyeLid.isDead = true;
 						bossIsDead = true;
+						
 					}
 				}
 			}

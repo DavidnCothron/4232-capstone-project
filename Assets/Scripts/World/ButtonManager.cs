@@ -107,8 +107,10 @@ public class ButtonManager : MonoBehaviour {
 		StartCoroutine(GameControl.control.TransitionToNewRoom(AreaControl.startingRoom));
 	}
 
-	public void ExitToWindows()//closes the application
+	public IEnumerator ExitToWindows()//closes the application
 	{
+		yield return new WaitForSeconds(2f);
+		Debug.Log("QuitGame");		
 		Application.Quit ();
 	}
 
