@@ -8,6 +8,7 @@ public class PhysicsObject : MonoBehaviour {
 	public float gravityModifier = 1f;
 
 	[SerializeField] protected float maxYVelocity;
+	[SerializeField] protected bool velocityUncapped = false;
 	[SerializeField] protected Vector2 targetVelocity;
 	[SerializeField] protected bool grounded;
 	[SerializeField] protected Vector2 groundNormal;
@@ -118,7 +119,7 @@ public class PhysicsObject : MonoBehaviour {
 						currentNormal.x = 0;
 					}
 					/* if maxYVelocity, velocity.y is capped to a signed velocity at maxYVelocity value */
-					if (maxYVelocity != 0 && Mathf.Abs(velocity.y) > maxYVelocity)
+					if ((maxYVelocity != 0 && Mathf.Abs(velocity.y) > maxYVelocity) && !velocityUncapped)
 					{
 						velocity.y = Mathf.Sign(velocity.y) * maxYVelocity;
 					}

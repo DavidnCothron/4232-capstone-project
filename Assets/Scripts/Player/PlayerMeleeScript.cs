@@ -19,6 +19,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 	bool isAttacking = false;
 	bool canAttack = true;
 	private Vector3 currentAttackDirection;
+	private string attackDirection = "none";
 	[SerializeField] protected ContactFilter2D contactFilter;
 	[SerializeField] protected Rigidbody2D rb2d;
 	[SerializeField] protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
@@ -121,16 +122,24 @@ public class PlayerMeleeScript : MonoBehaviour {
 		if (!isAttacking && !ppc.haltInput && !attacking){
 			if(Input.GetAxis("Horizontal") > 0) {
 				currentAttackDirection = new Vector3(1f, 0f, 0f);
+				attackDirection = "right";
 			}
 			else if(Input.GetAxis("Horizontal") < 0) {
 				currentAttackDirection = new Vector3(-1f, 0f, 0f);
+				attackDirection = "left";
 			}
 		
-			if(Input.GetKey(KeyCode.W))
+			if(Input.GetKey(KeyCode.W)){
 				transform.right = new Vector3(0f, 1f, 0f);
+				attackDirection = "up";
+			}
 			else
 				transform.right = currentAttackDirection;
 		}
+	}
+
+	public string GetAttackDirection(){
+		return attackDirection;
 	}
 
 	public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) {
