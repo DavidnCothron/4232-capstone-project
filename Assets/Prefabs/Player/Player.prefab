@@ -974,6 +974,8 @@ MonoBehaviour:
   chargeTimeRemaining: 0
   attackCooldown: 0.5
   enemiesHit: []
+  bossHit: []
+  bossControllerHit: []
   hasChargeAttack: 1
   isAttackingEnabled: 0
   contactFilter:

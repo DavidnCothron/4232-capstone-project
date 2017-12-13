@@ -14,6 +14,8 @@ public class PlayerMeleeScript : MonoBehaviour {
 	public float attackCooldown = 0.5f; 
 	float attackCooldownRemaining;
 	public List<GameObject> enemiesHit;
+	public List<GameObject> bossHit;
+	public List<GameObject> bossControllerHit;
 	public bool hasChargeAttack = false;
 	public bool isAttackingEnabled = false;
 	bool isAttacking = false;
@@ -40,6 +42,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 	private IEnumerator airAttackCo, groundAttackCo;
 
 	private int wallsHit;
+	private bool isChargeAttacking = false;
 
 
 	// Use this for initialization
@@ -88,6 +91,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 					}
 					else
 					{
+						isChargeAttacking = true;
 						attacking = true;
 						StartCoroutine(ChargeAttack ());
 					}
@@ -142,6 +146,15 @@ public class PlayerMeleeScript : MonoBehaviour {
 		return attackDirection;
 	}
 
+	public int GetCurrentAttackPower(){
+		if(isChargeAttacking){
+			return chargeAttackDamage;
+		}
+		else{
+			return meleeDamage;
+		}
+	}
+
 	public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) {
 		Ray ray = Camera.main.ScreenPointToRay(screenPosition);
 		Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
@@ -165,14 +178,6 @@ public class PlayerMeleeScript : MonoBehaviour {
 	}
 	
 	IEnumerator MeleeAttack(){
-
-//		int count = rb2d.Cast (Vector2.zero, contactFilter, hitBuffer, shellRadius);
-//		hitBufferList.Clear ();
-//
-//		for (int i = 0; i < count; i++)
-//		{
-//			hitBufferList.Add (hitBuffer [i]);
-//		}
 		attacking = true;
 		if(ppc.getGrounded()) {
 			if (groundAttackCo != null) StopCoroutine(groundAttackCo);
@@ -195,9 +200,22 @@ public class PlayerMeleeScript : MonoBehaviour {
 			StartCoroutine(enemyCont.setKnockbackVec((new Vector2 (knockback, knockback/2))));
 			//enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackBasic));
 		}
+
+		foreach (GameObject bossObject in bossHit)
+		{
+			EvilEyeScript enemy_Health = bossObject.GetComponent(typeof(EvilEyeScript)) as EvilEyeScript;
+			if(enemy_Health != null) enemy_Health.HitEye(this); 
+			//Debug.Log(enemy_Health);
+		}
+
+		foreach (GameObject bossObject in bossControllerHit)
+		{
+			MouthOfEvilController boss = bossObject.GetComponent(typeof(MouthOfEvilController)) as MouthOfEvilController;
+			if(boss.isInPhase){
+				boss.hitsLeftInPhase--;
+			}
+		}
 		attacking = false;
-		//animator.SetBool("groundAttack", attacking);
-		//animator.SetBool("airAttack", attacking);
 	}
 
 	IEnumerator ChargeAttack(){
@@ -223,13 +241,29 @@ public class PlayerMeleeScript : MonoBehaviour {
 			var knockback = getKnockbackCharged();
 			StartCoroutine(enemyCont.setKnockbackVec(new Vector2 (knockback, knockback/2)));
 			//enemyRB2D.AddForce ((Vector2)((playerTransform.position - enemyRB2D.transform.position).normalized * knockbackCharged));
-			chargeTimeRemaining = chargeTime;
 		}
+
+		foreach (GameObject bossObject in bossHit)
+		{
+			EvilEyeScript enemy_Health = bossObject.GetComponent(typeof(EvilEyeScript)) as EvilEyeScript;
+			enemy_Health.HitEye(this);
+		}
+
+		foreach (GameObject bossObject in bossControllerHit)
+		{
+			MouthOfEvilController boss = bossObject.GetComponent(typeof(MouthOfEvilController)) as MouthOfEvilController;
+			if(boss.isInPhase){
+				boss.hitsLeftInPhase -= 2;
+			}
+		}
+
+		chargeTimeRemaining = chargeTime;
 		//yield return new WaitForSeconds(.5f);
 		attacking = false;
 		//animator.SetBool("groundAttack", attacking);
 		//animator.SetBool("airAttack", attacking);
 		particleSystem.SetActive(false);
+		isChargeAttacking = false;
 	}
 	
 	void OnTriggerEnter2D(Collider2D coll){
@@ -237,7 +271,11 @@ public class PlayerMeleeScript : MonoBehaviour {
 			enemiesHit.Add (coll.gameObject.GetComponentInParent<Rigidbody2D>().gameObject);
 		} else if (coll.gameObject.CompareTag("ground")) {
 			wallsHit++;
-		}
+		} else if(coll.gameObject.tag == "mouthOfEvil"){
+			bossHit.Add(coll.gameObject);
+		} else if(coll.gameObject.tag == "mouthOfEvilController"){
+			bossControllerHit.Add(coll.gameObject);
+		} 
 	}
 
 	void OnTriggerExit2D(Collider2D coll){
@@ -249,6 +287,18 @@ public class PlayerMeleeScript : MonoBehaviour {
 			}
 		} else if (coll.gameObject.CompareTag("ground")){
 			wallsHit--;
+		} else if(coll.gameObject.tag == "mouthOfEvil"){
+			GameObject enemy = coll.gameObject;
+			if (bossHit.Contains (enemy))
+			{
+				bossHit.Remove(coll.gameObject);
+			}
+		} else if(coll.gameObject.tag == "mouthOfEvilController"){
+			GameObject enemy = coll.gameObject;
+			if (bossControllerHit.Contains (enemy))
+			{
+				bossControllerHit.Remove(coll.gameObject);
+			}
 		}
 	}
 
