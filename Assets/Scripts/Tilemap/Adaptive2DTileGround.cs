@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class Adaptive2DTileGround : Tile {
 	[SerializeField] private Sprite preview;
