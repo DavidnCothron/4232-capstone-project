@@ -42,9 +42,8 @@ public class enemyController : PhysicsObject {
 	public float sightDistance = 25f;	
 	public float arc = 15f;
 	public bool isFacingRight;
-	public float senseBehindDistance = 5;
-	Vector3 scale;
 	Vector3 enemyFacingDirection = new Vector3(1,0,0);
+	Vector3 scale;
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
 	private EnemyMelee enemyMelee;
@@ -54,7 +53,8 @@ public class enemyController : PhysicsObject {
 		rigidBody = gameObject.GetComponent (typeof(Rigidbody2D)) as Rigidbody2D;
 		spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
 		animator = gameObject.GetComponent<Animator> ();
-		enemyMelee = gameObject.GetComponentInChildren<EnemyMelee>();		
+		enemyMelee = gameObject.GetComponentInChildren<EnemyMelee>();
+			
 	}
 
 	/// <summary>
@@ -64,9 +64,10 @@ public class enemyController : PhysicsObject {
 	void Start()
 	{
 		baseSpeed += Random.value;
-		Debug.Log(baseSpeed);
-		if(!isFacingRight)
-			flipLeft();
+		//Debug.Log(baseSpeed);
+		// if(!isFacingRight)
+		// 	flipLeft();
+		// scale = transform.localScale;
 	}
 
 
@@ -126,17 +127,11 @@ public class enemyController : PhysicsObject {
 						if ((target.x + transform.position.x) < transform.position.x)//if moving left face left
 						{ //Flip to left
 							flipLeft();
-							//scale.x = -Mathf.Abs(scale.x);
-							//transform.localScale = scale;
-							//enemyFacingDirection = -transform.right;
 							//arc = 
 						}
 						else if ((target.x + transform.position.x) > transform.position.x)//if moving right face right
 						{ //Flip to right
-							flipRight();	
-							// scale.x = Mathf.Abs(scale.x);
-							// transform.localScale = scale;
-							// enemyFacingDirection = transform.right;
+							flipRight();
 						}
 					}
 				}
@@ -186,7 +181,7 @@ public class enemyController : PhysicsObject {
 		playerTrans = GameControl.control.GetPlayerTransform();
 		if(Vector3.SqrMagnitude(targetVector) < sightDistance){
 			//Debug.Log(Vector3.SqrMagnitude(targetVector));
-			if(Vector3.SqrMagnitude(targetVector) < senseBehindDistance || (Vector3.Dot(enemyFacingDirection, targetVector) > 0 && Vector3.Angle(targetVector, enemyFacingDirection) < arc)){
+			if(Vector3.SqrMagnitude(targetVector) < 4.1f || (Vector3.Dot(enemyFacingDirection, targetVector) > 0 && Vector3.Angle(targetVector, enemyFacingDirection) < arc)){
 
 				RaycastHit2D hit = new RaycastHit2D();
 				LayerMask mask = ~(1 << LayerMask.NameToLayer("AttackLayer") | 1 << LayerMask.NameToLayer("RoomBackground") | 1 << LayerMask.NameToLayer("Enemy"));//ignore self (attack layer) and roombackground layer

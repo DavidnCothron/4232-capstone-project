@@ -7,16 +7,29 @@ public class EnemyHealth : MonoBehaviour {
 	[SerializeField] private Health health;
 	[SerializeField] private int enemyHP = 5;
 	private int enemyCurrentHP;
-	enemyController enemy;
+	bool isBat;
+	bool isBones;
+	enemyController bones;
+	BatController bat;
 	
 	void Awake(){
 		health.Initialize(enemyHP);
-		enemy = this.GetComponent<enemyController>();
+		if(gameObject.name.Contains("ShamblingBones")){
+			isBones = true;
+			bones = this.GetComponent<enemyController>();
+		}else if(gameObject.name.Contains("Bat")){
+			isBat = true;
+			bat = this.GetComponent<BatController>();
+		}
+		
 	}
 	void FixedUpdate()
 	{
 		if(health.CurrentHP <= 0){
-			enemy.Die();
+			if(isBones)
+				bones.Die();
+			if(isBat)
+				bat.Die();
 		}
 	}
 
