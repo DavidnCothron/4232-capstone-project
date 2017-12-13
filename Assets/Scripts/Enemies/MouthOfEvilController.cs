@@ -32,6 +32,7 @@ public class MouthOfEvilController : MonoBehaviour {
 
 	private void IteratePhase(){
 		currentPhase++;
+		hitsLeftInPhase = 4;
 		return;
 	}
 
