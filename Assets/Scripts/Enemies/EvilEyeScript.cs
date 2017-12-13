@@ -23,11 +23,12 @@ public class EvilEyeScript : MonoBehaviour {
 
 	//public Animator eyeLidAnimator;
 
-	void Awake () {
+	void Start () {
 		particleSystem.SetActive(false);
 		attackChargeUp = attackChargeUpMax;
 		attackCooldown = attackCooldownMax;
 		isActive = false;
+		playerPosition = GameControl.control.GetPlayerTransform();
 	}
 	
 	// Update is called once per frame

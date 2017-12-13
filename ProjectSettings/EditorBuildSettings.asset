@@ -15,14 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/EndGame.unity
     guid: 81229b07e34c4a1418d95969c2dba3e1
   - enabled: 0
-    path: Assets/Scenes/Splash/Spash1.unity
-    guid: aa68f3636d7b47647a6eb891103a296a
-  - enabled: 0
-    path: Assets/Scenes/Splash/Splash2.unity
-    guid: 20035c9bfc222c140b46f24d25a98dd4
-  - enabled: 0
-    path: Assets/Scenes/Dev_Josh3.unity
-    guid: 20adbe55342b93b49a1035d9fef561d9
-  - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

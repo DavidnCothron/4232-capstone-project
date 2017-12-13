@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  maxSpeed: 0.75
+  maxSpeed: 2.5
   rigidbody: {fileID: 50253021060405856}
   damage: 2
 --- !u!198 &198798594343524746
