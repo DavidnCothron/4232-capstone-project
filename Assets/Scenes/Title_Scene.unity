@@ -3044,7 +3044,7 @@ MonoBehaviour:
   nextAreaID: 0
   currentAccessPointID: 0
   nextAccessPointID: 0
-  sceneToLoad: Dev_Josh3
+  sceneToLoad: World1
   controller: {fileID: 0}
 --- !u!212 &1372588858
 SpriteRenderer:
