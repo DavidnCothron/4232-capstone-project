@@ -147,7 +147,7 @@ public class Door : MonoBehaviour {
 		GameObject player = c.gameObject;
 		var ppc = c.GetComponent<PlayerPlatformerController> ();
 		ppc.setPhaseTime(0f);
-		//ppc.setPhasing(false);
+		ppc.forcePhaseStop();
 		ppc.haltInput = true;
 		int jumpDir = 1; //-1 for left, 1 for right
 		bool mustFlipSprite = false;

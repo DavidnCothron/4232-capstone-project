@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAudio : MonoBehaviour {
-	[SerializeField]private AudioClip[] footsteps_dirt, sword_swoosh_ground, sword_swoosh_air, jump_grunts, landing_grunts, hit_stoneWall, hit_enemy;
-	[SerializeField]private AudioSource audioSource, audioSource_jump_land, audioSource_sword, audioSource_voice;
+	[SerializeField]private AudioClip[] footsteps_dirt, sword_swoosh_ground, sword_swoosh_air, jump_grunts, landing_grunts, hit_stoneWall, hit_enemy, phase_swooshes;
+	[SerializeField]private AudioSource audioSource, audioSource_jump_land, audioSource_sword, audioSource_voice, audioSource_phase;
 	[SerializeField]private PlayerPlatformerController platformController;
 	[SerializeField]private KinematicArrive playerArrive;
 	IEnumerator runDirtCo, jumpDirtCo, landDirtCo, checkForLandingCo, swingSwordCo, swordHitWallCo;
@@ -73,6 +73,7 @@ public class PlayerAudio : MonoBehaviour {
 
 	IEnumerator checkForMovement() {
 		while(true) {
+			
 			if (platformController.getGrounded() && (Mathf.Abs(platformController.getVelocity().x) > 0.01f) || Mathf.Abs(playerArrive.getSteeringVelocity().x) > 0.1f) {
 				if (runDirtCo != null) StopCoroutine(runDirtCo);
 				runDirtCo = run_dirt();
@@ -84,6 +85,12 @@ public class PlayerAudio : MonoBehaviour {
 
 	IEnumerator checkForJump() {
 		while(true) {
+			if (platformController.getPhasing()) {
+				audioSource_phase.clip = phase_swooshes[Random.Range(0, phase_swooshes.Length)];
+				audioSource_phase.volume = 0.30f;
+				audioSource_phase.Play();
+				yield return new WaitForSeconds(0.55f);
+			}
 			if(platformController.getGrounded() && Input.GetButtonDown(jumpButton)) {
 				if (jumpDirtCo != null) StopCoroutine(jumpDirtCo);
 				jumpDirtCo = jump_dirt();
