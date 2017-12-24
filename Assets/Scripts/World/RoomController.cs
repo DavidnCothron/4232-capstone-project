@@ -70,8 +70,6 @@ public class RoomController : MonoBehaviour {
 		while(this.roomID == GameControl.control.getCurrentRoom().getRoomID()) {
 			yield return null;
 		}
-		
-		Debug.Log("leaving room");
 		yield return null;
 	}
 }

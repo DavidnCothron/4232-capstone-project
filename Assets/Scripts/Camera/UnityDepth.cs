@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class UnityDepth : MonoBehaviour {
 
-	public float unityDepth, unityDepth2, focusZ, PPU, screenResHeight, screenResWidth; //Screen.currentResolution.height - Screen.currentResolution.Width
-	private int centerToEdge; // If 2, distance from play area will assume 1920x1080 pixels. If 4, 960x540, etc.
+	//Screen.currentResolution.height - Screen.currentResolution.Width
+	public float unityDepth, unityDepth2, focusZ, PPU, screenResHeight, screenResWidth; 
+	// If 2, distance from play area will assume 1920x1080 pixels. If 4, 960x540, etc.
+	private int centerToEdge; 
 	public Dictionary<int,float> layerAndPPU;
 	public Matrix4x4 viewProjection = new Matrix4x4 ();
+
 
 	private static UnityDepth u_Instance = null;
 	public static UnityDepth instance {
@@ -40,10 +43,6 @@ public class UnityDepth : MonoBehaviour {
 			layerAndPPU.Add (i, zDistance);
 			//print ("Distance from 0: " + zDistance + " PPU:" + i);
 		}
-
-		KeyValuePair<int,float> test;
-		test = getLayer (-5);
-		//print ("Distance from 0: " + test.Value + " PPU:" + test.Key);
 	}
 
 	public void FindUnityDepth(){

@@ -37,15 +37,28 @@ public class CameraController : MonoBehaviour {
 	[SerializeField] private Vector3 wallBoundBL;
 	[SerializeField] private Vector3 wallBoundTR;
 
+	private RoomController currentRoomController;
+	private LayerMask room;
+	private Vector3[] roomCorners;
 	[SerializeField] private string currentRoomID;
 	[SerializeField] private Image cameraFadeImage;
 	[SerializeField] private float fadeSpeed;
+	private RectTransform boundingTransform;
+
+	private IEnumerator checkForExitCo;
+
+	#region detectRoom
+		private Vector3 rayStart;
+		private RaycastHit2D roomHit;
+	#endregion
 
 	//initializes Pixel Per Unit for the camera
 	//initializes camera/player and their controllers
 	void Awake(){
-		//UnityDepth.instance.FindUnityDepth ();
-		if (UnityDepth.instance.PPU == null) {
+		room = (1<<LayerMask.NameToLayer("RoomBackground"));
+		roomCorners = new Vector3[4];
+
+		if (UnityDepth.instance.PPU == 0f) {
 			UnityDepth.instance.PPU = 32;
 		}
 
@@ -55,18 +68,14 @@ public class CameraController : MonoBehaviour {
 		playerCont = player.GetComponent<PlayerController>();
 		cameraCont = this.GetComponent<CameraController>();
 		cameraFadeImage = GameObject.Find("cameraFadeImage").GetComponent<Image>();
-		//If the cameraFadeImage has been set for the camera
+
 		if (cameraFadeImage != null){
 			cameraFadeImage.rectTransform.localScale = new Vector2 (Screen.width, Screen.height);
 			setActiveFadeImage(false);
 		}
 	}
 
-	//gets the four corners of the room on start *note this will need to change in the
-	//future to incoperate player moving from room to room
 	void Start(){
-		if (BottomWall != null && TopWall != null && LeftWall != null && RightWall!= null)
-			getRoomCorners ();
 		camera.transform.SetPositionAndRotation(new Vector3(0f,0f,-UnityDepth.instance.unityDepth2), Quaternion.identity);
 	}
 
@@ -75,7 +84,7 @@ public class CameraController : MonoBehaviour {
 		//basically lerps the camera closer to its target position over time
 		posX = Mathf.SmoothDamp (transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
 		posY = Mathf.SmoothDamp (transform.position.y, player.transform.position.y + 1.5f, ref velocity.y, smoothTimeY) + .05f;
-		//camera.transform.SetPositionAndRotation(new Vector3(camera.transform.position.x, camera.transform.position.y ,-UnityDepth.instance.unityDepth2), Quaternion.identity);
+
 		//calculates the distance the camera should be from the bounding walls and sets that as the new position
 		transform.position = new Vector3(
 			/*x*/	Mathf.Clamp(posX, wallBoundBL.x + Mathf.Abs(this.transform.position.x - cameraCont.VpBottomLeft.x), wallBoundTR.x - Mathf.Abs(this.transform.position.x - cameraCont.VpTopRight.x)),
@@ -84,8 +93,6 @@ public class CameraController : MonoBehaviour {
 		);
 
 		//gets the worldpoint coordinates of the camera viewport at a particular z distance
-		//the camera currently lies at -16.875z in world space so in order to get 0z (where the main game/sprite layers are)
-		//the z coordinate in the VieportToWorldPoint asks for a point 16.875 units in front of the camera, thus Mathf.Abs(camera.transform.position.z) = 16.875
 		VpTopRight = camera.ViewportToWorldPoint (new Vector3 (1, 1, Mathf.Abs(camera.transform.position.z)));
 		VpBottomRight = camera.ViewportToWorldPoint (new Vector3 (1, 0, Mathf.Abs(camera.transform.position.z)));
 		VpTopLeft = camera.ViewportToWorldPoint (new Vector3 (0, 1, Mathf.Abs(camera.transform.position.z)));
@@ -98,8 +105,11 @@ public class CameraController : MonoBehaviour {
 
 	//calculates the four corners of a room based on the bounding walls of that room
 	void getRoomCorners(){
-		wallBoundBL = new Vector3((BottomWall.transform.position.x - (BottomWall.transform.localScale.x)/2), (LeftWall.transform.position.y - (LeftWall.transform.localScale.x)/2), 0);
-		wallBoundTR = new Vector3((TopWall.transform.position.x + (TopWall.transform.localScale.x)/2), (RightWall.transform.position.y + (RightWall.transform.localScale.x)/2), 0);
+		//wallBoundBL = new Vector3((BottomWall.transform.position.x - (BottomWall.transform.localScale.x)/2), (LeftWall.transform.position.y - (LeftWall.transform.localScale.x)/2), 0);
+		//wallBoundTR = new Vector3((TopWall.transform.position.x + (TopWall.transform.localScale.x)/2), (RightWall.transform.position.y + (RightWall.transform.localScale.x)/2), 0);
+
+		wallBoundBL = new Vector3((-(roomCorners[3].x - roomCorners[0].x)/2),-((roomCorners[1].y - roomCorners[0].y)/2), 0f) + boundingTransform.position;
+		wallBoundTR = new Vector3(((roomCorners[2].x - roomCorners[1].x)/2), ((roomCorners[2].y - roomCorners[3].y)/2), 0f) + boundingTransform.position;
 	}
 
 	//draws points of the viewport corners in world space 
@@ -119,28 +129,31 @@ public class CameraController : MonoBehaviour {
 	/// Detects the room where the player currently is and updates bounding walls for the camera.
 	/// </summary>
 	void detectRoom() {
-		//Cast ray at player with a LayerMask named "RoomBackground." The object hit should be in the "RoomBackground" layer
-		//and have a BoxCollider2D which is the size of the entire room. This would probably still work with a smaller
-		//BoxCollider2D, but having it be large ensures that the current room is always detected.
-		Vector3 rayStart = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z - 5f);
-		LayerMask room = (1 << LayerMask.NameToLayer ("RoomBackground"));
-		RaycastHit2D hit = Physics2D.Raycast (rayStart, Vector3.forward, 10f, room); //Raycast only interacts with 'room' LayerMask
-		if (hit  && hit.collider != null) {
+		//Cast ray at player with a LayerMask named "RoomBackground."
+		rayStart = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z - 5f);
+		roomHit = Physics2D.Raycast (rayStart, Vector3.forward, 10f, room);
+
+		if (roomHit  && roomHit.collider != null)
+		{
+			currentRoomController = roomHit.collider.GetComponentInParent<RoomController>();
+			boundingTransform = roomHit.collider.gameObject.GetComponent<RectTransform>();
 			inRoom = true;
-			if (hit.collider.GetComponentInParent<RoomController> ().getRoomID () != currentRoomID) { //If this is a new room
+			
+			if (currentRoomController.getRoomID () != currentRoomID) 
+			{
+				boundingTransform.GetWorldCorners(roomCorners);
+				getRoomCorners ();
+
 				//As it is current set, 'RoomBackground' object must be directly childed to the 'Room' object.
-				GameControl.control.setCurrentRoom(hit.collider.GetComponentInParent<RoomController>()); //set current occupied room in game controller
-				GameObject currentRoom = hit.collider.gameObject.transform.parent.gameObject;
-				currentRoomID = currentRoom.GetComponent<RoomController> ().getRoomID ();
-				StartCoroutine(currentRoom.GetComponent<RoomController>().checkForPlayerExit());
-				GameObject[] objs = GameControl.control.GetChildGameObjects (currentRoom); //Gets all the objects childed to the room
-				//Object which holds Bounding Walls must have "CameraBounds" tag and be directly childed to the 'Room' object.
-				GameObject obj = GameControl.control.FindGameObjectFromArray (objs, "CameraBounds");
-				objs = GameControl.control.GetChildGameObjects (obj);
-				if (objs.Length == 4) //If all four bounding walls exist in the new room
-					setBoundingWalls (objs);
+				GameControl.control.setCurrentRoom(currentRoomController);
+				currentRoomID = currentRoomController.getRoomID ();
+
+				if (checkForExitCo != null) StopCoroutine(checkForExitCo);
+				checkForExitCo = currentRoomController.checkForPlayerExit();
+				StartCoroutine(checkForExitCo);
 			}
-		} else {
+		} else 
+		{
 			inRoom = false;
 		}
 	}
@@ -160,8 +173,6 @@ public class CameraController : MonoBehaviour {
 			if (g.CompareTag ("BottomBoundingWall"))
 				BottomWall = g;
 		}
-		//set room corners to new room's corners
-		getRoomCorners ();
 	}
 
 	/// <summary>
@@ -173,7 +184,7 @@ public class CameraController : MonoBehaviour {
 		cameraFadeImage.enabled = true;
 		while (true) {
 			cameraFadeImage.color = Color.Lerp (cameraFadeImage.color, Color.black, fadeSpeed * Time.deltaTime);
-			if (cameraFadeImage.color.a >= 0.97f){ //If the camera is sufficiently blocked
+			if (cameraFadeImage.color.a >= 0.97f) {
 				cameraFadeImage.color = Color.black;
 				yield break;
 			} else
@@ -199,7 +210,7 @@ public class CameraController : MonoBehaviour {
 		cameraFadeImage.enabled = true;
 		while (true) {
 			cameraFadeImage.color = Color.Lerp (cameraFadeImage.color, Color.clear, fadeSpeed * Time.deltaTime);
-			if (cameraFadeImage.color.a <= 0.03f){ //If the camera is sufficiently cleared
+			if (cameraFadeImage.color.a <= 0.03f) {
 				cameraFadeImage.color = Color.clear;
 				setActiveFadeImage(false);
 				yield break;				

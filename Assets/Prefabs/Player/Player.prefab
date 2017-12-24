@@ -1056,48 +1056,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footsteps_dirt:
-  - {fileID: 8300000, guid: 05a08dd4ee0c046a6b56466d5c9aa9b8, type: 3}
-  - {fileID: 8300000, guid: bc1c11a60c94e439d84d64c56fdd354f, type: 3}
-  - {fileID: 8300000, guid: 64049f336db3d403dabd0425eb159922, type: 3}
-  - {fileID: 8300000, guid: aa9d74433c06a41a9b25cc9175d3f3ae, type: 3}
-  - {fileID: 8300000, guid: f7bff2a24d7d64eb296a8133060bd3e9, type: 3}
-  - {fileID: 8300000, guid: f626dafe2c3e045cd852e86532182f70, type: 3}
-  - {fileID: 8300000, guid: 27f4d8a727d874633b0292b089ec9b7c, type: 3}
-  - {fileID: 8300000, guid: c1eac1c698fc84605adb7e1074fd7d34, type: 3}
-  - {fileID: 8300000, guid: f54a7e8aabfc8436b965149db8156132, type: 3}
-  - {fileID: 8300000, guid: 3a06a27039e144e5c853a93d408fd63a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sword_swoosh_ground:
-  - {fileID: 8300000, guid: ee2dfd8835b31d0479769aa4679e160e, type: 3}
-  - {fileID: 8300000, guid: b8cbde35c09c18745ad56e6a7e66d020, type: 3}
-  - {fileID: 8300000, guid: 6dc44bfe850ea934f90ca91458dfcd47, type: 3}
-  - {fileID: 8300000, guid: dc8d6768d1ea78c49be31af70f2ad3e8, type: 3}
-  - {fileID: 8300000, guid: a7fe334830f4ab548a39f33c17001819, type: 3}
-  - {fileID: 8300000, guid: 92ec90cb028222f4a99a9f683b9c713d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sword_swoosh_air:
-  - {fileID: 8300000, guid: b02c3460481f4be4e8fabcb307a042d5, type: 3}
-  - {fileID: 8300000, guid: e51b16f708eadd744ae334cd11d5823e, type: 3}
-  - {fileID: 8300000, guid: 82a9381616e047b4fa294d1b4ec572a9, type: 3}
-  - {fileID: 8300000, guid: b0a0ef19a1a1c29449add6d510a89f21, type: 3}
-  - {fileID: 8300000, guid: 9d9c2fba1a0620946b13c3235f99e313, type: 3}
-  - {fileID: 8300000, guid: ecfe449eeb365a041b8fa8ec654ae544, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   jump_grunts:
-  - {fileID: 8300000, guid: f8e5373c24f1e7c4aaa1c09df2a577fd, type: 3}
+  - {fileID: 0}
   landing_grunts:
-  - {fileID: 8300000, guid: f8e5373c24f1e7c4aaa1c09df2a577fd, type: 3}
-  - {fileID: 8300000, guid: d5771b968254bda46a2e93eddad4db77, type: 3}
-  - {fileID: 8300000, guid: ba526be855296474f87c83cdefc61f32, type: 3}
-  - {fileID: 8300000, guid: 21e468e99c73a2b499cc58cd496e04a1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   hit_stoneWall:
-  - {fileID: 8300000, guid: 2aa7870c73c83ac409b3904136827e14, type: 3}
+  - {fileID: 0}
   hit_enemy:
-  - {fileID: 8300000, guid: 8fbe6e16c4f6ef94db219082e9dff9a4, type: 3}
-  - {fileID: 8300000, guid: 3298ceb3efe9dfa40b90e834c3127c9e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   phase_swooshes:
-  - {fileID: 8300000, guid: c122ce5992f987b4dba775c3c27a4e91, type: 3}
+  - {fileID: 0}
   boss_hitEyes:
-  - {fileID: 8300000, guid: 19e626c9290104242b73a52f5ea48959, type: 3}
-  - {fileID: 8300000, guid: 47ee379809ec14992bedd7eecb777f94, type: 3}
-  - {fileID: 8300000, guid: 8cd0258beac8f45d3b23e901100834dd, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   audioSource: {fileID: 82382372847002100}
   audioSource_jump_land: {fileID: 82339941498709012}
   audioSource_sword: {fileID: 82374437278313952}

@@ -190,7 +190,7 @@ public class PlayerMeleeScript : MonoBehaviour {
 		}
 		
 		yield return new WaitForSeconds(attackHitDelay);
-		Debug.Log(enemiesHit.Count);
+
 		foreach (GameObject enemyObject in enemiesHit)
 		{
 			EnemyHealth enemy_Health = enemyObject.GetComponent (typeof(EnemyHealth)) as EnemyHealth;
