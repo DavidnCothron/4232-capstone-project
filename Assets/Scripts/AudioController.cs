@@ -7,6 +7,13 @@ using UnityEditor;
 #endif
 
 public class AudioController : MonoBehaviour {
+	
+	#region current
+	private AudioSource currentIntroSource, currentLoopSource;
+	private AudioMixerSnapshot currentIntroSnap, currentLoopSnap;
+	#endregion
+
+
 	[SerializeField]private AudioSource intro_titleSource, loop_titleSource;
 	[SerializeField]private AudioSource intro_roamSource, loop_roamSource;
 	[SerializeField]private AudioSource intro_bossKeySource, loop_bossKeySource;
@@ -20,92 +27,95 @@ public class AudioController : MonoBehaviour {
 	private RoomController currentRoom;
 	private float switchToIntro_title;
 	[SerializeField] private string currentRoomID, currentMusicType;
-	private bool fightBoss;
+	private bool fightBoss, playOnTrue;
 
-	//CHECK COROUTINE EXECUTION FOR NUMBER OF COROUTINES RUNNING
-	// Use this for initialization
+	private IEnumerator transitionCo, playMusicCo;
+
+	void Awake() {
+		playOnTrue = true;
+	}
+	
 	void Start () {
 		fightBoss = false;
 		switchToIntro_title = 0f;
-		StartCoroutine(fightBossMusic());
+		//StartCoroutine(fightBossMusic());
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		switchToIntro_title -= Time.deltaTime;
 		currentRoom = GameControl.control.getCurrentRoom();
 		if (currentRoom != null && currentRoom.getRoomID() != currentRoomID){
 			currentRoomID = currentRoom.getRoomID();
-			//Debug.Log(currentRoom.getMusicType());
+
 			if (currentRoom.getMusicType() != currentMusicType) {
 				
 				currentMusicType = currentRoom.getMusicType();
-				if (currentMusicType == null) 
+				if (currentMusicType == null || !playOnTrue) 
 				{
 					musicInactive.TransitionTo(1f);
 				}
-				if (currentMusicType == "boss" && !fightBoss) 
-				{
-					musicInactive.TransitionTo(1f);
-				}
+
 				if (currentMusicType == "title") 
 				{
-					if (!intro_titleSource.isPlaying){ 
-						intro_titleSource.Play();
-						loop_titleSource.Play();
-					}
-					intro_titleSource.Stop();
-					loop_titleSource.Stop();
-					title_intro.TransitionTo(0.5f);
-					loop_titleSource.Play();
-					intro_titleSource.Play();
-					StartCoroutine(transitionToLoop(intro_titleSource.clip.length, currentMusicType));
+					currentIntroSource = intro_titleSource;
+					currentLoopSource = loop_titleSource;
+					currentIntroSnap = title_intro;
+					currentLoopSnap = title_loop;
+					
 				}
 				if (currentMusicType == "roam")
 				{
-					if (!intro_roamSource.isPlaying) {
-						intro_roamSource.Play();
-						loop_roamSource.Play();
-					}
-					intro_roamSource.Stop();
-					loop_roamSource.Stop();
-					roam_intro.TransitionTo(0.5f);
-					intro_roamSource.Play();
-					loop_roamSource.Play();
-					StartCoroutine(transitionToLoop(intro_roamSource.clip.length, currentMusicType));
+					currentIntroSource = intro_roamSource;
+					currentLoopSource = loop_roamSource;
+					currentIntroSnap = roam_intro;
+					currentLoopSnap = roam_loop;
 				}
 				if (currentMusicType == "key")
 				{
-					if (!intro_bossKeySource.isPlaying) {
-						intro_bossKeySource.Play();
-						loop_bossKeySource.Play();
-					}
-					intro_bossKeySource.Stop();
-					loop_bossKeySource.Stop();
-					BossKey_intro.TransitionTo(0.5f);
-					intro_bossKeySource.Play();
-					loop_bossKeySource.Play();
-					StartCoroutine(transitionToLoop(intro_bossKeySource.clip.length, currentMusicType));
+					currentIntroSource = intro_bossKeySource;
+					currentLoopSource = loop_bossKeySource;
+					currentIntroSnap = BossKey_intro;
+					currentLoopSnap = BossKey_loop;
 				}
-				if (currentMusicType == "boss" && fightBoss)
+				if (currentMusicType == "boss")
 				{
-					if (!intro_bossFightSource.isPlaying) {
-						intro_bossFightSource.Play();
-						loop_bossFightSource.Play();
-					}
-					intro_bossFightSource.Stop();
-					loop_bossFightSource.Stop();
-					BossFight_intro.TransitionTo(0.5f);
-					intro_bossFightSource.Play();
-					loop_bossFightSource.Play();
-					StartCoroutine(transitionToLoop(intro_bossFightSource.clip.length, currentMusicType));
+					currentIntroSource = intro_bossFightSource;
+					currentLoopSource = loop_bossFightSource;
+					currentIntroSnap = BossFight_intro;
+					currentLoopSnap = BossFight_loop;
 				}
+
+				if (playMusicCo != null) StopCoroutine(playMusicCo);
+				playMusicCo = playMusic();
+				StartCoroutine(playMusicCo);
 			}
 		}
 	}
 
 	public void setFightBoss(bool b) {
 		fightBoss = b;
+	}
+
+	public void setPlayOnTrue(bool b) {
+		playOnTrue = b;
+	}
+
+	IEnumerator playMusic() {
+		while(true) {
+			if (playOnTrue) {
+				currentIntroSource.Stop();
+				currentLoopSource.Stop();
+				currentIntroSnap.TransitionTo(0.5f);
+				currentIntroSource.Play();
+				currentLoopSource.Play();
+				if (transitionCo != null) StopCoroutine(transitionCo);
+				transitionCo = transitionToLoop(currentIntroSource.clip.length, currentMusicType);
+				StartCoroutine(transitionCo);
+				break;
+			}
+			yield return new WaitForFixedUpdate();
+		}
+		yield return null;
 	}
 
 	IEnumerator fightBossMusic() {
@@ -128,11 +138,6 @@ public class AudioController : MonoBehaviour {
 		float timeGone = 0f;
 		while (true) {
 			timeGone += Time.fixedDeltaTime;
-			if (type != currentMusicType) {
-				//Debug.Log("stopping transition coroutine");
-				//break;
-				timeGone = 0f;
-			}
 			if (timeGone >= length) 
 			{
 				if (type == "title" && type == currentMusicType) {
